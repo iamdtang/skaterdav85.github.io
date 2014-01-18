@@ -5,7 +5,7 @@ date:   2014-01-18 14:23:33
 categories: Angular.js
 ---
 
-So you have an Angular service that communicates with an API, but you're not really sure how to go about testing it. Let's see how we can do that using __Request Expectations__ and _$httpBackend_.
+So you have an Angular service that communicates with an API, but you're not really sure how to go about testing it. Maybe you read the documentation on _$httpBackend_, but you were a little confused by the examples. I know I was. Let's see how we can set __Request Expectations__ using _$httpBackend_.
 
 Below I have an angular module for a ficticious marketing application. There is a factory that returns a Campaign class. This Campaign class is responsible for creating and fetching campaigns from a campaign resource on our server. 
 
