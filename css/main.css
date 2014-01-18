@@ -177,3 +177,8 @@ a:visited { color: #2a6496; }
 .fa {
   color: white;
 }
+
+.caption {
+  color: white;
+  font-style: italic;
+}
