@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Request Expectations with $httpBackend"
-date:   2014-01-19 14:23:33
+date:   2014-01-18 14:23:33
 categories: Angular.js
 ---
 
