@@ -143,13 +143,13 @@ a:visited { color: #2a6496; }
 
 .fixed-header .title {
   float: left;
-  width: 30%;
+  width: 40%;
   margin-bottom: 0;
 }
 
 .fixed-header nav {
   float: left;
-  width: 68%;
+  width: 58%;
   text-align: right;
 }
 
