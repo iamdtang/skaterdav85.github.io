@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Request Expectations with $httpBackend"
+title:  "Getting Started with Request Expectations using $httpBackend"
 date:   2014-01-18
 categories: Angular.js
 ---

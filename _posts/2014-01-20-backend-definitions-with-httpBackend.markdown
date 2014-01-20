@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Backend Definitions with $httpBackend"
+title:  "Getting Started with Backend Definitions using $httpBackend"
 date:   2014-01-20
 categories: Angular.js
 ---
