@@ -13,7 +13,7 @@ Learning how to manage asynchronous code in JavaScript can be challenging. In th
 
 ### 1. Nested callback functions
 
-The first approach to managing flow control in JavaScript is using nested callback functions. The basic idea here is that within each success callback function, you perform the next asynchronous operation. By nesting callbacks, you can guarantee a consistent execution order. Let's look at an example. 
+The first approach to managing flow control in JavaScript is using nested callback functions. This apporach is probably the most intuitive and straighforward way to managing asynchronous operations and the first you are likely to learn when starting with Node.js. The basic idea here is that within each success callback function, you perform the next asynchronous operation. By nesting callbacks, you can guarantee a consistent execution order. Let's look at an example. 
 
 ```js
 var searchOptions = {
@@ -30,7 +30,7 @@ expedia.findFlights(searchOptions, function(expediaResults) {
 });
 ```
 
-Above I have 2 modules, expedia and obritz, both with findFlights() methods. This code might be used on a site to aggregate flights for a particular destination. What I want to do is aggregate all of the flight search results before doing something with all of this data (like displaying it to the user). After expedia.findFlights() executes, orbitz.findFlights() executes.
+Above I have 2 modules, expedia and obritz, both with findFlights() methods that perform asynchronous operations. The details of these methods are not important but just know that they are asynchronous and could be doing something like an HTTP request to some API. This code might be used on a site to aggregate flights for a particular destination. What I want to do is aggregate all of the flight search results before doing something with all of this data (like displaying it to the user). After expedia.findFlights() executes, orbitz.findFlights() executes.
 
 This small example works fine, but it does have some downsides. First, these 2 asynchronous operations are not fired in parallel. Instead, they are fired asynchonously in series, so the amount of the time for both of these to complete is longer than if both asynchronous operations were fired off in parallel. The orbitz request cannot be made until the expedia request has finished. 
 
