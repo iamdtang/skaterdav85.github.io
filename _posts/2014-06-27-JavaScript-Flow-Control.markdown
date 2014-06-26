@@ -5,13 +5,15 @@ date:   2014-06-27
 categories: JavaScript, Node.js
 ---
 
-When first coming to JavaScript, learning how to manage asynchronous code can be challenging. In the browser, this will be in the form of AJAX calls and timeouts. In Node.js, asynchronous operations will be for I/O operations like reading/writing to the file system, database queries, and HTTP calls. Let's look at 3 ways how we can manage multiple asynchrounous calls. The examples below were written in Node.js, but the following libraries and techniques also apply to browser JavaScript.
+Learning how to manage asynchronous code in JavaScript can be challenging. In the browser, asynchronous operations come in the form of AJAX requests and timers. In Node.js, asynchronous operations are typically for I/O operations like reading and writing to the file system, database operations, and HTTP calls. Let's look at 3 popular ways of handling multiple asynchrounous operations. The examples below were written in Node.js, but the following libraries and techniques also apply to browser JavaScript.
 
 1. Nested callback functions
 2. Promises and the q package
 3. async.js package
 
 ### 1. Nested callback functions
+
+The first approach to managing flow control in JavaScript is using nested callback functions. The basic idea here is that within each success callback function, you perform the next asynchronous operation. By nesting callbacks, you can guarantee a consistent execution order. Let's look at an example. 
 
 ```js
 var searchOptions = {
@@ -27,6 +29,14 @@ expedia.findFlights(searchOptions, function(expediaResults) {
 	});
 });
 ```
+
+Above I have 2 modules, expedia and obritz, both with findFlights() methods. This code might be used on a site to aggregate flights for a particular destination. What I want to do is aggregate all of the flight search results before doing something with all of this data (like displaying it to the user). After expedia.findFlights() executes, orbitz.findFlights() executes.
+
+This small example works fine, but it does have some downsides. First, these 2 asynchronous operations are not fired in parallel. Instead, they are fired asynchonously in series, so the amount of the time for both of these to complete is longer than if both asynchronous operations were fired off in parallel. The orbitz request cannot be made until the expedia request has finished. 
+
+Second, if more flight search requests were added to the picture, you would have to further nest this call within orbitz.findFlights(). Your code will start moving to the right as more nested callback functions are added. That is why nested callbacks is sometimes referred to as the pyramid of doom or callback hell.
+
+Let's look at a better approach to managing flow control using promises.
 
 [Full example with nested callbacks](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-callbacks)
 
