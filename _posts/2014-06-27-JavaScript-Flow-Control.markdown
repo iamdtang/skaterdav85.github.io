@@ -65,6 +65,8 @@ q.all([promise1, promise2]).then(function(results) {
 });
 ```
 
+Below are the two modules, expedia and orbitz.
+
 expedia.js
 
 ```js
@@ -108,6 +110,17 @@ module.exports = {
 	}
 };
 ```
+
+The findFlights() methods are asynchronous. Here I am faking asynchronous calls using setTimeout. Using the q library, each method is returning a promise. A promise is an object that manages the state of an asynchronous operation. The states of a promise are:
+
+* Resolved - a successful asynchronous operation
+* Rejected - a failed asynchronous operation
+* Pending - Neither resolved nor rejected
+
+You may see other states but these are the ones you'll typically utilize most often. Ok so back to our findFlights() method. Because the results are not immediately available when findFlights() is invoked, we instead return a promise object. This promise object is in a pending state. We can attach callback functions to the promise object to be executed during the various promise states. When the results from the asynchronous operation come back, we can tell our promise object to resolve with a set of results.
+
+You might be wondering what is 'dfd' in the example above. dfd stands for deferred. You can think of deferreds as the thing that creates the promise object that has control over resolving and rejecting the promise.
+
 
 [Full example with promises and q](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-promises)
 
