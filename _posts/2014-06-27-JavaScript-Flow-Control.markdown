@@ -65,7 +65,7 @@ q.all([promise1, promise2]).then(function(results) {
 });
 ```
 
-The findFlights() methods are performing asynchronous operations and return something called a promise because the results are not immediately available. Think of it as the same way as if your friend promises to do something for you in the future. Using the q library, each findFlifhts() method returns a promise. A promise is an object that manages the state of an asynchronous operation and the functions that you want to perform when the operations succeed or fail. The most noteworthy states of a promise are:
+The findFlights() methods are performing asynchronous operations and return something called a promise because the flight results are not immediately available. Think of it as the same way as if your friend promises to do something for you in the future. A reliable friend will fulfill, or resolve, the promise. Using the q library, each findFlights() method returns a promise. In more technical terms, a promise is an object that manages the state of an asynchronous operation and the functions that you want executed when the operations succeed or fail. The most noteworthy states of a promise are:
 
 * Resolved - A successful asynchronous operation
 * Rejected - A failed asynchronous operation
@@ -80,8 +80,7 @@ var errorCb = function(err) { };
 promise1.then(successCb, errorCb);
 ```
 
-
-When the results from the asynchronous operation come back, we can tell our promise object to resolve with a set of results or reject. Resolving a promise will then execute any success callback functions we register with the promise. Rejecting a promise will execute any error callback functions we register with a promise.
+Now this is useful if we have one asynchronous call, but what if we have multiple promises like in the example above? How can we be notified when all of our promises resolve? You could use a counter variable and watch that yourself manually, but that isn't the most elegant solution. Instead, q offers a really useful method, q.all([promises...]). This method allows us to pass in an array of promises and turn it into 1 promise. We can register a success callback function that will execute when all of the promises have been resolved or an error callback function that will execute when any of the promises fail.
 
 Below are the two modules, expedia and orbitz using promises from the q library.
 
@@ -129,19 +128,13 @@ module.exports = {
 };
 ```
 
-
-
-
-
-You might be wondering what is 'dfd' in the example above. dfd stands for deferred. You can think of deferreds as the thing (object) that creates the promise object and it has control over resolving and rejecting the promise. Typically the promise acts a passive object where you can register your callback functions to it using the .then() method of the promise.
-
-So how can we be notified when both of our promise objects from expedia.findFlights() and orbitz.findFlights() have been resolved and we can do something with the results? You could use a counter variable and watch that yourself manually, but that isn't the most elegant solution. Instead, q offers a really useful method, q.all(). This method allows us to pass it a bunch of promises and turn it into 1 promise. We can register a success callback function that will execute when all of the promises have been resolved or an error callback function that will execute when any of the promises fail.
+You might be wondering what is 'dfd' in the expedia and orbitz modules above. dfd stands for deferred. You can think of deferreds as the thing (object) that creates the promise object. It has control over resolving and rejecting its promise. Typically the promise acts a passive object where you can register your callback functions to it using the .then(successCallback, errorCallback) method of the promise.
 
 [Full example with promises and q](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-promises)
 
 ### 3. async.js
 
-The last popular approach to managing flow control in JavaScript is using the async.js library. This works in both the browser and Node.js, but the example below is using Node.js.
+The last popular approach to managing flow control in JavaScript is using the async.js library. This works in both the browser and Node.js.
 
 ```js
 var expedia = require('./app/expedia');
