@@ -169,7 +169,8 @@ async.parallel([
 });
 ```
 
-To be notificed when both of our async operations are done, we can use the parallel method from async.js.
+
+Using the same flight search example, I am going to let async.parallel() manage my asynchronous tasks. The way this works is that we can pass in an array of tasks (functions) that we want executed in parallel. You can see that the first task fires of the expedia request and the second task fires off the orbitz request. The second argument to async.paralle() is a callback function that contains the results from all of tasks.
 
 ```js
 async.parallel(tasks, [callback])
@@ -178,11 +179,18 @@ async.parallel(tasks, [callback])
 * tasks is an array of functions that we want to fire off in parallel
 * callback is an optional function that we can specify to be executed when all of the tasks have completed
 
-So how does async know when all of tasks have completed if they are asynchronous? If you look at each task, it receives a callback function. When you invoke this callback function you are notifying async that the task has completed. The first argument you pass to the callback is for an error if there is one and the second argument is for the results. If you pass an error to the callback, your main callback will execute with that specific error.
+So how does async know when all of tasks have completed if they are asynchronous? If you look at each task, it receives a callback function. When you invoke this callback function you are notifying async that the task has completed. The first argument you pass to the callback is for an error if there is one and the second argument is for the results. If you pass an error to the callback, your main callback will execute with that specific error. It is your responsibility to invoke each task's supplied callback function.
 
-This example highlights just one method from async, but it comes with several other powerful methods for mananging flow control.
+This example highlights just one method from async.js, but it comes with several other powerful methods for mananging flow control that I encourage you to explore.
+
+[Full example with async.js](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-async)
+
+### Conclusion
+
+I hope these 3 examples have given some insight into managing multiple asynchronous operations in JavaScript. Being able to write asynchronous code can be really performant, but managing these operations while having maintainable code can be challening. Hopefully these techniques enable you to write more maintainable asynchronous JavaScript. If you have any questions, ask in the comments! Thanks for reading.
+
+### Resources
 
 * [async.js](https://www.npmjs.org/package/async)
 * [q](https://www.npmjs.org/package/q)
-
-[Full example with async.js](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-async)
+* [How JavaScript works in the browser - video](http://vimeo.com/96425312?utm_source=javascriptweekly&utm_medium=email)
