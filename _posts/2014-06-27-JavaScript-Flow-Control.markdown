@@ -65,6 +65,24 @@ q.all([promise1, promise2]).then(function(results) {
 });
 ```
 
+The findFlights() methods are performing asynchronous operations and return something called a promise because the results are not immediately available. Think of it as the same way as if your friend promises to do something for you in the future. Using the q library, each findFlifhts() method returns a promise. A promise is an object that manages the state of an asynchronous operation and the functions that you want to perform when the operations succeed or fail. The most noteworthy states of a promise are:
+
+* Resolved - A successful asynchronous operation
+* Rejected - A failed asynchronous operation
+* Pending - Neither resolved nor rejected
+
+You may see other states and terminology depending on the promise library you use, but these are the ones you'll typically interact with most often. So how can we can attach callback functions to the promise object to be executed when the promise resolves (success) or rejects (fails). If I wanted to run a function when expedia.findFlights() completes, I can attach callback functions using .then(successCallback, errorCallback).
+
+```js
+var promise1 = expedia.findFlights(searchOptions);
+var successCb = function(results) { };
+var errorCb = function(err) { };
+promise1.then(successCb, errorCb);
+```
+
+
+When the results from the asynchronous operation come back, we can tell our promise object to resolve with a set of results or reject. Resolving a promise will then execute any success callback functions we register with the promise. Rejecting a promise will execute any error callback functions we register with a promise.
+
 Below are the two modules, expedia and orbitz using promises from the q library.
 
 expedia.js
@@ -111,13 +129,9 @@ module.exports = {
 };
 ```
 
-The findFlights() methods are asynchronous. Here I am faking asynchronous calls using setTimeout but you can image this being database or web service calls. Using the q library, each method returns a promise. A promise is an object that manages the state of an asynchronous operation. The most noteworthy states of a promise are:
 
-* Resolved - a successful asynchronous operation
-* Rejected - a failed asynchronous operation
-* Pending - Neither resolved nor rejected
 
-You may see other states but these are the ones you'll typically utilize most often. Ok so back to our findFlights() methods. Because the results are not immediately available when findFlights() is invoked, we instead return a promise object. This promise object is in a pending state. We can attach callback functions to the promise object to be executed during the various promise states. When the results from the asynchronous operation come back, we can tell our promise object to resolve with a set of results or reject. Resolving a promise will then execute any success callback functions we register with the promise. Rejecting a promise will execute any error callback functions we register with a promise.
+
 
 You might be wondering what is 'dfd' in the example above. dfd stands for deferred. You can think of deferreds as the thing (object) that creates the promise object and it has control over resolving and rejecting the promise. Typically the promise acts a passive object where you can register your callback functions to it using the .then() method of the promise.
 
