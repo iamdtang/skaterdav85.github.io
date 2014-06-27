@@ -127,6 +127,8 @@ So how can we be notified when both of our promise objects from expedia.findFlig
 
 ### 3. async.js
 
+The last popular approach to managing flow control in JavaScript is using the async.js library. This works in both the browser and Node.js, but the example below is using Node.js.
+
 ```js
 var expedia = require('./app/expedia');
 var orbitz = require('./app/orbitz');
@@ -159,5 +161,21 @@ async.parallel([
 	console.log('All results:', allResults);
 });
 ```
+
+To be notificed when both of our async operations are done, we can use the parallel method from async.js.
+
+```js
+async.parallel(tasks, [callback])
+```
+
+* tasks is an array of functions that we want to fire off in parallel
+* callback is an optional function that we can specify to be executed when all of the tasks have completed
+
+So how does async know when all of tasks have completed if they are asynchronous? If you look at each task, it receives a callback function. When you invoke this callback function you are notifying async that the task has completed. The first argument you pass to the callback is for an error if there is one and the second argument is for the results. If you pass an error to the callback, your main callback will execute with that specific error.
+
+This example highlights just one method from async, but it comes with several other powerful methods for mananging flow control.
+
+* [async.js](https://www.npmjs.org/package/async)
+* [q](https://www.npmjs.org/package/q)
 
 [Full example with async.js](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-async)
