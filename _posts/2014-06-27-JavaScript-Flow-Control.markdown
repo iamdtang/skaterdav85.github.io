@@ -11,7 +11,8 @@ Learning how to manage asynchronous code in JavaScript can be challenging. In th
 2. Promises and the q library
 3. async.js library
 
-### 1. Nested callback functions
+<br>
+# 1. Nested callback functions
 
 The first approach to managing flow control in JavaScript is using nested callback functions. This approach is probably the most intuitive and straighforward way to managing asynchronous operations. It is also likely the first approach you will learn when starting with Node.js. The basic idea here is that within each success callback function, you perform the next asynchronous operation. By nesting callbacks, you can guarantee a consistent execution order. Let's look at an example. 
 
@@ -40,7 +41,9 @@ Let's look at a better approach to managing flow control using promises.
 
 [Full example with nested callbacks](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-callbacks)
 
-### 2. Promises and Q
+
+<br>
+# 2. Promises and Q
 
 ```js
 var q = require('q');
@@ -134,7 +137,9 @@ You might be wondering what is 'dfd' in the expedia and orbitz modules above. df
 
 [Full example with promises and q](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-promises)
 
-### 3. async.js
+
+<br>
+# 3. async.js
 
 The last popular approach to managing flow control in JavaScript is using the async.js library. This works in both the browser and Node.js.
 
@@ -172,14 +177,10 @@ async.parallel([
 ```
 
 
-Using the same flight search example, I am going to let async.parallel() manage my asynchronous tasks. The way this works is that we can pass in an array of tasks (functions) that we want executed in parallel. The first task fires off the expedia request and the second task fires off the orbitz request without waiting for the expedia task to complete. The second argument to async.parallel() is a callback function that contains the results from all of tasks.
+Using the same flight search example, I am going to let async.parallel() manage my asynchronous tasks. The way this works is that we can pass in an array of tasks (functions) that we want executed in parallel. The first task fires off the expedia request and the second task fires off the orbitz request without waiting for the expedia task to complete. The second argument to async.parallel(tasks, mainCallback) is a callback function that contains the results from all of tasks.
 
-```js
-async.parallel(tasks, [main callback])
-```
-
-* tasks is an array of functions that we want to fire off in parallel
-* main callback is an optional function that we can specify to be executed when all of the tasks have completed
+* _tasks_ is an array of functions that we want to fire off in parallel
+* _mainCallback_ is an optional function that we can specify to be executed when all of the tasks have completed
 
 So how does async know when all of tasks have completed if they are asynchronous? If you look at each task, it receives a callback function. I have given it the name 'callback' but you can call it whatever you want. When you invoke this callback function you are notifying async.parallel() that the task has completed. The first argument you pass to the callback is for an error if there is one and the second argument is for the results. If you pass an error to the callback, your main callback will execute with that specific error. It is your responsibility to invoke each task's supplied callback function.
 
