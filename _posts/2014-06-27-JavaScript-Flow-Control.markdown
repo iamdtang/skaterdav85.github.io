@@ -5,11 +5,11 @@ date:   2014-06-27
 categories: JavaScript, Node.js
 ---
 
-Learning how to manage asynchronous code in JavaScript can be challenging. In the browser, asynchronous operations come in the form of AJAX requests and timers. In Node.js, asynchronous operations are typically for I/O operations like reading and writing to the file system, database operations, and HTTP calls. Let's look at 3 popular ways of handling multiple asynchrounous operations. The examples below were written in Node.js, but the following libraries and techniques also apply to browser JavaScript.
+Learning how to manage asynchronous code in JavaScript can be challenging. In the browser, asynchronous operations come in the form of AJAX requests and timers. In Node.js, asynchronous operations are typically for I/O operations like reading and writing to the file system, database operations, and HTTP calls. Let's look at 3 popular ways of handling multiple asynchrounous operations. The examples below were written in Node.js, but the following libraries and techniques also apply to browser JavaScript. We will look at managing control flow using:
 
 1. Nested callback functions
-2. Promises and the q package
-3. async.js package
+2. Promises and the q library
+3. async.js library
 
 ### 1. Nested callback functions
 
