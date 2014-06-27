@@ -19,15 +19,24 @@ body {
   padding-top: 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
   font-size: 100%; }
 
-h1 { margin-bottom: 1em; }
+h1 { margin-bottom: 1em; }*/
 p { margin: 1em 0; }
 
 a         { color: #428bca; text-decoration: none; }
 a:hover   { color: #2a6496; text-decoration: underline; }
 a:visited { color: #2a6496; }
+
+.post h3 {
+  font-size: 19px;
+  margin: 23px 0;
+}
+
+.site h2 {
+  font-size: 36px;
+}
 
 /*****************************************************************************/
 /*
@@ -37,6 +46,7 @@ a:visited { color: #2a6496; }
 .posts {
   list-style-type: none;
   margin-bottom: 2em;
+  margin-top: 1em;
 }
 
 .posts li {
@@ -49,6 +59,8 @@ a:visited { color: #2a6496; }
   font-size: 80%;
 }
 
+
+
 /*****************************************************************************/
 /*
 /* Site
@@ -58,7 +70,7 @@ a:visited { color: #2a6496; }
 .site {
   font-size: 115%;
   text-align: justify;
-  width: 42em;
+  width: 50em;
   margin: 3em auto 2em;
   line-height: 1.5em;
 }
