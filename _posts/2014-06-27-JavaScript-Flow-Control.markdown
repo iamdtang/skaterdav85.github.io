@@ -65,7 +65,7 @@ q.all([promise1, promise2]).then(function(results) {
 });
 ```
 
-Below are the two modules, expedia and orbitz.
+Below are the two modules, expedia and orbitz using promises from the q library.
 
 expedia.js
 
