@@ -111,16 +111,17 @@ module.exports = {
 };
 ```
 
-The findFlights() methods are asynchronous. Here I am faking asynchronous calls using setTimeout. Using the q library, each method is returning a promise. A promise is an object that manages the state of an asynchronous operation. The states of a promise are:
+The findFlights() methods are asynchronous. Here I am faking asynchronous calls using setTimeout but you can image this being database or web service calls. Using the q library, each method returns a promise. A promise is an object that manages the state of an asynchronous operation. The most noteworthy states of a promise are:
 
 * Resolved - a successful asynchronous operation
 * Rejected - a failed asynchronous operation
 * Pending - Neither resolved nor rejected
 
-You may see other states but these are the ones you'll typically utilize most often. Ok so back to our findFlights() method. Because the results are not immediately available when findFlights() is invoked, we instead return a promise object. This promise object is in a pending state. We can attach callback functions to the promise object to be executed during the various promise states. When the results from the asynchronous operation come back, we can tell our promise object to resolve with a set of results.
+You may see other states but these are the ones you'll typically utilize most often. Ok so back to our findFlights() methods. Because the results are not immediately available when findFlights() is invoked, we instead return a promise object. This promise object is in a pending state. We can attach callback functions to the promise object to be executed during the various promise states. When the results from the asynchronous operation come back, we can tell our promise object to resolve with a set of results or reject. Resolving a promise will then execute any success callback functions we register with the promise. Rejecting a promise will execute any error callback functions we register with a promise.
 
-You might be wondering what is 'dfd' in the example above. dfd stands for deferred. You can think of deferreds as the thing that creates the promise object that has control over resolving and rejecting the promise.
+You might be wondering what is 'dfd' in the example above. dfd stands for deferred. You can think of deferreds as the thing (object) that creates the promise object and it has control over resolving and rejecting the promise. Typically the promise acts a passive object where you can register your callback functions to it using the .then() method of the promise.
 
+So how can we be notified when both of our promise objects from expedia.findFlights() and orbitz.findFlights() have been resolved and we can do something with the results? You could use a counter variable and watch that yourself manually, but that isn't the most elegant solution. Instead, q offers a really useful method, q.all(). This method allows us to pass it a bunch of promises and turn it into 1 promise. We can register a success callback function that will execute when all of the promises have been resolved or an error callback function that will execute when any of the promises fail.
 
 [Full example with promises and q](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-promises)
 
