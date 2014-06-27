@@ -84,7 +84,7 @@ Now this is useful if we have one asynchronous call, but what if we have multipl
 
 Below are the two modules, expedia and orbitz using promises from the q library.
 
-expedia.js
+__expedia module__
 
 ```js
 var q = require('q');
@@ -106,7 +106,7 @@ module.exports = {
 };
 ```
 
-orbitz.js
+__orbitz module__
 
 ```js
 var q = require('q');
