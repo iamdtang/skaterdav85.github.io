@@ -46,7 +46,7 @@ document.querySelector('#people-container').appendChild(li);
 
 ![heap snapshot 2](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot2.png)
 
-You'll notice that the object count for HTMLLIElement is 2. The first count is for the HTMLLIElement constructor itself and the second is for the li instance that we just created saved to the variable li.
+You'll notice that the object count for HTMLLIElement is 2. The first count is for the HTMLLIElement constructor itself and the second is for the li instance that we just created saved to the variable li. The global document object has a reference to the li object so the li object has not gone out of scope and been garbage collected.
 
 Now what happens when I replace the innerHTML of #people-container? Let's find out.
 
@@ -63,7 +63,7 @@ document.querySelector('#people-container').innerHTML = '';
 
 ![heap snapshot 3](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot3.png)
 
-By replacing the innerHTML of #people-container, the li instance that we created has been removed and garbage collected from memory. The 1 under Objects Count corresponds to the HTMLLIElement constructor that was used to initially create the li element. The li variable went out of scope so it was garbage collected.
+By setting the innerHTML of #people-container to an empty string, the list item has been removed from the DOM and the li instance that we created has gone out of scope and been garbage collected since the document object no longer has a reference to the li object we created. The 1 under Objects Count corresponds to the HTMLLIElement constructor that was used to initially create the li element. The li variable went out of scope so it was garbage collected.
 
 Now what happens if we do the same exact thing as above but without wrapping our code in an immediately invoked function expressions (IIFE)?
 
@@ -75,7 +75,7 @@ document.querySelector('#people-container').innerHTML = '';
 ```
 ![heap snapshot 4](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot4.png)
 
-You will notice now that we have an object count of 2 again. Why? Even though we have removed the li element, there is still a reference to our li variable on the window object. Thus, the li object cannot be garbage collected.
+You will notice now that we have an object count of 2 again. Why? Even though we have removed the li element from the DOM, there is still a reference to our li variable on the window object since we created it as a global variable. Thus, the li object cannot be garbage collected.
 
 > The garbage collector will not clean up global variables during the page's life cycle.
 
