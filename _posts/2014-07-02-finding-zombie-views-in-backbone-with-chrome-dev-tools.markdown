@@ -1,16 +1,26 @@
 ---
 layout: post
-title:  "Finding Zombie Views in Backbone with Chrome Dev Tools"
+title:  "An Introduction to Finding Memory Leaks in Backbone Applications with Chrome Developer Tools"
 date:   2014-07-02
 categories: JavaScript, Backbone, Memory
 ---
 
-Finding Zombie Views in Backbone with Chrome Developer Tools
+An Introduction to Finding Memory Leaks in Backbone Applications with Chrome Developer Tools
 ============================================================
+
+As stated on the [Chrome Developer Tools - JavaScript Profiling site](https://developer.chrome.com/devtools/docs/javascript-memory-profiling),
+
+> A memory leak is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as leaks and bloat but they also have to deal with garbage collection pauses.
+
+In this post, I'd like to present an introductory exploration of finding memory leaks in Backbone applications using Chrome Developer Tools. When it came to memory management and using Backbone, I kept reading that the solution was to use _.listenTo()_ as opposed to _.on()_, but I still had several questions so I set out to build a simple Backbone page and try to answer the following questions:
+
+1. How can I identify memory leaks in Chrome Developer Tools?
+2. Does replacing the innerHTML of a collection view destroy model views and prevent zombie views?
+3. How can I measure and verify Question 2?
 
 ### Memory Profiling with Simple Native JavaScript
 
-Let's start off with a simple HTML page that loads Backbone.
+Let's start off with a simple HTML page that loads Backbone and its dependencies.
 
 ```html
 <!DOCTYPE html>
@@ -88,7 +98,7 @@ You will notice that we have an object count of 2 again. Why would there be an o
 
 ### Memory Profiling with Backbone
 
-Let's set up the code so that we have a Backbone Collectio of people rendered in a Collection View where each model in the collection has its own Model View. This is a very common Backbone situation.
+Let's set up the code so that we have a Backbone Collection of people rendered in a Collection View where each model in the collection has its own Model View. This is a very common Backbone scenario.
 
 ```js
 (function() {
@@ -158,8 +168,109 @@ $('#people-container').append(peopleView.el).html('');
 
 ![heap snapshot 6](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot6.png)
 
-As like before, removing the list items from the DOM by setting the innerHTML of _#people-container_ to an empty string allowed the garbage collector to clean up all HTMLLIElement instances from memory.
+As like before, removing the list items from the DOM by setting the innerHTML of _#people-container_ to an empty string allowed the garbage collector to clean up all _HTMLLIElement_ instances from memory.
+
+#### Model Changes and Persisting the Collection
+
+Let's make 2 changes to our code. The first thing we are going to do is have our _PersonView_ objects re-render whenever its model changes.
+
+```js
+var PersonView = Backbone.View.extend({
+	initialize: function() {
+		this.listenTo(this.model, 'change', this.render);
+	},
+	tagName: 'li',
+	className: 'person',
+	render: function() {
+		console.log('rendering');
+		var html = this.model.get('id') + ' - ' + this.model.get('name');
+		this.$el.html(html);
+	}
+});
+```
+
+I have set up this event binding in our _initialize()_ method. The next thing I will do is store the _people_ variable on the window object so that we can persist this Backbone Collection. Many times in a Backbone application you will keep a collection around in memory so that you can do something with that data such as filter it. It doesn't really matter where you store it. The key thing here is that it is still in memory somewhere.
+
+```js
+// previous code here
+
+// remove the li's from the page
+$('#people-container').append(peopleView.el).html('');
+
+// store off the people collection onto the window object
+window.people = people;
+```
+
+Now let's take a heap snapshot.
+
+![heap snapshot 7](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot7.png)
+
+What you'll notice now is that our list item elements are still being kept in memory and are not able to be garbage collected even though we have removed them from our page. Why?
+
+Remember from before that global variables will not be cleaned up by the garbage collector? In this case, our PersonView objects are not being cleaned up. We are intentially keeping the people collection around by storing it on the window object. Each model in the collection has a reference to the corresponding _PersonView_. This happened when we told our _PersonView_ to re-render if its model changes.
+
+```js
+this.listenTo(this.model, 'change', this.render);
+```
+
+We can see that the model has a reference to the render method. Because it has a reference to the render method, it cannot garbage collect this view. This is whats called a zombie view, a view that sticks around in memory when we think it has been gone and it comes back to haunt us and bring our applications down.
+
+#### How to we remove views?
+
+What is the proper way to remove these views? Rather than just replacing the innerHTML which doesn't remove our _PersonView_ objects, we should call a _remove()_ method on our view objects that _Backbone.View_ provides. Backbone will unbind views that listen to models or collections to prevent our data from hanging on to view references which prevents our views from being garbage collected.
+
+Instead of this:
+
+```js
+$('#people-container').append(peopleView.el).html('');
+```
+
+We will do this:
+
+```js
+var PeopleView = Backbone.View.extend({
+	initialize: function() {
+		this.childViews = [];
+	},
+	tagName: 'ul',
+	id: 'people',
+	render: function() {
+		this.collection.each(function(model) {
+			var view = new PersonView({
+				model: model
+			});
+
+			view.render();
+			this.childViews.push(view);
+			this.$el.append(view.el);
+		}, this);
+	}
+});
+
+var peopleView = new PeopleView({
+	collection: people
+});
+
+peopleView.render();
+
+$('#people-container').append(peopleView.el);
+
+peopleView.childViews.forEach(function(personView) {
+	personView.remove();
+});
+```
+
+They key thing to note here is that in our _PeopleView_ collection view, we store off references of our model views into a property called childViews. Then later on, rather than replacing the innerHTML of _#people-container_, we iterated over all of the child views and called the remove method. By doing this, Backbone unbinds each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our view objects to be garbage collected and freeing up memory.
+
+### Conclusion
+
+After reading Building Backbone Plugins by Derick Bailey and several of his articles on Zombie Views, I wanted to try this out myself with an emphasis of finding memory leaks in Chrome Developer Tools. I highly recommend checking out his articles which I have posted below since he can explain memory leaks and Backbone a whole lot better, but hopefully this has been a useful way of finding these zombie views and tracking them down in Chrome.
+
 
 ### References
 
 * [Backbone.js And JavaScript Garbage Collection](http://lostechies.com/derickbailey/2012/03/19/backbone-js-and-javascript-garbage-collection/)
+* [Building Backbone Plugins](https://leanpub.com/building-backbone-plugins)
+* [Managing Events As Relationships, Not Just References](http://lostechies.com/derickbailey/2013/02/06/managing-events-as-relationships-not-just-references/)
+* [Zombies! RUN!](http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/)
+* [JavaScript Memory Profiling - Chrome Developer Tools](https://developer.chrome.com/devtools/docs/javascript-memory-profiling)
