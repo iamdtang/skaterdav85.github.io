@@ -43,11 +43,11 @@ Let's start off with a simple HTML page that loads Backbone and its dependencies
 </html>
 ```
 
-Let's take a Heap Snapshot by opening up the Profiles tab in Chrome Developer Tools. If you look at the list of HTML* constructors, there aren't any HTMLLIElement instances on the page, meaning no li elements were created via JavaScript.
+Take a Heap Snapshot by opening up the Profiles tab in Chrome Developer Tools. 
 
 ![heap snapshot 1](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot1.png)
 
-Let's go ahead and create an li element and take a heap snapshot.
+If you look at the list of HTML* constructors, there aren't any _HTMLLIElement_ instances on the page, meaning no li elements were created via JavaScript. Let's go ahead and create an li element and take a heap snapshot.
 
 ```js
 (function() {
@@ -59,11 +59,11 @@ document.querySelector('#people-container').appendChild(li);
 })();
 ```
 
+First off, yes we are putting an li element in a div without a ul or ol element. Later on this will be changing. Take a heap snapshot.
+
 ![heap snapshot 2](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot2.png)
 
-First off, yes we are putting an li element in a div without a ul or ol element. Later on this will be changing but deal with it for now.
-
-You'll notice that the object count for HTMLLIElement is 2. The first count is for the HTMLLIElement constructor itself and the second is for the li instance that we just created saved to the variable li. Behind the scenes, document.createElement is making use of the HTMLLIElement constructor through the factory pattern. The global _document_ object has a reference to the li object so it has not gone out of scope and been garbage collected.
+You'll notice that the object count for HTMLLIElement is 2. The first count is for the _HTMLLIElement_ constructor itself and the second is for the li instance that we just created saved to the variable li. Behind the scenes, _document.createElement()_ is making use of the HTMLLIElement constructor and the factory pattern to create list item elements. The global _document_ object has a reference to the li object so it has not gone out of scope to be garbage collected.
 
 Now what happens when I replace the innerHTML of #people-container? Let's find out.
 
@@ -80,7 +80,7 @@ document.querySelector('#people-container').innerHTML = '';
 
 ![heap snapshot 3](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot3.png)
 
-By setting the innerHTML of _#people-container_ to an empty string, the list item has been removed from the DOM and the li instance that we created has gone out of scope and been garbage collected since the document object no longer has a reference to the li object we created. The 1 under _Objects Count_ corresponds to the HTMLLIElement constructor that was used to initially create the li element.
+By setting the innerHTML of _#people-container_ to an empty string, the list item has been removed from the DOM and the li instance that we created has gone out of scope. The document object no longer has a reference to the li object we created so it was garbage collected. The 1 under _Objects Count_ corresponds to the _HTMLLIElement_ constructor that was used to initially create the li element.
 
 Now what happens if we do the same exact thing as above without wrapping our code in an immediately invoked function expressions (IIFE)?
 
