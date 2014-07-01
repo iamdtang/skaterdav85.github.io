@@ -277,11 +277,11 @@ peopleView.childViews.forEach(function(personView) {
 });
 ```
 
-They key thing to note here is that in our _PeopleView_ collection view, we store off references of our model views into a property called childViews. Then later on, rather than replacing the innerHTML of _#people-container_, we iterated over all of the child views and called the remove method. By doing this, Backbone unbinds each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our view objects to be garbage collected and freeing up memory.
+They key thing to note here is that in our _PeopleView_ collection view, we store off references of our _PersonView_ model views into a property called childViews. Then later on, rather than replacing the innerHTML of _#people-container_, we can iterate over all of the child views and called the remove method. By doing this, Backbone unbinds each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our view objects to be garbage collected and freeing up memory.
 
 ### Conclusion
 
-After reading Building Backbone Plugins by Derick Bailey and several of his articles on Zombie Views, I wanted to try this out myself with an emphasis of finding memory leaks in Chrome Developer Tools. I highly recommend checking out his articles which I have posted below since he can explain memory leaks and Backbone a whole lot better, but hopefully this has been a useful way of finding these zombie views and tracking them down in Chrome.
+After reading Building Backbone Plugins by Derick Bailey and several of his articles on Zombie Views, I wanted to try this out myself while verifying the memory leaks in Chrome Developer Tools. I highly recommend checking out his articles which I have posted below since he can explain memory leaks and Backbone a whole lot better, but hopefully this has been useful in understanding memory leaks, particularly in Backbone applications, and verifying memory leaks in Chrome Developer Tools.
 
 
 ### References
