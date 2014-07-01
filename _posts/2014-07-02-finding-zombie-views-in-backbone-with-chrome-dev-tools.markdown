@@ -155,7 +155,7 @@ With this bit of code, we can see each person from our collection being rendered
 * 3 - Sam
 * 4 - Max
 
-We can also see 5 _HTMLLIElement_ objects from our heap snapshot. 1 for the HTMLLIElement constructor and 4 li elements created from _PersonView_ for each person rendered in our collection view.
+We can also see 5 _HTMLLIElement_ objects from our heap snapshot. 1 for the _HTMLLIElement_ constructor and 4 li elements created from _PersonView_ for each person rendered in our collection view.
 
 ![heap snapshot 5](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot5.png)
 
@@ -169,9 +169,7 @@ $('#people-container').append(peopleView.el).html('');
 
 As like before, removing the list items from the DOM by setting the innerHTML of _#people-container_ to an empty string allowed the garbage collector to clean up all _HTMLLIElement_ instances from memory.
 
-#### Model Changes and Persisting the Collection
-
-Let's make 2 changes to our code. The first thing we are going to do is have our _PersonView_ objects re-render whenever its model changes.
+Let's make 2 changes to our code. The first thing we are going to do is have our _PersonView_ objects re-render whenever its model changes. We'll set this up using _Backbone.Events.listenTo()_. To find out more on the differences between [_.listenTo()_](http://backbonejs.org/#Events-listenTo) and [_.on()_](http://backbonejs.org/#Events-on), check out [Managing Events As Relationships, Not Just References By Derick Bailey](http://lostechies.com/derickbailey/2013/02/06/managing-events-as-relationships-not-just-references/).
 
 ```js
 var PersonView = Backbone.View.extend({
