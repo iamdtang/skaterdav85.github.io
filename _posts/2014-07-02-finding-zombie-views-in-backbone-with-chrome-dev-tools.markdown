@@ -186,7 +186,7 @@ var PersonView = Backbone.View.extend({
 });
 ```
 
-I have set up this event binding in our _initialize()_ method. The next thing I will do is store the _people_ variable on the window object so that we can persist this Backbone Collection. Many times in a Backbone application you will keep a collection around in memory so that you can do something with that data such as filter it. It doesn't really matter where you store it. The key thing here is that it is still in memory somewhere.
+I have set up this event binding in our _initialize()_ method. The next thing I will do is store the _people_ variable on the window object so that we can keep our Backbone Collection in memory. Many times in a Backbone application you will keep a collection around in memory so that you can do something with that data later on such as filtering it. It doesn't really matter where you store it. The key thing here is that it is still in memory somewhere and we have a way of accessing it.
 
 ```js
 // previous code here
@@ -202,19 +202,39 @@ Now let's take a heap snapshot.
 
 ![heap snapshot 7](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot7.png)
 
-What you'll notice now is that our list item elements are still being kept in memory and are not able to be garbage collected even though we have removed them from our page. Why?
+What you'll notice now is that our list item elements are still being kept in memory and are being garbage collected even though we have removed the list items from our page. Why is that?
 
-Remember from before that global variables will not be cleaned up by the garbage collector? In this case, our PersonView objects are not being cleaned up. We are intentially keeping the people collection around by storing it on the window object. Each model in the collection has a reference to the corresponding _PersonView_. This happened when we told our _PersonView_ to re-render if its model changes.
+Remember from before that global variables will not be cleaned up by the garbage collector? In this case, our PersonView objects are not being cleaned up. We are intentially keeping the people collection around by storing it on the window object. Each model in the collection has a reference to the corresponding _PersonView_, which has a reference to a corresponding list item element. We declared this relationship when we told our _PersonView_ objects to re-render if its respective model changes.
 
 ```js
 this.listenTo(this.model, 'change', this.render);
 ```
 
-We can see that the model has a reference to the render method. Because it has a reference to the render method, it cannot garbage collect this view. This is whats called a zombie view, a view that sticks around in memory when we think it has been gone and it comes back to haunt us and bring our applications down.
+Behind the scenes, a reference to the _PersonView_ render method is being passed to the model. You can see this in the [Backbone source](http://backbonejs.org/backbone.js):
 
-#### How to we remove views?
+```js
+var listenMethods = {listenTo: 'on', listenToOnce: 'once'};
 
-What is the proper way to remove these views? Rather than just replacing the innerHTML which doesn't remove our _PersonView_ objects, we should call a _remove()_ method on our view objects that _Backbone.View_ provides. Backbone will unbind views that listen to models or collections to prevent our data from hanging on to view references which prevents our views from being garbage collected.
+// Inversion-of-control versions of `on` and `once`. Tell *this* object to
+// listen to an event in another object ... keeping track of what it's
+// listening to.
+_.each(listenMethods, function(implementation, method) {
+  Events[method] = function(obj, name, callback) {
+    var listeningTo = this._listeningTo || (this._listeningTo = {});
+    var id = obj._listenId || (obj._listenId = _.uniqueId('l'));
+    listeningTo[id] = obj;
+    if (!callback && typeof name === 'object') callback = this;
+    obj[implementation](name, callback, this);
+    return this;
+  };
+});
+```
+
+Because each model has a reference to the the view that rendered it, the browser cannot garbage collect these views. This is what is referred to as zombie views - views that stick around in memory when we think it has been gone and it comes back to haunt us and bring our application down.
+
+#### How to we remove views correctly?
+
+There are a few ways of doing this but what I will demonstrate is the simplest and most common way. Rather than just replacing the innerHTML which doesn't remove our _PersonView_ objects, we should call a _remove()_ method on our view objects that _Backbone.View_ provides. Backbone will unbind views that listen to models or collections to prevent our data from hanging on to view references which prevents our views from being garbage collected.
 
 Instead of this:
 
