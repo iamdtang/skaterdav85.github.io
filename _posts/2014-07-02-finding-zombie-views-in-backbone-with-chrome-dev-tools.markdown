@@ -287,7 +287,7 @@ peopleView.childViews.forEach(function(personView) {
 });
 ```
 
-They key thing to note here is that in our _PeopleView_ collection view, we store off references of our _PersonView_ model views into a property called childViews. Then later on, rather than replacing the _innerHTML_ of _#people-container_, we can iterate over all of the child views and called the remove method. By doing this, Backbone unbinds each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our view objects to be garbage collected and freeing up memory.
+They key thing to note here is that in _PeopleView.prototype.render()_, we store off references of our _PersonView_ model-views into a property called _childViews_. Then later on, rather than replacing the _innerHTML_ of _#people-container_, we can iterate over all of the child views and call the remove method. Backbone will unbind each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our views to be garbage collected and freeing up memory.
 
 ### Takeaways
 
