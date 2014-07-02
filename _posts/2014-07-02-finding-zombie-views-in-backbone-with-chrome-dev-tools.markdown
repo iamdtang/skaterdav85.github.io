@@ -240,7 +240,7 @@ _.each(listenMethods, function(implementation, method) {
 });
 ```
 
-Because each model has a reference to the the view that rendered it, the browser cannot garbage collect these views. This is what is referred to as zombie views - views that stick around in memory when we think it has been gone and it comes back to haunt us and bring our application down.
+Because each model of our _people_ collection in memory has a reference to the the view that rendered it, the browser cannot garbage collect these views. This is what is referred to as zombie views - views that stick around in memory when we think it has been gone and it comes back to haunt us and bring our application down.
 
 #### How to we remove views correctly?
 
