@@ -294,7 +294,7 @@ They key thing to note here is that in _PeopleView.prototype.render()_, we store
 ### Takeaways
 
 * The garbage collector will not clean up global variables during a page's life cycle
-* Make sure you remove all references to objects that you want cleaned up by the garbage collector
+* Make sure you remove all references to the objects that you want cleaned up by the garbage collector
 * In Backbone, removing elements from the page by wiping out the _innerHTML_ of the parent container element may not destroy the individual views. Be sure to call _.remove()_ on Backbone Views and this will unbind references from the objects that the views are listening to, assuming these event listeners were set up using _.listenTo()_
 
 
