@@ -244,9 +244,9 @@ Because each model of our _people_ collection in memory has a reference to the t
 
 #### How do we remove views correctly?
 
-There are a few ways of doing this but what I will demonstrate is the simplest and most common way. Rather than just replacing the _innerHTML_ which doesn't always allow for our view objects to be garbage collected, we should call a _remove()_ method on our view objects that _Backbone.View_ provides. Backbone will unbind the view references from their models or collections to prevent our data from hanging on to view references which prevents our view objects from being garbage collected. The view objects can then be garbage collected, and so can the DOM elements that the view corresponds to, in this case the list item elements.
+There are a few ways of doing this but what I will demonstrate is the simplest and most common way. Rather than just emptying the _innerHTML_ which doesn't always allow for our views to be garbage collected, we should call a _.remove()_ method on our views that _Backbone.View_ provides. Backbone will unbind the view references from their respective models or collections to prevent our data from hanging on to view references which prevents our views from being garbage collected.
 
-Instead of this:
+So, instead of this:
 
 ```js
 $('#people-container').append(peopleView.el).html('');
