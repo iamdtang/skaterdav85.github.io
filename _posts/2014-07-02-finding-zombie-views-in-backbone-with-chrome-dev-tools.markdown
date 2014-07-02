@@ -212,7 +212,7 @@ Now let's take a heap snapshot.
 
 ![heap snapshot 7](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot7.png)
 
-What you'll notice now is that our list item elements are still being kept in memory and are being garbage collected even though we have removed the list items from our page. Why is that?
+What you'll notice now is that our list item elements are still being kept in memory and are not being garbage collected even though we have removed the list items from our page. Why is that?
 
 Remember from before that global variables will not be cleaned up by the garbage collector? In this case, our _PersonView_ objects are not being cleaned up. We are intentially keeping the people collection around by storing it on the window object. Each model in the collection has a reference to the corresponding _PersonView_, which has a reference to a corresponding list item element. We declared this relationship when we told our _PersonView_ objects to re-render if its respective model changes.
 
