@@ -108,7 +108,7 @@ You will notice that we have an object count of 2 again. Why would there be an o
 
 ### Memory Profiling with Backbone
 
-Let's set up the code so that we have a Backbone Collection of people rendered in a Collection View where each model in the collection has its own Model View. This is a very common Backbone scenario.
+Let's look at an example that is Backbone specific. We will set up the code so that we have a Backbone Collection of people rendered in a collection-view where each model in the collection has its own model-view. This is a very common Backbone scenario.
 
 ```js
 (function() {
