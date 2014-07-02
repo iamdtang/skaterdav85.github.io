@@ -71,7 +71,7 @@ First off, yes we are putting an _li_ element in a _div_ without a _ul_ or _ol_ 
 
 ![heap snapshot 2](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot2.png)
 
-You'll notice that the object count for HTMLLIElement is 2. The first count is for the _HTMLLIElement_ constructor itself and the second is for the li instance that we just created saved to the variable li. Behind the scenes, _document.createElement()_ is making use of the HTMLLIElement constructor and the factory pattern to create list item elements. The global _document_ object has a reference to the li object so it has not gone out of scope to be garbage collected.
+You'll notice that the object count for _HTMLLIElement_ is 2. The first count is for the _HTMLLIElement_ constructor itself and the second is for the li instance that we just created saved to the variable li. Behind the scenes, _document.createElement()_ is making use of the HTMLLIElement constructor and the factory pattern to create list item elements. The global _document_ object has a reference to the li object so it has not gone out of scope to be garbage collected.
 
 Now what happens when I replace the innerHTML of #people-container? Let's find out.
 
