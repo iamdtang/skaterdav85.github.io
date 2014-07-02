@@ -17,7 +17,7 @@ This post provides my introductory exploration of finding memory leaks in Backbo
 
 As stated on the [Chrome Developer Tools - JavaScript Profiling site](https://developer.chrome.com/devtools/docs/javascript-memory-profiling),
 
-> A memory leak is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as leaks and bloat but they also have to deal with garbage collection pauses.
+> "A memory leak is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as leaks and bloat but they also have to deal with garbage collection pauses."
 
 ### Memory Profiling with Simple Native JavaScript
 
