@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "$httpBackend Request Expectations"
+title:  "Unit Testing with $httpBackend in Angular.js - Request Expectations"
 date:   2014-01-18
 categories: Angular.js
 ---

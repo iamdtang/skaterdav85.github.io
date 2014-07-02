@@ -29,6 +29,13 @@ a         { color: #428bca; text-decoration: none; }
 a:hover   { color: #2a6496; text-decoration: underline; }
 a:visited { color: #2a6496; }
 
+blockquote {
+  color: #888;
+  font-size: 18px;
+  line-height: normal;
+  font-style: italic;
+}
+
 .post h3 {
   font-size: 19px;
   margin: 23px 0;

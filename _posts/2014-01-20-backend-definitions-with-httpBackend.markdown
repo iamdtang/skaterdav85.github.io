@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "$httpBackend Backend Definitions"
+title:  "Unit Testing with $httpBackend in Angular.js - Backend Definitions"
 date:   2014-01-20
 categories: Angular.js
 ---
