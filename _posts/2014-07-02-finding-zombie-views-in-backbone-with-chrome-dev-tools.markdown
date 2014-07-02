@@ -176,7 +176,7 @@ $('#people-container').append(peopleView.el).html('');
 
 ![heap snapshot 6](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot6.png)
 
-As like before, removing the list items from the DOM by setting the _innerHTML_ of _#people-container_ to an empty string allowed the garbage collector to clean up all _HTMLLIElement_ instances from memory.
+As like before, removing the list items from the DOM by setting the _innerHTML_ of _#people-container_ to an empty string allowed the garbage collector to clean up all _HTMLLIElement_ instances from memory because there were no references to these list item elements hanging around in our application.
 
 Let's make 2 changes to our code. The first thing we are going to do is have our _PersonView_ objects re-render whenever its model changes. We'll set this up using _Backbone.Events.listenTo()_. To find out more on the differences between [_.listenTo()_](http://backbonejs.org/#Events-listenTo) and [_.on()_](http://backbonejs.org/#Events-on), check out [Managing Events As Relationships, Not Just References By Derick Bailey](http://lostechies.com/derickbailey/2013/02/06/managing-events-as-relationships-not-just-references/).
 
