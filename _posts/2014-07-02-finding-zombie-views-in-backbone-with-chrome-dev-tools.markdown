@@ -294,13 +294,13 @@ They key thing to note here is that in _PeopleView.prototype.render()_, we store
 ### Takeaways
 
 * The garbage collector will not clean up global variables during a page's life cycle
-* Make sure you remove all references to the objects that you want cleaned up by the garbage collector
-* In Backbone, removing elements from the page by wiping out the _innerHTML_ of the parent container element may not destroy the individual views. Be sure to call _.remove()_ on Backbone Views and this will unbind references from the objects that the views are listening to, assuming these event listeners were set up using _.listenTo()_
+* Make sure to remove all references to the objects that you want cleaned up by the garbage collector
+* In Backbone, removing elements from the page by wiping out the _innerHTML_ of the parent container element may not always destroy the individual views. Be sure to call _.remove()_ on Backbone Views and this will unbind references from the models or collections that the views are listening to, assuming these event listeners were set up using _.listenTo()_. If you used _.on()_ instead, you will need to manually unbind the view reference from the model or collection before calling _.remove()_.
 
 
 ### Conclusion
 
-After reading Building Backbone Plugins by Derick Bailey and several of his articles on Zombie Views, I wanted to try this out myself while verifying the memory leaks in Chrome Developer Tools. I highly recommend checking out his articles which I have posted below since he can explain memory leaks and Backbone a whole lot better, but hopefully this has been useful in understanding memory leaks, particularly in Backbone applications, and verifying memory leaks in Chrome Developer Tools.
+After reading Building Backbone Plugins by Derick Bailey and several of his articles on Zombie Views, I wanted to try this out myself while profiling the memory of my objects in Chrome Developer Tools. I highly recommend checking out his articles which I have posted below. Hopefully this has been a useful exploration in understanding memory leaks, particularly in Backbone applications, and profiling memory leaks in Chrome Developer Tools. If anyone has useful tips with regards to memory leaks that I have not discovered, please share in the comments! Thanks for reading!
 
 
 ### References
