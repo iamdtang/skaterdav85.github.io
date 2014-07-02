@@ -88,7 +88,7 @@ document.querySelector('#people-container').innerHTML = '';
 
 ![heap snapshot 3](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot3.png)
 
-By setting the _innerHTML_ of _#people-container_ to an empty string, the list item has been removed from the DOM and the li instance that we created has gone out of scope. The document object no longer has a reference to the _li_ object we created so it was garbage collected. The 1 under _Objects Count_ corresponds to the _HTMLLIElement_ constructor that was used to initially create the li element.
+By setting the _innerHTML_ of _#people-container_ to an empty string, the list item has been removed from the DOM and the _li_ instance that we created has gone out of scope. The document object no longer has a reference to the _li_ object we created so it was garbage collected. The 1 under _Objects Count_ corresponds to the _HTMLLIElement_ constructor that was used to initially create the _li_ element.
 
 Now what happens if we do the same exact thing as above without wrapping our code in an immediately invoked function expression (IIFE)?
 
@@ -100,7 +100,7 @@ document.querySelector('#people-container').innerHTML = '';
 ```
 ![heap snapshot 4](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot4.png)
 
-You will notice that we have an object count of 2 again. Why would there be an object count of 2 if the li we created was removed by setting the innerHTML of _#people-container_ to an empty string? Even though we have removed the li element from the DOM, there is still a reference to our li variable on the window object since we created it as a global variable. Thus, the li object cannot be garbage collected.
+You will notice that we have an object count of 2 again. Why would there be an object count of 2 if the _li_ we created was removed by setting the _innerHTML_ of _#people-container_ to an empty string? Even though we have removed the _li_ element from the DOM, there is still a reference to our _li_ variable on the window object since we created it as a global variable. Thus, the _li_ object cannot be garbage collected.
 
 > The garbage collector will not clean up global variables during the page's life cycle.
 
