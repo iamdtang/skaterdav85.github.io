@@ -104,7 +104,7 @@ You will notice that we have an object count of 2 again. Why would there be an o
 
 > The garbage collector will not clean up global variables during the page's life cycle.
 
-> If another object in memory is holding a reference to the object you want garbage collected, this reference needs to be destroyed.
+> If an object in memory is holding a reference to another object that you want garbage collected, this reference needs to be destroyed.
 
 ### Memory Profiling with Backbone
 
