@@ -24,7 +24,7 @@ As stated on the [Chrome Developer Tools - JavaScript Profiling site](https://de
 
 ### Memory Profiling with Simple Native JavaScript
 
-Let's start off with a simple HTML page that loads Backbone and its dependencies.
+Let's start off with a simple HTML page that loads Backbone and its dependencies for our later examples.
 
 ```html
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ document.querySelector('#people-container').appendChild(li);
 })();
 ```
 
-First off, yes we are putting an li element in a div without a ul or ol element. Later on this will be changing. Take a heap snapshot.
+First off, yes we are putting an li element in a div without a _ul_ or _ol_ element. Later on this will be changing. Take a heap snapshot.
 
 ![heap snapshot 2](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot2.png)
 
