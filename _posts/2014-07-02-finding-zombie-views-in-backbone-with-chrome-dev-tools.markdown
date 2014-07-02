@@ -71,9 +71,9 @@ First off, yes we are putting an _li_ element in a _div_ without a _ul_ or _ol_ 
 
 ![heap snapshot 2](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot2.png)
 
-You'll notice that the object count for _HTMLLIElement_ is 2. The first count is for the _HTMLLIElement_ constructor itself and the second is for the li instance that we just created saved to the variable li. Behind the scenes, _document.createElement()_ is making use of the HTMLLIElement constructor and the factory pattern to create list item elements. The global _document_ object has a reference to the li object so it has not gone out of scope to be garbage collected.
+You'll notice that the object count for _HTMLLIElement_ is 2. The first count is for the _HTMLLIElement_ constructor function itself and the second is for the _li_ instance that we just created saved to the variable _li_. Behind the scenes, _document.createElement()_ is making use of the _HTMLLIElement_ constructor and the factory pattern to create list item elements. The global _document_ object has a reference to the li object so it has not gone out of scope to be garbage collected.
 
-Now what happens when I replace the innerHTML of #people-container? Let's find out.
+Now what happens when I replace the _innerHTML_ of _#people-container_? Let's find out.
 
 ```js
 (function() {
@@ -88,7 +88,7 @@ document.querySelector('#people-container').innerHTML = '';
 
 ![heap snapshot 3](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot3.png)
 
-By setting the innerHTML of _#people-container_ to an empty string, the list item has been removed from the DOM and the li instance that we created has gone out of scope. The document object no longer has a reference to the li object we created so it was garbage collected. The 1 under _Objects Count_ corresponds to the _HTMLLIElement_ constructor that was used to initially create the li element.
+By setting the _innerHTML_ of _#people-container_ to an empty string, the list item has been removed from the DOM and the li instance that we created has gone out of scope. The document object no longer has a reference to the _li_ object we created so it was garbage collected. The 1 under _Objects Count_ corresponds to the _HTMLLIElement_ constructor that was used to initially create the li element.
 
 Now what happens if we do the same exact thing as above without wrapping our code in an immediately invoked function expression (IIFE)?
 
@@ -163,7 +163,7 @@ With this bit of code, we can see each person from our collection being rendered
 * 3 - Sam
 * 4 - Max
 
-We can also see 5 _HTMLLIElement_ objects from our heap snapshot. 1 for the _HTMLLIElement_ constructor and 4 li elements created from _PersonView_ for each person rendered in our collection view.
+We can also see 5 _HTMLLIElement_ objects from our heap snapshot. 1 for the _HTMLLIElement_ constructor and 4 _li_ elements created from _PersonView_ for each person rendered in our collection view.
 
 ![heap snapshot 5](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot5.png)
 
@@ -212,7 +212,7 @@ Now let's take a heap snapshot.
 
 What you'll notice now is that our list item elements are still being kept in memory and are being garbage collected even though we have removed the list items from our page. Why is that?
 
-Remember from before that global variables will not be cleaned up by the garbage collector? In this case, our PersonView objects are not being cleaned up. We are intentially keeping the people collection around by storing it on the window object. Each model in the collection has a reference to the corresponding _PersonView_, which has a reference to a corresponding list item element. We declared this relationship when we told our _PersonView_ objects to re-render if its respective model changes.
+Remember from before that global variables will not be cleaned up by the garbage collector? In this case, our _PersonView_ objects are not being cleaned up. We are intentially keeping the people collection around by storing it on the window object. Each model in the collection has a reference to the corresponding _PersonView_, which has a reference to a corresponding list item element. We declared this relationship when we told our _PersonView_ objects to re-render if its respective model changes.
 
 ```js
 this.listenTo(this.model, 'change', this.render);
@@ -242,7 +242,7 @@ Because each model has a reference to the the view that rendered it, the browser
 
 #### How to we remove views correctly?
 
-There are a few ways of doing this but what I will demonstrate is the simplest and most common way. Rather than just replacing the innerHTML which doesn't remove our _PersonView_ objects, we should call a _remove()_ method on our view objects that _Backbone.View_ provides. Backbone will unbind the view references from their models or collections to prevent our data from hanging on to view references which prevents our view objects from being garbage collected. The view objects can then be garbage collected, and so can the DOM elements that the view corresponds to, in this case the list item elements.
+There are a few ways of doing this but what I will demonstrate is the simplest and most common way. Rather than just replacing the _innerHTML_ which doesn't remove our _PersonView_ objects, we should call a _remove()_ method on our view objects that _Backbone.View_ provides. Backbone will unbind the view references from their models or collections to prevent our data from hanging on to view references which prevents our view objects from being garbage collected. The view objects can then be garbage collected, and so can the DOM elements that the view corresponds to, in this case the list item elements.
 
 Instead of this:
 
@@ -285,13 +285,13 @@ peopleView.childViews.forEach(function(personView) {
 });
 ```
 
-They key thing to note here is that in our _PeopleView_ collection view, we store off references of our _PersonView_ model views into a property called childViews. Then later on, rather than replacing the innerHTML of _#people-container_, we can iterate over all of the child views and called the remove method. By doing this, Backbone unbinds each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our view objects to be garbage collected and freeing up memory.
+They key thing to note here is that in our _PeopleView_ collection view, we store off references of our _PersonView_ model views into a property called childViews. Then later on, rather than replacing the _innerHTML_ of _#people-container_, we can iterate over all of the child views and called the remove method. By doing this, Backbone unbinds each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our view objects to be garbage collected and freeing up memory.
 
 ### Takeaways
 
 * The garbage collector will not clean up global variables during a page's life cycle
 * Make sure you remove all references to objects that you want cleaned up by the garbage collector
-* In Backbone, removing elements from the page by wiping out the innerHTML of the parent container element may not destroy the individual views. Be sure to call _.remove()_ on Backbone Views and this will unbind references from the objects that the views are listening to, assuming these event listeners were set up using _.listenTo()_
+* In Backbone, removing elements from the page by wiping out the _innerHTML_ of the parent container element may not destroy the individual views. Be sure to call _.remove()_ on Backbone Views and this will unbind references from the objects that the views are listening to, assuming these event listeners were set up using _.listenTo()_
 
 
 ### Conclusion
