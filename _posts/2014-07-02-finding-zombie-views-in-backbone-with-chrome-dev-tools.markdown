@@ -8,15 +8,19 @@ categories: JavaScript, Backbone, Memory
 An Introduction to Finding Memory Leaks in Backbone Applications with Chrome Developer Tools
 ============================================================
 
+When it came to memory management and JavaScript applications using Backbone, I kept reading about zombie views and how easy it was to create memory leaks. The suggested solution to preventing memory leaks in Backbone applications most often came down to using _.listenTo()_ as opposed to _.on()_ when setting up views that could listen to model and collection changes. However, I couldn't find much that showed these memory leaks in a browser's developer tools. Therefore, I set out to build a simple Backbone page to try to answer my own questions and I've documented it here.
+
+1. How can I identify memory leaks in a browser's Developer Tools?
+2. Does replacing the innerHTML of a collection view destroy model views and prevent zombie views?
+3. How can I measure and verify Question 2?
+
+This post provides my introductory exploration of finding memory leaks in Backbone applications using Chrome Developer Tools. 
+
+### What is a Memory Leak?
+
 As stated on the [Chrome Developer Tools - JavaScript Profiling site](https://developer.chrome.com/devtools/docs/javascript-memory-profiling),
 
 > A memory leak is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as leaks and bloat but they also have to deal with garbage collection pauses.
-
-In this post, I'd like to present an introductory exploration of finding memory leaks in Backbone applications using Chrome Developer Tools. When it came to memory management and using Backbone, I kept reading that the solution was to use _.listenTo()_ as opposed to _.on()_, but I still had several questions so I set out to build a simple Backbone page and try to answer the following questions:
-
-1. How can I identify memory leaks in Chrome Developer Tools?
-2. Does replacing the innerHTML of a collection view destroy model views and prevent zombie views?
-3. How can I measure and verify Question 2?
 
 ### Memory Profiling with Simple Native JavaScript
 
@@ -278,6 +282,13 @@ peopleView.childViews.forEach(function(personView) {
 ```
 
 They key thing to note here is that in our _PeopleView_ collection view, we store off references of our _PersonView_ model views into a property called childViews. Then later on, rather than replacing the innerHTML of _#people-container_, we can iterate over all of the child views and called the remove method. By doing this, Backbone unbinds each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our view objects to be garbage collected and freeing up memory.
+
+### Takeaways
+
+* The garbage collector will not clean up global variables during a page's life cycle
+* Make sure you remove all references to objects that you want cleaned up by the garbage collector
+* In Backbone, removing elements from the page by wiping out the innerHTML of the parent container element may not destroy the individual views. Be sure to call _.remove()_ on Backbone Views and this will unbind references from the objects that the views are listening to, assuming these event listeners were set up using _.listenTo()_
+
 
 ### Conclusion
 
