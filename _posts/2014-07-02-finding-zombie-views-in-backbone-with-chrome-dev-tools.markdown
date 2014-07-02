@@ -49,6 +49,10 @@ Let's start off with a simple HTML page that loads Backbone and its dependencies
 
 Take a Heap Snapshot by opening up the Profiles tab in Chrome Developer Tools. 
 
+![snapshot 0](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot0.png)
+
+Then, click on "Take Snapshot".
+
 ![heap snapshot 1](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot1.png)
 
 If you look at the list of HTML* constructors, there aren't any _HTMLLIElement_ instances on the page, meaning no li elements were created via JavaScript. Let's go ahead and create an li element and take a heap snapshot.
