@@ -8,7 +8,7 @@ categories: JavaScript, Backbone, Memory
 An Introduction to Finding Memory Leaks in Backbone Applications with Chrome Developer Tools
 ============================================================
 
-When it came to memory management and JavaScript applications using Backbone, I kept reading about zombie views and how easy it was to unintentionally create memory leaks. The suggested solution to prevent memory leaks in Backbone applications most often came down to using _.listenTo()_ as opposed to _.on()_ when setting up views that could respond to model and collection changes. However, I couldn't find much that showed these memory leaks in a browser's developer tools. Therefore, I set out to build a simple Backbone page to try to answer my own questions and I've documented it here.
+When it comes to memory management and JavaScript applications using Backbone, you'll often hear about zombie views and how easy it is to unintentionally create memory leaks. The suggested solution to preventing memory leaks in Backbone applications most often comes down to using _.listenTo()_ as opposed to _.on()_ when setting up views that can respond to model and collection changes. Recently, since I have started working with Backbone again quite a bit at work, I wanted to learn how to find and verify memory leaks in a browser's developer tools so that I can be more prepared for when I am faced with an application that is having memory problems. Therefore, I set out to build an extremely simple Backbone page to try and answer my own questions.
 
 1. How can I identify memory leaks in a browser's developer tools?
 2. Does replacing the innerHTML of a collection view destroy model views and prevent zombie views?
