@@ -100,9 +100,11 @@ document.querySelector('#people-container').innerHTML = '';
 ```
 ![heap snapshot 4](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot4.png)
 
-You will notice that we have an object count of 2 again. Why would there be an object count of 2 if the _li_ we created was removed by setting the _innerHTML_ of _#people-container_ to an empty string? Even though we have removed the _li_ element from the DOM, there is still a reference to our _li_ variable on the window object since we created it as a global variable. Thus, the _li_ object cannot be garbage collected.
+You will notice that we have an object count of 2 again. Why would there be an object count of 2 if the _li_ we created was removed by setting the _innerHTML_ of _#people-container_ to an empty string? Even though we have removed the _li_ element from the DOM, there is still a reference to our _li_ variable on the window object since we created it as a global variable. Thus, the _li_ object cannot be garbage collected. There's a few things we can take away from these examples.
 
 > The garbage collector will not clean up global variables during the page's life cycle.
+
+> If another object in memory is holding a reference to the object you want garbage collected, this reference needs to be destroyed.
 
 ### Memory Profiling with Backbone
 
