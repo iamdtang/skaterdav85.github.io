@@ -280,8 +280,10 @@ var peopleView = new PeopleView({
 
 peopleView.render();
 
+// add the PeopleView collection-view to the DOM
 $('#people-container').append(peopleView.el);
 
+// remove each PersonView instance
 peopleView.childViews.forEach(function(personView) {
 	personView.remove();
 });
