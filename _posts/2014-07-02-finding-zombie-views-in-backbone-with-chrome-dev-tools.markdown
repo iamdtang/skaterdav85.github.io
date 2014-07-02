@@ -55,7 +55,7 @@ Then, click on "Take Snapshot".
 
 ![heap snapshot 1](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot1.png)
 
-If you look at the list of HTML* constructors, there aren't any _HTMLLIElement_ instances on the page, meaning no li elements were created via JavaScript. Let's go ahead and create an li element and take a heap snapshot.
+If you look at the list of HTML* constructors, nothing shows up for the _HTMLLIElement_ constructor. This is because there aren't any _li_ nodes on the page. If you've never heard of the _HTMLXXX_ constructors such as _HTMLLIElement_, they are the constructor functions used to create various DOM nodes. Let's go ahead and create an _li_ element and take a heap snapshot.
 
 ```js
 (function() {
@@ -67,7 +67,7 @@ document.querySelector('#people-container').appendChild(li);
 })();
 ```
 
-First off, yes we are putting an li element in a div without a _ul_ or _ol_ element. Later on this will be changing. Take a heap snapshot.
+First off, yes we are putting an _li_ element in a _div_ without a _ul_ or _ol_ element. Later on this will be changing. Take another heap snapshot.
 
 ![heap snapshot 2](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot2.png)
 
