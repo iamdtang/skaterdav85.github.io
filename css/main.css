@@ -75,6 +75,15 @@ a:visited { color: #2a6496; }
   line-height: 1.5em;
 }
 
+.site h2 {
+  line-height: normal;
+  text-align: left;
+}
+
+.site img {
+  width: 100%;
+}
+
 .meta {
   color: #aaa;
 }
