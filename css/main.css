@@ -1,5 +1,6 @@
 .avatar {
   border-radius: 200px;
+  width: 100%;
 }
 
 a, h2 {
@@ -26,17 +27,11 @@ a:hover {
 .social {
   list-style: none;
   padding: 0;
-  margin: auto;
-  width: 214px;
 }
 
 .social li {
   float: left;
-  padding: 8px;
-}
-
-.social li:first-child {
-  padding-left: 0;
+  padding: 3%;
 }
 
 .fa {
@@ -54,7 +49,6 @@ a:hover {
 
 .title-bar {
   background-color: #1884BB;
-  padding: 10px;
 }
 
 .title-bar a {
@@ -101,3 +95,17 @@ p {
 .sidebar p {
   color: white;
 }
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
