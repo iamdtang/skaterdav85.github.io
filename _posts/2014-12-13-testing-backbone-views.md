@@ -20,7 +20,7 @@ Imagine your have a list of boxes representing quantities, and the user can sele
 	}
 	.quantities li {
 		display: inline-block;
-		background-color: green;
+		background-color: #1884BB;
 		color: white;
 		padding: 5px 13px;
 		margin-bottom: 15px;
@@ -98,4 +98,4 @@ describe('QuantityItemView', function() {
 });
 ```
 
-Notice how the view isn't manually manipulating the DOM and adding and removing the "active" class based on which one the user selected? From my experience, doing this can often lead to inconsistent states between your model and your view, especially in a more complicated scenario. Using this approach, your view becomes much easier to test. You can simply set up your views, interact with the view or manipulate things that the view listens to (like _applicationState_), and test that the model of the view gets updated correctly. This is similar to how you would test that $scope is getting updated in an Angular controller unit test. You don't have to test that HTML markup renders a certain way which does not lend itself well to changing markup. If you set up your view to automatically re-render whenever the model changes, you can be sure that your view will be in sync with your model.
+Notice how the view isn't manually manipulating the DOM and adding and removing the "active" class based on which one the user selected? From my experience, doing this can often lead to inconsistent states between your model and your view, especially in a more complicated scenario. Using this approach, your view becomes much easier to test. You can simply set up your views, interact with the view or manipulate things that the view listens to (like _applicationState_), and test that the model of the view gets updated correctly. This is similar to how you would test $scope is getting updated in an Angular controller unit test. You don't have to test that HTML markup renders a certain way which does not lend itself well to changing markup. If you set up your view to automatically re-render whenever the model changes, you can be sure that your view will be in sync with your model.
