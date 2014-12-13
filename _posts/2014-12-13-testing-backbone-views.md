@@ -42,6 +42,7 @@ var QuantityItemView = Backbone.View.extend({
 	events: {
 		'click': 'selectQuantity'
 	},
+
 	initialize: function() {
 		// automatically re-render when the model changes
 		this.listenTo(this.model, 'change', this.render);
@@ -55,6 +56,7 @@ var QuantityItemView = Backbone.View.extend({
 			} 
 		});
 	},
+
 	selectQuantity: function(e) {
 		e.preventDefault()
 		applicationState.set('quantity', this.model.get('quantity'))

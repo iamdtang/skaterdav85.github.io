@@ -1,3 +1,7 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .avatar {
   border-radius: 50%;
   width: 100%;
@@ -73,6 +77,10 @@ pre {
   padding: 20px;
 }
 
+code {
+    font-family: Consolas, Monaco, "Courier New" !important;
+}
+
 .date, .meta {
   color: #aaa;
   font-style: italic;
@@ -97,6 +105,15 @@ p {
   color: white;
 }
 
+.read-more {
+    text-align: right;
+}
+
+.read-more a {
+    font-size: 12px;
+    text-decoration: none;
+}
+
 .clearfix:after {
      visibility: hidden;
      display: block;
@@ -104,7 +121,7 @@ p {
      content: " ";
      clear: both;
      height: 0;
-     }
+}
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
 * html .clearfix { height: 1%; }
