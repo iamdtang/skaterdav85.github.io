@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Data Modeling in Angular.js with angular-data - Part 1"
+title:  "Data Modeling in Angular.js with angular-data"
 date:   2014-11-06
 categories: Angular.js
 ---
 
-In this series we're going to look at a 3rd party library, [angular-data](http://angular-data.pseudobry.com/), for managing our data models in Angular.js. 
+Recently I gave [angular-data](http://angular-data.pseudobry.com/) a try and found it awesome for data modelling in Angular.js.
 
 ### Why use angular-data?
 
@@ -124,8 +124,6 @@ app.run(function(Book) {
 ### Conclusion
 
 In this post we looked at how to create models using the _DS_ service that angular-data provides. We also looked at how we can access data using our models and how the data store keeps track of the identity of our records.
-
-In the next part of the tutorial we will look at defining model relationships. Stay tuned!
 
 [View a full working demo](https://github.com/skaterdav85/angular-data-demo/)
 
