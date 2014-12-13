@@ -37,14 +37,14 @@ a:hover {
 
 .social li {
   display: inline-block;
-  padding: 3%;
+  padding: 1.5%;
 }
 
 
 .fa {
   background-color: white;
   color: #1884BB;
-  padding: 15px;
+  padding: 10px;
   border-radius: 50%;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
