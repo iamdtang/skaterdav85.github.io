@@ -5,7 +5,7 @@ date:   2014-11-06
 categories: Angular.js
 ---
 
-Recently I gave [angular-data](http://angular-data.pseudobry.com/) a try and found it awesome for data modelling in Angular.js.
+Recently I gave [angular-data](http://angular-data.pseudobry.com/) a try and found it awesome for data modeling in Angular.js.
 
 ### Why use angular-data?
 
