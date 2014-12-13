@@ -46,10 +46,14 @@ a:hover {
   padding: 15px;
   border-radius: 50%;
     -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transform: all 0.5s;
 }
 
 .social li:hover .fa {
     -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
 
 
