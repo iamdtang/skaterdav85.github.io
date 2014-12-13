@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Testing Backbone Views"
+title:  "Unit Testing Backbone Views"
 date:   2014-12-13
 categories: JavaScript, Backbone.js
 ---
