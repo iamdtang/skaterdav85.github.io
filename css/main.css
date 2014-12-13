@@ -39,12 +39,19 @@ a:hover {
   padding: 3%;
 }
 
+
 .fa {
   background-color: white;
   color: #1884BB;
-  padding: 10px;
-  border-radius: 20px;
+  padding: 15px;
+  border-radius: 50%;
+    -webkit-transition: all 0.5s;
 }
+
+.social li:hover .fa {
+    -webkit-transform: rotate(360deg);
+}
+
 
 .sidebar {
   text-align: center;
