@@ -136,6 +136,16 @@ p {
 }
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
 /* close commented backslash hack */
+
+@media (max-width: 480px) {
+    .mobile {
+        width: 100%;
+    }
+}
