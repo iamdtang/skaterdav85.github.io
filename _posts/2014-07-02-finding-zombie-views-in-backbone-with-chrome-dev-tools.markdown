@@ -46,11 +46,11 @@ Let's start off with a simple HTML page that loads Backbone and its dependencies
 
 Take a Heap Snapshot by opening up the Profiles tab in Chrome Developer Tools. 
 
-![snapshot 0](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot0.png)
+![snapshot 0](/images/heap-snapshots/snapshot0.png)
 
 Then, click on "Take Snapshot".
 
-![heap snapshot 1](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot1.png)
+![heap snapshot 1](/images/heap-snapshots/snapshot1.png)
 
 If you look at the list of HTML* constructors, nothing shows up for the _HTMLLIElement_ constructor. This is because there aren't any _li_ nodes on the page. If you've never heard of the _HTMLXXX_ constructors such as _HTMLLIElement_, they are the constructor functions used to create various DOM nodes. Let's go ahead and create an _li_ element and take a heap snapshot.
 
@@ -66,7 +66,7 @@ document.querySelector('#people-container').appendChild(li);
 
 First off, yes we are putting an _li_ element in a _div_ without a _ul_ or _ol_ element. Later on this will be changing. Take another heap snapshot.
 
-![heap snapshot 2](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot2.png)
+![heap snapshot 2](/images/heap-snapshots/snapshot2.png)
 
 You'll notice that the object count for _HTMLLIElement_ is 2. The first count is for the _HTMLLIElement_ constructor function itself and the second is for the _li_ instance that we just created saved to the variable _li_. Behind the scenes, _document.createElement()_ is making use of the _HTMLLIElement_ constructor and the factory pattern to create list item elements. The global _document_ object has a reference to the _li_ object so it cannot be garbage collected.
 
@@ -83,7 +83,7 @@ document.querySelector('#people-container').innerHTML = '';
 })();
 ```
 
-![heap snapshot 3](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot3.png)
+![heap snapshot 3](/images/heap-snapshots/snapshot3.png)
 
 By setting the _innerHTML_ of _#people-container_ to an empty string, the list item has been removed from the DOM and the _li_ instance that we created has gone out of scope. The document object no longer has a reference to the _li_ object we created so it was garbage collected. The 1 under _Objects Count_ corresponds to the _HTMLLIElement_ constructor that was used to initially create the _li_ element.
 
@@ -95,7 +95,7 @@ li.innerText = 'Person 1';
 document.querySelector('#people-container').appendChild(li);
 document.querySelector('#people-container').innerHTML = '';
 ```
-![heap snapshot 4](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot4.png)
+![heap snapshot 4](/images/heap-snapshots/snapshot4.png)
 
 You will notice that we have an object count of 2 again. Why would there be an object count of 2 if the _li_ we created was removed by setting the _innerHTML_ of _#people-container_ to an empty string? Even though we have removed the _li_ element from the DOM, there is still a reference to our _li_ variable on the window object since we created it as a global variable. Thus, the _li_ object cannot be garbage collected. There's a few things we can take away from these examples.
 
@@ -166,7 +166,7 @@ With this bit of code, we can see each person from our collection being rendered
 
 We can also see 5 _HTMLLIElement_ objects from our heap snapshot. 1 for the _HTMLLIElement_ constructor and 4 _li_ elements created from _PersonView_ for each person rendered in our collection view.
 
-![heap snapshot 5](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot5.png)
+![heap snapshot 5](/images/heap-snapshots/snapshot5.png)
 
 Now let's modify _#people-container_ and set its _innerHTML_ to an empty string temporarily and take a heap snapshot.
 
@@ -174,7 +174,7 @@ Now let's modify _#people-container_ and set its _innerHTML_ to an empty string 
 $('#people-container').append(peopleView.el).html('');
 ```
 
-![heap snapshot 6](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot6.png)
+![heap snapshot 6](/images/heap-snapshots/snapshot6.png)
 
 As like before, removing the list items from the DOM by setting the _innerHTML_ of _#people-container_ to an empty string allowed the garbage collector to clean up all _HTMLLIElement_ instances from memory because there were no references to these list item elements hanging around in our application.
 
@@ -209,7 +209,7 @@ window.people = people;
 
 Now let's take a heap snapshot.
 
-![heap snapshot 7](https://dl.dropboxusercontent.com/u/11600860/heap-snapshots/snapshot7.png)
+![heap snapshot 7](/images/heap-snapshots/snapshot7.png)
 
 What you'll notice now is that our list item elements are still being kept in memory and are not being garbage collected even though we have removed the list items from our page. Why is that?
 

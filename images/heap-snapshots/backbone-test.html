@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="http://jashkenas.github.io/underscore/underscore-min.js"></script>
+	<script src="http://jashkenas.github.io/backbone/backbone-min.js"></script>
+	<title>Demo</title>
+</head>
+<body>
+
+<div id="people-container"></div>
+
+<script>
+
+// (function() {
+
+// 	var people = new Backbone.Collection([
+// 		{ id: 1, name: 'David' },
+// 		{ id: 2, name: 'Jane' },
+// 		{ id: 3, name: 'Sam' },
+// 		{ id: 4, name: 'Max' }
+// 	]);
+
+// 	var PersonView = Backbone.View.extend({
+// 		initialize: function() {
+// 			this.listenTo(this.model, 'change', this.render);
+
+// 			// this.model.on('change', this.render, this);			
+// 		},
+// 		tagName: 'li',
+// 		className: 'person',
+// 		render: function() {
+// 			console.log('rendering');
+// 			var html = this.model.get('id') + ' - ' + this.model.get('name');
+// 			this.$el.html(html);
+// 		}
+// 		// events: {
+// 		// 	'click': 'edit'
+// 		// },
+// 		// edit: function() {
+// 		// 	console.log('editing');
+// 		// }
+// 	});
+
+// 	var PeopleView = Backbone.View.extend({
+// 		initialize: function() {
+// 			this.childViews = [];
+// 		},
+// 		tagName: 'ul',
+// 		id: 'people',
+// 		render: function() {
+// 			this.collection.each(function(model) {
+// 				var view = new PersonView({
+// 					model: model
+// 				});
+
+// 				view.render();
+// 				this.childViews.push(view);
+// 				this.$el.append(view.el);
+// 			}, this);
+// 		}
+// 	});
+
+// 	var peopleView = new PeopleView({
+// 		collection: people
+// 	});
+// 	peopleView.render();
+
+// 	$('#people-container').append(peopleView.el);
+
+// 	peopleView.childViews.forEach(function(personView) {
+// 		personView.remove();
+// 	});
+
+// 	// people.each(function(model) {
+// 	// 	model.trigger('change');
+// 	// });
+
+// 	window.people = people;
+
+// })();
+
+</script>
+
+</body>
+</html>
