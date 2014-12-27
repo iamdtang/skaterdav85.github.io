@@ -76,7 +76,7 @@ app.controller('MyController', function() {
   });
 ```
 
-Notice how the controller function definition stuck in a return statement that returns _$scope.hello_? Functions in CoffeeScript implicitly return the last line if no return statement is provided. This can cause some issues depending on how the controller is used and what style you are using ($scope vs controller-as). Angular treats controllers as constructors. Constructors always return a new constructed object unless a different return value is specified. Because CoffeeScript has implicit returns and it isn't completely obvious that a controller is a constructor if you're new to Angular, you may run into issues where things aren't working. The fix is that you need to explicitly state that a controller returns _this_. This can be really tough to figure out and may eat up a few hours of your day. I know it did for me when I first started using CoffeeScript with Angular. As a general rule, you could always make sure that you return _this_ from controllers when working with CoffeeScript so you don't accidentally run into this issue. There is another solution though that I prefer and that is to use CoffeeScript classes.
+Notice how CoffeeScript stuck in a return statement that returns _$scope.hello_ in the controller function definition? Functions in CoffeeScript implicitly return the last line if no return statement is provided. As you might guess, this can cause some issues. You may not know that Angular treats controllers as constructors. It isn't completely obvious that the function in the controller definition is newed up behind the scenes by Angular. Constructors always return a new constructed object unless a different return value is specified. Because CoffeeScript has implicit returns for functions, you may run into issues where your controller isn't working as expected when you using a standard CoffeeScript function to define it. The fix is that you need to explicitly state that a controller returns _this_ so that there is no implicit return. This can be really tough to figure out and may eat up a few hours of your day if you did the above and didn't know that Angular controllers are used as constructors. I know it did for me when I first started using CoffeeScript with Angular. As a general rule, you could always make sure that you return _this_ from controllers when working with CoffeeScript so you don't accidentally run into this issue. There is another solution though that I prefer and that is to use CoffeeScript classes.
 
 ```coffeescript
 class MyController
@@ -86,7 +86,17 @@ class MyController
 app.controller('MyController', MyController)
 ```
 
-The _MyController_ class will become a function used as a constructor and the class _constructor_ method will not implicitly put in a return statement, thus allowing the new controller object to be returned.
+The _MyController_ class will become a function used as a constructor without an implicit return statement, thus allowing the controller object to be returned.
+
+```js
+MyController = (function() {
+    function MyController($scope) {
+      $scope.name = 'David';
+    }
+
+    return MyController;
+})();
+```
 
 ### 2. There are no function declarations
 
@@ -117,13 +127,19 @@ function MyController($location, $log, config, data) {
 }
 ```
 
-This alternative controller definition is much more readable. You can easily see that this file contains a controller definition since it is at the top followed by the list of injected dependencies. All of the complexity of the controller is moved to the bottom of the file. This approach takes advantage of function declaration hoisting. Function declarations, unlike function expressions, are hoisted to the top of the current scope which allows this style to work. CoffeeScript however does not have function declarations. In CoffeeScript, you define a function like this:
+This alternative controller definition is much more readable. You can easily see that this file contains a controller definition since it is at the top followed by the list of injected dependencies. All of the complexity of the controller is moved to the bottom of the file. However, this approach takes advantage of function declaration hoisting. Function declarations, unlike function expressions, are hoisted to the top of the current scope which allows this style to work. CoffeeScript however does not have function declarations. In CoffeeScript, you define a function like this:
 
 ```coffeescript
 MyController = () ->
 ```
 
-which creates a function expression which doesn't hoist. Your next thought might be to use a CoffeeScript class. 
+which creates a function expression which doesn't hoist. 
+
+```js
+MyController = function() {};
+```
+
+Your next thought might be to use a CoffeeScript class. 
 
 ```coffeescript
 app.controller('MyController', MyController)
@@ -147,7 +163,7 @@ MyController = (function() {
 })();
 ```
 
-The above will throw an error because you are trying to reference _MyController_ before it is defined. Unless you know what JavaScript code CoffeeScript is generating, it is really easy to make this mistake and wonder why your code isn't working.
+The above will throw an error because you are trying to reference _MyController_ before it is defined. This goes to show that it is really important to know how CoffeeScript translates to JavaScript.
 
 
 
@@ -165,4 +181,6 @@ app.controller('MyController', MyController)
 
 Although you have to scroll to the bottom of the file to see what type of Angular component this is and the list of dependencies, with consistency and a good folder structure it isn't so bad, and in my opinion, it is better than the first solution of declaring the controller and its dependencies all on one line.
 
-I'd love to hear what style you are using for your Angular.js applications. Please let me know in the comments!
+### Conclusion
+
+I'd love to hear what style you are using for your Angular.js applications when using Coffeescript. Please let me know in the comments!
