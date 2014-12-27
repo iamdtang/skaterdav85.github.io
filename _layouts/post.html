@@ -3,6 +3,7 @@ layout: default
 ---
 <h2>{{ page.title }}</h2>
 <p class="meta">
+    {{ page.date | date: "%A" }},
     {% assign d = page.date | date: "%d" | plus:'0' %}
     {{ page.date | date: "%B" }}
     {% case d %}
