@@ -2,7 +2,7 @@
 layout: post
 title:  "Treat Backbone Views like Angular Controllers for Easier Unit Testing"
 date:   2014-12-13
-categories: JavaScript, Backbone.js
+categories: JavaScript Backbone.js
 ---
 
 One of the things I have found most challenging when working with Backbone.js is writing maintainable and unit testable views. Based on recent experience, I have been writing lots of unit tests for models, collections, reusable view abstractions, and services, but not for my application's views.

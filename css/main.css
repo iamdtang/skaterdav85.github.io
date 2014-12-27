@@ -145,6 +145,21 @@ p {
 }
 /* close commented backslash hack */
 
+.categories {
+  list-style-type: none;
+  padding: 0;
+}
+
+.categories li {
+  display: inline-block;
+  text-decoration: none;
+  background: #777;
+  color: white;
+  border-radius: 10px;
+  padding: 3px 10px;
+  font-size: 13px;
+}
+
 @media (max-width: 480px) {
     .mobile {
         width: 100%;

@@ -2,7 +2,7 @@
 layout: post
 title:  "Data Modeling in Angular.js with angular-data"
 date:   2014-11-06
-categories: Angular.js
+categories: Angular.js JavaScript
 ---
 
 Recently I gave [angular-data](http://angular-data.pseudobry.com/) a try and found it awesome for data modeling in Angular.js.

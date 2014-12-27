@@ -15,6 +15,17 @@ layout: default
     {{ page.date | date: "%Y" }}
 </p>
 
+{% unless page.categories == empty %}
+<ul class="categories">
+    {% assign categories_list = page.categories %}
+    {% for category in categories_list %} 
+        <li>
+            {{ category }}
+        </li>
+    {% endfor %}
+</ul>
+{% endunless %}
+
 <div class="post">
 {{ content }}
 </div>
