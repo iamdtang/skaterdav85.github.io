@@ -160,6 +160,14 @@ p {
   font-size: 13px;
 }
 
+blockquote {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #7e7e7e;
+  font-size: 21px;
+  font-weight: 200;
+  font-style: italic;
+}
+
 @media (max-width: 480px) {
     .mobile {
         width: 100%;
