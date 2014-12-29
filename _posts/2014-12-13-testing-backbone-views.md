@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Treat Backbone Views like Angular Controllers for Easier Unit Testing"
+title:  "Treating Backbone Views like Angular Controllers for Easier Unit Testing"
 date:   2014-12-13
 categories: JavaScript Backbone.js
 ---
