@@ -2,6 +2,41 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+p, li {
+  line-height: 1.6;
+  color: #4b4b4b;
+  font-size: 1.125em;
+}
+
+blockquote {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+blockquote p {
+  color: #999;
+}
+
+pre {
+  background-color: #eee;
+  font-size: 13px;
+  padding: 20px;
+}
+
+code {
+    font-family: Consolas, Monaco, "Courier New" !important;
+}
+
+ul, ol {
+  margin: 30px inherit;
+}
+
+li {
+  color: #888;
+}
+
 .avatar {
   border-radius: 50%;
   width: 100%;
@@ -41,7 +76,6 @@ a:hover {
     margin-bottom: 5px;
 }
 
-
 .fa {
   background-color: white;
   color: #1884BB;
@@ -57,7 +91,6 @@ a:hover {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
 }
-
 
 .sidebar {
   text-align: center;
@@ -84,16 +117,6 @@ a:hover {
   color: #1884BB;
 }
 
-pre {
-  background-color: #eee;
-  font-size: 13px;
-  padding: 20px;
-}
-
-code {
-    font-family: Consolas, Monaco, "Courier New" !important;
-}
-
 .date, .meta {
   color: #aaa;
   font-style: italic;
@@ -106,12 +129,6 @@ code {
 
 .post img {
   width: 100%;
-}
-
-p {
-  line-height: 1.6;
-  color: #777;
-  font-size: 1.125em;
 }
 
 .sidebar p {
@@ -193,3 +210,4 @@ p {
         width: 100%;
     }
 }
+
