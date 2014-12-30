@@ -164,6 +164,30 @@ p {
   font-style: italic;
 }
 
+.pager {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+  text-align: center;
+}
+
+.pager li {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.pager .disabled a {
+  color: #aaa;
+  font-style: italic;
+}
+
+.pager .disabled a:hover {
+  color: #aaa;
+  font-style: italic;
+  text-decoration: none;
+}
+
 @media (max-width: 480px) {
     .mobile {
         width: 100%;

@@ -1,4 +1,5 @@
 name: JavaScript Journey
 author: David Tang
+paginate: 5
 markdown: redcarpet
 pygments: true

@@ -3,10 +3,8 @@ layout: default
 title: JavaScript Journey
 ---
 
-
 <div class="posts">
-  {% for post in site.posts %}
-
+  {% for post in paginator.posts %}
 		<div class="post">
 			<h2>
 				<a href="{{ post.url }}" class="title">{{ post.title }}</a>
@@ -25,8 +23,10 @@ title: JavaScript Journey
 			</span>
 			<div>
 				{{ post.excerpt }}
-                <p class="read-more"><a href="{{post.url}}">Read More</a></p>
+        <p class="read-more"><a href="{{post.url}}">Read More</a></p>
 			</div>
 		</div>
   {% endfor %}
 </div>
+
+{% include footer.html %}
