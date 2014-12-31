@@ -32,14 +32,18 @@ function Autocomplete() {
   this.timeout = null;
 }
 
+Autocomplete.prototype.clearPreviousRequests = function() {
+  if (this.timeout) {
+    clearTimeout(this.timeout);
+  }
+};
+
 Autocomplete.prototype.search = function(searchTerm) {
   var self = this;
   var deferred = new $.Deferred();
 
-  if (this.timeout) {
-    clearTimeout(this.timeout);
-  }
-
+  this.clearPreviousRequests();
+  
   this.timeout = setTimeout(function() {
     self.request(searchTerm).then(function(results) {
       deferred.resolve(results);
@@ -68,7 +72,7 @@ ItunesAutocomplete.prototype.constructor = ItunesAutocomplete;
 
 ItunesAutocomplete.prototype.request = function(searchTerm) { 
   var url = 'https://itunes.apple.com/search?' + $.param({
-    term: encodeURIComponent(searchTerm)
+    term: searchTerm
   });
 
   url += '&callback=?';
@@ -79,7 +83,7 @@ ItunesAutocomplete.prototype.request = function(searchTerm) {
 };
 ~~~
 
-Here we define the _request()_ method that gets called in _search()_ defined on _Autocomplete.prototype_. In the example above, a JSONP request is made to the iTunes API and the response is preprocessed so that the actual results stored in _response.results_ are resolved instead of the entire response. Looking at how _request()_ is used in _search()_, it needs to return a promise. Other than that, the data can come from anywhere. The _search()_ template method doesn't care where the data comes from. It's concern is the general autocomplete algorithm and just expects _request()_ to return a promise.
+Here we define the _request()_ method that gets called in _Autocomplete.prototype.search()_. In the example above, a JSONP request is made to the iTunes API and the response is preprocessed so that the actual results stored in _response.results_ are resolved instead of the entire response. Looking at how _request()_ is used in _search()_, it needs to return a promise. Other than that, the data can come from anywhere. The _search()_ template method doesn't care where the data comes from. It's concern is the general autocomplete algorithm and just expects _request()_ to return a promise.
 
 If we wanted an autocomplete for Facebook Pages from Facebook's API, we could do something like this:
 
@@ -100,13 +104,13 @@ FacebookAutocomplete.prototype.request = function(searchTerm) {
 };
 ~~~
 
-Again, note how this class contains only the specifics of requesting data and the _search()_ template method uses it.
+Again, note how this class contains only the specifics of requesting data while the _search()_ template method simply uses it.
 
 The full demo can be found <a href="/demos/template-method/">here</a>. 
 
 ## Summary
 
-The template method design pattern is a very useful pattern and one are likely using already. It allows a parent class to define a general algorithm, and delegates the parts that will vary to subclasses. In our example, _Autocomplete_ is the parent class with the general algorithm contained in the template method _search()_. _ItunesAutocomplete_ is a subclass of _Autocomplete_ that implements the specifics for requesting data in _request()_.
+The template method design pattern is a very useful pattern and one are likely using already. It allows a parent class to define a general algorithm, and delegates some of the steps, namely the parts that will vary, to subclasses. In our example, _Autocomplete_ is the parent class with the general algorithm contained in the template method _search()_. _ItunesAutocomplete_ is a subclass of _Autocomplete_ that implements the specifics for fetching data in _request()_.
 
 I will be posting more articles on design patterns in the near future because it is a topic I am very interested in. Let me know in the comments how you have used the template method pattern in your applications!
 
