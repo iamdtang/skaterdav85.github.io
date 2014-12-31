@@ -7,7 +7,7 @@ categories: Angular.js JavaScript
 
 Recently I gave [angular-data](http://angular-data.pseudobry.com/) a try and found it awesome for data modeling in Angular.js.
 
-### Why use angular-data?
+## Why use angular-data?
 
 There are many ways to model your data in Angular. You can use the built in $http or $resource services, or you can use popular 3rd party libraries like Restangular, Breeze, or angular-data, all of which are great choices. 
 
@@ -17,7 +17,7 @@ The previous solution works fine, but it was kind of tedious since I never abstr
 
 [angular-data](http://angular-data.pseudobry.com/) was inspired by [Ember Data](http://emberjs.com/guides/models/). If you haven't worked with Ember Data, it is an awesome modeling layer created by the Ember team. angular-data offers more features than what I just mentioned, but these 2 features were the reasons I decided to learn it and use in an application I am building at work. Anyways, let's get into the basics of angular-data.
 
-### Installation
+## Installation
 
 Follow the [angular-data installation instructions](http://angular-data.pseudobry.com/documentation/api/angular-data/angular-data). You can install it either through NPM, Bower, or download manually.
 
@@ -27,7 +27,7 @@ Next, specify _angular-data.DS_ as a module dependency.
 var app = angular.module('library', ['angular-data.DS']);
 ```
 
-### Creating Models
+## Creating Models
 
 Let's start by creating a Book model:
 
@@ -45,7 +45,7 @@ angular-data has a service we can inject called _DS_, which stands for Data Stor
 
 The _name_ attribute allows us to specify a name for our resource. Think of it like a table name in your database and it can be used to look up _book_ records in your application. Next I provided an _endpoint_ property. If you don't specify an endpoint, it will have a sensible default using the resource's _name_. Lastly, I specified the unique id / primary key property name of all book records. By default this is set to _id_, but if you need something different, you can set it, such as in the example above.
 
-### Fetching Data with Models
+## Fetching Data with Models
 
 So we have a Book model defined. How can we fetch books, store the records in our data store, and bind them to our view from our controller?
 
@@ -87,7 +87,7 @@ DS.findAll('book').then(function() {
 });
 ```
 
-### Binding Models to the View
+## Binding Models to the View
 
 We can also bind _book_ records in the store to a controller's _$scope_ directly with [_DS.bindAll()_](http://angular-data.pseudobry.com/documentation/api/angular-data/DS.sync%20methods_bindAll).
 
@@ -111,7 +111,7 @@ app.controller('BooksController', function($scope, DS) {
 });
 ```
 
-### Bootstrapping Data into the Store
+## Bootstrapping Data into the Store
 
 If you have data dumped out onto the page from the server and you need that injected into the store, you can easily do that with the _inject()_ method.
 
@@ -121,13 +121,13 @@ app.run(function(Book) {
 });
 ```
 
-### Conclusion
+## Conclusion
 
 In this post we looked at how to create models using the _DS_ service that angular-data provides. We also looked at how we can access data using our models and how the data store keeps track of the identity of our records.
 
 [View a full working demo](https://github.com/skaterdav85/angular-data-demo/)
 
-### Resources
+## Resources
 
 * [DS documentation](http://angular-data.pseudobry.com/documentation/api/angular-data/DS)
 

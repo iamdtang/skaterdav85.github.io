@@ -13,13 +13,13 @@ When it comes to memory management and JavaScript applications using Backbone, y
 
 This post provides my introductory exploration of finding memory leaks in Backbone applications using Chrome Developer Tools. 
 
-### What is a Memory Leak?
+## What is a Memory Leak?
 
 As stated on the [Chrome Developer Tools - JavaScript Profiling site](https://developer.chrome.com/devtools/docs/javascript-memory-profiling),
 
 > "A memory leak is a gradual loss of available computer memory. It occurs when a program repeatedly fails to return memory it has obtained for temporary use. JavaScript web apps can often suffer from similar memory related issues that native applications do, such as leaks and bloat but they also have to deal with garbage collection pauses."
 
-### Memory Profiling with Simple Native JavaScript
+## Memory Profiling with Simple Native JavaScript
 
 Let's start off with a simple HTML page that loads Backbone and its dependencies for our later examples.
 
@@ -105,7 +105,7 @@ Also,
 
 > "If an object in memory is holding a reference to another object that you want garbage collected, this reference needs to be destroyed."
 
-### Memory Profiling with Backbone
+## Memory Profiling with Backbone
 
 Let's look at an example that is Backbone specific. We will set up the code so that we have a Backbone Collection of people rendered in a collection-view where each model in the collection has its own model-view. This is a very common Backbone scenario.
 
@@ -241,7 +241,7 @@ _.each(listenMethods, function(implementation, method) {
 
 Because each model of our _people_ collection in memory has a reference to the the view that rendered it, the browser cannot garbage collect these views. This is what is referred to as zombie views - views that stick around in memory when we think it has been gone and it comes back to haunt us and bring our application down.
 
-#### How do we remove views correctly?
+## How do we remove views correctly?
 
 There are a few ways of doing this but what I will demonstrate is the simplest and most common way. Rather than just emptying the _innerHTML_ which doesn't always allow for our views to be garbage collected, we should call a _.remove()_ method on our views that _Backbone.View_ provides. Backbone will unbind the view references from their respective models or collections to prevent our data from hanging on to view references which prevents our views from being garbage collected.
 
@@ -290,19 +290,19 @@ peopleView.childViews.forEach(function(personView) {
 
 They key thing to note here is that in _PeopleView.prototype.render()_, we store off references of our _PersonView_ model-views into a property called _childViews_. Then later on, rather than replacing the _innerHTML_ of _#people-container_, we can iterate over all of the child views and call the remove method. Backbone will unbind each _PersonView_ instance from its model before it is removed from the DOM, thus allowing our views to be garbage collected and freeing up memory.
 
-### Takeaways
+## Takeaways
 
 * The garbage collector will not clean up global variables during a page's life cycle
 * Make sure to remove all references to the objects that you want cleaned up by the garbage collector
 * In Backbone, removing elements from the page by wiping out the _innerHTML_ of the parent container element may not always destroy the individual views. Be sure to call _.remove()_ on Backbone Views and this will unbind references from the models or collections that the views are listening to, assuming these event listeners were set up using _.listenTo()_. If you used _.on()_ instead, you will need to manually unbind the view reference from the model or collection before calling _.remove()_.
 
 
-### Conclusion
+## Conclusion
 
 After reading Building Backbone Plugins by Derick Bailey and several of his articles on Zombie Views, I wanted to try this out myself while profiling the memory of my objects in Chrome Developer Tools. I highly recommend checking out his articles which I have posted below. Hopefully this has been a useful exploration in understanding memory leaks, particularly in Backbone applications, and profiling memory leaks in Chrome Developer Tools. If anyone has useful tips with regards to memory leaks that I have not discovered, please share in the comments! Thanks for reading!
 
 
-### References
+## References
 
 * [Backbone.js And JavaScript Garbage Collection](http://lostechies.com/derickbailey/2012/03/19/backbone-js-and-javascript-garbage-collection/)
 * [Building Backbone Plugins](https://leanpub.com/building-backbone-plugins)

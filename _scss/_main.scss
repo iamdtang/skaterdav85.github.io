@@ -1,7 +1,13 @@
+.logo {
+  color: #1884BB;
+  text-transform: uppercase;
+  font-size: 2.5em;
+}
+
 .avatar {
   border-radius: 50%;
   width: 100%;
-    max-width: 200px;
+  max-width: 200px;
 }
 
 .pure-g > div {
@@ -22,7 +28,7 @@
 .social li {
   display: inline-block;
   padding: 1.5%;
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .fa {

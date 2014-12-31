@@ -12,7 +12,7 @@ As defined on [Wikipedia](http://en.wikipedia.org/wiki/Template_method_pattern),
 
 > In software engineering, the template method pattern is a behavioral design pattern that defines the program skeleton of an algorithm in a method, called template method, which defers some steps to subclasses.
 
-### The Basic Autocomplete Algorithm
+## The Basic Autocomplete Algorithm
 
 So let's break down this definition in the context of an autocomplete. What would be the template method, or "program skeleton of an algorithm"? In an autocomplete, the algorithm would be:
 
@@ -24,7 +24,7 @@ So let's break down this definition in the context of an autocomplete. What woul
 
 These steps are pretty common across all autocompletes. So what parts of an autcomplete might be unique? First, how the data is fetched and parsed would be unique across different autcomplete instances. This includes the API endpoint and how the response is resolved. Maybe you have to do a little preprocessing on the response to get to the actual data you want to render. Maybe you have a client-side caching solution where you first check the cache for results, and if it isn't there then you make an API request. Second, how the data is rendered is unique across different autocomplete instances. Maybe you are using a Backbone View or plain client-side templating. The template method doesn't really care about these implementation details. The template method controls the main autocomplete algorithm and delegates the unique details to subclasses, in this case, _SearchAutcomplete_.
 
-### The Search Autocomplete API
+## The Search Autocomplete API
 
 Let's look at the API of the _SearchAutocomplete_ subclass first. _SearchAutocomplete_ will contain the methods for requesting and rendering data, and it extends from a parent class _Autocomplete_ that contains the template method. If you were to have other autocompletes on your site, they would also extend _Autocomplete_ and have methods for requesting and rendering data.
 
@@ -38,7 +38,7 @@ new SearchAutocomplete({
 
 We'll create a new instance of _SearchAutocomplete_ and pass it the selectors for the text input that will trigger the autocomplete on keyup and a selector for where the results will be placed.
 
-### The Template Method
+## The Template Method
 
 Now we'll define the parent class that _SearchAutocomplete_ extends from. This parent class will contain the general autocomplete algorithm (the template method).
 
@@ -92,7 +92,7 @@ Next is the _throttleSearch()_ method which contains the general autcomplete alg
 If you look at _throttleSearch()_, you will notice that it calls a method called _request()_ that returns a promise. When this promise resolves, it will then call a method called _render()_ with the response from the request. Neither of these methods have been defined yet. They will be deferred to the _SearchAutocomplete_ subclass.
 
 
-### The "Abstract Methods"
+## The "Abstract Methods"
 
 To show that subclasses of _Autocomplete_ need to have methods _render()_ and _request()_, we can create them on _Autocomplete_ and have them throw custom errors, thus mimicking how abstract methods behave in classical object oriented languages. This isn't required but it can be useful to document that these methods need to be defined in a subclass. It can also be useful in case another developer tries to instantiate _Autocomplete_ on its own.
 
@@ -106,7 +106,7 @@ Autocomplete.prototype.request = function() {
 };
 ```
 
-### The Search Autocomplete Subclass
+## The Search Autocomplete Subclass
 
 
 
@@ -149,7 +149,7 @@ SearchAutocomplete.prototype.render = function(data) {
 
 I have given the required methods _request()_ and _render()_ example definitions here. If you look back at the _setTimeout_ in _Autocomplete_ _throttleSearch()_, _request()_ must return a promise. _render()_ can return anything that jQuery's _.html()_ accepts as a parameters.
 
-### Summary
+## Summary
 
 The template method design pattern is a very useful pattern and one you could likely be using already. It lets a parent class define a general algorithm, and delegates the parts that will vary to subclasses. In the autocomplete example, _Autocomplete_ is the parent class with the general algorithm. _SearchAutocomplete_ is a subclass of _Autocomplete_ that implements the specifics for requesting and rendering data.
 

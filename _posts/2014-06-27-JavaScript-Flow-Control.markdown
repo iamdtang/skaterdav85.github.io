@@ -11,7 +11,7 @@ Learning how to manage asynchronous code in JavaScript can be challenging. In th
 2. Promises and the q library
 3. async.js library
 
-### 1. Nested callback functions
+## 1. Nested callback functions
 
 The first approach to managing flow control in JavaScript is using nested callback functions. This approach is probably the most intuitive and straighforward way to managing asynchronous operations. It is also likely the first approach you will learn when starting with Node.js. The basic idea here is that within each success callback function, you perform the next asynchronous operation. By nesting callbacks, you can guarantee a consistent execution order. Let's look at an example. 
 
@@ -41,7 +41,7 @@ Let's look at a better approach to managing flow control using promises.
 [Full example with nested callbacks](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-callbacks)
 
 
-### 2. Promises and Q
+## 2. Promises and Q
 
 ```js
 var q = require('q');
@@ -136,7 +136,7 @@ You might be wondering what is 'dfd' in the expedia and orbitz modules above. df
 [Full example with promises and q](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-promises)
 
 
-### 3. async.js
+## 3. async.js
 
 The last popular approach to managing flow control in JavaScript is using the async.js library. This works in both the browser and Node.js.
 
@@ -185,11 +185,11 @@ This example highlights just one method from async.js, but it comes with several
 
 [Full example with async.js](https://github.com/ITP-Webdev/flow-control-exercises/tree/solution-async)
 
-### Conclusion
+## Conclusion
 
 I hope these 3 examples have given some insight into managing multiple asynchronous operations in JavaScript. Being able to write asynchronous code can be really performant, but it can be tricky and managing these operations while having maintainable code can be challenging. Hopefully these techniques enable you to write more maintainable asynchronous JavaScript. If you have any questions, ask in the comments. Thanks for reading!
 
-### Resources
+## Resources
 
 * [async.js](https://www.npmjs.org/package/async)
 * [q](https://www.npmjs.org/package/q)
