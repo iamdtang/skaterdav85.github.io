@@ -5,7 +5,7 @@ date:   2015-01-01
 categories: ['JavaScript', 'Design Patterns']
 ---
 
-Over the past year I have been reading a lot about design patterns. One of the patterns I learned about is the Template Method pattern. After reading about it, I realized that I had already been using it and found there was a name for it. I wanted to show a practical example of this pattern where I used it to create reusable Autocomplete components. 
+Over the past year I have been reading a lot about design patterns. One of the patterns I learned about was the Template Method pattern. After reading about it, I realized that I had already been using it and found there was a name for it. I wanted to show a practical example of this pattern where I used it to create reusable Autocomplete components. 
 
 As defined on [Wikipedia](http://en.wikipedia.org/wiki/Template_method_pattern), the template method pattern states:
 
@@ -14,17 +14,28 @@ As defined on [Wikipedia](http://en.wikipedia.org/wiki/Template_method_pattern),
 
 ## The Basic Autocomplete Algorithm
 
-So let's break down this definition in the context of an autocomplete. What would be the template method, or "program skeleton of an algorithm"? In an autocomplete, the algorithm would be:
+So let's break down this definition in the context of an autocomplete. What would be the template method, or "program skeleton of an algorithm"? In this autocomplete, the algorithm would be:
 
-1. Listen for keyup events from the user on a text input
-2. Fire off a request for data if the user types in a minimum number of characters (we'll say at least 3 characters in this example). Once 3 characters have been typed:
-3. Fire a request when the user has likely paused typing and is waiting for results. This way the server isn't hammered with requests after each keypress. We'll assume that the user has stopped typing if they pause for at least 300 milliseconds.
-4. Take the data when the response comes back and render it in a results container.
-5. Show the results container.
+1. Listen for input from the user
+2. Queue up a request for data based on user input
+3. Cancel any previous queued requests
+4. Render the response
+5. Show the results
 
-These steps are pretty common across all autocompletes. So what parts of an autcomplete might be unique? First, how the data is fetched and parsed would be unique across different autcomplete instances. This includes the API endpoint and how the response is resolved. Maybe you have to do a little preprocessing on the response to get to the actual data you want to render. Maybe you have a client-side caching solution where you first check the cache for results, and if it isn't there then you make an API request. Second, how the data is rendered is unique across different autocomplete instances. Maybe you are using a Backbone View or plain client-side templating. The template method doesn't really care about these implementation details. The template method controls the main autocomplete algorithm and delegates the unique details to subclasses, in this case, _SearchAutcomplete_.
+Rather than making requests immediately on each keystroke from the user, which could really impact the server, we'll instead fire a request when the user is expecting feedback. We'll assume that the user is expecting results to display if they pause from typing for at least 300 milliseconds.
+
+
+So what parts of an autcomplete might be unique? 
+
+First, how the data is fetched and parsed would be unique across different autcomplete instances. This includes the API endpoint and how the response is resolved. Maybe you have to do a little preprocessing on the response to get to the actual data you want to render. Maybe you have a client-side caching solution where you first check the cache for results, and if it isn't there then you make an API request. 
+
+Second, the rendering of the data is unique across different autocomplete instances. Maybe you are using a Backbone View? Maybe you are just using plain client-side templating? 
+
+The template method doesn't really care about these implementation details. The template method controls the main autocomplete algorithm and delegates the unique steps to methods in subclasses.
 
 ## The Search Autocomplete API
+
+In this example, we will have a class _Autocomplete_ containing the template method and a subclass _SearchAutocomplete_ which will specify the steps for requesting and rendering data.
 
 Let's look at the API of the _SearchAutocomplete_ subclass first. _SearchAutocomplete_ will contain the methods for requesting and rendering data, and it extends from a parent class _Autocomplete_ that contains the template method. If you were to have other autocompletes on your site, they would also extend _Autocomplete_ and have methods for requesting and rendering data.
 
@@ -40,7 +51,7 @@ We'll create a new instance of _SearchAutocomplete_ and pass it the selectors fo
 
 ## The Template Method
 
-Now we'll define the parent class that _SearchAutocomplete_ extends from. This parent class will contain the general autocomplete algorithm (the template method).
+Now we'll define the parent class, _Autocomplete_, that _SearchAutocomplete_ extends from. This parent class will contain the general autocomplete algorithm (the template method).
 
 ```js
 function Autocomplete(options) {
