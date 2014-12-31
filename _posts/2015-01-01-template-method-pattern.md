@@ -5,7 +5,7 @@ date:   2015-01-01
 categories: ['JavaScript', 'Design Patterns']
 ---
 
-Over the past year I have been reading a lot about design patterns. One of the patterns I learned about was the Template Method pattern. After reading about it, I realized that I had already been using it and found there was a name for it. I wanted to show a practical example of this pattern where I used it to create a reusable class for Autocomplete components.
+Over the past year I have been reading a lot about design patterns. One of the patterns I learned about was the Template Method pattern. After reading about it, I realized that I had already been using it and found there was a name for it. I wanted to show a practical example of this pattern where I used it to create a reusable class for autocomplete components.
 
 As defined on [Wikipedia](http://en.wikipedia.org/wiki/Template_method_pattern), the template method pattern states:
 
