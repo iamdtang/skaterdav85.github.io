@@ -1,0 +1,13 @@
+@media (max-width: 480px) {
+    .mobile {
+        width: 100%;
+    }
+
+    .sticky-header {
+    	position: static;
+    }
+
+    .main-content {
+		  padding-top: 0;
+		}
+}

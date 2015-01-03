@@ -1,7 +1,32 @@
+h1 {
+  color: $text;
+}
+
 .logo {
   color: #1884BB;
   text-transform: uppercase;
-  font-size: 2.5em;
+  font-size: 1em;
+}
+
+.main-content {
+  padding-top: 80px;
+}
+
+.sticky-header {
+  background-color: $bg1;
+  position: fixed;
+  width: 100%;
+  padding: 15px;
+  z-index: 100;
+
+  h1, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  a, p {
+    color: white;
+  }
 }
 
 .avatar {
@@ -32,13 +57,13 @@
 }
 
 .fa {
-  background-color: white;
-  color: #1884BB;
+  background-color: $primary;
+  color: $sidebarbg;
   padding: 10px;
   border-radius: 50%;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transform: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transform: all 0.5s;
 }
 
 .social li:hover .fa {
@@ -49,12 +74,8 @@
 
 .sidebar {
   text-align: center;
-  background-color: #1884BB;
-  color: white;
-}
-
-.title-bar {
-  background-color: #1884BB;
+  background-color: $sidebarbg;
+  color: $sidebartext;
 }
 
 .title-bar a {
@@ -63,7 +84,7 @@
 }
 
 .post a.title {
-  color: #1884BB;
+  color: $primary;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -84,10 +105,6 @@
 
 .post img {
   width: 100%;
-}
-
-.sidebar p {
-  color: white;
 }
 
 .read-more {
@@ -125,7 +142,7 @@
 .categories li {
   display: inline-block;
   text-decoration: none;
-  background: #777;
+  background: $bg1;
   color: white;
   border-radius: 10px;
   padding: 3px 10px;
@@ -162,11 +179,5 @@
 
 .content {
   background-color: white;
-}
-
-@media (max-width: 480px) {
-    .mobile {
-        width: 100%;
-    }
 }
 

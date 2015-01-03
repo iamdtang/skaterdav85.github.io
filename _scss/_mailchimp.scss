@@ -6,7 +6,9 @@
 #mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
 #mc_embed_signup input:focus {border-color:#333;}
 #mc_embed_signup .button {clear:both; background-color: #aaa; border: 0 none; border-radius:4px; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; font-weight: bold; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding:0; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto;}
-#mc_embed_signup .button:hover {background-color:#777;}
+#mc_embed_signup .button:hover {
+	background-color:$primary;
+}
 #mc_embed_signup .small-meta {font-size: 11px;}
 #mc_embed_signup .nowrap {white-space:nowrap;}     
 #mc_embed_signup .clear {clear:none; display:inline;}
@@ -34,7 +36,7 @@
 	margin:0 0 10px 0; 
 	min-width:90px;
 	letter-spacing: 1.5px;
-	background-color: #4b4b4b
+	background-color: $bg1;
 }
 
 #mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
