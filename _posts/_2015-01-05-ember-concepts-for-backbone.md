@@ -3,6 +3,7 @@ layout: post
 title:  "Useful Concepts from Ember for Backbone Applications"
 date:   2015-01-05
 categories: ['JavaScript', 'Backbone', 'Ember']
+keywords: 
 ---
 
 * Identity mapping for automatic in-memory data caching 
