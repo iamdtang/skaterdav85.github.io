@@ -1,4 +1,6 @@
-skaterdav85.github.io
-=====================
+The JS Guy
+==========
 
-My blog on various development topics.
+http://thejsguy.com
+
+My blog on writing scalable, maintainable, and testable JavaScript.
