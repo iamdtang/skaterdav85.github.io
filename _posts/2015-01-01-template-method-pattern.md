@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Template Method Design Pattern"
+title:  "The Template Method Design Pattern in JavaScript"
 date:   2015-01-01
 categories: ['JavaScript', 'Design Patterns']
 keywords: JavaScript design patterns, the template method pattern
