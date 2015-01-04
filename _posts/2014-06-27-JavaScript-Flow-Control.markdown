@@ -3,6 +3,7 @@ layout: post
 title:  "JavaScript Flow Control"
 date:   2014-06-27
 categories: JavaScript Node.js
+keywords: JavaScript flow control, async.js, promises, q.js, nested callback functions, callback hell, asynchronous programming in JavaScript, AJAX
 ---
 
 Learning how to manage asynchronous code in JavaScript can be challenging. In the browser, asynchronous operations come in the form of AJAX requests and timers. In Node.js, asynchronous operations are typically for I/O operations like reading and writing to the file system, database operations, and HTTP calls. Let's look at 3 popular ways of handling multiple asynchrounous operations. The examples below are written in Node.js, but the following libraries and techniques also apply to browser JavaScript. We will look at managing control flow using:

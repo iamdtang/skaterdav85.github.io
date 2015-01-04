@@ -3,6 +3,7 @@ layout: post
 title:  "Data Modeling in Angular.js with angular-data"
 date:   2014-11-06
 categories: Angular.js JavaScript
+keywords: Angular Data, Ember Data, angular-data, data store
 ---
 
 Recently I gave [angular-data](http://angular-data.pseudobry.com/) a try and found it awesome for data modeling in Angular.js.
