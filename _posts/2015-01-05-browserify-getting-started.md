@@ -2,7 +2,7 @@
 layout: post
 title:  "Getting Started with CommonJS Modules and Browserify"
 date:   2015-01-05
-categories: ['JavaScript', 'Browserify', 'Modules']
+categories: ['JavaScript', 'Browserify']
 ---
 
 Modules allow us to organize code and prevent polluting the global namespace. Until ES6, JavaScript didn't have a native module system. There were however popular module systems created by the community. In the browser, the most popular module system was the Asynchronous Module Definition (AMD). In order to use AMD modules, you could use a library like [Require.js](http://requirejs.org/). The Node.js environment took a different approach to modules and created a module system called CommonJS. If you'd like to use CommonJS style modules in the browser, there is a tool called [Browserify](http://browserify.org/) which has been picking up steam. Which module system you choose is entirely up to your team's preference and application's needs. 
@@ -15,7 +15,7 @@ To create a CommonJS module, simply create a new JavaScript file. Anything in th
 
 ### Custom Modules - Example 1
 
-Let's say we have a _Validation_ constructor stored in _validation.js_ and a _User_ constructor stored in the _models_ directory.
+Let's say we have a _Validation_ constructor function stored in _validation.js_ and a _User_ constructor function stored in the _models/user.js_.
 
 <img src="/images/browserify/folderstructure1.png" alt="Example 1 folder structure" style="width: 200px;">
 
@@ -25,6 +25,15 @@ __validation.js__
 function Validation() { /* implementation here */ }
 Validation.prototype.passes = function() { /* implementation here */ };
 module.exports = Validation;
+```
+
+Here I've defined a constructor function _Validation_ with a method _passes()_. This function is made public by assigning it to _module.exports_ which is accessible from every module.
+
+And similarly for __models/user.js__:
+
+```js
+function User() { /* implementation here */ }
+module.exports = User;
 ```
 
 If we want to access a module from _main.js_, we need to use the _require()_ function and specify a relative path to the file wihout the _.js_ extension.
@@ -38,6 +47,36 @@ console.log(User);
 ```
 
 What _require()_ returns is whatever is set to _module.exports_ in the module being required. For the validation module, _main.js_ can't see anything else but the _Validation_ constructor function. Any variables declared inside _validation.js_ are inaccessible from _main.js_.
+
+So in other words, if we had the following in __validation.js__:
+
+```js
+var emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+function Validation() { /* implementation here */ }
+Validation.prototype.passes = function() { /* implementation here */ };
+module.exports = Validation;
+```
+
+The variable _emailPattern_ would only be accessible from within validation.js and could not be seen from _main.js_.
+
+One other thing to mention is that in every module, there is another variable availabled called _exports_ which references _module.exports_.
+
+__databaseConfig.js__
+
+```js
+exports.host = 'localhost';
+exports.username = 'root';
+exports.password = 'root';
+exports.database = 'mydb';
+```
+
+__main.js__
+
+```js
+var db = require('./databaseConfig.js');
+console.log(db); // { host: 'localhost', username: 'root', password: 'root', database: 'mydb' }
+```
 
 ### Custom Modules - Example 2
 
@@ -86,7 +125,7 @@ formatters.date(); // format date
 
 ### Working With Third Party Modules
 
-We can also work with third party modules from NPM. Let's install one I created called validatorjs.
+We can also work with third party modules from NPM. Let's install one I created called [validatorjs](https://www.npmjs.com/package/validatorjs), which was inspired by the Validator class in the Laravel framework.
 
 ```
 npm install validatorjs
@@ -142,4 +181,4 @@ One thing to note, when using `watchify`, you will see full system paths to your
 
 ## Conclusion
 
-Browserify is a command line tool that allows us to use CommonJS modules in the browser. In the comments, let me know what module system you are using.
+Browserify is a command line tool that allows us to use CommonJS modules in the browser. Let me know what your thoughts are on using CommonJS modules in the browser through Browserify.
