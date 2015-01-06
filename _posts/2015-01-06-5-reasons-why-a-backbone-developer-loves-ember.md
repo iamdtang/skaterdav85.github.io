@@ -6,7 +6,7 @@ categories: ['JavaScript', 'Ember', 'Backbone']
 keywords: 
 ---
 
-Last year I started a new job as Senior JavaScript Developer where I am currently tasked with rebuilding an ecommerce site for the company. The JavaScript stack is using Backbone, Lodash, Handlebars, Zepto, Require.js, and CoffeeScript. I had played with Backbone when it first came out and used it for small things but this has definitely been my biggest Backbone project. Prior to this job I had been using a lot of Angular. As I learned more and more about Backbone, I kept missing some of the features and structure Angular had. So I thought to myself, maybe I am doing something wrong. I went on to read [Building Backbone Plugins by Derick Bailey](https://leanpub.com/building-backbone-plugins), looked at Marionette.js, and incorporated several of those ideas into our own abstractions. This definitely helped remove some of the boilerplate code since Backbone is really minimalistic. Even with these abstractions, certain things felt wrong and messy. At that point, I decided to learn Ember just to hopefully learn and borrow some new concepts despite knowing that Ember was something we wouldn't use for this project. So here is my list of 5 things that I learned and borrowed from Ember for Backbone.
+Last year I started a new job as Senior JavaScript Developer where I am currently tasked with rebuilding an ecommerce site for the company. The JavaScript stack is using Backbone, Lodash, Handlebars, Zepto, Require.js, and CoffeeScript. I had played with Backbone when it first came out and used it for small things but this has definitely been my biggest Backbone project. Prior to this job I had been using a lot of Angular. As I learned more and more about Backbone, I kept missing some of the features and structure Angular had and wish it had a fe. So I thought to myself, maybe I am doing something wrong. I went on to read [Building Backbone Plugins by Derick Bailey](https://leanpub.com/building-backbone-plugins), looked at Marionette.js, and incorporated several of those ideas into our own abstractions. This definitely helped remove some of the boilerplate code since Backbone is really minimalistic. Even with these abstractions, certain things felt wrong and messy. At that point, I decided to learn Ember just to hopefully learn and borrow some new concepts despite knowing that Ember was something we wouldn't use for this project. So here is my list of 5 things that I learned and borrowed from Ember for Backbone.
 
 ## 1. Computed Properties
 
@@ -29,7 +29,7 @@ var Person = Backbone.Model.extend({
 });
 ```
 
-Whenever _Person_ is instantiated or a person's _firstname_ or _lastname_ changes, _fullname_ will recompute. Now although you can do it this way, this approach is kind of messy and all over the place. Just by reading the source code, it is not immediately clear that there is a _fullname_ computed property. This gets even more unwieldy if you have several computed properties defined in this style.
+Whenever _Person_ is instantiated or a person's _firstName_ or _lastName_ changes, _fullName_ will recompute. Now although you can do it this way, this approach is kind of messy and all over the place. Just by reading the source code, it is not immediately clear that there is a _fullName_ computed property. This gets even more unwieldy if you have several computed properties defined in this style.
 
 ```js
 var Product = Backbone.Model.extend({
@@ -93,7 +93,7 @@ I had already been thinking about caching but I wasn't settled on how to go abou
 
 ## 3. A Container
 
-In pages with a decent amount of JavaScript, you'll often run into the situation where you'll need an object to be long-lived so that other objects can find it and interact with it. For example, thinking about a _ShoppingCart_ constructor/class. When the page loads, you create an instance of _ShoppingCart_ and you have various views that need to interact with it. Where do you put this shopping cart instance so that other views can access it? You could make it globally accessible, but that kind of defeats the purpose of using a module system. Ember's container exists for this very reason. The Ember container basically gives a place for any long-lived objects to be stored and accessed. Now Ember's container does much more than giving a home to long-lived objets, but this idea alone of having a central registry for long-lived objects like a shopping cart instance can be pretty useful.
+In pages with a decent amount of JavaScript, you'll often run into the situation where you'll need an object to be long-lived so that other objects can find it and interact with it. For example, thinking about a _ShoppingCart_ constructor/class. When the page loads, you create an instance of _ShoppingCart_ and you have various views that need to interact with it. Where do you put this shopping cart instance so that other views can access it? You could make it globally accessible, but that kind of defeats the purpose of using a module system. Ember's container exists for this very reason. The Ember container basically gives a place for any long-lived objects to be stored and accessed. Now Ember's container does much more than giving long-lived objects a home, but this idea alone of having a central registry for housing certain objects like a shopping cart instance can be pretty useful.
 
 The container API I wrote looks somethine like this:
 
@@ -101,7 +101,7 @@ The container API I wrote looks somethine like this:
 // store an instance of Foo into the container
 container.singleton('foo', new Foo());
 
-// look up foo
+// Returns that same Foo instance
 container.lookup('foo')
 ```
 
