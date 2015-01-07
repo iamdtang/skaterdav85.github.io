@@ -3,7 +3,7 @@ layout: post
 title:  "Getting Started with CommonJS Modules and Browserify"
 date:   2015-01-05
 categories: ['JavaScript', 'Browserify']
-keywords: CommonJS Modules, Introduction to Browserify, Getting Started with Browserify, Browserify Tutorial, CommonJS tutorial, CommonJS vs AMD
+keywords: CommonJS Modules, Introduction to Browserify, Getting Started with Browserify, Browserify Tutorial, CommonJS tutorial, CommonJS vs AMD, CommonJS and Browserify tutorial
 ---
 
 Modules allow us to organize code and prevent polluting the global namespace. Until ES6, JavaScript didn't have a native module system. There were however popular module systems created by the community. In the browser, the most popular module system was the Asynchronous Module Definition (AMD). In order to use AMD modules, you could use a library like [Require.js](http://requirejs.org/). The Node.js environment took a different approach to modules and created a module system called CommonJS. If you'd like to use CommonJS style modules in the browser, there is a tool called [Browserify](http://browserify.org/) which has been picking up steam. Which module system you choose is entirely up to your team's preference and application's needs. 
