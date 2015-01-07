@@ -130,6 +130,14 @@ var Person = BaseModel.extend({
 
 It is definitely not the best solution as it has its own issues so I'd love to hear how others separate out display logic properties from their Backbone models.
 
+#### UPDATE:
+
+Recently I have been experimenting with a solution for this. See [An Approach to View-Models in Backbone](/javascript/backbone/2015/01/07/view-models-in-backbone.html)
+
 ## Summary
 
 Having seriously worked with Backbone for the past 8 months, I can say that I have learned a lot and can appreciate its simplicity and flexibility. However, with this flexibility comes great responsibility. I really like how Tom Dale put it in the [Fluent 2014 interview](https://www.youtube.com/watch?v=VI__nGPT9kk) where Ember "acts as a guard rail" and it "nudges you in the right direction". Having to put so much thought into architecting Backbone code before I can even write a feature, sometimes I wish Backbone nudged you more in a certain direction. Even as an Ember noob, I can definitely appreciate its philosophies and I have found that by learning it, it has helped give me opinions to work more effectively with Backbone.
+
+## Related Posts
+
+* [An Approach to View-Models in Backbone](/javascript/backbone/2015/01/07/view-models-in-backbone.html)
