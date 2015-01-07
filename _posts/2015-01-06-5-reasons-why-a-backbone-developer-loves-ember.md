@@ -128,7 +128,7 @@ var Person = BaseModel.extend({
 ```
 
 
-It is definitely not the best solution as it has its own issues so I'd love to hear how others separate out display logic properties from their models in Backbone.
+It is definitely not the best solution as it has its own issues so I'd love to hear how others separate out display logic properties from their Backbone models.
 
 ## Summary
 
