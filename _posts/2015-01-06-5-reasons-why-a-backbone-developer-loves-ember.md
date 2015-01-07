@@ -89,7 +89,7 @@ Another feature of Ember that I really like is its data store, Ember Data. I rea
 
 For example, in your application if you make a request for a user object with an id of 1, and you make another AJAX request for the user with an id of 1, you're going to have two user objects with an id of 1 which represent the same person but they are different objects in memory. That second trip to the server for user with an id of 1 is a wasted trip when it could have been cached. Also, many times in web applications you need a reference to the same "user with an id of 1" instance, not a copy of it. Identity mapping is a pattern that allows you to return the same user with an id of 1 instance, regardless of how many times you look it up. 
 
-I had already been thinking about caching but I wasn't settled on how to go about implementing it in the context of Backbone. After learning the basics of Ember Data, and then later angular-data, I went and built a small data store library for Backbone for my own use called [Backbone Data](https://github.com/skaterdav85/backbone-data). Starting to see a pattern here?
+I had already been thinking about caching but I wasn't settled on how to go about implementing it in the context of Backbone. After learning the basics of Ember Data, and then later angular-data, I went and built a small data store library for Backbone for my own use called [Backbone Data](https://github.com/skaterdav85/backbone-data).
 
 ## 3. A Container
 
