@@ -95,7 +95,7 @@ I had already been thinking about caching but I wasn't settled on how to go abou
 
 In pages with a decent amount of JavaScript, you'll often run into the situation where you'll need an object to be long-lived so that other objects can find it and interact with it. For example, thinking about a _ShoppingCart_ constructor/class. When the page loads, you create an instance of _ShoppingCart_ and you have various views that need to interact with it. Where do you put this shopping cart instance so that other views can access it? You could make it globally accessible, but that kind of defeats the purpose of using a module system. Ember's container exists for this very reason. The Ember container basically gives a place for any long-lived objects to be stored and accessed. From what I've read, Ember's container does much more than giving long-lived objects a home, but this idea alone of having a central registry for housing certain objects like a shopping cart instance can be pretty useful.
 
-The container API I wrote looks somethine like this:
+The container API I wrote looks something like this:
 
 ```js
 // store an instance of Foo into the container
