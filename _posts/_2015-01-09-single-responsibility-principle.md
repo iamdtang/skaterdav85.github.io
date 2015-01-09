@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SOLID JavaScript Part 1: The Single Responsibility Principle"
-date:   2015-01-08
+date:   2015-01-09
 categories: ['JavaScript', 'SOLID']
 keywords: SOLID JavaScript, Single Responsibility Principle in JavaScript, SOLID Principles in JavaScript, Single Responsibility Principle, SRP
 ---
@@ -20,183 +20,60 @@ In this post, we will look at the Single Responsibility Principle (SRP). The Sin
 
 Imagine you are building an ecommerce site that supports multiple locales. You need to display product prices formatted to the user's locale. Your price formatter public API might be:
 
-```js
-new PriceFormatter(1000).format(); 
-```
-
 Here is an outline for a rudimentary implementation:
 
 ```js
-function PriceFormatter(price) {
-	this.price = price.toFixed(2);
+function User(attributes) {
+	this.attributes = attributes;
+	this.formattedLastLoggedIn = this.formatLastLoggedIn();
 }
 
-PriceFormatter.prototype.format = function() {
-	var locale = this.getLocale();
-	var localeCurrencyMap = {
-		'en-us': 'usd',   // United States
-		'en-gb': 'pound', // United Kingdom
-		'de-de': 'euro',  // Germany
-		'fr-fr': 'euro'   // France
-	};
-	var currency = localeCurrencyMap[locale];
+// formats the time to something like: 2:24:32
+User.prototype.formatLastLoggedIn = function() {
+	var dateTime = new Date(this.attributes.lastLoggedIn);
+	var hours = dateTime.getHours();
+    var minutes = dateTime.getMinutes();
+    var seconds = dateTime.getSeconds();
 
-	switch(this.currency) {
-		case 'usd':
-			this.price = addThousandsSeparator(this.price, ',');
-			return '$' + this.price;
-		case 'euro':
-			this.price = setDecimalSeparator(this.price, ',');
-			this.price = addThousandsSeparator(this.price, '.');
-			return '€' + this.price;
-		case 'pound':
-			this.price = setDecimalSeparator(this.price, ',');
-			this.price = addThousandsSeparator(this.price, '.');
-			return '£' + this.swapCommasAndPeriods(this.price);
-		default:
-			throw new Error('Unsupported currency');
-	}
+    if (minutes < 10) {
+    	minutes = '0' + minutes;
+    }
+    	
+    if (seconds < 10) {
+    	seconds = '0' + seconds;	
+    }
+     
+    return [hours, minutes, seconds].join(':');
 };
 
-PriceFormatter.prototype.getLocale = function() {
-	var urlSegments = window.location.pathname.split('/');
-	return urlSegments[1];
-};
-
-function addThousandsSeparator(price, separator) {
-	/* implementation details */
-}
-
-function setDecimalSeparator(price, separator) {
-	/* implementation details */
-}
-```
-
-to this:
-
-```js
-var currency = {
-	'en-us': 'usd',   // United States
-	'en-gb': 'pound', // United Kingdom
-	'de-de': 'euro',  // Germany
-	'fr-fr': 'euro',   // France
-
-	getByLocale function() {
-		return this[locale.get()];
-	}
-};
-
-var locale = {
-	get: function() {
-		// return the user's locale from the URL, cookie, localeStorage, etc ...
-	}
-};
-
-
-function Currency(currency) {}
-
-Currency.prototype.formatPrice = function(price) {
-	
-};
-
-function PriceFormatter(price) {
-	this.price = price.toFixed(2);
-}
-
-PriceFormatter.prototype.format = function() {
-	var currency = new Currency(locale.getCurrency());
-	return currency.formatPrice(this.price);
-
-	/*
-	switch(currency) {
-		case 'usd':
-			this.price = addThousandsSeparator(this.price, ',');
-			return '$' + this.price;
-		case 'euro':
-			this.price = setDecimalSeparator(this.price, ',');
-			this.price = addThousandsSeparator(this.price, '.');
-			return '€' + this.price;
-		case 'pound':
-			this.price = setDecimalSeparator(this.price, ',');
-			this.price = addThousandsSeparator(this.price, '.');
-			return '£' + this.swapCommasAndPeriods(this.price);
-		default:
-			throw new Error('Unsupported currency');
-	}
-	*/
-};
+new User({
+	email: 'DAVID@GMAIL.COM',
+	lastLoggedIn: Date.now()
+});
 ```
 
 On the surface, this implementation might seem ok. We are pulling the locale from the URL to lookup the currency and then formatting the price based on that currency. However, if we look a little closer, we can see that _PriceFormatter_ is doing more than one job. 
 
 First, why does _PriceFormatter_ need to know where it gets the locale from? The job of _PriceFormatter_ is to format a price by currency, not find the user's locale. It's possible that the locale might not always come from the URL. Maybe this code will run on a page where the locale is not specified in the URL and is instead stored in a cookie, localStorage, or dumped into a JavaScript variable from the server. Furthermore, are there any other places in the application that might need access to the locale? From my experience, this is probably so. Finding the user's locale through _PriceFormatter_ wouldn't be so intuitive. These are all things you'd probably want to consider when designing this utility. As it stands, _PriceFormatter_ is tightly coupled to the URL, and locale retrievel is tightly coupled to _PriceFormatter_. Second, if a new locale is introduced into the site, _localeCurrencyMap_ inside of the _format()_ method will need to be updated. Third, if a new currency is introduced, the _format()_ method will also need to be changed. As you can see, there is more than one reason that this constructor function can change. Hence, it violates the Single Responsibility Principle.
 
-So how can we refactor this code to follow the Single Responsibility Principle? First, let's move the locale-currency map into its own configuration object.
+## Let's Refactor
 
-```js
-var localeCurrencyMap = {
-	'en-us': 'usd',   // United States
-	'en-gb': 'pound', // United Kingdom
-	'de-de': 'euro',  // Germany
-	'fr-fr': 'euro'   // France
-};
-```
+To follow the Single Responsibility Principle, first let's move the locale-currency map into its own configuration object.
 
-Next, let's move the locale retrieval to its own object.
 
-```js
-var locale = {
-	get: function() {
-		// return the user's locale from the URL, cookie, localeStorage, etc ...
-	},
-
-	getCurrency: function() {
-		return localeCurrencyMap[this.get()];
-	}
-};
-```
 
 This object will deal with accessing the user's locale, allowing other consumers not to care about where the locale is coming from.
 
 Finally, let's update _PriceFormatter_.
 
 ```js
-function addThousandsSeparator(price, separator) {
-	/* implementation details */
-}
 
-function setDecimalSeparator(price, separator) {
-	/* implementation details */
-}
-
-function PriceFormatter(price, currency) {
-	this.price = price.toFixed(2);
-	this.currency = currency;
-}
-
-PriceFormatter.prototype.format = function() {
-	switch(this.currency) {
-		case 'usd':
-			this.price = addThousandsSeparator(this.price, ',');
-			return '$' + this.price;
-		case 'euro':
-			this.price = setDecimalSeparator(this.price, ',');
-			this.price = addThousandsSeparator(this.price, '.');
-			return '€' + this.price;
-		case 'pound':
-			this.price = setDecimalSeparator(this.price, ',');
-			this.price = addThousandsSeparator(this.price, '.');
-			return '£' + this.swapCommasAndPeriods(this.price);
-		default:
-			throw new Error('Unsupported currency');
-	}
-};
 ```
 
 Rather than having _PriceFormatter_ lookup the user's currency, we'll pass that into the constructor. This way we can easily swap out the currency if necessary.
 
 ```js
-new PriceFormatter(1000, locale.getCurrency()).format();
+
 ```
 
 
