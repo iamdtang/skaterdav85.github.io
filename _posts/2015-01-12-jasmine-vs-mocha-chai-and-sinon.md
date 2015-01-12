@@ -2,7 +2,7 @@
 layout: post
 title:  "Jasmine vs. Mocha, Chai, and Sinon"
 date:   2015-01-12
-keywords: Jasmine unit testing, Jasmine vs. Mocha, Jasmine spies vs Sinon, JavaScript unit testing
+keywords: Jasmine unit testing, Jasmine vs. Mocha, Jasmine spies vs Sinon, JavaScript unit testing, Introduction to Sinon.js, Sinon Tutorial
 ---
 
 I first got into JavaScript testing with the Jasmine 1.3 framework. At the time, it was probably the most popular unit testing framework for JavaScript. Even to this day, Jasmine has almost everything I need to write unit tests. It has a very readable API and a mocking library (spies) already built in. Recently, I started a couple open source projects to add some Ember-like features to the Backbone project I am building at work and I decided to try Mocha, Chai, and Sinon. This post is a quick overview of the differences between Jasmine 1.3 and Mocha, Chai, and Sinon.
