@@ -170,3 +170,8 @@ If you have worked with Angular, Sinon's fake server is similar to the _$httpBac
 ## Conclusion
 
 Mocha, Chai, and Sinon definitely have some advantages over Jasmine 1.3. With the release of 2.x though, both seem pretty comparable from what I have looked at. Whether you choose Jasmine or Mocha, Sinon can be a great addition to your test harness especially for the fake server. After doing some research on upgrading from Jasmine 1.3 to 2.x, it looks like it has to be done manually since it is not backwards compatible. 
+
+## Related Posts
+
+* [Angular Backend Definitions with _$httpBackend_](/angular.js/javascript/2014/01/20/backend-definitions-with-httpBackend.html)
+* [Angular Request Expectations with _$httpBackend_]({% post_url 2014-01-18-request-expectations-with-httpBackend %})

@@ -50,4 +50,4 @@ As stated in the [Angular.js docs for $httpBackend](http://docs.angularjs.org/ap
 
 > "Request expectations provide a way to make assertions about requests made by the application and to define responses for those requests. The test will fail if the expected requests are not made or they are made in the wrong order."
 
-Next up, learn about [Angular Backend Definitions with _$httpBackend_](http://localhost:4000/angular.js/javascript/2014/01/20/backend-definitions-with-httpBackend.html).
+Next up, learn about [Angular Backend Definitions with _$httpBackend_](/angular.js/javascript/2014/01/20/backend-definitions-with-httpBackend.html).
