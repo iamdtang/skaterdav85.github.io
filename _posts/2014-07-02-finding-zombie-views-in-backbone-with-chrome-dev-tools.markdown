@@ -2,7 +2,7 @@
 layout: post
 title:  "An Introduction to Finding Memory Leaks in Backbone Applications with Chrome Developer Tools"
 date:   2014-07-02
-categories: JavaScript Backbone.js Performance
+categories: JavaScript, Backbone, Memory
 keywords: Zombie views in Backbone, Backbone memory leaks, JavaScript memory profiling, chrome developer tools, heap snapshots, JavaScript garbage collection, Memory Profiling with Backbone
 ---
 
