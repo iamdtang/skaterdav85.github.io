@@ -132,7 +132,7 @@ It is definitely not the best solution as it has its own issues so I'd love to h
 
 #### UPDATE:
 
-Recently I have been experimenting with a solution for this. See [An Approach to View-Models in Backbone](/javascript/backbone/2015/01/07/view-models-in-backbone.html)
+Recently I have been experimenting with a view-model solution for this. See [An Approach to View-Models in Backbone](/javascript/backbone/2015/01/07/view-models-in-backbone.html)
 
 ## Summary
 
