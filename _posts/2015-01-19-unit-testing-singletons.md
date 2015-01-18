@@ -72,7 +72,7 @@ User.prototype.isLoggedIn = function() {
 };
 ```
 
-First we'll allow the name and logged-in time to be set. This data could come from the server on page load. We'll also implement an `isLoggedIn()` method that returns either true or false.
+First we'll allow the name and logged-in time to be set. This data could come from the server on page load. We'll also implement an `isLoggedIn()` method that returns either true or false. Now let's look at a unit test for `isLoggedIn()`.
 
 ```js
 describe('User', function() {
