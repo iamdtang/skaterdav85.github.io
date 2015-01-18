@@ -180,7 +180,7 @@ describe('static get()', function() {
 });
 ```
 
-This is just one approach to separate out the managing of the single instance from the class itself. Another approach I have taken is to delegate the managing of the single instance to another object. For example:
+This is just one approach to separating out the singleton pattern from the class itself. Another approach I have taken is delegating the singleton pattern to another object. For example:
 
 ```js
 container.singleton('user', new User(APP.user));
