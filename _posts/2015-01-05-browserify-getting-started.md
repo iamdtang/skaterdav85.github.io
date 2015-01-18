@@ -132,7 +132,7 @@ We can also work with third party modules from NPM. Let's install one I created 
 npm install validatorjs
 ```
 
-This will create a folder called _node\_modules_ containing all installed third party modules.
+This will create a folder called _node_modules_ containing all installed third party modules.
 
 
 <img src="/images/browserify/folderstructure3.png" alt="Example 3 folder structure" style="width: 200px;">
