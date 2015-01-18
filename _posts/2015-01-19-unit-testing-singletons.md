@@ -143,7 +143,7 @@ Even though all the tests now pass, the second test is now dependent on an inter
 
 In our test suite, if we could just reload the script that contains this `User` constructor function, then we can ensure that `User` will always be in a fresh state. However, not all test frameworks do that. 
 
-Instead, the approach that I have been taking lately is separating out the singleton pattern into another object or method. For example, rather than implementing the singleton pattern in the `User` constructor function which makes it a little difficult to unit test, I will instead extract it out into a static method on `User`, like `User.get()`. This way, the `User` constructor's only responsibility is to create `User` instances and `User.get()`'s responsibility is to just manage a single `User` instance.
+Instead, the approach that I have been taking lately is separating out the singleton pattern into another object or method. For example, rather than implementing the singleton pattern in the `User` constructor function which makes it a little difficult to unit test, I instead extract it out into a static method on `User`, like `User.get()`. This way, the `User` constructor's only responsibility is to create `User` instances and `User.get()`'s responsibility is to just manage a single `User` instance.
 
 ```js
 User.get = function() {
