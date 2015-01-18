@@ -9,7 +9,7 @@ Often times in web applications you only want a single instance of a class/const
 
 >  "In software engineering, the singleton pattern is a design pattern that restricts the instantiation of a class to one object."
 
-In short, what this means is that you can only have one instance of a particular object. One practical use case of the singleton pattern is modeling an authenticated user in an application. When a person logs into your app, that user can only have one session. There is only one instance of that authenticated user in memory on that user's browser. There are a few ways that you can implement this in JavaScript.
+In short, what this means is that you can only have one instance of a particular object. One practical use case of the singleton pattern is modeling an authenticated user in an application. There is only one instance of that authenticated user in memory on that user's browser. There are a few ways that you can implement this in JavaScript.
 
 ## Implementing the singleton pattern
 
