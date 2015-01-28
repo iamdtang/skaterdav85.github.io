@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mocking in Angular with $provide"
+title:  "Mocking Services in Angular with $provide"
 date:   2015-01-28
 keywords: Mocking in Angular, Testing services in Angular, Unit Testing Angular services, Unit tests, Jasmine unit testing
 ---
