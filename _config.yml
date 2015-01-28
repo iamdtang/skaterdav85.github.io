@@ -2,7 +2,7 @@ name: The JS Guy
 author: David Tang
 paginate: 5
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 sass:
   sass_dir: _scss
   style: :compressed # You might prefer to minify using :compressed
