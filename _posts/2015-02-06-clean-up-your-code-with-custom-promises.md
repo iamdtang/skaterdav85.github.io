@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Clean up your code with custom promises"
+title:  "Clean Up Your Code With Custom Promises"
 date:   2015-02-06
 keywords: JavaScript flow control, async.js, promises, q.js, nested callback functions, callback hell, asynchronous programming in JavaScript, AJAX
 ---
