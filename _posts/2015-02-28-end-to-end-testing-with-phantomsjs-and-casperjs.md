@@ -21,7 +21,7 @@ page.open(url, function (status) {
 });
 ``` 
 
-PhantomJS is a scriptable, headless browser with a JavaScript API. It can be used for things like web scraping like in this small example. What PhantomJS doesn't have is testing utilities. This is whereas CasperJS comes in and provides testing utilities like various assertions, organizing tests, and keeping track of tests that fail and succeed. From my research, lots of testing tools are built on top of PhantomJS to make end to end testing easier. 
+PhantomJS is a scriptable, headless browser with a JavaScript API. It can be used for things like web scraping like in this small example. What PhantomJS doesn't have is testing utilities. This is where CasperJS comes in and provides testing utilities like assertions, organizing tests, and keeping track of tests that fail and succeed.
 
 ## Installation
 
@@ -121,7 +121,9 @@ casper.wait(1000, function() {
 });
 ```
 
-Not a big deal, but sometimes things take longer to load than usual. If this is the case, your end to end tests might not always pass every single time. Hence, these tests aren't always consistent. Also, because end to end tests do rely on selectors and the HTML, if the UI changes slightly in your application, your tests might break, even if the functionality isn't broken. End to end testing is essentially testing from the outside in. Unlike unit tests, if a test fails, it doesn't really tell you what broke. It just tells you that something broke and it is up to you to figure out what exactly broke.
+Not a big deal, but sometimes things take longer to load than usual. If this is the case, your end to end tests might not always pass every single time. Hence, these tests aren't always consistent. Also, because end to end tests do rely on selectors and the HTML, if the UI changes slightly in your application, your tests might break, even if the functionality isn't broken. 
+
+End to end testing is essentially testing from the outside in. Unlike unit tests, if a test fails, it doesn't really tell you what broke. It just tells you that something broke and it is up to you to figure out what exactly broke. Still, being automatically notified that a critical path is broken is very valuable.
 
 What type of testing do you do? Please let me know in the comments!
 
