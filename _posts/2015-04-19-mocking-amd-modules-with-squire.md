@@ -78,7 +78,7 @@ define(['window'], function(window) {
 Once you install Squire, you can simply create an instance of it and use the `mock` method to specify a mock for a particular AMD module.
 
 ```js
-define(['qs', 'Squire'], function(qs, Squire) {
+define(['Squire'], function(Squire) {
 	describe('qs.params', function() {
 	    var injector;
 
@@ -90,7 +90,7 @@ define(['qs', 'Squire'], function(qs, Squire) {
 	        injector.remove();
 	    });
 
-	    it('should contain an objet of all query string params', function() {
+	    it('should contain an objet of all query string params', function(done) {
 	        injector
 	            .mock('window', {
 	                location: {
@@ -102,6 +102,8 @@ define(['qs', 'Squire'], function(qs, Squire) {
 	                    t: 'veg',
 	                    color: 'blue'
 	                });
+
+                  done();
 	            });
 	    });
 	});
