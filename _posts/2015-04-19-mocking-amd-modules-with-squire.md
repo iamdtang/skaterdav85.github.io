@@ -112,6 +112,8 @@ define(['Squire'], function(Squire) {
 
 In the example above, I am mocking the `window` AMD module that I created with a simple JavaScript object containing a static location object. After creating the `window` mock, I can then chain a call to `require` to load up the `qs` module using the `window` mock instead of the `window` AMD module (which just returns the real window object). How awesome is that!
 
+Be aware that `injector.require()` is asynchronous like `require()`. This example is using Jasmine 2.x which allows you to pass in a `done()` function to your test and your test will be considered finished when that `done()` function is called. If I didn't have the `done()` call, the test would finish before the expectation is run, making you think that all your tests passed when in reality one of your expectations wasn't being run.
+
 ## Squire and Karma
 
 If you are using Require.js with Karma and want to use Squire, you might run into some issues when you simply run `new Squire()`. I found the solution on [Stack Overflow](http://stackoverflow.com/questions/17205904/squirejs-causing-random-tests-to-intermittently-fail-or-not-run-at-all). In short, this is what I did to get it working:
