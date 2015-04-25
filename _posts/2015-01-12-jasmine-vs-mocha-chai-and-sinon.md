@@ -23,7 +23,7 @@ describe('calculator', function() {
 });
 ```
 
-The assertions or expectations are where things start to differ. Mocha has a built in assertion library but everyone seems to use Chai.js as the assertion library. I don't have much experience with the standard assertions that Mocha provides but the examples in the documentation were pretty readable. Chai does not come with Mocha so this is another thing you will need to load into your setup. Chai comes with 3 different assertion flavors. It has the `should` style, the `expect` style, and the `assert` style. The `expect` style is similar to Jasmine.
+The assertions or expectations are where things start to differ. Mocha does not have a built in assertion library. There are several options though for both Node and the browser: Chai, should.js, expect.js, and better-assert. A lot of developers seem to choose Chai as the assertion library. Because none of these assertion libraries come with Mocha, this is another thing you will need to load into your setup. Chai comes with 3 different assertion flavors. It has the `should` style, the `expect` style, and the `assert` style. The `expect` style is similar to Jasmine.
 
 __Jasmine__
 
@@ -172,7 +172,7 @@ This is really handy if you want to test your code that makes AJAX calls and som
 
 ## Conclusion
 
-Mocha, Chai, and Sinon together definitely have some advantages over Jasmine 1.3. With the release of Jasmine 2.x though, both are very comparable and are great choices. Whether you choose Jasmine or Mocha, Sinon can be a great addition to your test harness, especially for the fake server. 
+The Jasmine framework has everything built into it including assertions and mocking utilities (spies). Mocha is just a test runner but does not include assertions and mocking utilities. There are several choices for assertions when using Mocha, and Chai seems to be very popular choice. For mocking, you will need to load in Sinon.js. Sinon can also be a great addition to your test harness if you are using Jasmine for its fake server implementation.
 
 ## Related Posts
 
