@@ -172,7 +172,7 @@ This is really handy if you want to test your code that makes AJAX calls and som
 
 ## Conclusion
 
-In conclusion, the Jasmine framework has everything built into it including assertions and mocking utilities (which are called spies). Mocha is just a test runner and does not include assertion and mocking utilities. There are several choices for assertions when using Mocha, and Chai seems to be very popular choice. Mocking in Mocha also requires another library, and Sinon.js is a very popular choice. Sinon can also be a great addition to your test harness if you are using Jasmine for its fake server implementation.
+In conclusion, the Jasmine framework has everything built into it including assertions and mocking utilities (which are called spies). Mocha is just a test runner and does not include assertion and mocking utilities. There are several choices for assertions when using Mocha, and Chai seems to be very popular choice. Mocking in Mocha also requires another library, and Sinon.js seems to be the de-facto choice. Sinon can also be a great addition to your test harness if you are using Jasmine for its fake server implementation.
 
 Trying to figure out testing libraries/frameworks to use for JavaScript can be tough but hopefully this article has made it more clear as to what some of the main differenences are between Jasmine and Mocha. You can't really go wrong with either choice. Happy testing!
 
