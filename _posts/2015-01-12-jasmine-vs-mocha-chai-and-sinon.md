@@ -5,9 +5,9 @@ date:   2015-01-12
 keywords: Jasmine unit testing, Jasmine vs. Mocha, Jasmine spies vs Sinon, JavaScript unit testing, Introduction to Sinon.js, Sinon Tutorial
 ---
 
-I first got into JavaScript testing with the Jasmine 1.3 framework. At the time, it was probably the most popular unit testing framework for JavaScript. Even to this day, Jasmine has almost everything I need to write unit tests. It has a very readable API and a mocking library (spies) already built in. Recently, I started a couple open source projects to add some Ember-like features to the Backbone project I am building at work and I decided to try Mocha, Chai, and Sinon. This post is a quick overview of the differences between Jasmine 1.3 and Mocha, Chai, and Sinon.
+__This article was updated on 4/15/15 to reflect Jasmine 2.x__
 
-__Note: I am aware of the Jasmine 2.x releases. I have not played with them yet, so my points are solely based on version 1.3.__
+I first got into JavaScript testing with the Jasmine framework. At the time of this writing, Jasmine is still probably the most popular unit testing framework for JavaScript. Jasmine has almost everything I need to write unit tests. It has a very readable API and a simple mocking library (spies) already built in. Recently, I started a couple open source projects and I decided to try Mocha (with Chai and Sinon), another popular JavaScript testing framework. This post is a quick overview of the differences between Jasmine 2.x and Mocha using Chai and Sinon.
 
 ## 1. Jasmine vs Mocha Syntax
 
@@ -23,7 +23,7 @@ describe('calculator', function() {
 });
 ```
 
-The assertions or expectations are where things start to differ. Mocha has a built in assertion library but from what I've seen, everyone seems to use Mocha with Chai.js. I don't have much experience with the standard assertions that Mocha provides but the examples in the documentation were pretty readable. Chai does not come with Mocha so this is another thing you will need to load into your setup. Chai comes with 3 different assertion flavors. It has the `should` style, the `expect` style, and the `assert` style. The `expect` style is similar to Jasmine.
+The assertions or expectations are where things start to differ. Mocha has a built in assertion library but everyone seems to use Chai.js as the assertion library. I don't have much experience with the standard assertions that Mocha provides but the examples in the documentation were pretty readable. Chai does not come with Mocha so this is another thing you will need to load into your setup. Chai comes with 3 different assertion flavors. It has the `should` style, the `expect` style, and the `assert` style. The `expect` style is similar to Jasmine.
 
 __Jasmine__
 
@@ -61,7 +61,7 @@ You can also create a spy if you do not have an existing method you want to spy 
 var spy = jasmine.createSpy();
 ```
 
-Sinon breaks up mocking into 3 different groups: [spies](http://sinonjs.org/docs/#spies), [stubs](http://sinonjs.org/docs/#stubs), and [mocks](http://sinonjs.org/docs/#mocks). I don't know all of the differences between the 3 types, but a few differences that I have noticed are:
+Sinon breaks up mocking into 3 different groups: [spies](http://sinonjs.org/docs/#spies), [stubs](http://sinonjs.org/docs/#stubs), and [mocks](http://sinonjs.org/docs/#mocks), each with subtle differences. A few of these differences that I have noticed are:
 
 A spy in Sinon calls through to the method being spied on whereas you have to specify this behavior in Jasmine. For example: 
 
@@ -80,14 +80,35 @@ spyOn(user, 'isValid').andReturns(true) // Jasmine
 ```
 
 
-From my experience, Jasmine spies cover almost everything I need. In Jasmine, I like the fact that in order to mock a method, I just have to remember the Jasmine spy API instead of having to refer to different Sinon APIs for stubs, mocks, and spies. This could just be due to the fact that I have not worked with Sinon enough. Maybe as I work more with Sinon, I will come to appreciate the separation.
+From my experience, Jasmine spies cover almost everything I need for mocking so in many situations you won't need to use Sinon if you are using Jasmine, but you can use the two together if you'd like. In Jasmine, I like the fact that in order to mock a method, I just have to remember the Jasmine spy API instead of having to refer to different Sinon APIs for stubs, mocks, and spies. This could just be due to the fact that I have not worked with Sinon enough. Maybe as I work more with Sinon, I will come to appreciate the separation.
 
 
 ## 3. Asynchronous Tests
 
-I have found asynchronous testing in Mocha to be much cleaner than in Jasmine 1.3. Here is an example of an asynchronous test in Jasmine 1.3:
+Asynchronous testing in Jasmine 2.x and Mocha is the same. 
 
-__Example Jasmine Asynchronous Test__
+```js
+it('should resolve with the User object', function(done) {
+  var dfd = new $.Deferred();
+  var promise = dfd.promise();
+  var stub = sinon.stub(User.prototype, 'fetch').returns(promise);
+
+  dfd.resolve({ name: 'David' });
+
+  User.get().then(function(user) {
+      expect(user instanceof User).toBe(true);
+      done();
+  });
+});
+```
+
+Above, `User` is a constructor function with an instance method `fetch()`. I want to assert that when `fetch()` resolves successfully, the resolved value is an instance of `User`. Because I have mocked out `User.prototype.fetch()` to return a pre-resolved promise, no real AJAX request is made.
+
+The above test would work in both Mocha and Jasmine 2.x. By simply specifying a parameter in the `it()` callback function (I have called it `done()` like in the documentation but you can call it whatever you want), the test runner will pass in a function and wait for this function to execute before ending the test. The test will timeout and error if `done()` is not called within a certain time limit. This gives you full control on when your tests completes. 
+
+If you are working with Jasmine 1.3, asynchronous testing was not so pretty.
+
+__Example Jasmine 1.3 Asynchronous Test__
 
 ```js
 it('should resolve with the User object', function() {
@@ -117,26 +138,8 @@ it('should resolve with the User object', function() {
 });
 ```
 
-`User` is a constructor function with an instance method `fetch()`. I want to assert that when `fetch()` resolves successfully, the resolved value is an instance of `User`. The way this test works is that Jasmine will wait a maximum of 500 milliseconds for the asynchronous operation to complete. Otherwise, the test will fail. `waitsFor()` is constantly checking to see if `flag` becomes true. Once it does, it will continue to run the next `runs()` block where I have my assertion. Because I have mocked out `User.prototype.fetch()` to return a pre-resolved promise, no real AJAX request is made.
+In this Jasmine 1.3 asynchronous test example, Jasmine will wait a maximum of 500 milliseconds for the asynchronous operation to complete. Otherwise, the test will fail. `waitsFor()` is constantly checking to see if `flag` becomes true. Once it does, it will continue to run the next `runs()` block where I have my assertion.
 
-__Example Mocha Asynchronous Test__
-
-```js
-it('should resolve with the User object', function(done) {
-  var dfd = new $.Deferred();
-  var promise = dfd.promise();
-  var stub = sinon.stub(User.prototype, 'fetch').returns(promise);
-
-  dfd.resolve({ name: 'David' });
-
-  User.get().then(function(user) {
-      expect(user instanceof User).toBe(true);
-      done();
-  });
-});
-```
-
-In Mocha, by simply specifying a parameter in the `it()` callback function (I have called it `done()` like in the documentation but you can call it whatever you want), the test runner will pass in a function and wait for this function to execute before ending the test runner. The test will timeout and error if `done()` is not called within a certain time limit. This is much cleaner and simpler than the polling technique used in Jasmine 1.3. It looks like asynchronous testing in Jasmine 2.x is very much improved.
 
 ## 4. Sinon Fake Server
 
@@ -165,13 +168,15 @@ it('should return a collection object containing all users', function(done) {
 });
 ```
 
-If you have worked with Angular, Sinon's fake server is similar to the _$httpBackend_ service provided in angular mocks. You might ask yourself, why not simply spy on the AJAX call, like `$.ajax`? The issue with that is it does not allow you to test that a request is made to a particular URL. You could accidentally change the URL in your code and your tests will still pass, but your code will be making a request to the wrong URL in the running application, and you'd have to manually verify this or write an integration test.
+This is really handy if you want to test your code that makes AJAX calls and some preprocessing needs to be done on the response. If you have worked with Angular, Sinon's fake server is similar to the _$httpBackend_ service provided in angular mocks. An alternative to using Sinon's fake server that can get you by in a lot of situations is to simply spy on `$.ajax` instead or whatever AJAX library you are using.
 
 ## Conclusion
 
-Mocha, Chai, and Sinon definitely have some advantages over Jasmine 1.3. With the release of 2.x though, both seem pretty comparable from what I have looked at. Whether you choose Jasmine or Mocha, Sinon can be a great addition to your test harness especially for the fake server. After doing some research on upgrading from Jasmine 1.3 to 2.x, it looks like it has to be done manually since it is not backwards compatible. 
+Mocha, Chai, and Sinon together definitely have some advantages over Jasmine 1.3. With the release of Jasmine 2.x though, both are very comparable and are great choices. Whether you choose Jasmine or Mocha, Sinon can be a great addition to your test harness, especially for the fake server. 
 
 ## Related Posts
 
+* [Upgrading Jasmine from 1.3 to 2.x](/2015/01/29/Upgrading-Jasmine-from-1.3-to-2.1.html)
+* [End To End Testing with PhantomJS and CasperJS](/2015/02/28/end-to-end-testing-with-phantomsjs-and-casperjs.html)
 * [Angular Backend Definitions with _$httpBackend_](/angular.js/javascript/2014/01/20/backend-definitions-with-httpBackend.html)
 * [Angular Request Expectations with _$httpBackend_]({% post_url 2014-01-18-request-expectations-with-httpBackend %})
