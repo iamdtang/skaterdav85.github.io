@@ -104,7 +104,7 @@ it('should resolve with the User object', function(done) {
 
 Above, `User` is a constructor function with an instance method `fetch()`. I want to assert that when `fetch()` resolves successfully, the resolved value is an instance of `User`. Because I have mocked out `User.prototype.fetch()` to return a pre-resolved promise, no real AJAX request is made.
 
-The above test would work in both Mocha and Jasmine 2.x. By simply specifying a parameter in the `it()` callback function (I have called it `done()` like in the documentation but you can call it whatever you want), the test runner will pass in a function and wait for this function to execute before ending the test. The test will timeout and error if `done()` is not called within a certain time limit. This gives you full control on when your tests completes. 
+The above test would work in both Mocha and Jasmine 2.x. By simply specifying a parameter in the `it()` callback function (I have called it `done()` like in the documentation but you can call it whatever you want), the test runner will pass in a function and wait for this function to execute before ending the test. The test will timeout and error if `done()` is not called within a certain time limit. This gives you full control on when your tests complete. 
 
 If you are working with Jasmine 1.3, asynchronous testing was not so pretty.
 
