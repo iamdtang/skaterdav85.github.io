@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="{{ page.keywords }}">
     <meta name="description" content="Writing scalable, maintainable, and testable JavaScript">
+    <meta property="og:title" content="{{ page.title }} - {{ site.name }}" />
+    <meta property="og:description" content="{{ page.description }}" />
+    <meta property="og:url" content="http://thejsguy.com{{ page.url }}" />
+    <meta property="og:image" content="http://www.gravatar.com/avatar/1c31a96c0a474a6795637081bde42acc.png?s=200" />
     <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
@@ -25,7 +29,7 @@
 
 <div class="pure-g main-content">
   <div class="pure-u-3-4 l-box mobile content">
-    {{ content }}  
+    {{ content }}
   </div>
   <div class="pure-u-1-4 l-box sidebar mobile">
     <h2><a href="/">{{ site.author }}</a></h2>

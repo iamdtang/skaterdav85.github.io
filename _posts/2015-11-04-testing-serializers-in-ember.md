@@ -2,6 +2,7 @@
 layout: post
 title:  "Testing Serializers in Ember"
 date:   2015-11-04
+description: How do you go about testing methods on serializers like normalizeResponse and keyForRelationship? Let me show you!
 keywords: Ember, testing, serializers, JavaScript, unit test, Ember.js, EmberJS
 ---
 
