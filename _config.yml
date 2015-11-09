@@ -1,5 +1,4 @@
 name: The JS Guy
-baseurl: /project-name
 author: David Tang
 paginate: 5
 markdown: redcarpet

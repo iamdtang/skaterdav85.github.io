@@ -86,7 +86,7 @@ h1 {
 .post a.title {
   color: $primary;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .post h3 {
@@ -180,4 +180,3 @@ h1 {
 .content {
   background-color: white;
 }
-
