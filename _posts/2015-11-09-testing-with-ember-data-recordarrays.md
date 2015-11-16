@@ -97,3 +97,11 @@ export default Ember.Controller.extend({
 ## Summary
 
 When calling `query` on the store, the type resolved is `DS.AdapterPopulatedRecordArray`. When calling `findAll` on the store, the type resolved is `DS.RecordArray`. Because both of these types inherit from `Ember.ArrayProxy`, I found it useful to simulate these types with `Ember.ArrayProxy` in unit tests. If you go about unit testing with Ember Data objects differently, I'd love to hear how you do it in the comments!
+
+## Edit
+
+Thanks to Andrey and Jakub in the comments, I've learned you can simply use a regular array instead of an `Ember.ArrayProxy`. If prototype extensions are enabled, which they are by default, Ember extends `Array.prototype` with a mixin `Ember.Array`. As noted in the API documentation:
+
+> This mixin implements Observer-friendly Array-like behavior. It is not a concrete implementation, but it can be used up by other classes that want to appear like arrays.
+
+`Ember.ArrayProxy` also uses the `Ember.Array` mixin. So in the end, both `Ember.ArrayProxy` and standard arrays have all the methods of `Ember.Array`. If prototype extensions are turned off, then you simply use `Ember.A` to create your array instead of depending on prototype extensions.
