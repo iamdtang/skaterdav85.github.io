@@ -94,6 +94,47 @@ export default Ember.Controller.extend({
 });
 ```
 
+__Edit__
+
+Thanks to Andrey and Jakub in the comments, I've learned you can simply use a regular array instead of an `Ember.ArrayProxy`. If prototype extensions are enabled, which they are by default, Ember extends `Array.prototype` with a mixin `Ember.Array`. As noted in the API documentation:
+
+> This mixin implements Observer-friendly Array-like behavior. It is not a concrete implementation, but it can be used up by other classes that want to appear like arrays.
+
+`Ember.ArrayProxy` also uses the `Ember.Array` mixin. If you have turned off prototype extensions, then you simply use `Ember.A` to create your array. The test can be revised to the following:
+
+```js
+test('it shows the latest cat added to my family', function(assert) {
+  var controller = this.subject();
+
+  controller.set('model', [
+    Ember.Object.create({
+      id: 1,
+      name: 'Tubby',
+      adopted_at: new Date('2015-09-25T21:44:24.6496202Z')
+    }),
+    Ember.Object.create({
+      id: 2,
+      name: 'Biscuit',
+      adopted_at: new Date('2015-10-21T23:30:54.217Z')
+    }),
+    Ember.Object.create({
+      id: 3,
+      name: 'Chester',
+      adopted_at: new Date('2015-09-29T21:37:33.1677559Z')
+    }),
+    Ember.Object.create({
+      id: 4,
+      name: 'Fiona',
+      adopted_at: new Date('2015-10-07T19:24:36.763Z')
+    })
+  ]);
+
+  assert.equal(controller.get('mostRecentAdoptedCat.name'), 'Biscuit');
+});
+```
+
+This feels much more natural!
+
 ## Summary
 
-When calling `query` on the store, the type resolved is `DS.AdapterPopulatedRecordArray`. When calling `findAll` on the store, the type resolved is `DS.RecordArray`. Because both of these types inherit from `Ember.ArrayProxy`, I found it useful to simulate these types with `Ember.ArrayProxy` in unit tests. If you go about unit testing with Ember Data objects differently, I'd love to hear how you do it in the comments!
+In your unit tests you can often times use a standard array as a substitute for an array-like object from the store, such as `DS.AdapterPopulatedRecordArray` or `DS.RecordArray`, because Ember extends both with the `Ember.Array` mixin.
