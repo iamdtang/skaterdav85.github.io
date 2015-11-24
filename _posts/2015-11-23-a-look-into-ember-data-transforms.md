@@ -2,6 +2,7 @@
 layout: post
 title:  "A Look Into Ember Data Transforms"
 date:   2015-11-23
+description: Ember Data has a feature called transforms that allow you to transform values before they are set on a model or sent back to the server. If you've been working with Ember Data, then you have already been using transforms and may not have known it.
 keywords: Ember Data, Transforms, tutorial, DS.Transform, custom transform, transform tutorial
 ---
 
