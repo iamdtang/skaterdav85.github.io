@@ -184,14 +184,27 @@ h1 {
 .block-title {
   background-color: $primary;
   color: white;
-padding: 10px;
+  padding: 10px;
 }
 
 .guest-posts {
   text-align: left;
+  list-style-type: none;
+  padding: 0;
 
   .date {
     display: block;
+    font-size: 85%;
+  }
+
+  li {
+    border-bottom: 1px solid #ccc;
+    padding: 7px;
+    font-size: 90%;
+  }
+
+  li:last-child {
+    border-bottom: 0;
   }
 }
 
