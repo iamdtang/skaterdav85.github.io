@@ -180,3 +180,21 @@ h1 {
 .content {
   background-color: white;
 }
+
+.block-title {
+  background-color: $primary;
+  color: white;
+padding: 10px;
+}
+
+.guest-posts {
+  text-align: left;
+
+  .date {
+    display: block;
+  }
+}
+
+.guest-posts a:hover {
+  text-decoration: none;
+}

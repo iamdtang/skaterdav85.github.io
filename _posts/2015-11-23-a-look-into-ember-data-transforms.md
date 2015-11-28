@@ -60,7 +60,7 @@ So what's going on behind each of these `Transform` classes? Let's take a look a
 When you search for `NumberTransform`, you'll see it points to this:
 
 ```js
-var ember$data$lib$transforms$number$$default = ember$data$lib$transforms$base$$default.extend({
+ember$data$lib$transforms$base$$default.extend({
   deserialize: function (serialized) {
     var transformed;
 
@@ -90,7 +90,7 @@ var ember$data$lib$transforms$number$$default = ember$data$lib$transforms$base$$
 If you remove the long prefix `ember$data$lib$transforms$number$$`, the class reads a little easier:
 
 ```js
-var ember$data$lib$transforms$number$$default = ember$data$lib$transforms$base$$default.extend({
+ember$data$lib$transforms$base$$default.extend({
   deserialize: function (serialized) {
     var transformed;
 
@@ -120,7 +120,7 @@ var ember$data$lib$transforms$number$$default = ember$data$lib$transforms$base$$
 You can see that it uses the `Number` function to convert the value back and forth. If the attribute is not a number, `null` is returned. `StringTransform` is similar and pretty self explanatory, using the `String` function.
 
 ```js
-var ember$data$lib$transforms$string$$default = ember$data$lib$transforms$base$$default.extend({
+ember$data$lib$transforms$base$$default.extend({
   deserialize: function (serialized) {
     return none(serialized) ? null : String(serialized);
   },
@@ -132,14 +132,14 @@ var ember$data$lib$transforms$string$$default = ember$data$lib$transforms$base$$
 
 I found the `BooleanTransform` interesting because it deserializes value types other than `Boolean`:
 
-* The strings "true", "t", or "1" will coerce to `true`, and `false` otherwise
+* The strings "true" or "t" in any casing, or "1" will coerce to `true`, and `false` otherwise
 * The number 1 will coerce to `true`, and `false` otherwise
 * Anything other than boolean, string, or number will coerce to `false`
 
 Here is the implementation:
 
 ```js
-var ember$data$lib$transforms$boolean$$default = ember$data$lib$transforms$base$$default.extend({
+ember$data$lib$transforms$base$$default.extend({
   deserialize: function (serialized) {
     var type = typeof serialized;
 
@@ -163,7 +163,7 @@ var ember$data$lib$transforms$boolean$$default = ember$data$lib$transforms$base$
 And lastly, the `DateTransform`:
 
 ```js
-var ember$data$lib$transforms$date$$default = ember$data$lib$transforms$base$$default.extend({
+ember$data$lib$transforms$base$$default.extend({
   deserialize: function (serialized) {
     var type = typeof serialized;
 
@@ -235,4 +235,4 @@ export default DS.Model.extend({
 });
 ```
 
-Let me know what custom transforms you have made in the comments. Thanks for reading!
+What custom transforms have you made? Thanks for reading!
