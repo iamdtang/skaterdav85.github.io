@@ -21,7 +21,7 @@ For example, imagine you have an `Order` model and it needs to make a POST reque
 var Order = Backbone.Model.extend({
 	sync: function(method, model, options) {
 		switch(method) {
-			case 'delete'
+			case 'delete':
 			  options.url = '/api/orders/cancelOrder';
 			  return Backbone.sync('create', model, options);
 			case 'read':
