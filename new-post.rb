@@ -1,32 +1,47 @@
 require 'date'
 
-def slug(title)
-  lowercase = title.downcase
-  lowercase.strip!
-  lowercase.gsub!(/\s/, '-')
-end
+class BlogPost
+  def initialize(title, keywords)
+    @title = title.strip!
+    @keywords = keywords.strip!
+  end
 
-def create_file(filename, contents)
-  date = Date.today.strftime("%Y-%m-%d")
-  file = '_posts/' + date + '-' + filename + '.md'
-  puts 'Creating file ' + file
-  out_file = File.new(file, 'w')
-  out_file.puts(contents)
-  out_file.close
+  def save()
+    filename = BlogPost.slug(@title)
+    date = Date.today.strftime("%Y-%m-%d")
+    file = '_posts/' + date + '-' + filename + '.md'
+    puts 'Creating file ' + file
+    out_file = File.new(file, 'w')
+    out_file.puts(get_file_contents)
+    out_file.close
+  end
+
+  # class method
+  def self.slug(title)
+    lowercase = title.downcase
+    lowercase.strip!
+    lowercase.gsub!(/\s/, '-')
+  end
+
+  # Anything below this is private
+  private
+
+  def get_file_contents()
+    [
+      '---',
+      'layout: post',
+      "title: #{@title}",
+      "date: #{Date.today.strftime('%Y-%m-%d')}",
+      'description: TBA',
+      "keywords: #{@keywords}",
+      '---'
+    ].join("\n")
+  end
 end
 
 puts "What is the title of the post?"
-title = gets.strip!
+title = gets
 puts "What are the keywords?"
-keywords = gets.strip!
-
-file_contents = %Q(---
-layout: post
-title: #{title}
-date: #{Date.today.strftime('%Y-%m-%d')}
-description: TBA
-keywords: #{keywords}
----)
-
-filename = slug(title)
-create_file(filename, file_contents)
+keywords = gets
+blog_post = BlogPost.new(title, keywords)
+blog_post.save
