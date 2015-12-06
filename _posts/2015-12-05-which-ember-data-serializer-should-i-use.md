@@ -141,7 +141,7 @@ If you wanted your relationships to be synchronous with the `JSONSerializer`, yo
 }
 ```
 
-The `attributes` property contains the data, the `type` property contains the plural form of the model name, and the `id` property contain the model's id.
+The `attributes` property contains the data, the `type` property contains the plural form of the model name, and the `id` property contain the model's id. One thing to note is that attributes need to be dash-cased. If our attribute was `firstName` instead of `first`, the attribute key name would need to be `first-name`.
 
 For an endpoint that returns an array of objects, such as `/api/users`, a JSON API compliant response would be:
 
