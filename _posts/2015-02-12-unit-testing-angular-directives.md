@@ -16,20 +16,20 @@ If you are building complex user interfaces, you will at some point want to star
 ```js
 {% raw %}
 app.directive('blogStatus', function() {
-	return {
-		restrict: 'E',
-		template: "<span>{{activeDisplayName}}</span>",
-		scope: {
-			isActive: '='
-		},
-		link: function($scope, $el, attrs) {
-			if ($scope.isActive) {
-				$scope.activeDisplayName = 'Active';
-			} else {
-				$scope.activeDisplayName = 'Inactive';
-			}
-		}
-	}
+  return {
+    restrict: 'E',
+    template: "<span>{{activeDisplayName}}</span>",
+    scope: {
+      isActive: '='
+    },
+    link: function($scope, $el, attrs) {
+      if ($scope.isActive) {
+        $scope.activeDisplayName = 'Active';
+      } else {
+        $scope.activeDisplayName = 'Inactive';
+      }
+    }
+  }
 });
 {% endraw %}
 ```
@@ -38,26 +38,26 @@ This directive uses an isolate scope where `isActive` is passed in as `blogArtic
 
 ```js
 describe('active directive', function () {
-    var scope, $compile;
+  var scope, $compile;
 
-    beforeEach(module('blog'));
-    beforeEach(inject(function($rootScope, _$compile_) {
-        scope = $rootScope.$new();
-        $compile = _$compile_;
-    }));
+  beforeEach(module('blog'));
+  beforeEach(inject(function($rootScope, _$compile_) {
+    scope = $rootScope.$new();
+    $compile = _$compile_;
+  }));
 
-    it('should display "Active" if passed true', function() {
-        var element = '<blog-status is-active="blogArticle.active"></blog-status>';
-        scope.blogArticle = { active: true };
-        element = $compile(element)(scope);
-        scope.$digest();
+  it('should display "Active" if passed true', function() {
+    var element = '<blog-status is-active="blogArticle.active"></blog-status>';
+    scope.blogArticle = { active: true };
+    element = $compile(element)(scope);
+    scope.$digest();
 
-        expect(element.isolateScope().activeDisplayName).toEqual('Active');
-    });
+    expect(element.isolateScope().activeDisplayName).toEqual('Active');
+  });
 });
 ```
 
-Looking at the test above, one of the first things you'll notice is the [`$compile` service](https://docs.angularjs.org/api/ng/service/$compile). If you've used another client-side templating library before like Handlebars, this is very similar to `Handlebars.compile(htmlString)`. This basically compiles an HTML string into an optimized template function which can be used later on to interpolate the template with data from `$scope`. 
+Looking at the test above, one of the first things you'll notice is the [`$compile` service](https://docs.angularjs.org/api/ng/service/$compile). If you've used another client-side templating library before like Handlebars, this is very similar to `Handlebars.compile(htmlString)`. This basically compiles an HTML string into an optimized template function which can be used later on to interpolate the template with data from `$scope`.
 
 The isolate scope is the thing we want to test. To access it, we can call `element.isolateScope()` and access the properties on that scope.
 
@@ -65,12 +65,11 @@ To test this directive when `blogArticle.active` is `false` we can do the opposi
 
 ```js
 it('should display "Inactive" if passed false', function() {
-    var element = '<blog-status is-active="blogArticle.active"></blog-status>';
-    scope.blogArticle = { active: false };
-    element = $compile(element)(scope);
-    scope.$digest();
+  var element = '<blog-status is-active="blogArticle.active"></blog-status>';
+  scope.blogArticle = { active: false };
+  element = $compile(element)(scope);
+  scope.$digest();
 
-    expect(element.isolateScope().activeDisplayName).toEqual('Inactive');
+  expect(element.isolateScope().activeDisplayName).toEqual('Inactive');
 });
 ```
-

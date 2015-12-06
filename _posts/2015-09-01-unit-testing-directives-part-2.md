@@ -10,9 +10,9 @@ Earlier this year I wrote about [Unit Testing Angular Directives with Isolate Sc
 Imagine you have the following directive:
 
 ```html
-<action-button 
-  value="Create" 
-  processing-value="Processing..." 
+<action-button
+  value="Create"
+  processing-value="Processing..."
   action="vm.create()"></action-button>
 ```
 
@@ -26,28 +26,28 @@ For this directive, the JavaScript might look like this:
 
 ```js
 app.directive('actionButton', function() {
-	return {
-		restrict: 'E',
-		templateUrl: 'action-button.html',
-		scope: {
-			action: '&',
-			value: '@',
-			processingValue: '@'
-		},
-		link: function($scope, $el, attrs) {
-			// maybe some DOM manipulation here?
+  return {
+    restrict: 'E',
+    templateUrl: 'action-button.html',
+    scope: {
+      action: '&',
+      value: '@',
+      processingValue: '@'
+    },
+    link: function($scope, $el, attrs) {
+      // maybe some DOM manipulation here?
 
-			$scope.displayLabel = $scope.value; 
-			$scope.runAction = function() {
-				$scope.processing = true;
-				$scope.displayLabel = $scope.processingValue; 
-				$scope.action().finally(function() {
-					$scope.processing = false;
-					$scope.displayLabel = $scope.value; 
-				});
-			};
-		}
-	};
+      $scope.displayLabel = $scope.value;
+      $scope.runAction = function() {
+        $scope.processing = true;
+        $scope.displayLabel = $scope.processingValue;
+        $scope.action().finally(function() {
+          $scope.processing = false;
+          $scope.displayLabel = $scope.value;
+        });
+      };
+    }
+  };
 });
 ```
 
@@ -59,17 +59,17 @@ describe('<action-button> directive', function() {
 
   beforeEach(module('kittens'));
   beforeEach(inject(function($rootScope, _$compile_, _$timeout_) {
-      scope = $rootScope.$new();
-      $compile = _$compile_;
-      $timeout = _$timeout_;
+    scope = $rootScope.$new();
+    $compile = _$compile_;
+    $timeout = _$timeout_;
   }));
 
   it('should call the action when runAction is called', function() {
-      var element = '<action-button value="Create" processing-value="Processing..." action="create()"></action-button>';
-      scope.create = jasmine.createSpy().and.returnValue($timeout(0));
-      element = $compile(element)(scope);
-      element.isolateScope().runAction();
-      expect(scope.create).toHaveBeenCalled();
+    var element = '<action-button value="Create" processing-value="Processing..." action="create()"></action-button>';
+    scope.create = jasmine.createSpy().and.returnValue($timeout(0));
+    element = $compile(element)(scope);
+    element.isolateScope().runAction();
+    expect(scope.create).toHaveBeenCalled();
   });
 });
 ```
@@ -80,36 +80,36 @@ Instead, I like to separate out the logic of the directive into its own controll
 
 ```js
 app
-	.directive('actionButton', function() {
-		return {
-			restrict: 'E',
-			templateUrl: 'action-button.html',
-			scope: {
-				action: '&',
-				value: '@',
-				processingValue: '@'
-			},
-			controller: 'ActionButtonController',
-			controllerAs: 'vm',
-			bindToController: true, // Angular 1.3
-			link: function(scope, el, attrs, controller) {
-				// custom DOM manipulation here
-			}
-		};
-	})
-	.controller('ActionButtonController', function() {
-		var vm = this;
-		vm.displayLabel = vm.value;
-		vm.runAction = function() {
-			vm.processing = true;
-			vm.displayLabel = vm.processingValue;
+  .directive('actionButton', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'action-button.html',
+      scope: {
+        action: '&',
+        value: '@',
+        processingValue: '@'
+      },
+      controller: 'ActionButtonController',
+      controllerAs: 'vm',
+      bindToController: true, // Angular 1.3
+      link: function(scope, el, attrs, controller) {
+        // custom DOM manipulation here
+      }
+    };
+  })
+  .controller('ActionButtonController', function() {
+    var vm = this;
+    vm.displayLabel = vm.value;
+    vm.runAction = function() {
+      vm.processing = true;
+      vm.displayLabel = vm.processingValue;
 
-			vm.action().finally(function() {
-				vm.processing = false;
-				vm.displayLabel = vm.value;
-			});
-		};
-	});
+      vm.action().finally(function() {
+        vm.processing = false;
+        vm.displayLabel = vm.value;
+      });
+    };
+  });
 ```
 
 Here I've moved the logic from the directive's link function and moved it to a controller that the directive references. `bindToController`, a property introduced in Angular 1.3, is used to proxy the values bound to the directive's isolate scope to the controller.
@@ -118,26 +118,24 @@ By separating out directive logic into its own controller, you can unit test the
 
 ```js
 describe('ActionButtonController', function() {
-	var $controller, $timeout;
+  var $controller, $timeout;
 
-	beforeEach(module('kittens'));
-	beforeEach(inject(function(_$controller_, _$timeout_) {
-		$controller = _$controller_;
-		$timeout = _$timeout_;
-	}));
+  beforeEach(module('kittens'));
+  beforeEach(inject(function(_$controller_, _$timeout_) {
+    $controller = _$controller_;
+    $timeout = _$timeout_;
+  }));
 
   it('should call the action when runAction is called', function() {
     var actionSpy = jasmine.createSpy().and.returnValue($timeout(0));
     var controller = $controller('ActionButtonController', {}, {
-    	action: actionSpy
+      action: actionSpy
     });
     controller.runAction();
     expect(actionSpy).toHaveBeenCalled();
   });
 });
+
 ```
 
 The 3rd argument passed to `$controller` is an object where you can specify what values you want bound to the controller, simulating the values that are proxied from the directive's isolate scope to the controller via `bindToController`.
-
-
-
