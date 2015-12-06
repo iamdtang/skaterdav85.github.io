@@ -5,7 +5,7 @@ date:   2015-04-20
 keywords: mocking amd modules, unit testing require.js, unit testing requireJS, requireJS unit testing, require.js unit testing, mocking AMD, AMD unit testing, mocking window object
 ---
 
-Writing unit tests when working with Require.js is tough. Out of the box, Require.js does not make mocking very easy. It involves setting up a separate Require.js context and a complicated setup in a `beforeEach`. 
+Writing unit tests when working with Require.js is tough. Out of the box, Require.js does not make mocking very easy. It involves setting up a separate Require.js context and a complicated setup in a `beforeEach`.
 
 Imagine you have a module called `qs` (stands for query string) that parses the query string on page load and creates an object containing all query string parameters.
 
@@ -13,25 +13,25 @@ Imagine you have a module called `qs` (stands for query string) that parses the 
 
 ```js
 define([], function() {
-    var parse = function(qs) {
-      if (qs[0] === '?') {
-        qs = qs.substring(1);
-      }
+  var parse = function(qs) {
+    if (qs[0] === '?') {
+      qs = qs.substring(1);
+    }
 
-      return qs.split('&').reduce(function(prev, str) {
-        var pair;
-        pair = str.split('=');
-        prev[pair[0]] = decodeURIComponent(pair[1]);
-        return prev;
-      }, {});
-    };
-    
-    var params = parse(window.location.search);
+    return qs.split('&').reduce(function(prev, str) {
+      var pair;
+      pair = str.split('=');
+      prev[pair[0]] = decodeURIComponent(pair[1]);
+      return prev;
+    }, {});
+  };
 
-    return {
-      params: params
-    };
-  });
+  var params = parse(window.location.search);
+
+  return {
+    params: params
+  };
+});
 ```
 
 The implementation of `parse()` doesn't matter. The thing that makes this module difficult to unit test is that `window` cannot be mocked. In a unit test, `window.location.search` doesn't exist. When I load up this module into a unit test, I can't really test that `qs.params` is the parsed query string because `window.location.search` was an empty string (the default value if no query string exists). So how can we mock out the window object? [Squire.js](https://github.com/iammerrick/Squire.js), makes mocking AMD modules extremely simple and intuitive.
@@ -43,7 +43,7 @@ First, let's wrap `window` in its own AMD module:
 ```js
 // window.js
 define(function() {
-	return window;
+  return window;
 });
 ```
 
@@ -52,25 +52,25 @@ Next, we can specify the AMD module `window` as a dependency for the `qs` AMD mo
 ```js
 // qs.js
 define(['window'], function(window) {
-    var parse = function(qs) {
-      if (qs[0] === '?') {
-        qs = qs.substring(1);
-      }
+  var parse = function(qs) {
+    if (qs[0] === '?') {
+      qs = qs.substring(1);
+    }
 
-      return qs.split('&').reduce(function(prev, str) {
-        var pair;
-        pair = str.split('=');
-        prev[pair[0]] = decodeURIComponent(pair[1]);
-        return prev;
-      }, {});
-    };
-    
-    var params = parse(window.location.search);
+    return qs.split('&').reduce(function(prev, str) {
+      var pair;
+      pair = str.split('=');
+      prev[pair[0]] = decodeURIComponent(pair[1]);
+      return prev;
+    }, {});
+  };
 
-    return {
-      params: params
-    };
-  });
+  var params = parse(window.location.search);
+
+  return {
+    params: params
+  };
+});
 ```
 
 ## Unit Testing with Squire
@@ -79,34 +79,34 @@ Once you install Squire, you can simply create an instance of it and use the `mo
 
 ```js
 define(['Squire'], function(Squire) {
-	describe('qs.params', function() {
-	    var injector;
+  describe('qs.params', function() {
+    var injector;
 
-	    beforeEach(function() {
-	        injector = new Squire();
-	    });
+    beforeEach(function() {
+      injector = new Squire();
+    });
 
-	    afterEach(function() {
-	        injector.remove();
-	    });
+    afterEach(function() {
+      injector.remove();
+    });
 
-	    it('should contain an objet of all query string params', function(done) {
-	        injector
-	            .mock('window', {
-	                location: {
-	                    search: '?t=veg&color=blue'
-	                }
-	            })
-	            .require(['qs'], function(qs) {
-	                expect(qs.params).toEqual({
-	                    t: 'veg',
-	                    color: 'blue'
-	                });
+    it('should contain an objet of all query string params', function(done) {
+      injector
+        .mock('window', {
+          location: {
+            search: '?t=veg&color=blue'
+          }
+        })
+        .require(['qs'], function(qs) {
+          expect(qs.params).toEqual({
+            t: 'veg',
+            color: 'blue'
+          });
 
-                  done();
-	            });
-	    });
-	});
+            done();
+        });
+    });
+  });
 });
 ```
 
@@ -121,22 +121,22 @@ If you are using Require.js with Karma and want to use Squire, you might run int
 ```js
 // test-main.js
 requirejs.config({
-    // Karma serves files from "/base"
-    baseUrl: "/base",
+  // Karma serves files from "/base"
+  baseUrl: "/base",
 
-    paths: {
-        Squire:        "path/to/Squire",
-    }
+  paths: {
+    Squire: "path/to/Squire",
+  }
 
-    // ask Require.js to load these files (all our tests)
-    // deps: tests,
+  // ask Require.js to load these files (all our tests)
+  // deps: tests,
 
-    // start test run, once Require.js is done
-    // callback: 
+  // start test run, once Require.js is done
+  // callback:
 });
 
 require(tests, function() {
-    window.__karma__.start();
+  window.__karma__.start();
 });
 ```
 

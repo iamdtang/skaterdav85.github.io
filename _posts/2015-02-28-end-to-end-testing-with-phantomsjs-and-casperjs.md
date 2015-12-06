@@ -19,7 +19,7 @@ page.open(url, function (status) {
   //Page is loaded!
   phantom.exit();
 });
-``` 
+```
 
 PhantomJS is a scriptable, headless browser with a JavaScript API. It can be used for things like web scraping like in this small example. What PhantomJS doesn't have is testing utilities. This is where CasperJS comes in and provides testing utilities like assertions, organizing tests, and keeping track of tests that fail and succeed.
 
@@ -49,20 +49,21 @@ Let's look at an example where we test Amazon's search and result pages. When a 
 
 ```js
 casper.test.begin('Testing Amazon Search and Results pages', 3, function(test) {
-	casper.start('http://amazon.com', function() {
-		this.fill('form#nav-searchbar', {
-			'field-keywords': 'javascript'
-		}, true);
-	});
+  casper.start('http://amazon.com', function() {
+    this.fill('form#nav-searchbar', {
+      'field-keywords': 'javascript'
+    }, true);
+  });
 
-	casper.then(function() {
-		test.assertTitle('Amazon.com: javascript', 'Amazon search results page doesnt have expected title');
-	});
+  casper.then(function() {
+    test.assertTitle('Amazon.com: javascript', 'Amazon search results page doesnt have expected title');
+  });
 
-	casper.run(function() {
-		test.done();
-	});
+  casper.run(function() {
+    test.done();
+  });
 });
+
 ```
 
 Looking at this code by itself, you can probably figure out what is going on. There are a few things to point out though. `this.fill()` allows you to fill out a form and submit it. The API for this is:
@@ -85,21 +86,21 @@ Let's do a little more in our test. Let's also assert that the text input is pre
 
 ```js
 casper.test.begin('Testing Amazon Search and Results pages', 3, function(test) {
-	casper.start('http://amazon.com', function() {
-		this.fill('form#nav-searchbar', {
-			'field-keywords': 'javascript'
-		}, true);
-	});
+  casper.start('http://amazon.com', function() {
+    this.fill('form#nav-searchbar', {
+      'field-keywords': 'javascript'
+    }, true);
+  });
 
-	casper.then(function() {
-		test.assertTitle('Amazon.com: javascript', 'Amazon search results page doesnt have expected title');
-		test.assertField('field-keywords', 'javascript', 'Input doesnt repopulate with the search term');
-		test.assertElementCount('.s-result-item', 16, 'There should be 16 results displayed at a time');
-	});
+  casper.then(function() {
+    test.assertTitle('Amazon.com: javascript', 'Amazon search results page doesnt have expected title');
+    test.assertField('field-keywords', 'javascript', 'Input doesnt repopulate with the search term');
+    test.assertElementCount('.s-result-item', 16, 'There should be 16 results displayed at a time');
+  });
 
-	casper.run(function() {
-		test.done();
-	});
+  casper.run(function() {
+    test.done();
+  });
 });
 ```
 
@@ -121,7 +122,7 @@ casper.wait(1000, function() {
 });
 ```
 
-Not a big deal, but sometimes things take longer to load than usual. If this is the case, your end to end tests might not always pass every single time. Hence, these tests aren't always consistent. Also, because end to end tests do rely on selectors and the HTML, if the UI changes slightly in your application, your tests might break, even if the functionality isn't broken. 
+Not a big deal, but sometimes things take longer to load than usual. If this is the case, your end to end tests might not always pass every single time. Hence, these tests aren't always consistent. Also, because end to end tests do rely on selectors and the HTML, if the UI changes slightly in your application, your tests might break, even if the functionality isn't broken.
 
 End to end testing is essentially testing from the outside in. Unlike unit tests, if a test fails, it doesn't really tell you what broke. It just tells you that something broke and it is up to you to figure out what exactly broke. Still, being automatically notified that a critical path is broken is very valuable.
 

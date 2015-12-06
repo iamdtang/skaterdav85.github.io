@@ -19,20 +19,20 @@ For example, imagine you have an `Order` model and it needs to make a POST reque
 
 ```js
 var Order = Backbone.Model.extend({
-	sync: function(method, model, options) {
-		switch(method) {
-			case 'delete':
-			  options.url = '/api/orders/cancelOrder';
-			  return Backbone.sync('create', model, options);
-			case 'read':
-			  options.url = '/api/orders/' + model.get('order_id');
-			  return Backbone.sync(method, model, options);
-			case 'update':
-				// handle update ...
-			case 'create':
-				// handle create ...
-		}
-	}
+  sync: function(method, model, options) {
+    switch(method) {
+      case 'delete':
+        options.url = '/api/orders/cancelOrder';
+        return Backbone.sync('create', model, options);
+      case 'read':
+        options.url = '/api/orders/' + model.get('order_id');
+        return Backbone.sync(method, model, options);
+      case 'update':
+        // handle update ...
+      case 'create':
+        // handle create ...
+    }
+  }
 });
 ```
 
@@ -40,31 +40,31 @@ And it is as simple as that. And corresponding unit tests using Jasmine 2 for ou
 
 ```js
 describe('Order', function() {
-	describe('destroy()', function() {
-		it('should make a post request instead of a delete request', function() {
-			var spy = spyOn($, 'ajax');
-			var order = new Order(/* data here */);
-			order.destroy();
+  describe('destroy()', function() {
+    it('should make a post request instead of a delete request', function() {
+      var spy = spyOn($, 'ajax');
+      var order = new Order(/* data here */);
+      order.destroy();
 
-			expect(spy.calls.argsFor(0)[0]).toEqual(jasmine.objectContaining({
-				type: 'POST',
-				url: '/api/orders/cancelOrder'
-			}));
-		});
-	});
+      expect(spy.calls.argsFor(0)[0]).toEqual(jasmine.objectContaining({
+        type: 'POST',
+        url: '/api/orders/cancelOrder'
+      }));
+    });
+  });
 
-	describe('fetch()', function() {
-		it('should make a post request instead of a delete request', function() {
-			var spy = spyOn($, 'ajax');
+  describe('fetch()', function() {
+    it('should make a post request instead of a delete request', function() {
+      var spy = spyOn($, 'ajax');
 
-			var order = new Order({ id: 99 });
-			order.fetch();
+      var order = new Order({ id: 99 });
+      order.fetch();
 
-			expect(spy.calls.argsFor(0)[0]).toEqual(jasmine.objectContaining({
-				type: 'GET',
-				url: '/api/orders/99'
-			}));
-		});
-	});
+      expect(spy.calls.argsFor(0)[0]).toEqual(jasmine.objectContaining({
+        type: 'GET',
+        url: '/api/orders/99'
+      }));
+    });
+  });
 });
 ```
