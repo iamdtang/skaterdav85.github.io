@@ -72,7 +72,9 @@ The `RESTSerializer` differs from the `JSONSerializer` in that it introduces an 
   "user": {
     "id": 8,
     "first": "David",
-    "last": "Tang"
+    "last": "Tang",
+    "pets": [ 1, 2, 3 ],
+    "company": 7
   }
 }
 ```
@@ -82,8 +84,20 @@ The root key is `user` and matches the model name. Similarly if a request is mad
 ```json
 {
   "users": [
-    { "id": 8, "first": "David", "last": "Tang" },
-    { "id": 9, "first": "Jane", "last": "Doe" }
+    {
+      "id": 8,
+      "first": "David",
+      "last": "Tang",
+      "pets": [ 1, 2, 3 ],
+      "company": 7
+    },
+    {
+      "id": 9,
+      "first": "Jane", 
+      "last": "Doe",
+      "pets": [ 4 ],
+      "company": 7
+    }
   ]
 }
 ```
