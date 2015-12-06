@@ -15,11 +15,11 @@ The APIs of these two frameworks are very similar. They both allow you to write 
 
 ```js
 describe('calculator', function() {
-	describe('add()', function() {
-		it('should add 2 numbers togoether', function() {
-			// assertions here
-		});
-	});
+  describe('add()', function() {
+    it('should add 2 numbers togoether', function() {
+      // assertions here
+    });
+  });
 });
 ```
 
@@ -53,7 +53,7 @@ Mocha does not come with a mocking/spy library unlike Jasmine. Instead you will 
 
 ```js
 var userSaveSpy = spyOn(User.prototype, 'save');
-``` 
+```
 
 You can also create a spy if you do not have an existing method you want to spy on.
 
@@ -63,11 +63,11 @@ var spy = jasmine.createSpy();
 
 Sinon breaks up mocking into 3 different groups: [spies](http://sinonjs.org/docs/#spies), [stubs](http://sinonjs.org/docs/#stubs), and [mocks](http://sinonjs.org/docs/#mocks), each with subtle differences. A few of these differences that I have noticed are:
 
-A spy in Sinon calls through to the method being spied on whereas you have to specify this behavior in Jasmine. For example: 
+A spy in Sinon calls through to the method being spied on whereas you have to specify this behavior in Jasmine. For example:
 
 ```js
 spyOn(user, 'isValid').andCallThrough() // Jasmine
-// is equivalent to 
+// is equivalent to
 sinon.spy(user, 'isValid') // Sinon
 ```
 
@@ -85,7 +85,7 @@ From my experience, Jasmine spies cover almost everything I need for mocking so 
 
 ## 3. Asynchronous Tests
 
-Asynchronous testing in Jasmine 2.x and Mocha is the same. 
+Asynchronous testing in Jasmine 2.x and Mocha is the same.
 
 ```js
 it('should resolve with the User object', function(done) {
@@ -96,15 +96,15 @@ it('should resolve with the User object', function(done) {
   dfd.resolve({ name: 'David' });
 
   User.get().then(function(user) {
-      expect(user instanceof User).toBe(true);
-      done();
+    expect(user instanceof User).toBe(true);
+    done();
   });
 });
 ```
 
 Above, `User` is a constructor function with an instance method `fetch()`. I want to assert that when `fetch()` resolves successfully, the resolved value is an instance of `User`. Because I have mocked out `User.prototype.fetch()` to return a pre-resolved promise, no real AJAX request is made.
 
-The above test would work in both Mocha and Jasmine 2.x. By simply specifying a parameter in the `it()` callback function (I have called it `done()` like in the documentation but you can call it whatever you want), the test runner will pass in a function and wait for this function to execute before ending the test. The test will timeout and error if `done()` is not called within a certain time limit. This gives you full control on when your tests complete. 
+The above test would work in both Mocha and Jasmine 2.x. By simply specifying a parameter in the `it()` callback function (I have called it `done()` like in the documentation but you can call it whatever you want), the test runner will pass in a function and wait for this function to execute before ending the test. The test will timeout and error if `done()` is not called within a certain time limit. This gives you full control on when your tests complete.
 
 If you are working with Jasmine 1.3, asynchronous testing was not so pretty.
 
@@ -112,29 +112,29 @@ __Example Jasmine 1.3 Asynchronous Test__
 
 ```js
 it('should resolve with the User object', function() {
-    var flag = false;
-    var david;
+  var flag = false;
+  var david;
 
-    runs(function() {
-        var dfd = new $.Deferred();
-        var promise = dfd.promise();
+  runs(function() {
+    var dfd = new $.Deferred();
+    var promise = dfd.promise();
 
-        dfd.resolve({ name: 'David' });
-        spyOn(User.prototype, 'fetch').andReturn(promise);
+    dfd.resolve({ name: 'David' });
+    spyOn(User.prototype, 'fetch').andReturn(promise);
 
-        User.get().then(function(user) {
-            flag = true;
-            david = user;
-        });
+    User.get().then(function(user) {
+      flag = true;
+      david = user;
     });
+  });
 
-    waitsFor(function() {
-        return flag;
-    }, 'get should resolve with the model', 500);
+  waitsFor(function() {
+    return flag;
+  }, 'get should resolve with the model', 500);
 
-    runs(function() {
-       expect(david instanceof User).toBe(true);
-    });
+  runs(function() {
+    expect(david instanceof User).toBe(true);
+  });
 });
 ```
 
@@ -147,24 +147,24 @@ One feature that Sinon has that Jasmine does not is a fake server. This allows y
 
 ```js
 it('should return a collection object containing all users', function(done) {
-	var server = sinon.fakeServer.create();
-	server.respondWith("GET", "/users", [
-		200, 
-		{ "Content-Type": "application/json" },
-		'[{ "id": 1, "name": "Gwen" },  { "id": 2, "name": "John" }]'
-	]);
+  var server = sinon.fakeServer.create();
+  server.respondWith("GET", "/users", [
+    200,
+    { "Content-Type": "application/json" },
+    '[{ "id": 1, "name": "Gwen" },  { "id": 2, "name": "John" }]'
+  ]);
 
-	Users.all().done(function(collection) {
-		expect(collection.toJSON()).to.eql([
-			{ id: 1, name: "Gwen" },
-			{ id: 2, name: "John" }
-		]);
+  Users.all().done(function(collection) {
+    expect(collection.toJSON()).to.eql([
+      { id: 1, name: "Gwen" },
+      { id: 2, name: "John" }
+    ]);
 
-		done();	
-	});
+    done();
+  });
 
-	server.respond();
-	server.restore();
+  server.respond();
+  server.restore();
 });
 ```
 
