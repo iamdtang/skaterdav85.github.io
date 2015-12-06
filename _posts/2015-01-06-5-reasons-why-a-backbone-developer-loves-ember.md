@@ -6,7 +6,7 @@ categories: ['JavaScript', 'Ember', 'Backbone']
 keywords: Ember vs Backbone, Ember.js vs Backbone.js, Ember techniques for Backbone, Backbone computed properties, Backbone data store, Ember with Backbone, Backbone best practices, Ember.js, Ember, Backbone, Backbone
 ---
 
-Last year I started a new job as Senior JavaScript Developer where I am currently tasked with rebuilding an ecommerce site for the company. The JavaScript stack is using Backbone, Lodash, Handlebars, Zepto, Require.js, and CoffeeScript. I had played with Backbone when it first came out and used it for small things but this has definitely been my biggest Backbone project. Prior to this job I had been using a lot of Angular. As I learned more and more about Backbone, I kept missing some of the features and structure Angular had. So I thought to myself, maybe I am doing something wrong. I went on to read [Building Backbone Plugins by Derick Bailey](https://leanpub.com/building-backbone-plugins), looked at Marionette.js, and incorporated several of those ideas into our own abstractions. This definitely helped remove some of the boilerplate code since Backbone is really minimalistic. Even with these abstractions, certain things felt wrong and messy. At that point, I decided to learn Ember just to hopefully learn and borrow some new concepts despite knowing that Ember was something we wouldn't use for this project. So here is my list of 5 things that I learned and borrowed from Ember for Backbone.
+Last year I started a new job as where I am currently tasked with rebuilding an ecommerce site for the company. The JavaScript stack is using Backbone, Lodash, Handlebars, Zepto, Require.js, and CoffeeScript. I had played with Backbone when it first came out and used it for small things but this has definitely been my biggest Backbone project. Prior to this job I had been using a lot of Angular. As I learned more and more about Backbone, I kept missing some of the features and structure Angular had. So I thought to myself, maybe I am doing something wrong. I went on to read [Building Backbone Plugins by Derick Bailey](https://leanpub.com/building-backbone-plugins), looked at Marionette.js, and incorporated several of those ideas into our own abstractions. This definitely helped remove some of the boilerplate code since Backbone is really minimalistic. Even with these abstractions, certain things felt wrong and messy. At that point, I decided to learn Ember just to hopefully learn and borrow some new concepts despite knowing that Ember was something we wouldn't use for this project. So here is my list of 5 things that I learned and borrowed from Ember for Backbone.
 
 ## 1. Computed Properties
 
@@ -18,14 +18,14 @@ You can simulate computed properties in Backbone already.
 
 ```js
 var Person = Backbone.Model.extend({
-	initialize: function() {
-		this.computeFullName();
-		this.on('change:firstName change:lastName', this.computeFullName, this);
-	},
+  initialize: function() {
+    this.computeFullName();
+    this.on('change:firstName change:lastName', this.computeFullName, this);
+  },
 
-	computeFullName: function() {
-		this.set('fullName', this.get('firstName') + ' ' + this.get('lastName'));
-	}
+  computeFullName: function() {
+    this.set('fullName', this.get('firstName') + ' ' + this.get('lastName'));
+  }
 });
 ```
 
@@ -33,46 +33,46 @@ Whenever _Person_ is instantiated or a person's _firstName_ or _lastName_ change
 
 ```js
 var Product = Backbone.Model.extend({
-	initialize: function() {
-		this.computeHasDiscount();
-		this.on('change:price', this.computeHasDiscount, this);
-		this.computeSavePercentage();
-		this.on('change:hasDiscount', this.computeSavePercentage, this);
-		this.computeStartingAtPrice();
-		this.on('change:sizes', this.computeStartingAtPrice, this);
-	},
+  initialize: function() {
+    this.computeHasDiscount();
+    this.on('change:price', this.computeHasDiscount, this);
+    this.computeSavePercentage();
+    this.on('change:hasDiscount', this.computeSavePercentage, this);
+    this.computeStartingAtPrice();
+    this.on('change:sizes', this.computeStartingAtPrice, this);
+  },
 
-	computeHasDiscount: function() {
-		if (this.get('disciountprice') < this.get('price')) {
-			this.set('hasDiscount', true);
-		}
-	},
+  computeHasDiscount: function() {
+    if (this.get('disciountprice') < this.get('price')) {
+      this.set('hasDiscount', true);
+    }
+  },
 
-	computeSavePercentage: function() {
-		/* implementation */
-	}
+  computeSavePercentage: function() {
+    /* implementation */
+  }
 
-	computeStartingAtPrice: function() {
-		/* implementation */
-	}
+  computeStartingAtPrice: function() {
+    /* implementation */
+  }
 });
 ```
 
-Not the cleanest. Here is an example of a _fullName_ computed property defined in Ember. 
+Not the cleanest. Here is an example of a _fullName_ computed property defined in Ember.
 
 ```js
 App.Person = Ember.Object.extend({
-	fullName: Ember.computed('firstName', 'lastName', function() {
-		return this.get('firstName') + ' ' + this.get('lastName');
-	})
+  fullName: Ember.computed('firstName', 'lastName', function() {
+    return this.get('firstName') + ' ' + this.get('lastName');
+  })
 });
 ```
 
-In my opinion, this is much more clear and readable. You can easily see the name of the computed property, the dependent properties, and the function to run when the dependent properties change. The solution I came up with is very similar to Ember's computed properties API on top of Backbone. 
+In my opinion, this is much more clear and readable. You can easily see the name of the computed property, the dependent properties, and the function to run when the dependent properties change. The solution I came up with is very similar to Ember's computed properties API on top of Backbone.
 
 ```js
 var Person = Backbone.Model.extend({
-  fullName: Backbone.Computed('first', 'last', function() {
+  fullName: Backbone.computed('first', 'last', function() {
     return this.get('first') + ' ' + this.get('last');
   })
 });
@@ -87,7 +87,7 @@ Another feature of Ember that I really like is its data store, Ember Data. I rea
 
 > "The identity map pattern is a database access design pattern used to improve performance by providing a context-specific, in-memory cache to prevent duplicate retrieval of the same object data from the database."
 
-For example, in your application if you make a request for a user object with an id of 1, and you make another AJAX request for the user with an id of 1, you're going to have two user objects with an id of 1 which represent the same person but they are different objects in memory. That second trip to the server for user with an id of 1 is a wasted trip when it could have been cached. Also, many times in web applications you need a reference to the same "user with an id of 1" instance, not a copy of it. Identity mapping is a pattern that allows you to return the same user with an id of 1 instance, regardless of how many times you look it up. 
+For example, in your application if you make a request for a user object with an id of 1, and you make another AJAX request for the user with an id of 1, you're going to have two user objects with an id of 1 which represent the same person but they are different objects in memory. That second trip to the server for user with an id of 1 is a wasted trip when it could have been cached. Also, many times in web applications you need a reference to the same "user with an id of 1" instance, not a copy of it. Identity mapping is a pattern that allows you to return the same user with an id of 1 instance, regardless of how many times you look it up.
 
 I had already been thinking about caching but I wasn't settled on how to go about implementing it in the context of Backbone. After learning the basics of Ember Data, and then later angular-data, I went and built a small data store library for Backbone for my own use called [Backbone Data](https://github.com/skaterdav85/backbone-data). So far I have found this approach to be a useful data caching abstraction and a single entry point for data access.
 
@@ -115,7 +115,7 @@ The last thing I really liked about Ember is how it defines controllers as a way
 
 ```js
 var Person = BaseModel.extend({
-	blacklist: ['inEditMode', 'isExpanded']
+  blacklist: ['inEditMode', 'isExpanded']
 });
 ```
 
@@ -123,7 +123,7 @@ or the opposite:
 
 ```js
 var Person = BaseModel.extend({
-	whitelist: ['id', 'firstName', 'lastName', 'age']
+  whitelist: ['id', 'firstName', 'lastName', 'age']
 });
 ```
 
