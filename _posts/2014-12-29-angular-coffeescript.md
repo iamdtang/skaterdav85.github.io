@@ -16,20 +16,20 @@ When defining an Angular controller, you might do something like the following i
 var app = angular.module('app', ['ngRoute']);
 
 app.config(function($routeProvider) {
-	$routeProvider
-		.when('/', {
-			templateUrl: 'index.html',
-			controller: 'MyController'
-			controllerAs: 'vm'
-		});
+  $routeProvider
+    .when('/', {
+      templateUrl: 'index.html',
+      controller: 'MyController'
+      controllerAs: 'vm'
+    });
 });
 
 app.controller('MyController', function() {
-	var vm = this;
+  var vm = this;
 
-	vm.hello = function() {
-		alert('hello!')
-	};
+  vm.hello = function() {
+    alert('hello!')
+  };
 });
 ```
 
@@ -49,18 +49,18 @@ Pretty simple. Now let's translate this to CoffeeScript.
 app = angular.module('app', [])
 
 app.config ($routeProvider) ->
-	$routeProvider
-		.when('/', {
-			templateUrl: 'index.html'
-			controller: 'MyController'
-			controllerAs: 'vm'
-		})
+  $routeProvider
+    .when('/', {
+      templateUrl: 'index.html'
+      controller: 'MyController'
+      controllerAs: 'vm'
+    })
 
 app.controller 'MyController', () ->
-	vm = this
+  vm = this
 
-	vm.hello = () ->
-		alert("hello!")
+  vm.hello = () ->
+    alert("hello!")
 ```
 
 Not a whole lot different. Remove the parenthesis, braces, and semicolons and use the different arrow syntax to define a function and you have CoffeeScript. However, this small controller definition in CoffeeScript has some issues that you might not notice immediately, other than the fact that it no longer works. The above controller definition compiles to the following JavaScript:
@@ -69,20 +69,20 @@ Not a whole lot different. Remove the parenthesis, braces, and semicolons and us
 app = angular.module('app', []);
 
 app.controller('MyController', function() {
-    var vm;
-    vm = this;
-    return vm.hello = function(name) {
-      return alert("Hello, " + name);
-    };
-  });
+  var vm;
+  vm = this;
+  return vm.hello = function(name) {
+    return alert("Hello, " + name);
+  };
+});
 ```
 
 Notice how CoffeeScript stuck in a return statement that returns _$scope.hello_ in the controller function definition? Functions in CoffeeScript implicitly return the last line if no return statement is provided. As you might guess, this can cause some issues. You may not know that Angular treats controllers as constructors. It isn't completely obvious that the function in the controller definition is newed up behind the scenes by Angular. Constructors always return a new constructed object unless a different return value is specified. Because CoffeeScript has implicit returns for functions, you may run into issues where your controller isn't working as expected when you are using a standard CoffeeScript function to define it. The fix is that you need to explicitly state that a controller returns _this_ so that there is no implicit return. This can be really tough to figure out and may eat up a few hours of your day if you did the above and didn't know that Angular controllers are used as constructors. I know it troubled me when I first started using CoffeeScript with Angular. As a general rule, you could always make sure that you explicitly return a value from your CoffeeScript functions so you don't accidentally run into this issue. There is another solution though that I prefer and that is to use CoffeeScript classes for controllers.
 
 ```coffeescript
 class MyController
-	constructor: ($scope, $log) ->
-		$scope.name = 'David'
+  constructor: ($scope, $log) ->
+    $scope.name = 'David'
 
 app.controller('MyController', MyController)
 ```
@@ -91,11 +91,11 @@ The _MyController_ class will become a function used as a constructor without an
 
 ```js
 MyController = (function() {
-    function MyController($scope) {
-      $scope.name = 'David';
-    }
+  function MyController($scope) {
+    $scope.name = 'David';
+  }
 
-    return MyController;
+  return MyController;
 })();
 ```
 
@@ -107,10 +107,10 @@ One of the styles recommended is to use [function declarations to hide implement
 
 ```js
 angular
-	.module('app')
-	.controller('MyController', ['$location', '$log', 'config', 'data', function($location, $log, config, data) {
+  .module('app')
+  .controller('MyController', ['$location', '$log', 'config', 'data', function($location, $log, config, data) {
 
-	});
+  });
 ```
 
 As you can see, this controller only has 4 dependencies and it is already becoming difficult to read. Add a few more dependencies and you'll have to break the controller definition onto 2 lines. Instead, the styleguide suggests something like this:
@@ -118,13 +118,13 @@ As you can see, this controller only has 4 dependencies and it is already becomi
 
 ```js
 angular
-	.module('app')
-	.controller('MyController', MyController);
+  .module('app')
+  .controller('MyController', MyController);
 
 MyController.$inject = ['$location', '$log', 'config', 'data'];
 
 function MyController($location, $log, config, data) {
-	
+
 }
 ```
 
@@ -134,20 +134,20 @@ This alternative controller definition is much more readable. You can easily see
 MyController = () ->
 ```
 
-which creates a function expression which doesn't hoist. 
+which creates a function expression which doesn't hoist.
 
 ```js
 MyController = function() {};
 ```
 
-Your next thought might be to use a CoffeeScript class. 
+Your next thought might be to use a CoffeeScript class.
 
 ```coffeescript
 app.controller('MyController', MyController)
 
 class MyController
-	constructor: ($scope) ->
-		$scope.name = 'David'
+  constructor: ($scope) ->
+    $scope.name = 'David'
 ```
 
 However, CoffeeScript classes don't just create a function declaration. Instead, it uses an immediately invoked function expression (IIFE) to return a function declaration, which loses the benefit of function declaration hoisting.
@@ -156,11 +156,11 @@ However, CoffeeScript classes don't just create a function declaration. Instead,
 app.controller('MyController', MyController)
 
 MyController = (function() {
-	function MyController($scope) {
-	  $scope.name = 'David';
-	}
+  function MyController($scope) {
+    $scope.name = 'David';
+  }
 
-	return MyController;
+  return MyController;
 })();
 ```
 
@@ -172,8 +172,8 @@ So what is the solution? The simplest solution in my opinion is to just declare 
 
 ```coffeescript
 class MyController
-	constructor: ($scope, $log) ->
-		$scope.name = 'David'
+  constructor: ($scope, $log) ->
+    $scope.name = 'David'
 
 MyController.$inject = ['$scope', '$log']
 
