@@ -41,7 +41,7 @@ var renderSpy = spyOn(view, 'render').andCallThrough();
 var renderSpy = spyOn(view, 'render').and.callThrough();
 ```
 
-#### 5. .andCallFake() 
+#### 5. .andCallFake()
 
 ```js
 spyOn(ProductAvailability.prototype, 'isAvailable').andCallFake(function() {});
@@ -60,14 +60,14 @@ expect(spy.calls.mostRecent().args[0]).toEqual(6);
 #### 7. .toThrow()
 
 ```js
-expect(function() { 
-    imageView.render();
+expect(function() {
+  imageView.render();
 }).toThrow('A basePath must be set.');
 
 // now becomes
 
 expect(function() {
-    imageView.render();
+  imageView.render();
 }).toThrowError('A basePath must be set.');
 ```
 
@@ -94,29 +94,29 @@ The change in the asynchronous testing API is one of the main reasons I wanted t
 
 ```js
 it('should resolve with the Rewards object', function() {
-    var flag = false;
-    var resolveValue;
+  var flag = false;
+  var resolveValue;
 
-    runs(function() {
-        var dfd = new $.Deferred();
-        var promise = dfd.promise();
+  runs(function() {
+    var dfd = new $.Deferred();
+    var promise = dfd.promise();
 
-        dfd.resolve({ points: 5 });
-        spyOn(Rewards.prototype, 'fetch').and.returnValue(promise);
+    dfd.resolve({ points: 5 });
+    spyOn(Rewards.prototype, 'fetch').and.returnValue(promise);
 
-        Rewards.get().then(function(rewards) {
-            flag = true;
-            resolveValue = rewards;
-        });
+    Rewards.get().then(function(rewards) {
+      flag = true;
+      resolveValue = rewards;
     });
+  });
 
-    waitsFor(function() {
-        return flag;
-    }, 'get should resolve with the model', 500);
+  waitsFor(function() {
+    return flag;
+  }, 'get should resolve with the model', 500);
 
-    runs(function() {
-       expect(resolveValue instanceof Rewards).toBe(true);
-    });
+  runs(function() {
+    expect(resolveValue instanceof Rewards).toBe(true);
+  });
 });
 ```
 
@@ -125,20 +125,19 @@ In Jasmine 2.1, it works similar to asynchronous testing in Mocha. When `done()`
 
 ```js
 it('should resolve with the Rewards object', function(done) {
-    var dfd = new $.Deferred();
-    var promise = dfd.promise();
+  var dfd = new $.Deferred();
+  var promise = dfd.promise();
 
-    dfd.resolve({ points: 5 });
-    spyOn(Rewards.prototype, 'fetch').and.returnValue(promise);
+  dfd.resolve({ points: 5 });
+  spyOn(Rewards.prototype, 'fetch').and.returnValue(promise);
 
-    Rewards.get().then(function(rewards) {
-        expect(rewards instanceof Rewards).toBe(true);
-        done();
-    });
+  Rewards.get().then(function(rewards) {
+    expect(rewards instanceof Rewards).toBe(true);
+    done();
+  });
 });
 ```
 
 ## Conclusion
 
 These are just some of the differences I came across when upgrading from Jasmine 1.3 to 2.1. If there are others, please let me know in the comments and I will be sure to add them to this post.
-
