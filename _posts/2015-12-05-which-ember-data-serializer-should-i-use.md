@@ -2,7 +2,7 @@
 layout: post
 title: Which Ember Data Serializer Should I Use?
 date: 2015-12-05
-description: TBA
+description: A serializer in Ember Data is used to massage data as it is transferred between the client and the persistence layer. Which one should you use? The answer is, choose the one that fits your API data format, or is as close to it as possible. But what format do each of these serializers expect? Let's find out.
 keywords: ember, ember data, ember data serializer, jsonserializer, jsonapiserializer, restserializer, data store, DS, serializer, api
 ---
 
@@ -93,7 +93,7 @@ The root key is `user` and matches the model name. Similarly if a request is mad
     },
     {
       "id": 9,
-      "first": "Jane", 
+      "first": "Jane",
       "last": "Doe",
       "pets": [ 4 ],
       "company": 7
