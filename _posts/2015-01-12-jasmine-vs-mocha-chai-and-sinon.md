@@ -23,7 +23,7 @@ describe('calculator', function() {
 });
 ```
 
-The assertions or expectations are where things start to differ. Mocha does not have a built in assertion library. There are several options though for both Node and the browser: Chai, should.js, expect.js, and better-assert. A lot of developers seem to choose Chai as the assertion library. Because none of these assertion libraries come with Mocha, this is another thing you will need to load into your setup. Chai comes with 3 different assertion flavors. It has the `should` style, the `expect` style, and the `assert` style. The `expect` style is similar to Jasmine.
+The assertions or expectations are where things start to differ. Mocha does not have a built in assertion library. There are several options though for both Node and the browser: Chai, should.js, expect.js, and better-assert. A lot of developers choose Chai as their assertion library. Because none of these assertion libraries come with Mocha, this is another thing you will need to load into your setup. Chai comes with 3 different assertion flavors. It has the `should` style, the `expect` style, and the `assert` style. The `expect` style is similar to Jasmine.
 
 __Jasmine__
 
@@ -79,8 +79,7 @@ sinon.stub(user, 'isValid').returns(true) // Sinon
 spyOn(user, 'isValid').andReturns(true) // Jasmine
 ```
 
-
-From my experience, Jasmine spies cover almost everything I need for mocking so in many situations you won't need to use Sinon if you are using Jasmine, but you can use the two together if you'd like. In Jasmine, I like the fact that in order to mock a method, I just have to remember the Jasmine spy API instead of having to refer to different Sinon APIs for stubs, mocks, and spies. This could just be due to the fact that I have not worked with Sinon enough. Maybe as I work more with Sinon, I will come to appreciate the separation.
+From my experience, Jasmine spies cover almost everything I need for mocking so in many situations you won't need to use Sinon if you are using Jasmine (unless you want to use Sinon's fake server which can be very handy - more on this later), but you can use the two together if you'd like. In Jasmine, I like the fact that in order to mock a method, I just have to remember the Jasmine spy API instead of having to refer to different Sinon APIs for stubs, mocks, and spies. This could just be due to the fact that I have not worked with Sinon enough. Maybe as I work more with Sinon, I will come to appreciate the separation.
 
 
 ## 3. Asynchronous Tests
@@ -168,13 +167,13 @@ it('should return a collection object containing all users', function(done) {
 });
 ```
 
-This is really handy if you want to test your code that makes AJAX calls and some preprocessing needs to be done on the response. If you have worked with Angular, Sinon's fake server is similar to the _$httpBackend_ service provided in angular mocks. An alternative to using Sinon's fake server that can get you by in a lot of situations is to simply spy on `$.ajax` instead or whatever AJAX library you are using.
+This is really handy if you want to test your code that makes AJAX calls and some preprocessing needs to be done on the response. If you have worked with Angular, Sinon's fake server is similar to the _$httpBackend_ service provided in angular mocks.
 
 ## Conclusion
 
-In conclusion, the Jasmine framework has everything built into it including assertions and mocking utilities (which are called spies). Mocha is just a test runner and does not include assertion and mocking utilities. There are several choices for assertions when using Mocha, and Chai seems to be very popular choice. Mocking in Mocha also requires another library, and Sinon.js seems to be the de-facto choice. Sinon can also be a great addition to your test harness if you are using Jasmine for its fake server implementation.
+In conclusion, the Jasmine framework has everything built into it including assertions and mocking utilities (which are called spies). Mocha is just a test runner and does not include assertion and mocking utilities. There are several choices for assertions when using Mocha, and Chai tends to be the most popular choice. Mocking in Mocha also requires another library, and Sinon.js is often the de-facto choice. Sinon can also be a great addition to your test harness if you are using Jasmine for its fake server implementation.
 
-Trying to figure out testing libraries/frameworks to use for JavaScript can be tough but hopefully this article has made it more clear as to what some of the main differenences are between Jasmine and Mocha. You can't really go wrong with either choice. Happy testing!
+Trying to figure out testing libraries/frameworks to use for JavaScript can be tough but hopefully this article has made it more clear as to what some of the main differences are between Jasmine and Mocha. You can't really go wrong with either choice. Happy testing!
 
 ## Related Posts
 
