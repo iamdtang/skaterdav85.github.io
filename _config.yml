@@ -1,5 +1,6 @@
 name: The JS Guy
 author: David Tang
+description: Thoughts and tutorials on frameworks, testing, patterns, and best practices in JavaScript development
 paginate: 5
 markdown: redcarpet
 highlighter: pygments
