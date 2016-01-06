@@ -7,7 +7,7 @@ keywords: readable code, clean javascript, fluent api, fluent interface, method 
 ---
 
 In today's post, I want to show you how a fluent interface, also known as a fluent API, can help improve the
-readability of your code. Imagine you an array of objects, maybe a list of
+readability of your code. Imagine you have an array of objects, maybe a list of
 products, and you want to filter these objects based on some criteria.
 There are several ways you can achieve this, but let's look at how using a
 fluent API can improve the readability of this.

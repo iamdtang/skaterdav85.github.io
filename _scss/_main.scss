@@ -8,15 +8,14 @@ h1 {
   font-size: 1em;
 }
 
-.main-content {
-  padding-top: 80px;
-}
+// .main-content {
+//   padding-top: 80px;
+// }
 
 .sticky-header {
   background-color: $bg1;
-  position: fixed;
+  // position: fixed;
   width: 100%;
-  padding: 15px;
   z-index: 100;
 
   h1, p {
