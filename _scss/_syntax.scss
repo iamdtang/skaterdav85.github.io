@@ -62,3 +62,8 @@
 .highlight .p { color: #ABB2B6; }
 
 .language-text { color: #ABB2B6; }
+
+// this is for handlebars code snippets where there is no outer script tag
+pre code.language-html {
+  color: white;
+}

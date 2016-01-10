@@ -8,9 +8,14 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="{{ page.keywords }}">
-    <meta name="description" content="{{ site.description }}">
+    {% if page.description %}
+      <meta name="description" content="{{ page.description }}">
+      <meta property="og:description" content="{{ page.description }}" />
+    {% else %}
+      <meta name="description" content="{{ site.description }}">
+      <meta property="og:description" content="{{ site.description }}" />
+    {% endif %}
     <meta property="og:title" content="{{ page.title }} - {{ site.name }}" />
-    <meta property="og:description" content="{{ page.description }}" />
     <meta property="og:url" content="http://thejsguy.com{{ page.url }}" />
     <meta property="og:image" content="http://www.gravatar.com/avatar/1c31a96c0a474a6795637081bde42acc.png?s=200" />
     <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>

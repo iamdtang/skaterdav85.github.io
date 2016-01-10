@@ -8,34 +8,34 @@ keywords: Backbone View-Models, Backbone View Models, Backbone Controllers, View
 
 One of the difficult parts I am experiencing when working with Backbone is separating out display logic properties from models. Let's look at a simple example where we display a user model in a view and allow the user's email address to be edited.
 
-## The problem
+## The Problem
 
 ```js
 var User = Backbone.Model.extend({
-	url: '/users'
+  url: '/users'
 });
 
 var UserView = Backbone.View.extend({
-	template: Handlebars.compile($('script[data-template-name="user"]').html()),
-	events: {
-		'click .edit-email': 'editEmail',
-	},
-	
-	editEmail: function(e) {
-		e.preventDefault();
-		this.model.set('editEmail', true);
-	}
+  template: Handlebars.compile($('script[data-template-name="user"]').html()),
+  events: {
+    'click .edit-email': 'editEmail',
+  },
+
+  editEmail: function(e) {
+    e.preventDefault();
+    this.model.set('editEmail', true);
+  }
 });
 
 var user = new User({
-	id: 1,
-	first: 'David',
-	last: 'Tang',
-	email: 'dtang85@gmail.com'
+  id: 1,
+  first: 'David',
+  last: 'Tang',
+  email: 'dtang85@gmail.com'
 });
 
 var userView = new UserView({
-	model: user
+  model: user
 });
 
 userView.render();
@@ -45,14 +45,12 @@ And the corresponding _UserView_ template using Handlebars.
 
 ```html
 {% raw %}
-<script type="text/handlebars" data-template-name="user">
-	{{#if editEmail}}
-		<input type="text" value="{{email}}">
-	{{else}}
-		{{email}}
-		<a href="#" class="edit-email">Edit</a>
-	{{/if}}
-</script>
+{{#if editEmail}}
+  <input type="text" value="{{email}}">
+{{else}}
+  {{email}}
+  <a href="#" class="edit-email">Edit</a>
+{{/if}}
 {% endraw %}
 ```
 
@@ -62,11 +60,11 @@ So imagine I click on that edit button. If I call `user.toJSON()`, the object wi
 
 ```js
 {
-	"id": 1,
-	"first": "David",
-	"last": "Tang",
-	"email": "dtang85@gmail.com",
-	"editEmail": true
+  "id": 1,
+  "first": "David",
+  "last": "Tang",
+  "email": "dtang85@gmail.com",
+  "editEmail": true
 }
 ```
 
@@ -80,12 +78,12 @@ One of the things I really liked about Ember is how it defines controllers as a 
 
 A solution I came up with was to introduce a _view-model_ into Backbone called `ViewModel` that extends `Backbone.Model`. Here are the requirements:
 
-#### 1. The view-model should accept any number of properties containing Backbone models 
+#### 1. The view-model should accept any number of properties containing Backbone models
 
 ```js
 var vm = new ViewModel({
-	user: user, // a User model instance
-	address: address // an Address model instance
+  user: user, // a User model instance
+  address: address // an Address model instance
 });
 ```
 
@@ -95,7 +93,7 @@ This could be improved to allow for infinite nested models, but this should suff
 
 ```js
 var vm = new ViewModel({
-	user: user
+  user: user
 });
 
 vm.toJSON();
@@ -109,15 +107,15 @@ vm.set('editEmail', true);
 
 ```js
 var vm = new ViewModel({
-	user: user
+  user: user
 });
 
 vm.on('change', function() {
-	console.log('change event emitted');
+  console.log('change event emitted');
 });
 
 vm.on('change:user', function() {
-	console.log('change:user event emitted');
+  console.log('change:user event emitted');
 });
 
 vm.get('user').set('email', 'davidtang@someemail.com');
@@ -130,34 +128,34 @@ vm.get('user').set('email', 'davidtang@someemail.com');
 
 ```js
 var ViewModel = Backbone.Model.extend({
-	constructor: function(options) {
-		Object.keys(options).forEach(function(key) {
-			var vm = this;
+  constructor: function(options) {
+    Object.keys(options).forEach(function(key) {
+      var vm = this;
 
-			if (options[key] instanceof Backbone.Model) {
-				options[key].on('change', function() {
-					vm.trigger('change');
-					vm.trigger('change:' + key);
-				});
-			}
-		}, this);
+      if (options[key] instanceof Backbone.Model) {
+        options[key].on('change', function() {
+          vm.trigger('change');
+          vm.trigger('change:' + key);
+        });
+      }
+    }, this);
 
-		return Backbone.Model.apply(this, arguments);
-	},
+    return Backbone.Model.apply(this, arguments);
+  },
 
-	toJSON: function() {
-		var json = Backbone.Model.prototype.toJSON.apply(this, arguments);
+  toJSON: function() {
+    var json = Backbone.Model.prototype.toJSON.apply(this, arguments);
 
-		Object.keys(json).forEach(function(key) {
-			var value = this.get(key);
+    Object.keys(json).forEach(function(key) {
+      var value = this.get(key);
 
-			if (value instanceof Backbone.Model) {
-				json[key] = value.toJSON();
-			}
-		}, this);
+      if (value instanceof Backbone.Model) {
+        json[key] = value.toJSON();
+      }
+    }, this);
 
-		return json;
-	}
+    return json;
+  }
 });
 ```
 
@@ -168,4 +166,3 @@ This is just one implementation I am experimenting with. I haven't tried it in t
 ## Related Posts
 
 * [5 Reasons Why A Backbone Developer Loves Ember](http://thejsguy.com/javascript/ember/backbone/2015/01/06/5-reasons-why-a-backbone-developer-loves-ember.html)
-
