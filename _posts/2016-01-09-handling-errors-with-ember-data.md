@@ -44,7 +44,7 @@ One thing I want to point out is that the JSON API spec states that an error obj
 members. But which of those properties does Ember Data use?
 
 Let's say we want to create/update a new `user` record and handle the scenario when
-there is an error validating an attribute called `first` (short for the first name). What should that
+there is an error validating the `name` attribute. What should that
 error object look like? The __two__ error object properties you will need the API to include
 are `detail` and `source`. For example:
 
@@ -52,16 +52,16 @@ are `detail` and `source`. For example:
 {
   "errors": [
     {
-      "detail": "First name is not long enough",
+      "detail": "Name is not long enough",
       "source": {
-        "pointer": "data/attributes/first"
+        "pointer": "data/attributes/name"
       }
     }
   ]
 }
 ```
 
-The property `source.pointer` is a _JSON pointer_ to a specific attribute, the `first` (first name)
+The property `source.pointer` is a _JSON pointer_ to a specific attribute, the `name`
 attribute in this case. A JSON pointer is a string using a slash-based syntax
 that identifies a specific value in a JSON document. If you were to look at a `user`
 JSON document following JSON API, it would look like this:
@@ -72,14 +72,13 @@ JSON document following JSON API, it would look like this:
     "type": "users",
     "id": "8",
     "attributes": {
-      "first": "David",
-      "last": "Tang"
+      "name": "David Tang"
     }
   }
 }
 ```
 
-You can see how that JSON pointer `data/attributes/first` maps to this JSON document. Note that `first` in the string `data/attributes/first` refers to the `first` (first name) attribute. You
+You can see how that JSON pointer `data/attributes/name` maps to this JSON document. You
 can learn more about JSON pointers [here](https://tools.ietf.org/html/rfc6901).
 
 Back to the example. Not only does the API need to send the error response formatted as above,
@@ -94,7 +93,7 @@ user.save().then(() => {
   // handle success
 }).catch((adapterError) => {
   console.log(user.get('errors')); // instance of DS.Errors
-  console.log(user.get('errors.first')); // array of error objects for first attribute
+  console.log(user.get('errors.name')); // array of error objects for the name attribute
   console.log(user.get('errors').toArray());
   console.log(user.get('isValid')); // false
   console.log(adapterError); // instance of DS.AdapterError
@@ -106,7 +105,7 @@ to use are the `errors` and `isValid` properties on the model. To display the er
 
 ```html
 {% raw %}
-{{#each model.errors.first as |error|}}
+{{#each model.errors.name as |error|}}
   <div class="error">
     {{error.message}}
   </div>
@@ -124,8 +123,8 @@ So what if your API isn't based on JSON API and instead follows the conventions 
 ```json
 {
   "errors": {
-    "first": [
-      "First name is not long enough"
+    "name": [
+      "Name is not long enough"
     ]
   }
 }
