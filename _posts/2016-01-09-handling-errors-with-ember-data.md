@@ -44,7 +44,7 @@ One thing I want to point out is that the JSON API spec states that an error obj
 members. But which of those properties does Ember Data use?
 
 Let's say we want to create/update a new `user` record and handle the scenario when
-there is an error validating the attribute `first` (first name). What should that
+there is an error validating an attribute called `first` (short for the first name). What should that
 error object look like? The __two__ error object properties you will need the API to include
 are `detail` and `source`. For example:
 
@@ -61,7 +61,7 @@ are `detail` and `source`. For example:
 }
 ```
 
-The property `source.pointer` is a _JSON pointer_ to a specific attribute, the `first`
+The property `source.pointer` is a _JSON pointer_ to a specific attribute, the `first` (first name)
 attribute in this case. A JSON pointer is a string using a slash-based syntax
 that identifies a specific value in a JSON document. If you were to look at a `user`
 JSON document following JSON API, it would look like this:
