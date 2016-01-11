@@ -79,7 +79,7 @@ JSON document following JSON API, it would look like this:
 }
 ```
 
-You can see how that JSON pointer `data/attributes/first` maps to this JSON document. You
+You can see how that JSON pointer `data/attributes/first` maps to this JSON document. Note that `first` in the string `data/attributes/first` refers to the `first` (first name) attribute. You
 can learn more about JSON pointers [here](https://tools.ietf.org/html/rfc6901).
 
 Back to the example. Not only does the API need to send the error response formatted as above,
