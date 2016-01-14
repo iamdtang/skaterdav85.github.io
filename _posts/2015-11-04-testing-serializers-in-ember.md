@@ -139,9 +139,11 @@ export default DS.Model.extend({
 This time, each cat returned from `/cats` has a foreign key `home_id` that points to the home the cat belongs to. By default, the `RESTSerializer` does not relate models using the `XXX_id` convention. Instead, it uses the relationship key name as the default. So if I wanted my JSON to fit what Ember Data expects, it would need to look like this:
 
 ```json
-{ "id": 1, "name": "Tubby",    "home": 1 },
-{ "id": 2, "name": "Spot",     "home": 1  },
-{ "id": 3, "name": "Chestnut", "home": 1  }
+[
+  { "id": 1, "name": "Tubby",    "home": 1 },
+  { "id": 2, "name": "Spot",     "home": 1  },
+  { "id": 3, "name": "Chestnut", "home": 1  }
+]
 ```
 
 Here is the test for the JSON using the `XXX_id` convention for related models:

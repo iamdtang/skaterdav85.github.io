@@ -30,6 +30,14 @@ code {
     font-family: Consolas, Monaco, "Courier New" !important;
 }
 
+p code {
+  background-color: $bg1;
+  color: white;
+  border-radius: 4px;
+  padding: 3px 5px;
+  font-size: 0.9em;
+}
+
 ul, ol {
   margin: 30px inherit;
 }
