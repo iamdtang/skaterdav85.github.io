@@ -148,11 +148,13 @@ So back to the question, should you extend `RESTSerializer` or `JSONSerializer`?
 Many APIs return properties that are snake_cased:
 
 ```json
-[{
-  "id": 1,
-  "first_name": "Tubby",
-  "years": 4
-}]
+[
+  {
+    "id": 1,
+    "first_name": "Tubby",
+    "years": 4
+  }
+]
 ```
 
 Although you could work with snake_cased attributes in your app, this isn't the JavaScript convention. If you'd like to map these to camelCased properties, or map any attribute to another property on your model for that matter, you can specify this mapping in the `attrs` attribute.
