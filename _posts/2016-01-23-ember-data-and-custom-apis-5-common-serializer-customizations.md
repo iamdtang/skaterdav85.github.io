@@ -187,7 +187,7 @@ export default DS.RESTSerializer.extend({
 });
 ```
 
-With this in place, a JSON payload containing foreign keys like `home_id` and `owner_id` can map to our model attributes `home` and `owner` containing `belongsTo` relationships:
+Now a JSON payload with foreign keys like `home_id` and `owner_id` can map to our model attributes `home` and `owner` containing `belongsTo` relationships:
 
 ```json
 {
@@ -226,7 +226,7 @@ Here we are changing the `id` attribute to be `socialSecurityNumber` instead for
 model.get('id');
 ```
 
-If all of your records use a property like `_id` as the `id`, then you might want to override `primaryKey` in an application serializer. If you want to override the id field for a specific model, such as in this example, then you might want to create a model specific serializer.
+If all of your records use a property like `_id` as the `id`, then you might want to override `primaryKey` in an application serializer. If you want to override `id` for a specific model such as in this example, then you might want to create a model specific serializer.
 
 ## Conclusion
 
