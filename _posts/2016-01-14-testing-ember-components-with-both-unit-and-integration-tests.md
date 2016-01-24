@@ -113,7 +113,6 @@ test('sortedCats contains the cats sorted by age', function(assert) {
     { name: 'Frisky', age: 3 }
   ]);
 
-  this.render();
   assert.deepEqual(component.get('sortedCats'), [
     { name: 'Frisky', age: 3 },
     { name: 'Spot', age: 8 },
