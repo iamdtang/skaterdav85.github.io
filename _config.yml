@@ -1,7 +1,7 @@
 name: The JS Guy
 author: David Tang
-description: Thoughts and tutorials on JavaScript frameworks, testing, and architecture
-bio: JavaScript developer passionate about testing and architecture. Ember enthusiast. University of Southern California instructor teaching web development classes for ITP.
+description: Thoughts and tutorials on JavaScript frameworks, testing, patterns, and architecture
+bio: 
 paginate: 5
 markdown: redcarpet
 highlighter: pygments
