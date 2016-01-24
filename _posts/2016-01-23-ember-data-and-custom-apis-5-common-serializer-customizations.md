@@ -6,7 +6,7 @@ description: When I first started working with Ember Data in the 1.X days, one o
 keywords: ember data, custom api, custom serializers, customizing adapters, customizing ember data, ember, primary key, foreign key, ember embedded model, nested data, data root key, adapter vs serializer, custom apis, custom backends
 ---
 
-When I first started working with Ember Data in the 1.X days, one of the most frustrating things was having to work with custom APIs. This wasn't because of Ember Data but because I was new to it and there is a lot to learn. I was motivated to use Ember Data but I just couldn't get it to work with whatever API I was using at the time. Do I massage the data in an adapter or a serializer? What is the difference between `normalizeReponse` and `normalize` in serializers? How do I handle related data that is nested? I had lots of questions like these. Even today I see a lot of the same questions being asked on the Ember Discussion Forum about getting Ember Data to work with custom APIs. In this post, I'd like to share a few common ways to customize serializers that others might be wanting to make as well, especially those new to the framework.
+When I first started working with Ember Data in the 1.X days, one of the most frustrating things was having to work with custom APIs. This wasn't because of Ember Data but because I was new to it and there is a lot to learn. I was motivated to use Ember Data but I just couldn't get it to work with whatever API I was using at the time. Do I massage the data in an adapter or a serializer? What is the difference between `normalizeReponse()` and `normalize()` in serializers? How do I handle related data that is nested? I had lots of questions like these. Even today I see a lot of the same questions being asked on the Ember Discussion Forum about getting Ember Data to work with custom APIs. In this post, I'd like to share a few common ways to customize serializers that others might be wanting to make as well, especially those new to the framework.
 
 If your API is built with Rails, then it's likely it is following the conventions expected by Ember Data and everything just works. For those who don't have control over the API, some customizations might be needed to manipulate responses before they are handed off to the data store or data is sent back to the server. This data massaging happens in the serializer layer.
 
@@ -62,9 +62,9 @@ export default DS.JSONSerializer.extend({
 
 Because `JSONSerializer` expects the payload to contain the data without any root keys, we can simply extract that `data` property.
 
-Similar to `normalizeResponse()`, serializers also have methods that match specific data store calls. For example, if you wanted to normalize data only when `store.findAll()` is called, you can use `normalizeFindAllResponse()` instead.
+Similar to `normalizeResponse()`, serializers also have methods that match specific data store calls. For example, if you want to normalize data only when `store.findAll()` is called, you can use `normalizeFindAllResponse()` instead.
 
-To normalize only a single model for an endpoint such as `/cats/1`, you can use the `normalize()` method.
+To normalize only a single model for an endpoint such as `/cats/1`, use the `normalize()` method.
 
 ```js
 export default DS.JSONSerializer.extend({
@@ -103,8 +103,8 @@ and your model looks like this:
 ```js
 // app/models/cat.js
 export default DS.Model.extend({
-	name: DS.attr('string'),
-	type: DS.belongsTo('type', { async: false })
+  name: DS.attr('string'),
+  type: DS.belongsTo('type', { async: false })
 });
 ```
 
@@ -141,7 +141,7 @@ export default DS.RESTSerializer.extend({
 
 By extending `RESTSerializer`, we can extract `type` from each `cat` and create a payload where the related data is sideloaded under the key `types`. We also need to modify `type` on each `cat` so that it equals `type.id` as opposed to the full `type` object.
 
-So back to the question, should you extend `RESTSerializer` or `JSONSerializer`? If you have nested models, extend `RESTSerializer` so that you can normalize the data to be sideloaded.
+So back to the question, should you extend `RESTSerializer` or `JSONSerializer`? If you have nested models, extend `RESTSerializer` so that you can normalize the related data to be sideloaded.
 
 ## 3. Mapping Attributes to Model Properties
 
