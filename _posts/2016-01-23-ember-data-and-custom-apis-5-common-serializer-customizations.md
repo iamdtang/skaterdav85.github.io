@@ -114,28 +114,28 @@ Each cat has a `belongsTo` relationship to another model called `type`. The rela
 // app/serializers/cat.js
 export default DS.RESTSerializer.extend({
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-      let types = this._collectTypes(payload.data);
-      let cats = this._normalizeCats(payload.data);
-      let normalizedPayload = {
-        cats: cats,
-        types: types
-      };
+    let types = this._collectTypes(payload.data);
+    let cats = this._normalizeCats(payload.data);
+    let normalizedPayload = {
+      cats: cats,
+      types: types
+    };
 
-      return this._super(store, primaryModelClass, normalizedPayload, id, requestType);
-    },
+    return this._super(store, primaryModelClass, normalizedPayload, id, requestType);
+  },
 
-    _collectTypes(cats) {
-      return cats.map((cat) => {
-        return cat.type;
-      });
-    },
+  _collectTypes(cats) {
+    return cats.map((cat) => {
+      return cat.type;
+    });
+  },
 
-    _normalizeCats(cats) {
-      return cats.map((cat) => {
-        cat.type = cat.type.id;
-        return cat;
-      });
-    }
+  _normalizeCats(cats) {
+    return cats.map((cat) => {
+      cat.type = cat.type.id;
+      return cat;
+    });
+  }
 });
 ```
 
