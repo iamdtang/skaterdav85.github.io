@@ -18,16 +18,16 @@ The first approach to managing flow control in JavaScript is using nested callba
 
 ```js
 var searchOptions = {
-	to: 'Hawaii',
-	from: 'Los Angeles',
-	date: new Date(2014, 5, 15)
+  to: 'Hawaii',
+  from: 'Los Angeles',
+  date: new Date(2014, 5, 15)
 };
 
 expedia.findFlights(searchOptions, function(expediaResults) {
-	orbitz.findFlights(searchOptions, function(orbitzResults) {
-		var allResults = expediaResults.concat(orbitzResults);
-		console.log('All results:', allResults);
-	});
+  orbitz.findFlights(searchOptions, function(orbitzResults) {
+    var allResults = expediaResults.concat(orbitzResults);
+    console.log('All results:', allResults);
+  });
 });
 ```
 
@@ -50,22 +50,22 @@ var expedia = require('./app/expedia');
 var orbitz = require('./app/orbitz');
 
 var searchOptions = {
-	to: 'Hawaii',
-	from: 'Los Angeles',
-	date: new Date(2014, 5, 15)
+  to: 'Hawaii',
+  from: 'Los Angeles',
+  date: new Date(2014, 5, 15)
 };
 
 var promise1 = expedia.findFlights(searchOptions);
 var promise2 = orbitz.findFlights(searchOptions);
 
 q.all([promise1, promise2]).then(function(results) {
-	var expediaResults = results[0];
-	var orbitzResults = results[1];
+  var expediaResults = results[0];
+  var orbitzResults = results[1];
 
-	var allResults = expediaResults.concat(orbitzResults);
-	console.log('All results:', allResults);
+  var allResults = expediaResults.concat(orbitzResults);
+  console.log('All results:', allResults);
 }, function(err) {
-	// error
+  // error
 });
 ```
 
@@ -94,19 +94,19 @@ __expedia module__
 var q = require('q');
 
 module.exports = {
-	findFlights: function(options) {
-		var deferred = q.defer();
+  findFlights: function(options) {
+    var deferred = q.defer();
 
-		setTimeout(function() {
-			deferred.resolve([
-				{ departure: 17, arrival: 19, airline: 'Delta Airlines', price: 500 },
-				{ departure: 15, arrival: 17, airline: 'American Airlines', price: 490 },
-				{ departure: 21, arrival: 23, airline: 'American Airlines', price: 505 }
-			]);
-		}, 700);
+    setTimeout(function() {
+      deferred.resolve([
+        { departure: 17, arrival: 19, airline: 'Delta Airlines', price: 500 },
+        { departure: 15, arrival: 17, airline: 'American Airlines', price: 490 },
+        { departure: 21, arrival: 23, airline: 'American Airlines', price: 505 }
+      ]);
+    }, 700);
 
-		return deferred.promise;
-	}
+    return deferred.promise;
+  }
 };
 ```
 
@@ -116,19 +116,19 @@ __orbitz module__
 var q = require('q');
 
 module.exports = {
-	findFlights: function(options) {
-		var deferred = q.defer();
+  findFlights: function(options) {
+    var deferred = q.defer();
 
-		setTimeout(function() {
-			deferred.resolve([
-				{ departure: 8, arrival: 10, airline: 'Hawaian Airlines', price: 520 },
-				{ departure: 11, arrival: 13, airline: 'Hawaian Airlines', price: 480 },
-				{ departure: 13, arrival: 15, airline: 'Delta Airlines', price: 500 }
-			]);
-		}, 900);
+    setTimeout(function() {
+      deferred.resolve([
+        { departure: 8, arrival: 10, airline: 'Hawaian Airlines', price: 520 },
+        { departure: 11, arrival: 13, airline: 'Hawaian Airlines', price: 480 },
+        { departure: 13, arrival: 15, airline: 'Delta Airlines', price: 500 }
+      ]);
+    }, 900);
 
-		return deferred.promise;
-	}
+    return deferred.promise;
+  }
 };
 ```
 
@@ -147,30 +147,30 @@ var orbitz = require('./app/orbitz');
 var async = require('async');
 
 var searchOptions = {
-	to: 'Hawaii',
-	from: 'Los Angeles',
-	date: new Date(2014, 5, 15)
+  to: 'Hawaii',
+  from: 'Los Angeles',
+  date: new Date(2014, 5, 15)
 };
 
 async.parallel([
-	function(callback) {
-		expedia.findFlights(searchOptions, function(expediaResults) {
-			callback(null, expediaResults);
-		});
-	},
+  function(callback) {
+    expedia.findFlights(searchOptions, function(expediaResults) {
+      callback(null, expediaResults);
+    });
+  },
 
-	function(callback) {
-		orbitz.findFlights(searchOptions, function(orbitzResults) {
-			callback(null, orbitzResults);
-		});
-	}
+  function(callback) {
+    orbitz.findFlights(searchOptions, function(orbitzResults) {
+      callback(null, orbitzResults);
+    });
+  }
 
 ], function(err, results) {
-	var expediaResults = results[0];
-	var orbitzResults = results[1];
+  var expediaResults = results[0];
+  var orbitzResults = results[1];
 
-	var allResults = expediaResults.concat(orbitzResults);
-	console.log('All results:', allResults);
+  var allResults = expediaResults.concat(orbitzResults);
+  console.log('All results:', allResults);
 });
 ```
 

@@ -11,16 +11,16 @@ In Angular, we can mock out services using [$provide](https://docs.angularjs.org
 var app = angular.module('my-site', []);
 
 app.factory('locale', function($window) {
-	return $window.location.pathname.split('/')[1];
+  return $window.location.pathname.split('/')[1];
 });
 
 app.factory('currency', function(locale) {
-	switch(locale) {
-		case 'en-us':
-			return 'usd';
-		case 'de-de':
-			return 'euro';
-	}
+  switch(locale) {
+    case 'en-us':
+    return 'usd';
+    case 'de-de':
+    return 'euro';
+  }
 });
 ```
 
@@ -30,14 +30,14 @@ When we unit test `currency`, we want to mock out `locale` because there is no U
 
 ```js
 describe('currency', function() {
-	beforeEach(module('my-site'));
-	beforeEach(module(function($provide) {
-		$provide.value('locale', 'en-us');
-	}));
+  beforeEach(module('my-site'));
+  beforeEach(module(function($provide) {
+    $provide.value('locale', 'en-us');
+  }));
 
-	it('should be usd if the locale is en-us', inject(function(currency) {
-		expect(currency).toEqual('usd');
-	}));
+  it('should be usd if the locale is en-us', inject(function(currency) {
+    expect(currency).toEqual('usd');
+  }));
 });
 ```
 
@@ -47,16 +47,16 @@ In this example `$provide.value()` is used to mock out the value of the `locale`
 
 ```js
 describe('currency', function() {
-	beforeEach(module('my-site'));
-	beforeEach(module(function($provide) {
-		$provide.factory('locale', function() {
-			return 'en-us';
-		});
-	}));
+  beforeEach(module('my-site'));
+  beforeEach(module(function($provide) {
+    $provide.factory('locale', function() {
+      return 'en-us';
+    });
+  }));
 
-	it('should be usd if the locale is en-us', inject(function(currency) {
-		expect(currency).toEqual('usd');
-	}));
+  it('should be usd if the locale is en-us', inject(function(currency) {
+    expect(currency).toEqual('usd');
+  }));
 });
 ```
 

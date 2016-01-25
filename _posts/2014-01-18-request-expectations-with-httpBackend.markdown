@@ -8,39 +8,39 @@ keywords: Request expectations with $httpBackend, $httpBackend, Angular.js, Unit
 
 So you have an Angular service that communicates with an API, but you're not really sure how to go about testing it. Maybe you read the documentation on _$httpBackend_, but you were a little confused by the examples. I know I was. Let's see how we can set __Request Expectations__ using _$httpBackend_.
 
-Below I have an angular module for a ficticious marketing application. There is a factory that returns a Campaign class. This Campaign class is responsible for creating and fetching campaigns from a campaign resource on our server. 
+Below I have an angular module for a ficticious marketing application. There is a factory that returns a Campaign class. This Campaign class is responsible for creating and fetching campaigns from a campaign resource on our server.
 
 ```js
 var app = angular.module('App', []);
 
 app.factory('Campaign', function($http) {
-	function Campaign(data) {}
+  function Campaign(data) {}
 
-	Campaign.fetch = function(id) {
-		var endpoint = 'http://localhost:4000/campaigns/' + id;
-		return $http.get(endpoint)
-	};
+  Campaign.fetch = function(id) {
+    var endpoint = 'http://localhost:4000/campaigns/' + id;
+    return $http.get(endpoint)
+  };
 
-	return Campaign;
+  return Campaign;
 });
 ```
 
-I want to test that _Campaign.fetch()_ makes an HTTP GET request to the correct endpoint for a given ID. Because the Campaign factory makes use of _$http_, it will make a network request. We don't want our unit test dependent on the API. We just want to verify that _fetch_ sends the request to the correct endpoint without actually communicating with the server. If you've worked with Jasmine before, we essentially want to _spy_ on or mock the XHR request. 
+I want to test that _Campaign.fetch()_ makes an HTTP GET request to the correct endpoint for a given ID. Because the Campaign factory makes use of _$http_, it will make a network request. We don't want our unit test dependent on the API. We just want to verify that _fetch_ sends the request to the correct endpoint without actually communicating with the server. If you've worked with Jasmine before, we essentially want to _spy_ on or mock the XHR request.
 
 To mock out _$http_, we can use _$httpBackend_. This service is available in angular-mocks.js in the extras section.
 
 ```js
 describe('Campaign', function() {
-	beforeEach(module('App'));
+  beforeEach(module('App'));
 
-	it('should fetch a campaign by ID', inject(function(Campaign, $httpBackend) {
-		$httpBackend
-			.expectGET('http://localhost:4000/campaigns/99')
-			.respond(200);
+  it('should fetch a campaign by ID', inject(function(Campaign, $httpBackend) {
+    $httpBackend
+      .expectGET('http://localhost:4000/campaigns/99')
+      .respond(200);
 
-		Campaign.fetch(99);
-		$httpBackend.flush();
-	}));
+    Campaign.fetch(99);
+    $httpBackend.flush();
+  }));
 });
 ```
 

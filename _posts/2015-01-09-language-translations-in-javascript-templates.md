@@ -43,13 +43,13 @@ This snippet could render as:
 ```js
 var App = {};
 App.labels = {
-	color: "Color",
-	size: "Size",
-	quantity: "Qty",
-	price: "Price",
-	preTaxSubtotal: "Pre-Tax Subtotal",
-	checkout: "Checkout",
-	emptyShoppingCartText: "Your shopping cart is empty."	
+  color: "Color",
+  size: "Size",
+  quantity: "Qty",
+  price: "Price",
+  preTaxSubtotal: "Pre-Tax Subtotal",
+  checkout: "Checkout",
+  emptyShoppingCartText: "Your shopping cart is empty."
 };
 ```
 
@@ -63,13 +63,13 @@ The approach I settled on is to have all translation data mixed in with the data
 ```js
 var template = Handlebars.compile(document.querySelector('#product-template').innerHTML);
 var data = {
-	lastItemAdded: {
-		color: 'Blue',
-		size: 'M',
-		quantity: 2,
-		price: 40.
-	},
-	total: 80
+  lastItemAdded: {
+    color: 'Blue',
+    size: 'M',
+    quantity: 2,
+    price: 40.
+  },
+  total: 80
 };
 
 
@@ -111,38 +111,37 @@ If you are working with Backbone, you can easily extend `Backbone.View` to provi
 
 ```js
 var labels = {
-	all: function() {
-		if (window.App && window.App.labels) {
-			return App.labels;
-		}
-	}	
+  all: function() {
+    if (window.App && window.App.labels) {
+      return App.labels;
+    }
+  }
 };
 
 var BaseView = Backbone.View.extend({
-	render: function() {
-		var json = {};
-		var allLabels = labels.all();
+  render: function() {
+    var json = {};
+    var allLabels = labels.all();
 
-		if (this.model) {
-			json = this.model.toJSON();
-		}
+    if (this.model) {
+      json = this.model.toJSON();
+    }
 
-		if (allLabels) {
-			json.labels = allLabels;
-		}
-		
-		this.$el.html(this.template(json));
+    if (allLabels) {
+      json.labels = allLabels;
+    }
 
-		return this;
-	}
+    this.$el.html(this.template(json));
+
+    return this;
+  }
 });
 
 new BaseView({
-	template: Handlebars.compile($('#product-template').html())
+  template: Handlebars.compile($('#product-template').html())
 });
 ```
 
 ## Conclusion
 
 This technique has saved me and my team a lot of time. I am not the one always writing the HTML. With this approach, those who work primarily with HTML and CSS can easily update the templates without ever having to go into the JavaScript and labels can be managed from the database.
-

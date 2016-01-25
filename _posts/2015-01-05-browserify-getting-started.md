@@ -91,7 +91,7 @@ __formatters/currency.js__
 
 ```js
 module.exports = function currency() {
-	console.log('format currency');
+  console.log('format currency');
 };
 ```
 
@@ -99,7 +99,7 @@ __formatters/date.js__
 
 ```js
 module.exports = function date() {
-	console.log('format date');
+  console.log('format date');
 };
 ```
 
@@ -109,8 +109,8 @@ __formatters/index.js__
 
 ```js
 module.exports = {
-	date: require('./date'),
-	currency: require('./currency')
+  date: require('./date'),
+  currency: require('./currency')
 };
 ```
 

@@ -17,17 +17,17 @@ One approach is to use an immediately invoked function expression (IIFE) to hide
 
 ```js
 var User = (function() {
-	var instance;
+  var instance;
 
-	function User() {
-	    if (instance) {
-	        return instance;
-	    }
+  function User() {
+    if (instance) {
+      return instance;
+    }
 
-	    instance = this;
-	}
+    instance = this;
+  }
 
-	return User;
+  return User;
 })();
 ```
 
@@ -37,38 +37,38 @@ Another approach is to just store the single instance on the `User` function its
 
 ```js
 function User() {
-	if (User._instance) {
-	    return User._instance;
-	}
+  if (User._instance) {
+    return User._instance;
+  }
 
-	User._instance = this;
+  User._instance = this;
 }
 ```
 
 ## Unit Testing A Singleton
 
-Let's add a little more to this `User` example. 
+Let's add a little more to this `User` example.
 
 ```js
 function User(data) {
-	if (User._instance) {
-	    return User._instance;
-	}
+  if (User._instance) {
+    return User._instance;
+  }
 
-	if (data) {
-		this.name = data.name;
-		this.loggedInAt = data.loggedInAt;
-	}
-	
-	User._instance = this;
+  if (data) {
+    this.name = data.name;
+    this.loggedInAt = data.loggedInAt;
+  }
+
+  User._instance = this;
 }
 
 User.prototype.isLoggedIn = function() {
-	if (this.loggedInAt) {
-		return true;
-	}
+  if (this.loggedInAt) {
+    return true;
+  }
 
-	return false;
+  return false;
 };
 ```
 
@@ -76,30 +76,30 @@ First we'll allow the name and logged-in time to be set. This data could come fr
 
 ```js
 describe('User', function() {
-	describe('isLoggedIn()', function() {
-		it('should be true if there is data from the server', function() {
-			// this could be dumped onto the page from the server
-			var APP = {
-				user: {
-					name: 'David',
-					loggedInAt: 1421543590
-				}
-			};
+  describe('isLoggedIn()', function() {
+    it('should be true if there is data from the server', function() {
+      // this could be dumped onto the page from the server
+      var APP = {
+        user: {
+          name: 'David',
+          loggedInAt: 1421543590
+        }
+      };
 
-			var user = new User(APP.user);
-			expect(user.isLoggedIn()).to.equal(true);
-		});
+      var user = new User(APP.user);
+      expect(user.isLoggedIn()).to.equal(true);
+    });
 
 
-		it('should be false if there is no data from the server', function() {
-			var APP = {
-				user: {}
-			};
+    it('should be false if there is no data from the server', function() {
+      var APP = {
+        user: {}
+      };
 
-			var user = new User(APP.user);
-			expect(user.isLoggedIn()).to.equal(false);
-		});
-	});
+      var user = new User(APP.user);
+      expect(user.isLoggedIn()).to.equal(false);
+    });
+  });
 });
 ```
 
@@ -107,33 +107,33 @@ This test looks pretty straightforward and you might think it would work. Howeve
 
 ```js
 describe('User', function() {
-	describe('isLoggedIn()', function() {
-		it('should be true if there is data from the server', function() {
-			// this could be dumped onto the page from the server
-			var APP = {
-				user: {
-					name: 'David',
-					loggedInAt: 1421543590
-				}
-			};
+  describe('isLoggedIn()', function() {
+    it('should be true if there is data from the server', function() {
+      // this could be dumped onto the page from the server
+      var APP = {
+        user: {
+          name: 'David',
+          loggedInAt: 1421543590
+        }
+      };
 
-			var user = new User(APP.user);
-			expect(user.isLoggedIn()).to.equal(true);
-		});
+      var user = new User(APP.user);
+      expect(user.isLoggedIn()).to.equal(true);
+    });
 
 
-		it('should be false if there is no data from the server', function() {
-			var APP = {
-				user: {}
-			};
-			
-			// Reset the User singleton
-			delete User._instance;
+    it('should be false if there is no data from the server', function() {
+      var APP = {
+        user: {}
+      };
 
-			var user = new User(APP.user);
-			expect(user.isLoggedIn()).to.equal(false);
-		});
-	});
+      // Reset the User singleton
+      delete User._instance;
+
+      var user = new User(APP.user);
+      expect(user.isLoggedIn()).to.equal(false);
+    });
+  });
 });
 ```
 
@@ -141,18 +141,18 @@ Even though all the tests now pass, the second test is now dependent on an inter
 
 ## A Solution
 
-In our test suite, if we could just reload the script that contains this `User` constructor function, then we can ensure that `User` will always be in a fresh state. However, not all test frameworks do that. 
+In our test suite, if we could just reload the script that contains this `User` constructor function, then we can ensure that `User` will always be in a fresh state. However, not all test frameworks do that.
 
 Instead, the approach that I have been taking lately is separating out the singleton pattern into another object or method. For example, rather than implementing the singleton pattern in the `User` constructor function which makes it a little difficult to unit test, I instead extract it out into a static method on `User`, like `User.get()`. This way, the `User` constructor's only responsibility is to create `User` instances and `User.get()`'s responsibility is to just manage a single `User` instance.
 
 ```js
 User.get = function() {
-	if (User._instance) {
-	    return User._instance;
-	}
+  if (User._instance) {
+    return User._instance;
+  }
 
-	User._instance = new User(window.APP.user);
-	return User._instance;
+  User._instance = new User(window.APP.user);
+  return User._instance;
 };
 ```
 
@@ -161,22 +161,22 @@ A single unit test can be written for `User.get()` to ensure that every time it 
 
 ```js
 describe('static get()', function() {
-	beforeEach(function() {
-		window.APP = {
-			user: {
-				name: 'David',
-				loggedInAt: 1421543590
-			}
-		};
-	});
+  beforeEach(function() {
+    window.APP = {
+      user: {
+        name: 'David',
+        loggedInAt: 1421543590
+      }
+    };
+  });
 
-	afterEach(function() {
-		delete window.APP;
-	});
+  afterEach(function() {
+    delete window.APP;
+  });
 
-	it('should return the same instance every time', function() {
-		expect(User.get()).to.equal(User.get());
-	});
+  it('should return the same instance every time', function() {
+    expect(User.get()).to.equal(User.get());
+  });
 });
 ```
 

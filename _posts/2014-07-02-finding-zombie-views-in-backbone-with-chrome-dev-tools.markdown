@@ -12,7 +12,7 @@ When it comes to memory management and JavaScript applications using Backbone, y
 2. Does replacing the innerHTML of a collection view destroy model views and prevent zombie views?
 3. How can I measure and verify question 2?
 
-This post provides my introductory exploration of finding memory leaks in Backbone applications using Chrome Developer Tools. 
+This post provides my introductory exploration of finding memory leaks in Backbone applications using Chrome Developer Tools.
 
 ## What is a Memory Leak?
 
@@ -28,7 +28,7 @@ Let's start off with a simple HTML page that loads Backbone and its dependencies
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Demo</title>
+<title>Demo</title>
 </head>
 <body>
 
@@ -45,7 +45,7 @@ Let's start off with a simple HTML page that loads Backbone and its dependencies
 </html>
 ```
 
-Take a Heap Snapshot by opening up the Profiles tab in Chrome Developer Tools. 
+Take a Heap Snapshot by opening up the Profiles tab in Chrome Developer Tools.
 
 ![snapshot 0](/images/heap-snapshots/snapshot0.png)
 
@@ -58,9 +58,9 @@ If you look at the list of HTML* constructors, nothing shows up for the _HTMLLIE
 ```js
 (function() {
 
-var li = document.createElement('li');
-li.innerText = 'Person 1';
-document.querySelector('#people-container').appendChild(li);
+  var li = document.createElement('li');
+  li.innerText = 'Person 1';
+  document.querySelector('#people-container').appendChild(li);
 
 })();
 ```
@@ -76,10 +76,10 @@ Now what happens when I replace the _innerHTML_ of _#people-container_? Let's fi
 ```js
 (function() {
 
-var li = document.createElement('li');
-li.innerText = 'Person 1';
-document.querySelector('#people-container').appendChild(li);
-document.querySelector('#people-container').innerHTML = '';
+  var li = document.createElement('li');
+  li.innerText = 'Person 1';
+  document.querySelector('#people-container').appendChild(li);
+  document.querySelector('#people-container').innerHTML = '';
 
 })();
 ```
@@ -113,52 +113,52 @@ Let's look at an example that is Backbone specific. We will set up the code so t
 ```js
 (function() {
 
-var people = new Backbone.Collection([
-	{ id: 1, name: 'David' },
-	{ id: 2, name: 'Jane' },
-	{ id: 3, name: 'Sam' },
-	{ id: 4, name: 'Max' }
-]);
+  var people = new Backbone.Collection([
+    { id: 1, name: 'David' },
+    { id: 2, name: 'Jane' },
+    { id: 3, name: 'Sam' },
+    { id: 4, name: 'Max' }
+  ]);
 
-// A Model View (an item view)
-var PersonView = Backbone.View.extend({
-	tagName: 'li',
-	className: 'person',
-	render: function() {
-		console.log('rendering');
-		var html = this.model.get('id') + ' - ' + this.model.get('name');
-		this.$el.html(html);
-	}
-});
+  // A Model View (an item view)
+  var PersonView = Backbone.View.extend({
+    tagName: 'li',
+    className: 'person',
+    render: function() {
+      console.log('rendering');
+      var html = this.model.get('id') + ' - ' + this.model.get('name');
+      this.$el.html(html);
+    }
+  });
 
-// A Collection View
-var PeopleView = Backbone.View.extend({
-	tagName: 'ul',
-	id: 'people',
-	render: function() {
-		this.collection.each(function(model) {
-			var view = new PersonView({
-				model: model
-			});
-				
-			view.render();
-			this.$el.append(view.el);
-		}, this);
-	}
-});
+  // A Collection View
+  var PeopleView = Backbone.View.extend({
+    tagName: 'ul',
+    id: 'people',
+    render: function() {
+      this.collection.each(function(model) {
+        var view = new PersonView({
+          model: model
+        });
 
-// And to kick it all off ...
-var peopleView = new PeopleView({
-	collection: people
-});
+        view.render();
+        this.$el.append(view.el);
+      }, this);
+    }
+  });
 
-peopleView.render();
-$('#people-container').append(peopleView.el);
+  // And to kick it all off ...
+  var peopleView = new PeopleView({
+    collection: people
+  });
+
+  peopleView.render();
+  $('#people-container').append(peopleView.el);
 
 })();
 ```
 
-With this bit of code, we can see each person from our collection being rendered on the screen. 
+With this bit of code, we can see each person from our collection being rendered on the screen.
 
 * 1 - David
 * 2 - Jane
@@ -183,16 +183,16 @@ Let's make 2 changes to our code. The first thing we are going to do is have our
 
 ```js
 var PersonView = Backbone.View.extend({
-	initialize: function() {
-		this.listenTo(this.model, 'change', this.render);
-	},
-	tagName: 'li',
-	className: 'person',
-	render: function() {
-		console.log('rendering');
-		var html = this.model.get('id') + ' - ' + this.model.get('name');
-		this.$el.html(html);
-	}
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render);
+  },
+  tagName: 'li',
+  className: 'person',
+  render: function() {
+    console.log('rendering');
+    var html = this.model.get('id') + ' - ' + this.model.get('name');
+    this.$el.html(html);
+  }
 });
 ```
 
@@ -256,26 +256,26 @@ We will do this:
 
 ```js
 var PeopleView = Backbone.View.extend({
-	initialize: function() {
-		this.childViews = [];
-	},
-	tagName: 'ul',
-	id: 'people',
-	render: function() {
-		this.collection.each(function(model) {
-			var view = new PersonView({
-				model: model
-			});
+  initialize: function() {
+    this.childViews = [];
+  },
+  tagName: 'ul',
+  id: 'people',
+  render: function() {
+    this.collection.each(function(model) {
+      var view = new PersonView({
+        model: model
+      });
 
-			view.render();
-			this.childViews.push(view);
-			this.$el.append(view.el);
-		}, this);
-	}
+      view.render();
+      this.childViews.push(view);
+      this.$el.append(view.el);
+    }, this);
+  }
 });
 
 var peopleView = new PeopleView({
-	collection: people
+  collection: people
 });
 
 peopleView.render();
@@ -285,7 +285,7 @@ $('#people-container').append(peopleView.el);
 
 // remove each PersonView instance
 peopleView.childViews.forEach(function(personView) {
-	personView.remove();
+  personView.remove();
 });
 ```
 

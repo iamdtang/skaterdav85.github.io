@@ -14,15 +14,15 @@ Let's say we have an array of objects, products in this example, which is a very
 
 ```js
 var products = [
-	{ name: 'Running shoes', price: 75 },
-	{ name: 'Golf shoes', 	 price: 85 },
-	{ name: 'Dress shoes',   price: 95 },
-	{ name: 'Walking shoes', price: 65 },
-	{ name: 'Sandals',       price: 55 }
+  { name: 'Running shoes', price: 75 },
+  { name: 'Golf shoes', 	 price: 85 },
+  { name: 'Dress shoes',   price: 95 },
+  { name: 'Walking shoes', price: 65 },
+  { name: 'Sandals',       price: 55 }
 ];
 ```
 
-### Calculating the total
+## Calculating the total
 
 The first thing you might want to do is calculate the total price of all the products. Using `forEach`:
 
@@ -30,7 +30,7 @@ The first thing you might want to do is calculate the total price of all the pro
 var total = 0;
 
 products.forEach(function(product) {
-	total += product.price;
+  total += product.price;
 });
 
 console.log(total); // 375
@@ -40,7 +40,7 @@ Alternatively, using reduce:
 
 ```js
 var total = products.reduce(function(previousTotal, product) {
-	return previousTotal + product.price;
+  return previousTotal + product.price;
 }, 0);
 
 console.log(total); // 375
@@ -50,7 +50,7 @@ console.log(total); // 375
 
 Let's look at another example.
 
-### Finding the most expensive item
+## Finding the most expensive item
 
 Here I want to find the highest priced product. Using `forEach`:
 
@@ -58,9 +58,9 @@ Here I want to find the highest priced product. Using `forEach`:
 var highestPrice = products[0].price;
 
 products.forEach(function(product, index) {
-	if (product.price > highestPrice) {
-		highestPrice = product.price;
-	}
+  if (product.price > highestPrice) {
+    highestPrice = product.price;
+  }
 });
 
 console.log(highestPrice); // 95
@@ -70,11 +70,11 @@ Inside of the `forEach` callback function, I check if the price of the current p
 
 ```js
 var highestPrice = products.reduce(function(previousHighestPrice, product) {
-	if (product.price > previousHighestPrice) {
-		return product.price;
-	}
+  if (product.price > previousHighestPrice) {
+    return product.price;
+  }
 
-	return previousHighestPrice;
+  return previousHighestPrice;
 }, products[0].price);
 
 console.log(highestPrice); // 95

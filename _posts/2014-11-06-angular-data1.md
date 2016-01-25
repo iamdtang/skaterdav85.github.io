@@ -10,7 +10,7 @@ Recently I gave [angular-data](http://angular-data.pseudobry.com/) a try and fou
 
 ## Why use angular-data?
 
-There are many ways to model your data in Angular. You can use the built in $http or $resource services, or you can use popular 3rd party libraries like Restangular, Breeze, or angular-data, all of which are great choices. 
+There are many ways to model your data in Angular. You can use the built in $http or $resource services, or you can use popular 3rd party libraries like Restangular, Breeze, or angular-data, all of which are great choices.
 
 When I started using Angular, I, like most people, started using $http. $http feels very familiar to $.ajax from jQuery and gives you a simple API for making AJAX requests. This works great for small applications. Then I got to the point where I wanted custom methods on my models. I started taking my JSON responses and wrapping them up in custom collection and model classes/constructors. This felt very familiar coming from the Backbone world or working with an ORM on the server, as it allowed me to put business logic on models.
 
@@ -34,11 +34,11 @@ Let's start by creating a Book model:
 
 ```js
 app.factory('Book', function(DS) {
-	return DS.defineResource({
-		name: 'book',
-		endpoint: '/api/books',
-		idAttribute: 'isbn13'
-	});
+  return DS.defineResource({
+    name: 'book',
+    endpoint: '/api/books',
+    idAttribute: 'isbn13'
+  });
 });
 ```
 
@@ -81,10 +81,10 @@ The neat thing about making the _findAll()_ call is that it will load all book o
 ```js
 // fetch books from endpoint and load into the store
 DS.findAll('book').then(function() {
-	// no request made here since this book is already in the store
-	DS.find('book', '978-0596806750').then(function(book) {
-		console.log(book, 'loaded directly from data store');
-	});
+  // no request made here since this book is already in the store
+  DS.find('book', '978-0596806750').then(function(book) {
+    console.log(book, 'loaded directly from data store');
+  });
 });
 ```
 
@@ -100,15 +100,15 @@ Below we are binding all records of resource name _book_ to _$scope.books_. When
 
 ```js
 app.controller('BooksController', function($scope, DS) {
-	DS.bindAll($scope, 'books', 'book')
+  DS.bindAll($scope, 'books', 'book')
 
-	// fetch books from endpoint and load into the store
-	DS.findAll('book').then(function() {
-  	// no request made here since this book is already in the store
-		DS.find('book', '978-0596806750').then(function(book) {
-			console.log(book, 'loaded directly from data store');
-		});
-	});
+  // fetch books from endpoint and load into the store
+  DS.findAll('book').then(function() {
+    // no request made here since this book is already in the store
+    DS.find('book', '978-0596806750').then(function(book) {
+      console.log(book, 'loaded directly from data store');
+    });
+  });
 });
 ```
 
@@ -118,7 +118,7 @@ If you have data dumped out onto the page from the server and you need that inje
 
 ```js
 app.run(function(Book) {
-	Book.inject(window.jsonCache.books);
+  Book.inject(window.jsonCache.books);
 });
 ```
 
@@ -131,8 +131,3 @@ In this post we looked at how to create models using the _DS_ service that angul
 ## Resources
 
 * [DS documentation](http://angular-data.pseudobry.com/documentation/api/angular-data/DS)
-
-
-
-
-

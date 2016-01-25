@@ -12,60 +12,60 @@ The reason I haven't written tests for my views is because it can be really diff
 
 For really simple views in an application, not testing them is probably fine. If a view is more complicated and sets multiple properties for rendering based on the data it is passed and application state, you may want to unit test those views. So how do you go about unit testing complicated Backbone views when it can be really challenging as described earlier?
 
-Prior to working with Backbone, I worked a lot with Angular and wrote unit tests for my controllers, services, factories, and filters. As I worked more with Backbone, I realized that Backbone views are very similar to Angular controllers. Both control a portion of the DOM and what data is rendered in that section. If you've ever unit tested an Angular controller, from my experience what I usually test is making sure the right data is bound to _$scope_, the view-model. Angular handles rendering that data for you through the digest cycle. If you treat your Backbone views like an Angular controller and only test the model that is attached to the view as the view manipulates it, testing views becomes much easier, and you adhere to keeping your truth out of the DOM. Instead of manually manipulating the DOM in your view, always manipulate the model and have the view automatically re-render when the model changes. 
+Prior to working with Backbone, I worked a lot with Angular and wrote unit tests for my controllers, services, factories, and filters. As I worked more with Backbone, I realized that Backbone views are very similar to Angular controllers. Both control a portion of the DOM and what data is rendered in that section. If you've ever unit tested an Angular controller, from my experience what I usually test is making sure the right data is bound to _$scope_, the view-model. Angular handles rendering that data for you through the digest cycle. If you treat your Backbone views like an Angular controller and only test the model that is attached to the view as the view manipulates it, testing views becomes much easier, and you adhere to keeping your truth out of the DOM. Instead of manually manipulating the DOM in your view, always manipulate the model and have the view automatically re-render when the model changes.
 
 Let's look at an example.
 
 Imagine your have a list of boxes representing quantities, and the user can select only 1 quantity at a time. When a quantity is selected, a class of "active" is added to that box (a list item element). Each quantity box is managed by a view called _QuantityItemView_.
 
 <style>
-	.quantities {
-		margin: 0 !important;
-		padding: 0;
-	}
-	.quantities li {
-		display: inline-block;
-		background-color: #1884BB;
-		color: white;
-		padding: 5px 13px;
-		margin-bottom: 15px;
-	}
+.quantities {
+  margin: 0 !important;
+  padding: 0;
+}
+.quantities li {
+  display: inline-block;
+  background-color: #1884BB;
+  color: white;
+  padding: 5px 13px;
+  margin-bottom: 15px;
+}
 </style>
 
 <ul class="quantities">
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
 </ul>
 
 ```js
 var QuantityItemView = Backbone.View.extend({
-	template: _.template('<a href="#" class="<%= isActive %>"><%= quantity %></a>'),
-	tagName: 'li',
-	events: {
-		'click': 'selectQuantity'
-	},
+  template: _.template('<a href="#" class="<%= isActive %>"><%= quantity %></a>'),
+  tagName: 'li',
+  events: {
+    'click': 'selectQuantity'
+  },
 
-	initialize: function() {
-		// automatically re-render when the model changes
-		this.listenTo(this.model, 'change', this.render);
+  initialize: function() {
+    // automatically re-render when the model changes
+    this.listenTo(this.model, 'change', this.render);
 
-		// conditionally apply the class 'active' based on applicationState
-		this.listenTo(applicationState, 'change:quantity', function() {
-			if (applicationState.get('quantity') === this.model.get('quantity')) {
-				this.model.set('isActive', 'active');
-			} else {
-				this.model.set('isActive', null)
-			} 
-		});
-	},
+    // conditionally apply the class 'active' based on applicationState
+    this.listenTo(applicationState, 'change:quantity', function() {
+      if (applicationState.get('quantity') === this.model.get('quantity')) {
+        this.model.set('isActive', 'active');
+      } else {
+        this.model.set('isActive', null)
+      }
+    });
+  },
 
-	selectQuantity: function(e) {
-		e.preventDefault()
-		applicationState.set('quantity', this.model.get('quantity'))
-	}
+  selectQuantity: function(e) {
+    e.preventDefault()
+    applicationState.set('quantity', this.model.get('quantity'))
+  }
 });
 ```
 
@@ -75,33 +75,33 @@ And here is the view's unit test using Jasmine.
 
 ```js
 describe('QuantityItemView', function() {
-	var quantities;
-	var view1, view2, view3;
+  var quantities;
+  var view1, view2, view3;
 
-	beforeEach(function() {
-		quantities = new Backbone.Collection([
-			{ quantity: 1 },
-			{ quantity: 2 },
-			{ quantity: 3 }
-		]);
+  beforeEach(function() {
+    quantities = new Backbone.Collection([
+      { quantity: 1 },
+      { quantity: 2 },
+      { quantity: 3 }
+    ]);
 
-		view1 = new QuantityItemView({ model: quantities.at(0) });
-		view2 = new QuantityItemView({ model: quantities.at(1) });
-		view3 = new QuantityItemView({ model: quantities.at(2) });
-	});
+    view1 = new QuantityItemView({ model: quantities.at(0) });
+    view2 = new QuantityItemView({ model: quantities.at(1) });
+    view3 = new QuantityItemView({ model: quantities.at(2) });
+  });
 
-	it('should set a property "isActive" to "active" on the correct model', function() {
-		applicationState.set('quantity', 3);
+  it('should set a property "isActive" to "active" on the correct model', function() {
+    applicationState.set('quantity', 3);
 
-		expect(quantities.at(0).get('isActive')).toEqual(null);
-		expect(quantities.at(1).get('isActive')).toEqual(null);
-		expect(quantities.at(2).get('isActive')).toEqual('active');
-	});
+    expect(quantities.at(0).get('isActive')).toEqual(null);
+    expect(quantities.at(1).get('isActive')).toEqual(null);
+    expect(quantities.at(2).get('isActive')).toEqual('active');
+  });
 
-	it('should set isActive on the model when clicked', function() {
-		view2.$el.click();
-		expect(applicationState.get('quantity')).toEqual(2);
-	});
+  it('should set isActive on the model when clicked', function() {
+    view2.$el.click();
+    expect(applicationState.get('quantity')).toEqual(2);
+  });
 });
 ```
 

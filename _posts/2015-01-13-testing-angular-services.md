@@ -5,7 +5,7 @@ date:   2015-01-13
 keywords: Testing services in Angular, Unit Testing Angular services, Unit tests, Jasmine unit testing
 ---
 
-Getting started with unit testing your Angular code can be tricky due to setting up your test runner, learning some of the conventions, and figuring out how dependency injection works with your tests. One of the first things you will probably want to test are your services. There are two ways to inject services into your unit tests. 
+Getting started with unit testing your Angular code can be tricky due to setting up your test runner, learning some of the conventions, and figuring out how dependency injection works with your tests. One of the first things you will probably want to test are your services. There are two ways to inject services into your unit tests.
 
 __Note:__ Angular mocks provides global functions like `module()` and `inject()`. These functions are just shortcuts to `angular.mocks.module()` and `angular.mocks.inject()`.
 
@@ -13,15 +13,15 @@ __Note:__ Angular mocks provides global functions like `module()` and `inject()`
 
 ```js
 describe('Some test', function() {
-	beforeEach(module('catalog'));
+  beforeEach(module('catalog'));
 
-	it('should test something', inject(function($rootScope, Product) {
-		console.log($rootScope, Product);
-	}));
+  it('should test something', inject(function($rootScope, Product) {
+    console.log($rootScope, Product);
+  }));
 
-	it('should test another thing', inject(function($rootScope, Product) {
-		console.log($rootScope, Product);
-	}));
+  it('should test another thing', inject(function($rootScope, Product) {
+    console.log($rootScope, Product);
+  }));
 });
 ```
 
@@ -31,18 +31,18 @@ Because services are not globally accessible, they need to be injected into your
 
 ```js
 describe('Some test', function() {
-	var $log, Product;
+  var $log, Product;
 
-	beforeEach(module('catalog'));
+  beforeEach(module('catalog'));
 
-	beforeEach(inject(function(_$log_, _Product_) {
-		$log = _$log_;
-		Product = _Product_;
-	}));
+  beforeEach(inject(function(_$log_, _Product_) {
+    $log = _$log_;
+    Product = _Product_;
+  }));
 
-	it('should...', function() {
-		// access to $log and Product here
-	});
+  it('should...', function() {
+    // access to $log and Product here
+  });
 });
 ```
 
@@ -51,21 +51,15 @@ The underscore convention approach uses the global `inject` function within a `b
 ```js
 // hypothetical example
 describe('Some test', function() {
-	var $logService, ProductModel;
+  var $logService, ProductModel;
 
-	beforeEach(inject(function($log, Product) {
-		$logService = $log;
-		ProductModel = Product;
-	}));
+  beforeEach(inject(function($log, Product) {
+    $logService = $log;
+    ProductModel = Product;
+  }));
 });
 ```
 
 ## Conclusion
 
 My personal preference is to use the underscore convention (approach 2). I like this approach because it allows my tests to look less Angularish which can be confusing since I switch between Angular and non-Angular test suites frequently. In the end, the approach you choose really comes down to personal preference.
-
-
-
-
-
-

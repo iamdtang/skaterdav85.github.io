@@ -16,29 +16,27 @@ Below we have _Song.getAverageSongPrice()_. It returns a promise that will be re
 var app = angular.module('App', []);
 
 app.factory('Song', function($http, $q) {
-	function Song() {}
+  function Song() {}
 
-	Song.getAverageSongPrice = function(artist) {
-		var dfd = $q.defer();
+  Song.getAverageSongPrice = function(artist) {
+    var dfd = $q.defer();
 
-		$http
-			.get('http://localhost:4000/artists/eminem/songs')
-			.then(function(resp) {
-				var total = 0;
-				var average = 0;
+    $http.get('http://localhost:4000/artists/eminem/songs').then(function(resp) {
+      var total = 0;
+      var average = 0;
 
-				resp.data.forEach(function(song) {
-					total += song.price;
-				});
+      resp.data.forEach(function(song) {
+        total += song.price;
+      });
 
-				average = total / (resp.data.length);
-				dfd.resolve(average);
-			});
+      average = total / (resp.data.length);
+      dfd.resolve(average);
+    });
 
-		return dfd.promise;
-	};
+    return dfd.promise;
+  };
 
-	return Song;
+  return Song;
 });
 ```
 
@@ -46,19 +44,19 @@ Let's write a unit test for this. Here we'll want to define a server response so
 
 ```js
 it('should return the average price of songs', inject(function(Song, $httpBackend) {
-	$httpBackend
-		.when('GET', 'http://localhost:4000/artists/eminem/songs')
-		.respond(200, [
-			{ title: 'Legacy', price: 0.99 },
-			{ title: 'Love the way you lie', price: 1.29 },
-			{ title: 'Stan', price: 1.29 }
-		]);
+  $httpBackend
+    .when('GET', 'http://localhost:4000/artists/eminem/songs')
+    .respond(200, [
+      { title: 'Legacy', price: 0.99 },
+      { title: 'Love the way you lie', price: 1.29 },
+      { title: 'Stan', price: 1.29 }
+    ]);
 
-	Song.getAverageSongPrice('eminem').then(function(average) {
-		expect(average).toEqual( (0.99 + 1.29 + 1.29) / 3 );
-	});
+  Song.getAverageSongPrice('eminem').then(function(average) {
+    expect(average).toEqual( (0.99 + 1.29 + 1.29) / 3 );
+  });
 
-	$httpBackend.flush();
+  $httpBackend.flush();
 }));
 ```
 

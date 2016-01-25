@@ -14,22 +14,22 @@ One area where I have found custom promises to be really useful is client-side d
 ```js
 var cache = {};
 var products = {
-	find: function(id) {
-		var dfd = $q.defer();
+  find: function(id) {
+    var dfd = $q.defer();
 
-		if (cache[id]) {
-			dfd.resolve(cache[id]);
-		} else {
-			$http
-				.get('/api/products/' + id)
-				.then(function(response) {
-					cache[id] = response.data;
-					dfd.resolve(cache[id]);
-				});
-		}
+    if (cache[id]) {
+      dfd.resolve(cache[id]);
+    } else {
+      $http
+      .get('/api/products/' + id)
+      .then(function(response) {
+        cache[id] = response.data;
+        dfd.resolve(cache[id]);
+      });
+    }
 
-		return dfd.promise;
-	}
+    return dfd.promise;
+  }
 };
 ```
 
@@ -44,19 +44,19 @@ Another scenario where custom promises have been really useful is when you need 
 function Post() {}
 
 Post.prototype.create: function() {
-	var dfd = $q.defer();
+  var dfd = $q.defer();
 
-	$http.post('/api/posts', this.attributes).then(function(response) {
-		if ( !(response.data instanceof Array) ) {
-			return dfd.reject({
-        		error: "There was an error."
-      		});
-		}
+  $http.post('/api/posts', this.attributes).then(function(response) {
+    if ( !(response.data instanceof Array) ) {
+      return dfd.reject({
+        error: "There was an error."
+      });
+    }
 
-		dfd.resolve(response.data);
-	});
+    dfd.resolve(response.data);
+  });
 
-	return dfd.promise;
+  return dfd.promise;
 };
 ```
 
@@ -73,7 +73,7 @@ In this example, calling `create()` will make a POST request to the server to sa
 function Post() {}
 
 Post.prototype.create: function() {
-	return $http.post('/api/posts', this.attributes);
+  return $http.post('/api/posts', this.attributes);
 };
 ```
 
