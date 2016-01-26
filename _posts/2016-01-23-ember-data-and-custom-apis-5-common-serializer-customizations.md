@@ -87,12 +87,12 @@ Now imagine your payload looks like this:
     {
       "id": 1,
       "name": "Tubby",
-      "type": { "id": 4, "name": "Bengal cat" }
+      "breed": { "id": 4, "name": "Bengal cat" }
     },
     {
       "id": 2,
       "name": "Frisky",
-      "type": { "id": 6, "name": "Persian cat" }
+      "breed": { "id": 6, "name": "Persian cat" }
     }
   ]
 }
@@ -104,42 +104,42 @@ and your model looks like this:
 // app/models/cat.js
 export default DS.Model.extend({
   name: DS.attr('string'),
-  type: DS.belongsTo('type', { async: false })
+  breed: DS.belongsTo('breed', { async: false })
 });
 ```
 
-Each cat has a `belongsTo` relationship to another model called `type`. The related data is nested within each cat object as opposed to being sideloaded. In its current format, the `type` relationship won't be setup properly. Let's change that by overriding `normalizeResponse()`:
+Each cat has a `belongsTo` relationship to another model called `breed`. The related data is nested within each cat object as opposed to being sideloaded. In its current format, the `breed` relationship won't be setup properly. Let's change that by overriding `normalizeResponse()`:
 
 ```js
 // app/serializers/cat.js
 export default DS.RESTSerializer.extend({
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-    let types = this._collectTypes(payload.data);
+    let breeds = this._collectBreeds(payload.data);
     let cats = this._normalizeCats(payload.data);
     let normalizedPayload = {
       cats: cats,
-      types: types
+      breeds: breeds
     };
 
     return this._super(store, primaryModelClass, normalizedPayload, id, requestType);
   },
 
-  _collectTypes(cats) {
+  _collectBreeds(cats) {
     return cats.map((cat) => {
-      return cat.type;
+      return cat.breed;
     });
   },
 
   _normalizeCats(cats) {
     return cats.map((cat) => {
-      cat.type = cat.type.id;
+      cat.breed = cat.breed.id;
       return cat;
     });
   }
 });
 ```
 
-By extending `RESTSerializer`, we can extract `type` from each `cat` and create a payload where the related data is sideloaded under the key `types`. We also need to modify `type` on each `cat` so that it equals `type.id` as opposed to the full `type` object.
+By extending `RESTSerializer`, we can extract `breed` from each `cat` and create a payload where the related data is sideloaded under the key `breeds`. We also need to modify `breed` on each `cat` so that it equals `breed.id` as opposed to the full `breed` object.
 
 So back to the question, should you extend `RESTSerializer` or `JSONSerializer`? If you have nested models, extend `RESTSerializer` so that you can normalize the related data to be sideloaded.
 
