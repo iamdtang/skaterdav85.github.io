@@ -141,6 +141,8 @@ export default DS.RESTSerializer.extend({
 
 By extending `RESTSerializer`, we can extract `breed` from each `cat` and create a payload where the related data is sideloaded under the key `breeds`. We also need to modify `breed` on each `cat` so that it equals `breed.id` as opposed to the full `breed` object.
 
+__EDIT:__ [There is a simpler way to do this using embedded records.](/2016/01/29/working-with-nested-data-in-ember-data-models.html)
+
 So back to the question, should you extend `RESTSerializer` or `JSONSerializer`? If you have nested models, extend `RESTSerializer` so that you can normalize the related data to be sideloaded.
 
 ## 3. Mapping Attributes to Model Properties
