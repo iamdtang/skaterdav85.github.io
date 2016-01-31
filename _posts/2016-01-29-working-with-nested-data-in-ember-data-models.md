@@ -122,4 +122,4 @@ export default DS.JSONSerializer.extend(DS.EmbeddedRecordsMixin, {
 });
 ```
 
-In the `attrs` property, set `skills` to `{ embedded: 'always' }`. This also works for a `belongsTo` relationship. This example is using the `JSONSerializer` but the same technique can apply to an API based on the `RESTSerializer` or `JSONAPISerializer`.
+In the `attrs` property, set `skills` to `{ embedded: 'always' }`. This also works for a `belongsTo` relationship. This example is using the `JSONSerializer` but the same technique can apply to an API based on the `RESTSerializer`. However, this does not work with the `JSONAPISerializer` at the time of this writing when I used Ember Data 2.3.3.
