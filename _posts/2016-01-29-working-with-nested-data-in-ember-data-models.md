@@ -123,3 +123,58 @@ export default DS.JSONSerializer.extend(DS.EmbeddedRecordsMixin, {
 ```
 
 In the `attrs` property, set `skills` to `{ embedded: 'always' }`. This also works for a `belongsTo` relationship. This example is using the `JSONSerializer` but the same technique can apply to an API based on the `RESTSerializer`. However, this does not work with the `JSONAPISerializer` at the time of this writing when I used Ember Data 2.3.3.
+
+The `EmbeddedRecordsMixin` also works with nested data inside of nested data! For example:
+
+```json
+{
+  "id": 5,
+  "name": "David",
+  "skills": [
+    { 
+      "id": 2, 
+      "name": "Teaching",
+      "category": {
+        "id": 3,
+        "name": "Education"
+      }
+    },
+    { 
+      "id": 9, 
+      "name": "Ember",
+      "category": {
+        "id": 8,
+        "name": "Technology"
+      }
+    }
+  ]
+}
+```
+
+Similar to above, create a `category` model and specify the relationship:
+
+```js
+app/models/skill.js
+export default DS.Model.extend({
+  name: DS.attr('string'),
+  category: DS.belongsTo('category', { async: false })
+});
+```
+
+```js
+app/models/category.js
+export default DS.Model.extend({
+  name: DS.attr('string')
+});
+```
+
+Then, create a `skill` serializer and use the `EmbeddedRecordsMixin`:
+
+```js
+export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
+  attrs: {
+    category: { embedded: 'always' }
+  }
+});
+```
+
