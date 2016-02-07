@@ -65,7 +65,7 @@ Now let's look at how to test that the outgoing data is formatted correctly afte
 
 ## The Test
 
-Whenever I am testing serializers, I use Pretender to mock out the backend. One of the great things about Pretender is that keeps track of requests that were handled and those that were not in 2 public properties: `handledRequests` and `unhandledRequests`.
+Whenever I am testing serializers, I use Pretender to mock out the backend. One of the great things about Pretender is that it keeps track of requests that were handled and those that were not in 2 public properties: `handledRequests` and `unhandledRequests`.
 
 For this situation, we can use `handledRequests` to access the POST request that was made to `/cats` and inspect the request payload to verify that the data was formatted correctly.
 
