@@ -26,7 +26,7 @@
 .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
 .highlight .m { color: #009999 } /* Literal.Number */
 .highlight .s { color: #E5C07B } /* Literal.String */
-.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .na { color: white } /* Name.Attribute */
 .highlight .nb { color: #E5C07B; } /* Name.Builtin */
 .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
 .highlight .no { color: #008080 } /* Name.Constant */
@@ -61,7 +61,7 @@
 .highlight .nx { color: #98C379; }
 .highlight .p { color: #ABB2B6; }
 
-.language-text { color: #ABB2B6; }
+.language-text { color: #ddd; }
 
 // this is for handlebars code snippets where there is no outer script tag
 pre code.language-html {
