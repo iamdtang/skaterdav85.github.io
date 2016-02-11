@@ -184,7 +184,7 @@ To display data in your templates, Ember uses the `#each` Handlebars helper. To 
 ```
 {% endraw %}
 
-One of the great thing about Ember is that the framework prevents you from putting too much logic in your templates. In Angular, you can put variable assignments and complicated conditional statements directly in your template making it difficult to test and maintain. For example:
+One of the great things about Ember is that the framework prevents you from putting too much logic in your templates. In Angular, you can put variable assignments and complicated conditional statements directly in your template making it difficult to test and maintain. For example:
 
 {% raw %}
 ```html
@@ -291,12 +291,15 @@ To generate a helper in Ember, run `ember generate helper relativeTime`.
 
 ```js
 // app/helpers/format-currency.js
-export default Ember.Helper.helper(function(params) {
+export function formatCurrency(params/*, hash*/) {
   let timestamp = params[0];
   // implementation ...
   return relativeTime;
-});
+}
+
+export default Ember.Helper.helper(formatCurrency);
 ```
+
 
 
 ## Conclusion
