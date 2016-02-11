@@ -8,7 +8,7 @@ keywords: Ember tutorial, Angular, Angular tutorial, Ember, beginners, Ember 101
 
 One pain point of Ember that I often hear is that the learning curve is a little steep. Because Angular is extremely popular, I'd like to introduce Ember from the perspective of an Angular developer, hopefully getting those who know Angular up and running quickly based on something you are already familiar with. Ember is a fantastic framework that I've grown to love coming from the Angular world myself, and you may too.
 
-Ember is an opinionated JavaScript framework. It comes with a command line interface (CLI) used to scaffold your application, generate files, run tests, and build an application for deployment. In Angular, these tasks are typically achieved using some combination of tools like Gulp, Grunt, Yeoman, and a handful of other plugins and custom code. Angular 2 however will have a CLI that is built on top of Ember CLI. In this post, I will be using Ember CLI to generate files so you can learn the commands along the way. Let's get started!
+Ember is an opinionated JavaScript framework. It comes with a command line interface (CLI) used to scaffold your application, generate files with a test for every single file, run tests, and build an application for deployment. In Angular, these tasks are typically achieved using some combination of tools like Gulp, Grunt, Yeoman, and a handful of other plugins and custom code. Angular 2 however will have a CLI that is built on top of Ember CLI. In this post, I will be using Ember CLI to generate files so you can learn the commands along the way. Let's get started!
 
 ## Installation
 
@@ -300,7 +300,7 @@ export function relativeTime(params/*, hash*/) {
 export default Ember.Helper.helper(relativeTime);
 ```
 
-
+A helper can be used either as a function in your JavaScript or in your templates.
 
 ## Conclusion
 
