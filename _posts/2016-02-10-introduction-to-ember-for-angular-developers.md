@@ -290,14 +290,14 @@ In Ember, it would look like:
 To generate a helper in Ember, run `ember generate helper relativeTime`.
 
 ```js
-// app/helpers/format-currency.js
-export function formatCurrency(params/*, hash*/) {
+// app/helpers/relative-time.js
+export function relativeTime(params/*, hash*/) {
   let timestamp = params[0];
   // implementation ...
-  return relativeTime;
+  return relativeTimeStr;
 }
 
-export default Ember.Helper.helper(formatCurrency);
+export default Ember.Helper.helper(relativeTime);
 ```
 
 
