@@ -302,6 +302,33 @@ export default Ember.Helper.helper(relativeTime);
 
 A helper can be used either as a function in your JavaScript or in your templates.
 
+## Services
+
+In Angular, you have several ways of making services using either a factory, service, value, provider, or constant. A service in Angular is a singleton and can be used to hold state or abstract some type of functionality that can be shared across your application. Similarly, services in Ember are singleton objects used to share state and functionality across your application. For example, maybe you want to have a shopping cart in your application. To generate a `cart` service in Ember, run `ember generate service cart`.
+
+```js
+// app/services/cart.js
+export default Ember.Service.extend({
+  add() { /* implementation */ },
+  remove() { /* implementation */ }
+});
+```
+
+To inject the `cart` service into a route, controller, or component, you can use `Ember.inject.service()`. This is one form of dependency injection in Ember.
+
+```js
+export default Ember.Route.extend({
+  cart: Ember.inject.service(),
+  actions: {
+    addToCart(item) {
+      this.get('cart').add(item);
+    }
+  }
+});
+```
+
+I didn't cover actions, but actions get fired on user events. For example, you might have a product listing page, and when you click on the button "Add to Cart", it will fire the `addToCart` action which you can then use the `cart` service to store the item. Think of actions like `ng-click`, `ng-keypress`, etc.
+
 ## Conclusion
 
 As someone who has worked a lot with Angular, what drew me to Ember was its strong sense of convention over configuration, out of the box testing, development consistency across teams, upgrade paths between major versions of the framework, and Ember Data. I didn't talk about Ember Data in this post because it can be a whole post in itself, but it is a robust library for modeling your data and working with APIs and offers much more than `$resource`. This post hasn't been a comprehensive look at Ember, but hopefully it is enough to get you started.
