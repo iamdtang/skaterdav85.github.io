@@ -46,6 +46,8 @@ As noted in the API documentation:
 
 Now maybe your API doesn't return a `links` property but this is how your related data needs to be accessed. How can you handle that? What you can do is override one of the normalization methods in the serializer like `normalize`, `normalizeResponse`, `normalizeFindAllResponse`, etc, and create a `links` property for each individual resource:
 
+In my example, I am calling `store.findAll('user')`, so I can just override `normalizeFindAllResponse`.
+
 ```js
 // app/serializers/user.js
 export default DS.RESTSerializer.extend({
