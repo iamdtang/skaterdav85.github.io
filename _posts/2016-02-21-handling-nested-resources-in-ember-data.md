@@ -55,7 +55,7 @@ For example, if you are calling `store.findAll('user')`, you can override `norma
 // app/serializers/user.js
 export default DS.RESTSerializer.extend({
   normalizeFindAllResponse(store, primaryModelClass, payload, id, requestType) {
-    payload.users.map((user) => {
+    payload.users.forEach((user) => {
       user.links = {
         pets: `/api/v1/users/${user.id}/pets`,
         company: `/api/v1/users/${user.id}/company`
