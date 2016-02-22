@@ -38,7 +38,10 @@ If we made a request to `/api/v1/users`, each `user` object can have a `links` p
 }
 ```
 
-When you try and access `user.pets` or `user.company`, Ember Data will trigger a fetch using these URLs defined in `links`. The responses of these endpoints should follow the conventions of the serializer you are using.
+When you access `user.pets` or `user.company`, Ember Data will trigger a fetch using these URLs defined in `links`. Note, JSON-API uses `links` too, but the response format is a little different. The example of `links` in this post is applicable if you are using either the `RESTSerializer` or `JSONSerializer`. Learn more about [the differences between the built-in serializers in Ember Data](/2015/12/05/which-ember-data-serializer-should-i-use.html).
+
+
+The responses of these endpoints should follow the conventions of the serializer you are using.
 
 As noted in the API documentation:
 
