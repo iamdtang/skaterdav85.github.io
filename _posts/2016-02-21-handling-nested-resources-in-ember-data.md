@@ -11,6 +11,7 @@ Many APIs use nested resources. That is, URL paths that contain a hierarchy of r
 Ember Data supports a property called `links` on individual resources, an object which contains URLs that point to related data. For example, let's say we have a `user` model with asynchronous `belongsTo` and `hasMany` relationships:
 
 ```js
+// app/models/user.js
 export default DS.Model.extend({
   first: DS.attr('string'),
   last: DS.attr('string'),
