@@ -8,7 +8,7 @@ keywords: nested resources, ember data
 
 Many APIs use nested resources. That is, URL paths that contain a hierarchy of resource types. For example, a nested resource might look something like: `/users/5/pets`, where there is a collection of `pet` resources under a `user` resource. How do you handle that in Ember Data?
 
-Ember Data supports a property called `links` on individual resources, an object which contains URLs that point to related data. For example, let's say we have a `user` model with asynchronous `belongsTo` and `hasMany` relationships:
+Ember Data's `RESTAdapter` supports a property called `links` on individual resources, an object which contains URLs that point to related data. For example, let's say we have a `user` model with asynchronous `belongsTo` and `hasMany` relationships:
 
 ```js
 // app/models/user.js
