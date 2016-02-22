@@ -2,7 +2,7 @@
 layout: post
 title: Handling Nested Resources in Ember Data
 date: 2016-02-21
-description: Many APIs use nested resources. But how do you handle that in Ember Data? Let me show you.
+description: Many APIs use nested resources. That is, URL paths that contain a hierarchy of resource types. How do you handle that in Ember Data? Let me show you.
 keywords: nested resources, ember data
 ---
 
