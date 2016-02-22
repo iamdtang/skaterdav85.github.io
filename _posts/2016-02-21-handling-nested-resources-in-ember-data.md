@@ -6,7 +6,7 @@ description: Many APIs use nested resources. But how do you handle that in Ember
 keywords: nested resources, ember data
 ---
 
-Many APIs use nested resources. That is, a path that might look something like: `/users/5/pets`, where you can access a collection of `pet` resources under a `user` resource. How do you handle that in Ember Data?
+Many APIs use nested resources. That is, URL paths that might look something like: `/users/5/pets`, where you can access a collection of `pet` resources under a `user` resource. How do you handle that in Ember Data?
 
 Ember Data supports a property called `links` on individual resources, an object which contains URLs that point to related data. For example, let's say we have a `user` model with asynchronous `belongsTo` and `hasMany` relationships:
 
@@ -44,9 +44,11 @@ As noted in the API documentation:
 
 > The format of your links value will influence the final request URL via the urlPrefix method: Links beginning with //, http://, https://, will be used as is, with no further manipulation. Links beginning with a single / will have the current adapter's host value prepended to it. Links with no beginning / will have a parentURL prepended to it, via the current adapter's buildURL.
 
-Now maybe your API doesn't return a `links` property but this is how your related data needs to be accessed. How can you handle that? What you can do is override one of the normalization methods in the serializer like `normalize`, `normalizeResponse`, `normalizeFindAllResponse`, etc, and create a `links` property for each individual resource:
+What if your API doesn't return a `links` property, and this is how your related data needs to be accessed? I have found this to be a pretty common scenario.
 
-In my example, I am calling `store.findAll('user')`, so I can just override `normalizeFindAllResponse`.
+To handle this, you can override one of the normalization methods in the serializer like `normalize`, `normalizeResponse`, `normalizeFindAllResponse`, etc, and create a `links` property for each individual resource:
+
+For example, if you are calling `store.findAll('user')`, you can override `normalizeFindAllResponse`.
 
 ```js
 // app/serializers/user.js
@@ -66,4 +68,4 @@ export default DS.RESTSerializer.extend({
 
 Here I have created a model-specific serializer to add `links` to each `user` resource. You could probably make this a little more dynamic and use it across the board in an `application` serializer. I'll leave that to you.
 
-Have you found another way of handling nested relationships? Let me know in the comments!
+Have you found another way of handling nested resources? Let me know in the comments!
