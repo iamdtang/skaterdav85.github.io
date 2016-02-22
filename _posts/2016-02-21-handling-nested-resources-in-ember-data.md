@@ -6,7 +6,7 @@ description: Many APIs use nested resources. But how do you handle that in Ember
 keywords: nested resources, ember data
 ---
 
-Many APIs use nested resources. That is, URL paths that might look something like: `/users/5/pets`, where you can access a collection of `pet` resources under a `user` resource. How do you handle that in Ember Data?
+Many APIs use nested resources. That is, URL paths that contain a hierarchy of resource types. For example, a nested resource might look something like: `/users/5/pets`, where there is a collection of `pet` resources under a `user` resource. How do you handle that in Ember Data?
 
 Ember Data supports a property called `links` on individual resources, an object which contains URLs that point to related data. For example, let's say we have a `user` model with asynchronous `belongsTo` and `hasMany` relationships:
 
@@ -19,7 +19,7 @@ export default DS.Model.extend({
 });
 ```
 
-If we made a request to `/api/v1/users`, each `user` object can have a `links` property:
+If we made a request to `/api/v1/users`, each `user` object in the response can have a `links` property:
 
 ```js
 {
@@ -68,6 +68,6 @@ export default DS.RESTSerializer.extend({
 
 Here I have created a model-specific serializer to add `links` to each `user` resource. You could probably make this a little more dynamic and use it across the board in an `application` serializer. I'll leave that to you.
 
-Not sure how to use the normalization methods in serializers? Learn more about [the differences between `normalize`, `normalizeResponse`, and the other normalization methods](/2016/01/23/ember-data-and-custom-apis-5-common-serializer-customizations.html)? 
+Not sure how to use the normalization methods in serializers? Learn more about [the differences between `normalize`, `normalizeResponse`, and the other normalization methods](/2016/01/23/ember-data-and-custom-apis-5-common-serializer-customizations.html)?
 
 Have you found another way of handling nested resources? Let me know in the comments!
