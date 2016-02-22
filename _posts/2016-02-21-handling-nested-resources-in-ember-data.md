@@ -6,7 +6,7 @@ description: Many APIs use nested resources. But how do you handle that in Ember
 keywords: nested resources, ember data
 ---
 
-Many APIs use nested resources. That is, a path that might look something like: `/users/5/pets`, where you can access a collection of `pet` resources under the `user` resource. How do you handle that in Ember Data?
+Many APIs use nested resources. That is, a path that might look something like: `/users/5/pets`, where you can access a collection of `pet` resources under a `user` resource. How do you handle that in Ember Data?
 
 Ember Data supports a property called `links` on individual resources, an object which contains URLs that point to related data. For example, let's say we have a `user` model with asynchronous `belongsTo` and `hasMany` relationships:
 
@@ -32,8 +32,8 @@ If we made a request to `/api/v1/users`, each `user` object can have a `links` p
         "company": "/api/v1/users/1/company",
         "pets": "/api/v1/users/1/pets"
       }
-    },
-    ...
+    }
+    // ...
   ]
 }
 ```
