@@ -6,13 +6,11 @@ description: For those who want to start learning Ember 2, here is a list of my 
 keywords: Ember 2 tutorial, how to learn Ember, Ember books, Ember courses, Ember tutorials, learning Ember, Ember 2, tutorial, Ember training, Ember tuts, learn Ember, EmberJS, Ember.js, Best places to learn Ember
 ---
 
-__Updated on 2/25/2016__
-
-For those who want to start learning Ember 2, here is a list of my recommendations for the best places to learn Ember.
+__Updated on 2/25/2016:__ For those who want to start learning Ember 2, here is a list of my recommendations for the best places to learn Ember.
 
 ## 1. CodeSchool - Try Ember (paid)
 
-CodeSchool released a new version of their Ember course called [Try Ember](https://www.codeschool.com/courses/try-ember). I tried it out and it is great. If you've ever tried CodeSchool before, you know that they deliver awesome quality so you won't be disappointed.
+CodeSchool released a new version of their Ember course on 2/24/2016 called [Try Ember](https://www.codeschool.com/courses/try-ember) which targets Ember 2 and Ember CLI. I tried it out and it is great. If you've ever tried CodeSchool before, you know that they deliver awesome quality so you won't be disappointed.
 
 ## 2. Rock and Roll with Ember (paid)
 
