@@ -8,7 +8,7 @@ keywords: Ember Data snapshot, DS.Snapshot, snapshots, snapshot, nested resource
 
 If you've had to work with Ember Data and non-standard APIs, you may have dug into the adapters and serializers a bit and seen `snapshot` as a parameter to a few of the methods. If you dug a little deeper, you may have learned that a snapshot is an instance of `DS.Snapshot`, a private class in Ember Data. If you visit the API docs for this class, it doesn't really tell you what it is. It just tells you what methods and properties are available on snapshots. So what is a snapshot and why do you care?
 
-In a [great video on Ember Data](https://vimeo.com/146840596) by Ember Data Core Team member [@ChristofferP](https://twitter.com/christofferp), he defines a snapshot as something that:
+In a <a href="https://vimeo.com/146840596" target="blank">great video on Ember Data</a> by Ember Data Core Team member <a href="https://twitter.com/christofferp" target="blank">@ChristofferP</a>, Christoffer defines a snapshot as something that:
 
 > "Represents a record that you can inspect without causing side-effects."
 
