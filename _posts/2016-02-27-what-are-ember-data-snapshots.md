@@ -85,7 +85,7 @@ export default DS.JSONSerializer.extend({
 });
 ```
 
-In this example, maybe the backend requires that the payload is an array where the first object contains the newly created data. This format isn't really common in APIs, but it is a situation I have run into.
+In this example, maybe the backend requires that the payload is an array where the first object contains the newly created data. This format isn't really common in APIs, but it is a situation I have run into. You can customize the format to whatever you need in this method.
 
 ## Conclusion
 
