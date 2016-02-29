@@ -12,7 +12,7 @@ In a <a href="https://vimeo.com/146840596" target="blank">great video on Ember D
 
 > "Represents a record that you can inspect without causing side-effects."
 
-He goes on to explain that snapshots were introduced to the library because there were issues when trying to inspect asynchronous model relationships during serialization that might trigger fetches which required dealing with promises and things got complicated. Check out the video at 37:42 as he does a great job at explaining it.
+He goes on to explain that snapshots were introduced to the library because there were issues when trying to inspect asynchronous model relationships during serialization that might trigger fetches which required dealing with promises making things complicated. Check out the video at 37:42 as he does a great job at explaining it.
 
 So anyways, why might you need to use a snapshot? You probably won't have to instantiate a snapshot yourself as it is a private class, but you may run into situations where you'll need to know how to use it if you're dealing with a custom API. The API of a snapshot is the following:
 
@@ -46,7 +46,6 @@ One situation you might need to use a snapshot is in the adapter when determinin
 ```js
 // app/adapters/pet.js
 export default ApplicationAdapter.extend({
-  namespace: 'api',
   urlForCreateRecord(modelName, snapshot) {
     let userID = snapshot.belongsTo('user').id;
     return `/${this.namespace}/users/${userID}/pets`;
