@@ -38,7 +38,7 @@ promise.catch(() => {
 
 If you aren't familiar with `catch()`, it is syntactic sugar for `then(undefined, onRejection)`.
 
-Similarly, if the promise resolves, "success" and "finally" are logged. However, if the promise rejects, "catch", "success", and "finally" are logged. This threw me off for a bit. Why is the success handler still getting called when the promise rejects? If you've worked with jQuery promises either by themselves or with a library like Backbone, it doesn't work like this. If a promise rejects, each rejection handler gets called. <a href="http://jsbin.com/wujahutazu/edit?js,console" target="_blank">Try it yourself here</a>. This is because jQuery promises are not compliant with the Promise/A+ standard whereas RSVP is, and the standard states:
+Similarly, if the promise resolves, "success" and "finally" are logged. However, if the promise rejects, "catch", "success", and "finally" are logged. This threw me off for a bit. Why is the success handler still getting called when the promise rejects? If you've worked with jQuery promises either by themselves or with a library like Backbone, it doesn't work like this. If a promise rejects, each rejection handler in the promise chain gets called. <a href="http://jsbin.com/wujahutazu/edit?js,console" target="_blank">Try it yourself here</a>. This is because jQuery promises are not compliant with the Promise/A+ standard whereas RSVP is, and the standard states:
 
 <div>
   <blockquote>
@@ -78,8 +78,7 @@ export default Ember.Controller.extend({
     createPost(postData) {
       let post = this.store.createRecord('post', postData);
       return post.save().catch((error) => {
-        let controller = this.get('controller');
-        controller.set('error', 'Oops, something went wrong!');
+        this.set('error', 'Oops, something went wrong!');
         throw error;
       });
     }
@@ -87,7 +86,7 @@ export default Ember.Controller.extend({
 });
 ```
 
-Here I have a `createPost` action on the controller for the `new-post` route. In my template, I pass this action to the `post-form` component using a closure action.
+Here I have a `createPost` action on the controller for the `new-post` route. In the template, I pass this action to the `post-form` component using a closure action.
 
 {% raw %}
 ```html
@@ -97,7 +96,7 @@ Here I have a `createPost` action on the controller for the `new-post` route. In
 ```
 {% endraw %}
 
-In my `post-form` component template, an action named `save` is called when the form is submitted.
+In the `post-form` component template, an action named `save` is called when the form is submitted.
 
 {% raw %}
 ```html
@@ -126,19 +125,21 @@ export default Ember.Component.extend({
 });
 ```
 
-In this example with a closure action, the promise chain executed in the following order:
+In this example with a closure action, the promise chain executed in the following order, where the rejection handler from `catch` was before the resolve handler.
 
 ```js
-post.save()
-  .catch((error) => {
-    let controller = this.get('controller');
-    controller.set('error', 'Oops, something went wrong!');
-    throw error;
-  }).then(() => {
-    // do stuff like clear out the form
-  }, () => {
-    // do stuff like highlight invalid fields
-  });
+// executed first
+let promise = post.save().catch((error) => {
+  this.set('error', 'Oops, something went wrong!');
+  throw error;
+});
+
+// executed second
+promise.then(() => {
+  // do stuff like clear out the form
+}, () => {
+  // do stuff like highlight invalid fields
+});
 ```
 
 Without that `throw error` in the `catch`, both the catch handler and the success handler would run, which wasn't expected.
