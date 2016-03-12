@@ -6,7 +6,9 @@ description: TL;DR - If both resolve and rejection handlers are executing uninte
 keywords: ember, promises, RSVP, closure actions, catch, error, reject, throw, both resolve and reject are executing, Promises/A+, RSVP vs jQuery promises
 ---
 
-Recently I was working with closure actions and learned something new about promises in the process. So you're probably familiar with this:
+Recently I was working with closure actions and learned something new about promises in the process.
+
+So you're probably familiar with this:
 
 ```js
 promise.then(() => {
