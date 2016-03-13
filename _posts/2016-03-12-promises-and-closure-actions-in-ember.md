@@ -2,7 +2,7 @@
 layout: post
 title: Promises and Closure Actions in Ember
 date: 2016-03-12
-description: TL;DR - If both resolve and rejection handlers are executing unintentionally, you might be forgetting to throw after you catch in the promise chain.
+description: TL;DR - If both success and reject handlers are executing unintentionally, you might be forgetting to throw after you catch in the promise chain.
 keywords: ember, promises, RSVP, closure actions, catch, error, reject, throw, both resolve and reject are executing, Promises/A+, RSVP vs jQuery promises
 ---
 
@@ -52,7 +52,7 @@ Similarly, if the promise resolves, "success" and "finally" are logged. However,
 
 You can <a href="https://promisesaplus.com/" target="_blank">read more about the Promises/A+ standard here</a>.
 
-So how do you make subsequent rejection handlers get called in the promise chain? Simply throw the error.
+So how do you make subsequent reject handlers get called in the promise chain? Simply throw the error.
 
 ```js
 promise.catch((error) => {
@@ -144,6 +144,6 @@ promise.then(() => {
 
 Without that `throw error` in `catch`, both the catch handler and the success handler would run, which wasn't expected.
 
-If you've worked with Angular, Angular's promises also work like RSVP in this regard. However from my experience, I never found myself specifying rejection handlers before success handlers so this situation never popped up.
+If you've worked with Angular, Angular's promises also work like RSVP in this regard. However from my experience, I never found myself specifying reject handlers before success handlers so this situation never popped up.
 
-__TL;DR__ If both resolve and rejection handlers are executing unintentionally, you might be forgetting to throw after you catch in the promise chain.
+__TL;DR__ If both success and reject handlers are executing unintentionally, you might be forgetting to throw after you catch in the promise chain.
