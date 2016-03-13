@@ -69,7 +69,7 @@ promise.catch((error) => {
 
 Now what gets logged is "catch", "error", and "finally". <a href="http://jsbin.com/tugibehuja/edit?js,console" target="_blank">Try it yourself here</a>
 
-So you might be wondering, when would you be in a situation where rejection handlers are specified before any resolve handlers in the promise chain? Recently I found myself in this situation when I was using closure actions.
+So you might be wondering, when would you be in a situation where reject handlers are specified before any success handlers in the promise chain? Recently I found myself in this situation when I was using closure actions.
 
 ```js
 // app/controllers/new-post.js
@@ -86,7 +86,7 @@ export default Ember.Controller.extend({
 });
 ```
 
-Here I have a `createPost` action on the controller for the `new-post` route. This action creates a post record, saves it, and if there are any errors, render them at the top of the page somewhere. In the template, I pass this action to the `post-form` component using a closure action.
+Here there is a `createPost` action on the controller for the `new-post` route. This action creates a post record, saves it, and if there are any errors, render them at the top of the page somewhere. In the template, the action is passed to the `post-form` component as a closure action.
 
 {% raw %}
 ```html
@@ -125,7 +125,7 @@ export default Ember.Component.extend({
 });
 ```
 
-In this example with a closure action, the promise chain executed in the following order, where the rejection handler from `catch` was before the resolve handler.
+In this example with a closure action, the promise chain executed in the following order, where the reject handler from `catch` was executed before the success handler.
 
 ```js
 // executed first
@@ -142,7 +142,7 @@ promise.then(() => {
 });
 ```
 
-Without that `throw error` in the `catch`, both the catch handler and the success handler would run, which wasn't expected.
+Without that `throw error` in `catch`, both the catch handler and the success handler would run, which wasn't expected.
 
 If you've worked with Angular, Angular's promises also work like RSVP in this regard. However from my experience, I never found myself specifying rejection handlers before success handlers so this situation never popped up.
 
