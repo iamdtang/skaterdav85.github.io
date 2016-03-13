@@ -2,7 +2,7 @@
 layout: post
 title: Promises and Closure Actions in Ember
 date: 2016-03-12
-description: TL;DR - If both resolve and rejection handlers are executing unintentionally, you might be forgetting to throw after you catch.
+description: TL;DR - If both resolve and rejection handlers are executing unintentionally, you might be forgetting to throw after you catch in the promise chain.
 keywords: ember, promises, RSVP, closure actions, catch, error, reject, throw, both resolve and reject are executing, Promises/A+, RSVP vs jQuery promises
 ---
 
@@ -86,7 +86,7 @@ export default Ember.Controller.extend({
 });
 ```
 
-Here I have a `createPost` action on the controller for the `new-post` route. In the template, I pass this action to the `post-form` component using a closure action.
+Here I have a `createPost` action on the controller for the `new-post` route. This action creates a post record, saves it, and if there are any errors, render them at the top of the page somewhere. In the template, I pass this action to the `post-form` component using a closure action.
 
 {% raw %}
 ```html
@@ -144,4 +144,4 @@ promise.then(() => {
 
 Without that `throw error` in the `catch`, both the catch handler and the success handler would run, which wasn't expected.
 
-__TL;DR__ If both resolve and rejection handlers are executing unintentionally, you might be forgetting to throw after you catch.
+__TL;DR__ If both resolve and rejection handlers are executing unintentionally, you might be forgetting to throw after you catch in the promise chain.
