@@ -38,7 +38,7 @@ promise.catch(() => {
 
 If you aren't familiar with `catch()`, it is syntactic sugar for `then(undefined, onRejection)`.
 
-Similarly, if the promise resolves, "success" and "finally" are logged. However, if the promise rejects, "catch", "success", and "finally" are logged. This threw me off for a bit. Why is the success handler still getting called when the promise rejects? If you've worked with jQuery promises either by themselves or with a library like Backbone, it doesn't work like this. If a promise rejects, each rejection handler in the promise chain gets called. <a href="http://jsbin.com/wujahutazu/edit?js,console" target="_blank">Try it yourself here</a>. This is because jQuery promises are not compliant with the Promise/A+ standard whereas RSVP is, and the standard states:
+Similarly, if the promise resolves, "success" and "finally" are logged. However, if the promise rejects, "catch", "success", and "finally" are logged. This threw me off for a bit. Why is the success handler still getting called when the promise rejects? If you've worked with jQuery promises either by themselves or with a library like Backbone, it doesn't work like this. If a promise rejects, each reject handler in the promise chain gets called. <a href="http://jsbin.com/wujahutazu/edit?js,console" target="_blank">Try it yourself here</a>. This is because jQuery promises are not compliant with the Promise/A+ standard whereas RSVP is, and the standard states:
 
 <div>
   <blockquote>
