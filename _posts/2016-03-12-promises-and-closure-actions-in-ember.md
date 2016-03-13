@@ -144,4 +144,6 @@ promise.then(() => {
 
 Without that `throw error` in the `catch`, both the catch handler and the success handler would run, which wasn't expected.
 
+If you've worked with Angular, Angular's promises also work like RSVP in this regard. However from my experience, I never found myself specifying rejection handlers before success handlers so this situation never popped up.
+
 __TL;DR__ If both resolve and rejection handlers are executing unintentionally, you might be forgetting to throw after you catch in the promise chain.
