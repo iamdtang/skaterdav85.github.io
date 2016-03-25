@@ -6,12 +6,9 @@ description: So you know how to work with Ember Data and the happy paths when yo
 keywords: ember data errors, AdapterError, DS.AdapterError, model errors, JSON API errors, JSONAPI errors, JSONAPISerializer, errors, RESTSerializer, JSONSerializer, isValid, DS.Errors, DS.InvalidError
 ---
 
-Last time I wrote about the different serializers in Ember Data and their corresponding API response formats in my post [Which Ember Data Serializer Should I Use?](/2015/12/05/which-ember-data-serializer-should-i-use.html). You know how to work with Ember Data and the happy paths when your promises resolve. That's great, but you also need to handle error responses. Let's look at how to do that when your API adheres to the JSON API specification or the formats expected by the `RESTSerializer` and `JSONSerializer`.
+Last time I wrote about the different serializers in Ember Data and their corresponding API response formats in my post [Which Ember Data Serializer Should I Use?](/2015/12/05/which-ember-data-serializer-should-i-use.html). You know how to work with Ember Data and the happy paths when your promises resolve. That's great, but you also need to handle error responses. Let's look at how to do that.
 
-## Handling JSON API Errors
-
-If your API follows the JSON API specification, then errors will need to adhere to
-a format like this:
+As of Ember Data 2.x, all error responses follow the JSON-API spec. A JSON-API error response looks like this:
 
 ```json
 {
@@ -116,7 +113,9 @@ to use are the `errors` and `isValid` properties on the model. To display the er
 Accessing the attribute name off of the `errors` object will return an array of all errors for that
 property.
 
-## Handling Errors for RESTSerializer and JSONSerializer
+## Handling Errors for RESTSerializer and JSONSerializer before Ember Data 2.x
+
+__The format below was marked as deprecated in 1.13.__ Error responses now follow the JSON-API format described above. Read about the deprecation <a href="http://emberjs.com/blog/2015/06/18/ember-data-1-13-released.html#toc_new-errors-api" target="_blank">here</a>.
 
 So what if your API isn't based on JSON API and instead follows the conventions expected by `DS.RESTSerializer` or `DS.JSONSerializer`? What do error responses look like then? Error responses should look like this:
 
