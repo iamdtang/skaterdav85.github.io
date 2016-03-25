@@ -6,6 +6,8 @@ description: So you know how to work with Ember Data and the happy paths when yo
 keywords: ember data errors, AdapterError, DS.AdapterError, model errors, JSON API errors, JSONAPI errors, JSONAPISerializer, errors, RESTSerializer, JSONSerializer, isValid, DS.Errors, DS.InvalidError
 ---
 
+__UPDATED 3/25/16 to reflect Ember Data 2.x__
+
 Last time I wrote about the different serializers in Ember Data and their corresponding API response formats in my post [Which Ember Data Serializer Should I Use?](/2015/12/05/which-ember-data-serializer-should-i-use.html). You know how to work with Ember Data and the happy paths when your promises resolve. That's great, but you also need to handle error responses. Let's look at how to do that.
 
 As of Ember Data 2.x, all error responses follow the JSON-API spec. A JSON-API error response looks like this:
