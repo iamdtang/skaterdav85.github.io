@@ -131,16 +131,16 @@ The `EmbeddedRecordsMixin` also works with nested data inside of nested data! Fo
   "id": 5,
   "name": "David",
   "skills": [
-    { 
-      "id": 2, 
+    {
+      "id": 2,
       "name": "Teaching",
       "category": {
         "id": 3,
         "name": "Education"
       }
     },
-    { 
-      "id": 9, 
+    {
+      "id": 9,
       "name": "Ember",
       "category": {
         "id": 8,
@@ -179,3 +179,4 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
 });
 ```
 
+{% include promo.html %}

@@ -259,3 +259,5 @@ Even though JSON API seems a little verbose, I like that there is a documented s
 ## Conclusion
 
 There is a lot more to these serializers, especially the `JSONAPISerializer`, but hopefully this helped point you in the right direction. To work efficiently with Ember Data, figure out what structure your API data is in and choose the serializer that best matches it. If you are starting from scratch and you have control over your API, try and go with a format that one of the serializers expects so that you don't have to massage your data too much. Also, following the expected format for one of the serializers makes it that much easier for other developers to hop onto your project. Hopefully this provided a good overview of what is expected by each serializer so you can easily determine which one fits your project's needs.
+
+{% include promo.html %}

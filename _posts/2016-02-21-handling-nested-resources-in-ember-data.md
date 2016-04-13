@@ -72,3 +72,5 @@ Here I have created a model-specific serializer to add `links` to each `user` re
 Not sure how to use the normalization methods in serializers? Learn more about [the differences between normalize, normalizeResponse, and the other normalization methods here](/2016/01/23/ember-data-and-custom-apis-5-common-serializer-customizations.html).
 
 Have you found another way of handling nested resources? Let me know in the comments!
+
+{% include promo.html %}

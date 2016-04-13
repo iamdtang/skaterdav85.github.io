@@ -236,3 +236,5 @@ export default DS.Model.extend({
 ```
 
 What custom transforms have you made? Thanks for reading!
+
+{% include promo.html %}

@@ -134,3 +134,5 @@ So what if your API isn't based on JSON API and instead follows the conventions 
 The response will also have a root key `errors`. Each property corresponds to a model attribute and contains an array of error messages. Similar to JSON API, a 422 HTTP status code should be returned.
 
 Thanks to Artur Kesik (qnsi) and Jason Mitchell (jsonmit) for helping me out in the Ember discussion forum!
+
+{% include promo.html %}
