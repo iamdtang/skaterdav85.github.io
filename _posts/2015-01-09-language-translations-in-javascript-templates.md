@@ -11,23 +11,22 @@ Imagine you have a client-side template showing a summary of your shopping cart.
 
 ```html
 {% raw %}
-<script type="text/handlebars" id="product-template">
-	{{#if lastItemAdded}}
-		<div class="product-name">{{name}}</div>
-	    <div class="product-info">
-	        <p>Color: {{lastItemAdded.color}}</p>
-	        <p>Size: {{lastItemAdded.size}}</p>
-	        <p>Qty: {{lastItemAdded.quantity}}</p>
-	        <p>Price: {{currency lastItemAdded.price}}</p>
-	    </div>
-	    <div>
-	    	{{currency total}} Pre-Tax Subtotal
-	    </div>
-	    <a href="/secure/checkout">Checkout</a>
-    {{else}}
-        <p>Your shopping cart is empty.</p>
-    {{/if}}
-</script>
+{{#if lastItemAdded}}
+  <div class="product-name">{{name}}</div>
+    <div class="product-info">
+      <p>Color: {{lastItemAdded.color}}</p>
+      <p>Size: {{lastItemAdded.size}}</p>
+      <p>Qty: {{lastItemAdded.quantity}}</p>
+      <p>Price: {{currency lastItemAdded.price}}</p>
+    </div>
+  </div>
+  <div>
+    {{currency total}} Pre-Tax Subtotal
+  </div>
+  <a href="/secure/checkout">Checkout</a>
+{{else}}
+  <p>Your shopping cart is empty.</p>
+{{/if}}
 {% endraw %}
 ```
 
@@ -83,23 +82,22 @@ Now my JavaScript template can look like this:
 
 ```html
 {% raw %}
-<script type="text/handlebars" id="product-template">
-	{{#if lastItemAdded}}
-		<div class="product-name">{{name}}</div>
-	    <div class="product-info">
-	        <p>{{labels.color}}: {{lastItemAdded.color}}</p>
-	        <p>{{labels.size}}: {{lastItemAdded.size}}</p>
-	        <p>{{labels.quantity}}: {{lastItemAdded.quantity}}</p>
-	        <p>{{labels.price}}: {{currency lastItemAdded.price}}</p>
-	    </div>
-	    <div>
-	    	{{currency total}} {{labels.preTaxSubtotal}}
-	    </div>
-	    <a href="/secure/checkout">{{labels.checkout}}</a>
-    {{else}}
-        <p>{{labels.emptyShoppingCartText}}</p>
-    {{/if}}
-</script>
+{{#if lastItemAdded}}
+  <div class="product-name">{{name}}</div>
+    <div class="product-info">
+      <p>{{labels.color}}: {{lastItemAdded.color}}</p>
+      <p>{{labels.size}}: {{lastItemAdded.size}}</p>
+      <p>{{labels.quantity}}: {{lastItemAdded.quantity}}</p>
+      <p>{{labels.price}}: {{currency lastItemAdded.price}}</p>
+    </div>
+    <div>
+      {{currency total}} {{labels.preTaxSubtotal}}
+    </div>
+    <a href="/secure/checkout">{{labels.checkout}}</a>
+  </div>
+{{else}}
+  <p>{{labels.emptyShoppingCartText}}</p>
+{{/if}}
 {% endraw %}
 ```
 

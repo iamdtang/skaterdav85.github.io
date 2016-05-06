@@ -3,8 +3,7 @@ author: David Tang
 description: Thoughts and tutorials on JavaScript frameworks, testing, and patterns
 bio:
 paginate: 5
-markdown: redcarpet
-highlighter: pygments
+markdown: kramdown
 gems: [jekyll-paginate, jekyll-feed, jekyll-sitemap]
 sass:
   sass_dir: _scss

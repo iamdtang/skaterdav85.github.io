@@ -89,7 +89,7 @@ export default Ember.Controller.extend({
 Here there is a `createPost` action on the controller for the `new-post` route. This action creates a post record, saves it, and if there are any errors, render them at the top of the page somewhere. In the template, the action is passed to the `post-form` component as a closure action.
 
 {% raw %}
-```html
+```
 <!-- app/templates/new-post.hbs -->
 <h1>Create Post</h1>
 {{post-form submit=(action 'createPost')}}
@@ -99,7 +99,7 @@ Here there is a `createPost` action on the controller for the `new-post` route. 
 In the `post-form` component template, an action named `save` is called when the form is submitted.
 
 {% raw %}
-```html
+```
 <!-- app/templates/components/post-form.hbs -->
 <form onsubmit={{action 'save'}}>
   ...

@@ -27,15 +27,9 @@ pre {
 }
 
 code {
-    font-family: Consolas, Monaco, "Courier New" !important;
-}
-
-p code {
+  font-family: Consolas, Monaco, "Courier New" !important;
   background-color: $bg1;
-  color: white;
-  border-radius: 4px;
   padding: 3px 5px;
-  font-size: 0.9em;
 }
 
 ul, ol {

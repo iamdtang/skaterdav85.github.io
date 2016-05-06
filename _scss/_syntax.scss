@@ -1,4 +1,9 @@
-.highlight  { background: #ffffff; }
+.highlight-rouge  { background: #ffffff; }
+
+.highlight code {
+  color: white;
+}
+
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; } /* Error */
 .highlight .k { font-weight: bold; color: #C673BD; } /* Keyword */
@@ -61,19 +66,7 @@
 .highlight .nx { color: #98C379; }
 .highlight .p { color: #ABB2B6; }
 
-.language-text { color: #ddd; }
-
-// this is for handlebars code snippets where there is no outer script tag
-pre code.language-html {
-  color: white;
-}
-
-pre code.language- {
-  color: white;
-}
-
-pre code.language-css {
-
+.highlight {
   .n, .nl {
     color: #C673BD;
   }
@@ -81,4 +74,9 @@ pre code.language-css {
   .sx {
     color: #36a582;
   }
+}
+
+code.highlighter-rouge {
+  color: #36a582;
+  background: inherit;
 }
