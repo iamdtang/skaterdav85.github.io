@@ -148,10 +148,6 @@ h1 {
   font-size: 13px;
 }
 
-.slogan {
-  font-style: italic;
-}
-
 .pager {
   list-style: none;
   margin-top: 20px;
@@ -209,4 +205,10 @@ h1 {
 
 .guest-posts a:hover {
   text-decoration: none;
+}
+
+.side-image {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
