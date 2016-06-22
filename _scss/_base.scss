@@ -1,62 +1,54 @@
-body {
-    font-family: 'Open Sans', sans-serif;
+blockquote,
+body,
+li,
+p {
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
 }
-
-p, li {
-  line-height: 1.6;
-  color: $text;
-  font-size: 1.125em;
+li,
+p {
+    line-height: 1.8;
+    color: $text;
+    font-size: 1.125em;
 }
-
 blockquote {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 21px;
-  font-weight: 200;
-  font-style: italic;
+    font-size: 21px;
+    font-weight: 200;
+    font-style: italic;
+    line-height: 1.5;
 }
-
 blockquote p {
-  color: #999;
+    color: #999;
 }
-
 pre {
-  background-color: $bg1;
-  font-size: 15px;
-  padding: 20px;
-  border-radius: 5px;
+    background-color: $bg1;
+    font-size: 15px;
+    padding: 20px;
+    border-radius: 5px;
 }
-
 code {
-  font-family: Consolas, Monaco, "Courier New" !important;
-  background-color: $bg1;
-  padding: 3px 5px;
+    font-family: Consolas, Monaco, "Courier New" !important;
+    background-color: $bg1;
+    padding: 3px 5px;
 }
-
-ul, ol {
-  margin: 30px inherit;
+ol,
+ul {
+    margin: 30px inherit;
 }
-
 li ul {
-  margin-top: 0;
-  margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
 li li {
-  font-size: 1em;
+    font-size: 1em;
 }
-
-a, h2 {
-  color: $primary;
+a,
+h2 {
+    color: $primary;
+    font-weight: lighter;
 }
-
-h2, h3 {
-  /* text-transform: uppercase; */
-}
-
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
-
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }

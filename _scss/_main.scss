@@ -1,5 +1,5 @@
 h1 {
-  color: $text;
+  color: $primary;
 }
 
 .logo {
@@ -8,13 +8,8 @@ h1 {
   font-size: 1em;
 }
 
-// .main-content {
-//   padding-top: 80px;
-// }
-
 .sticky-header {
   background-color: $bg1;
-  // position: fixed;
   width: 100%;
   z-index: 100;
 
@@ -180,6 +175,7 @@ h1 {
   background-color: $primary;
   color: white;
   padding: 10px;
+  font-weight: lighter;
 }
 
 .guest-posts {

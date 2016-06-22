@@ -6,9 +6,7 @@ description: TL;DR - If both success and reject handlers are executing unintenti
 keywords: ember, promises, RSVP, closure actions, catch, error, reject, throw, both resolve and reject are executing, Promises/A+, RSVP vs jQuery promises
 ---
 
-Recently I was working with closure actions and learned something new about promises in the process.
-
-So you're probably familiar with this:
+Recently I was working with closure actions and learned something new about promises in the process. So you're probably familiar with this:
 
 ```js
 promise.then(() => {
@@ -20,9 +18,7 @@ promise.then(() => {
 });
 ```
 
-If the promise resolves, "success" and "finally" are logged. If the promise rejects, "error" and "finally" are logged.
-
-Now what about this?
+If the promise resolves, "success" and "finally" are logged. If the promise rejects, "error" and "finally" are logged. Now what about this?
 
 ```js
 promise.catch(() => {
@@ -40,15 +36,10 @@ If you aren't familiar with `catch()`, it is syntactic sugar for `then(undefined
 
 Similarly, if the promise resolves, "success" and "finally" are logged. However, if the promise rejects, "catch", "success", and "finally" are logged. This threw me off for a bit. Why is the success handler still getting called when the promise rejects? If you've worked with jQuery promises either by themselves or with a library like Backbone, it doesn't work like this. If a promise rejects, each reject handler in the promise chain gets called. <a href="http://jsbin.com/wujahutazu/edit?js,console" target="_blank">Try it yourself here</a>. This is because jQuery promises are not compliant with the Promise/A+ standard whereas RSVP is, and the standard states:
 
-<div>
-  <blockquote>
-  2.2.7.1 If either onFulfilled or onRejected returns a value x, run the Promise Resolution Procedure [[Resolve]](promise2, x).
-  </blockquote>
 
-  <blockquote>
-  2.2.7.2 If either onFulfilled or onRejected throws an exception e, promise2 must be rejected with e as the reason.
-  </blockquote>
-</div>
+> 2.2.7.1 If either onFulfilled or onRejected returns a value x, run the Promise Resolution Procedure [[Resolve]](promise2, x).
+
+> 2.2.7.2 If either onFulfilled or onRejected throws an exception e, promise2 must be rejected with e as the reason.
 
 You can <a href="https://promisesaplus.com/" target="_blank">read more about the Promises/A+ standard here</a>.
 
