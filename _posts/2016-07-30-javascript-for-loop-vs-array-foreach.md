@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Array forEach vs. the for Loop in JavaScript
+title: The for Loop vs. forEach in JavaScript
 date: 2016-07-30
-description: TBA
+description: If you're new to JavaScript, you may be wondering what the difference is between using a classic `for` loop versus using the `forEach()` method on arrays. In this post, I'd like to discuss why you might want to choose one over the other.
 keywords: for vs forEach, forEach vs for, forEach, for loop, javascript, looping, js, Array.prototype.forEach vs for
 ---
 
-If you're new to JavaScript, you may be wondering what the difference is between using a classic `for` loop versus using the `forEach()` method on arrays. In this post, I'd like to explain how each of these work, and why you might want to choose one over the other.
+If you're new to JavaScript, you may be wondering what the difference is between using a classic `for` loop versus using the `forEach()` method on arrays. In this post, I'd like to review how each of these work and discuss why you might want to choose one over the other.
 
 ## The Mechanics
 
@@ -121,7 +121,7 @@ for (var i = 0; i < products.length; i++) {
 }
 ```
 
-Using the `break` keyword, we can stop the loop from continuing on as soon as soon as we've found what we're looking for. It's worth noting that as of ES6, there is a new method on arrays for finding an element, which is similar to what we're doing above. This method is the [`find()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) and I encourage you to check it out. However, not all browsers support this yet at the time of this writing so you may need to use a transpiler like Babel.
+Using the `break` keyword, we can stop the loop from continuing on as soon as soon as we've found what we're looking for. It's worth noting that as of ES6, there is a new method on arrays for finding an element, which is similar to what we're doing above. This method is the [`find()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) and I encourage you to check it out. However, not all browsers support this yet at the time of this writing so you may need to use a transpiler like Babel or add a polyfill.
 
 ## Summary
 
