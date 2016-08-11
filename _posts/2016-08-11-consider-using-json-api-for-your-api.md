@@ -10,7 +10,7 @@ Have you ever argued with your team on how an API should be formatted? [JSON:API
 
 The JSON:API specification was initially drafted by Yehuda Katz (co-creator of Ember and a huge contributor to a number of well known open source projects) and many of the decisions were originally extracted from Ember Data, a robust, client-side data access layer used with Ember. Since then, the spec has gone through several iterations based on lots of feedback and is at 1.0. There are five primary authors: Steve Klabnik, Yehuda Katz, Dan Gebhardt, Tyler Kellen, and Ethan Resnick.
 
-If you haven't looked at the spec, I encourage you to [read through some of it](http://jsonapi.org/) and look at example payload structures.
+If you haven't looked at the spec, I encourage you to [read through some of it for at least a couple minutes](http://jsonapi.org/) and look at example payload structures before reading the rest of this post.
 
 I've had the pleasure of working with JSON:API and I've really appreciated its opinions. However, I've seen criticisms that typically fall into two buckets: "JSON:API is too bulky" and "What's with hyphens?". In this post, I'd like to address these criticisms from my point of view that may have deterred others from using JSON:API.
 
