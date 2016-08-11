@@ -12,7 +12,7 @@ The JSON:API specification was initially drafted by Yehuda Katz (co-creator of E
 
 If you haven't looked at the spec, I encourage you to [read through some of it](http://jsonapi.org/) and look at example payload structures.
 
-I've had the pleasure of working with JSON:API and appreciate its opinions. However, when I talk to some developers or read comments about it online, I see a lot of criticism that typically falls into 2 buckets: "JSON:API is too bulky" and "What's with hyphens?". There was a lot of thought put into this specification and the decisions were based on lots of feedback with good reasons. In this post, I'd like to address these criticisms that might deter some from using JSON:API.
+I've had the pleasure of working with JSON:API and appreciate its opinions. However, I've seen criticism that typically falls into two buckets: "JSON:API is too bulky" and "What's with hyphens?". There was a lot of thought put into this specification and the decisions were based on lots of feedback with good reasons. In this post, I'd like to address these criticisms from my point of view that might deter others from using JSON:API.
 
 ## Criticism 1: "JSON:API is too bulky and verbose"
 
@@ -98,11 +98,11 @@ As you can see, it may come across as more "bulky" but part of this is to differ
 
 ### "Make your API consistent and write decent documentation"
 
-Some might say just "make your API consistent and write decent documentation" and you don't need to follow the spec. The benefit of a specification is that libraries can be written that adhere to a known format. With standards in place, open source libraries are created that allow developers to use shared solutions and _write less custom code_. Writing less custom code often means easier maintenance. Have you ever worked on a project with so much custom code that had little to no documentation and changing that code was either a nightmare or the person who wrote it was responsible for making the changes if they still worked there? Sometimes that code is labeled as legacy code that a team may want to rewrite. How often do developers write documentation for code they've written that isn't open sourced? From my experience, not often. Using a popular open source solution likely means there is documentation which helps for long term maintenance and passing your code on to developers after you.
+Some might say, "make your API consistent and write decent documentation". Then, you don't need to follow a specification. The benefit of a spec is that libraries can be written that adhere to a known format. With standards in place, open source libraries are created that allow developers to use shared solutions and _write less custom code_. Writing less custom code often means easier maintenance. Have you ever worked on a project with so much custom code that had little to no documentation and changing that code was either a nightmare or the person who wrote it was responsible for making the changes if they still worked there? Sometimes that code is labeled as legacy code that a team may want to rewrite. How often do developers write documentation for code they've written that isn't open sourced? From my experience, not often. Using a popular open source solution likely means there is documentation which helps for long term maintenance and passing your code on to developers after you.
 
 ## Criticism 2: "What's with the hyphens?"
 
-Another criticism I've often seen is the hyphenation of attributes. For example:
+Another criticism I've often heard is the hyphenation of attributes. For example:
 
 ```json
 {
@@ -135,7 +135,9 @@ Third, the examples in the spec documentation follow the recommendations. If you
 
 ## Final Thoughts
 
-Hopefully this post has intrigued you a little bit to check out JSON:API. If the reasons above weren't enough to convince you, just know that there are some really smart people behind it that spent a lot of time thinking about how APIs should be built. Also, in my opinion, JSON:API isn't for every application. If you want a simple API that can be consumed in a raw form for a small application, go with a simpler JSON response style, but just beware of the consequences.
+Hopefully this post has intrigued you a little to check out JSON:API. If the reasons above weren't compelling enough, just know that there are some really smart people behind it that spent a lot of time thinking about how APIs should be built. Following a spec frees up your mental capacity to think about your application.
+
+Also, in my opinion, JSON:API isn't for every application. If you want a simple API that an application can consume in its raw form, go with a simpler JSON response. Just beware of the tradeoffs.
 
 ## Where to Learn More about JSON:API?
 
