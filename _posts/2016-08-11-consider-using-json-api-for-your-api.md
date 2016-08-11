@@ -12,7 +12,7 @@ The JSON:API specification was initially drafted by Yehuda Katz (co-creator of E
 
 If you haven't looked at the spec, I encourage you to [read through some of it for at least a couple minutes](http://jsonapi.org/) and look at example payload structures before reading the rest of this post.
 
-I've had the pleasure of working with JSON:API and I've really appreciated its opinions. However, I've seen criticisms that typically fall into two buckets: "JSON:API is too bulky" and "What's with hyphens?". In this post, I'd like to address these criticisms from my point of view that may have deterred others from using JSON:API.
+I've had the pleasure of working with JSON:API and I've really appreciated its opinions. However, I've heard criticisms that typically fall into two buckets: "JSON:API is too bulky and verbose" and "What's with hyphens?". In this post, I'd like to address these criticisms from my point of view that may have deterred others from using JSON:API.
 
 ## Criticism 1: "JSON:API is too bulky and verbose"
 
@@ -94,7 +94,7 @@ This is simple, but how do you deal with specifying relationships? In this examp
 }
 ```
 
-As you can see, it may come across as more "bulky" but part of this is to differentiate between regular attributes and relationships, and how different types of resources relate to one another.
+The above payload may come across as verbose, but part of this is to differentiate between regular attributes and relationships, and how different types of resources relate to one another. Furthermore, having an extra `data` key in the payload root allows for sideloading of data via the `included` property, also called [compound documents](http://jsonapi.org/format/#document-compound-documents).
 
 ### "Make your API consistent and write decent documentation"
 
