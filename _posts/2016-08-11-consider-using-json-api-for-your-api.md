@@ -8,11 +8,11 @@ keywords: json-api, json:api, json:api tutorial, json:api introduction, json, ap
 
 Have you ever argued with your team on how an API should be formatted? [JSON:API](http://jsonapi.org/) is a specification that was created to standardize and reduce the number of decisions that have to be made when building JSON APIs. (Yes, it can be confusing talking about JSON:API compliant APIs and JSON APIs that don't follow the spec). The benefit of following a specification that is opinionated about the format of your API is that it allows developers to be more productive and focus on what matters, the _unique parts_ of an application. Not only does it state what the format should look like, it also embraces hypermedia APIs.
 
-The JSON:API specification was initially drafted by Yehuda Katz (co-creator of Ember and a huge contributor to a number of well known open source projects) and many of the decisions were extracted from Ember Data, a robust, client-side data access layer used with Ember. Today there are five primary authors: Steve Klabnik, Yehuda Katz, Dan Gebhardt, Tyler Kellen, and Ethan Resnick.
+The JSON:API specification was initially drafted by Yehuda Katz (co-creator of Ember and a huge contributor to a number of well known open source projects) and many of the decisions were originally extracted from Ember Data, a robust, client-side data access layer used with Ember. Since then, the spec has gone through several iterations based on lots of feedback and is at 1.0. There are five primary authors: Steve Klabnik, Yehuda Katz, Dan Gebhardt, Tyler Kellen, and Ethan Resnick.
 
 If you haven't looked at the spec, I encourage you to [read through some of it](http://jsonapi.org/) and look at example payload structures.
 
-I've had the pleasure of working with JSON:API and appreciate its opinions. However, I've seen criticism that typically falls into two buckets: "JSON:API is too bulky" and "What's with hyphens?". There was a lot of thought put into this specification and the decisions were based on lots of feedback with good reasons. In this post, I'd like to address these criticisms from my point of view that might deter others from using JSON:API.
+I've had the pleasure of working with JSON:API and I've really appreciated its opinions. However, I've seen criticisms that typically fall into two buckets: "JSON:API is too bulky" and "What's with hyphens?". In this post, I'd like to address these criticisms from my point of view that may have deterred others from using JSON:API.
 
 ## Criticism 1: "JSON:API is too bulky and verbose"
 
@@ -141,6 +141,6 @@ Also, in my opinion, JSON:API isn't for every application. If you want a simple 
 
 ## Where to Learn More about JSON:API?
 
-If you haven't checked out the [JSON:API specification](http://jsonapi.org/) yet, I encourage you to look at it for at least a few minutes. There is also a great podcast on [The Changelog with Yehuda Katz](https://changelog.com/189/) talking about JSON:API. If you are a frontend developer, I'd recommend you check out Ember Data a little bit, as it works with JSON:API out of the box and it might give you some ideas on how to create a client-side data abstraction layer that works with JSON:API.
+If you haven't checked out the [JSON:API specification](http://jsonapi.org/) yet, I encourage you to look at it. There is also a great podcast on [The Changelog with Yehuda Katz](https://changelog.com/189/) talking about JSON:API. If you are a frontend developer, I'd recommend you check out Ember Data a little bit, as it works with JSON:API out of the box and it might give you some ideas on how to create a client-side data abstraction layer that works with JSON:API. Lastly, check out the [long list of client and server libraries that implement JSON:API](http://jsonapi.org/implementations/).
 
-Interested in building an API with JSON:API in Node.js? Sign up for my newsletter to be notified next week when I release it!
+Interested in building an API with JSON:API using Node.js? Sign up for my newsletter to be notified next week when I release it!
