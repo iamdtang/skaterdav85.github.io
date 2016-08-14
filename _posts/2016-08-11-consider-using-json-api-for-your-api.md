@@ -12,7 +12,7 @@ The JSON:API specification was initially drafted by Yehuda Katz (co-creator of E
 
 If you haven't looked at the spec, I encourage you to [read through some of it for at least a couple minutes](http://jsonapi.org/) and look at example payload structures before reading the rest of this post.
 
-I've had the pleasure of working with JSON:API and I've really appreciated its opinions. However, I've heard criticisms that typically fall into two buckets: "JSON:API is too bulky and verbose" and "What's with hyphens?". In this post, I'd like to address these criticisms from my point of view that may have deterred others from using JSON:API.
+I've had the pleasure of working with JSON:API and I really appreciate its opinions. However, I've heard criticisms about it (mostly outside of the Ember community) that typically fall into two buckets: "JSON:API is too bulky and verbose" and "What's with hyphens?". In this post, I'd like to address these criticisms from my point of view that may have deterred others from using JSON:API.
 
 ## Criticism 1: "JSON:API is too bulky and verbose"
 
