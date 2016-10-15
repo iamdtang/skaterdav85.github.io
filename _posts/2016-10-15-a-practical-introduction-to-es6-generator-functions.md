@@ -2,8 +2,8 @@
 layout: post
 title: A Practical Introduction to ES6 Generator Functions
 date: 2016-10-15
-description: TBA
-keywords: es6, generators, generator function, iterator, es2015, function star, asterisk function, generator tutorial, function*
+description: This post covers what are generator functions in ES6, how generator functions work, how generators and promises work together, and some examples of generator functions used in other libraries and frameworks.
+keywords: es6, generators, generator function, iterator, iterable, es2015, function star, asterisk function, generator tutorial, function*, generator object, generator tutorial, introduction to generators
 ---
 
 Generator functions, also called generators for short, are an ES6/ES2015 feature that might seem confusing at first with little practicality. However, once you take the time to learn how they work and see some practical examples, you'll really see how powerful and useful they can be. In this post, we'll cover the following:
