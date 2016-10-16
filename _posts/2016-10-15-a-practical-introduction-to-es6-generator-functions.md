@@ -3,7 +3,7 @@ layout: post
 title: A Practical Introduction to ES6 Generator Functions
 date: 2016-10-15
 description: This post covers what are generator functions in ES6, how generator functions work, how generators and promises work together, and some examples of generator functions used in other libraries and frameworks.
-keywords: es6, generators, generator function, iterator, iterable, es2015, function star, asterisk function, generator tutorial, function*, generator object, generator tutorial, introduction to generators
+keywords: es6, generators, generator function, iterator, iterable, es2015, function star, asterisk function, generator tutorial, function*, generator object, generator tutorial, introduction to generators, co, koa framework, ember concurrency
 ---
 
 Generator functions, also called generators for short, are an ES6/ES2015 feature that might seem confusing at first with little practicality. However, once you take the time to learn how they work and see some practical examples, you'll really see how powerful and useful they can be. In this post, we'll cover the following:
@@ -15,7 +15,7 @@ Generator functions, also called generators for short, are an ES6/ES2015 feature
 
 ## What are Generator Functions?
 
-Functions in JavaScript are known as "run to completion". When a function is invoked, the body of the function will execute until it reaches the end of the body. The function can't be paused for other code to execute.
+Functions in JavaScript are known as "run to completion". When a function is invoked, the body of the function will execute until it reaches the end. The function can't be paused for other code to execute.
 
 Generator functions however are not "run to completion". Generator functions can be paused and resumed so that other code can execute in between. The great thing about this behavior is that we can use generators to manage flow control. Because generators allow us to pause execution, we can easily cancel asynchronous operations. Generators also allow us to turn asynchronous code into synchronous-looking code.
 
@@ -37,7 +37,7 @@ let songs = yield artist.getSongs();
 console.log(songs);
 ```
 
-This code is much more synchronous-looking and easier to read.
+This asynchronous code looks synchronous and is easier to read.
 
 ## How Generator Functions Work
 
@@ -77,7 +77,7 @@ let iterator = myGenerator();
 let firstYield = iterator.next(); // { value: 'first yield', done: false }
 ```
 
-Here, we've defined a generator function called `myGenerator` and we've created the iterator object by invoking the generator function `myGenerator`. At this point, the body of `myGenerator` hasn't started executing. It isn't until we call `iterator.next()` when the body of `myGenerator` starts executing. By calling `iterator.next()`, the generator's body will execute until the first `yield` statement and then pause. With the code above, we'll see `1` and `{ value: 'first yield', done: false }` logged to the console. Calling `iterator.next()` returned an object in the format `{ value: 'Any value', done: 'Boolean' }`. The `value` property in this object is the value next to the `yield` statement. The `done` property is a boolean indicating whether the generator has finished executing or not. Basically the `yield` statement allows us to send values to the caller of the generator function. Let's resume the generator function.
+Here, we've defined a generator function called `myGenerator` and we've created the iterator object by invoking the generator function `myGenerator`. At this point, the body of `myGenerator` hasn't started executing. It isn't until we call `iterator.next()` when the body of `myGenerator` starts executing. By calling `iterator.next()`, the generator's body will execute until the first `yield` statement and then pause. With the code above, we'll see `1` and `{ value: 'first yield', done: false }` logged to the console. Calling `iterator.next()` returned an object in the format `{ value: <Any>, done: <Boolean> }`. The `value` property in this object is the value next to the `yield` statement. The `done` property is a boolean indicating whether the generator has finished executing or not. Basically the `yield` statement allows us to send values to the caller of the generator function. Let's resume the generator function.
 
 ```js
 function *myGenerator() {
@@ -97,11 +97,11 @@ let generatorReturnValue = iterator.next(3); // { value: 'hi', done: true }
 
 When we call `iterator.next()` a second time but pass in `2` (`iterator.next(2)`), we'll see that we can pass values back into the generator function as the result of a `yield` statement, and thus the variable `a` gets assigned `2`. The generator will resume execution until the second `yield` statement, and then pause again. By calling `iterator.next(3)`, the generator will resume and the variable `b` in the generator will get assigned `3`, and the generator will finish executing, resulting in `iterator.next(3)` returning `{ value: 'hi', done: true }`. Notice how `done` is now `true`, and `value` is the return value of the generator function.
 
-This example illustrates the basics of how generators work. We used the `yield` keyword to pause the generator and send values to the caller. We can resume the execution of the generator by calling `next()` on the iterator, optionally passing in an argument which allows us to send data back to the generator.
+This example illustrates the basics of how generators work. We used the `yield` keyword to pause the generator function twice and send values to the caller. We can resume the execution of the generator by calling `next()` on the iterator, optionally passing in an argument (except for the first time) which allows us to send data back to the generator as the result of the `yield`.
 
 ## Generator Functions and Promises
 
-Generators work really well with promises. We can create an abstraction that allows us to yield promises, and only resume the generator function if yielded promises resolve.
+Generator functions and promises are not mutually exclusive. In fact, they work really well together. We can create an abstraction that allows us to yield promises, and only resume the generator function if yielded promises resolve.
 
 Our end goal is that we want to write some asynchronous code like this:
 
@@ -139,7 +139,9 @@ function isPromise(val) {
 }
 ```
 
-This is a small abstraction for learning purposes. Turns out, there are already great libraries out there that do this better, like [co](https://github.com/tj/co).
+This is a small abstraction for learning purposes. Try it out for yourself on [ES6 Fiddle](http://www.es6fiddle.net/iuca4m0l/).
+
+Turns out, there are already great libraries out there that have created a more robust abstraction, like [co](https://github.com/tj/co).
 
 
 ## Generator Examples in the Wild
