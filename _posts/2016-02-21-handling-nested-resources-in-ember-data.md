@@ -22,32 +22,13 @@ export default DS.Model.extend({
 });
 ```
 
-Ember Data supports relationship links. What that means is that we can have a property called `links` on individual resource objects, which is an object that contains URLs that point to related data.
+Ember Data supports relationship links. What that means is that we can have a property called `links` on __individual resource objects__, which is an object that contains URLs that point to related data.
 
-Let's say our API is following the `DS.RESTSerializer` format. Not sure about the differences between the different serializer formats? Check out the post [Which Ember Data Serializer Should I Use?](/2015/12/05/which-ember-data-serializer-should-i-use.html) With the `DS.RESTSerializer` format, that would look like:
+With the `DS.RESTSerializer` format, relationship links for a user resource object would look like:
 
 ```js
 {
-  "users": [
-    {
-      "id": 1,
-      "first": "David",
-      "last": "Tang",
-      "links": {
-        "company": "/api/v1/users/1/company",
-        "pets": "/api/v1/users/1/pets"
-      }
-    }
-    // ...
-  ]
-}
-```
-
-With the `DS.JSONSerializer` format, that would look like:
-
-```js
-[
-  {
+  "users": {
     "id": 1,
     "first": "David",
     "last": "Tang",
@@ -56,11 +37,51 @@ With the `DS.JSONSerializer` format, that would look like:
       "pets": "/api/v1/users/1/pets"
     }
   }
-  // ...
-]
+}
 ```
 
-Note, JSON:API uses `links` too, but the response format is a little different. Check out the [spec](http://jsonapi.org/) for more information on that.
+With the `DS.JSONSerializer` format, relationship links for a user resource object would look like:
+
+```js
+{
+  "id": 1,
+  "first": "David",
+  "last": "Tang",
+  "links": {
+    "company": "/api/v1/users/1/company",
+    "pets": "/api/v1/users/1/pets"
+  }
+}
+```
+
+With JSON:API, relationship links for a user resource object would look like:
+
+```js
+{
+  "data": {
+    "id": "1",
+    "type": "users",
+    "attributes": {
+      "first": "David",
+      "last": "Tang"
+    },
+    "relationships": {
+      "company": {
+        "links": {
+          "related": "/api/v1/users/1/company"
+        }
+      },
+      "pets": {
+        "links": {
+          "related": "/api/v1/users/1/pets"
+        }
+      }
+    }
+  }
+}
+```
+
+Not sure about the differences between the different serializer formats? Check out the post [Which Ember Data Serializer Should I Use?](/2015/12/05/which-ember-data-serializer-should-i-use.html)
 
 If we made a request to `/api/v1/users`, each `user` resource object in the response can have a `links` property. When you access `user.pets` or `user.company`, Ember Data will trigger a fetch using these URLs defined in `links`.
 
