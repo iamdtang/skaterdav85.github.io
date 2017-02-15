@@ -136,12 +136,41 @@ let songs = [
 
 We'll iterate over the list of songs starting at index 1 and compare `songs[1].listens` with `songs[0].listens`. If `songs[1].listens` is less than `songs[0].listens`, we'll swap the two positions. Let's go through it.
 
-| 71 < 55? |      |
-| 45 < 55? | swap |
-| 85 < 45? |      |
-| 13 < 45? | swap |
+<table cellpadding="10" cellspacing="0" border="1">
+  <tr>
+    <td>Is 71 < 55?</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Is 45 < 55?</td>
+    <td>Yes. Swap by putting songs[2] at index 0 and songs[0] at index 2</td>
+  </tr>
+</table>
 
-After a first pass, `songs` will look like this:
+Now the list looks like this:
+
+```js
+let songs = [
+  { title: 'Warm Machine', listens: 45 },
+  { title: 'Alone', listens: 71 },
+  { title: 'The Bad Touch', listens: 55 },
+  { title: 'Daylight', listens: 85 },
+  { title: 'Shadows', listens: 13 }
+];
+```
+
+<table cellpadding="10" cellspacing="0" border="1">
+  <tr>
+    <td>Is 85 < 45?</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Is 13 < 45?</td>
+    <td>Yes. Swap by putting songs[4] at index 0 and songs[0] at index 4</td>
+  </tr>
+</table>
+
+Now `songs` will look like this:
 
 ```js
 let songs = [
@@ -153,11 +182,37 @@ let songs = [
 ];
 ```
 
-We'll do it again, but this time compare index 1 with the rest of the songs in the list.
+We'll do it again, but this time compare `songs[1]` with the rest of the songs in the list.
 
-| 55 < 71? | swap |
-| 85 < 55? |      |
-| 45 < 55? | swap |
+<table cellpadding="10" cellspacing="0" border="1">
+  <tr>
+    <td>Is 55 < 71?</td>
+    <td>Yes. Swap by putting songs[2] at index 1 and songs[1] at index 2</td>
+  </tr>
+</table>
+
+Now `songs` will look like this:
+
+```js
+let songs = [
+  { title: 'Shadows', listens: 13 },
+  { title: 'The Bad Touch', listens: 55 },
+  { title: 'Alone', listens: 71 },
+  { title: 'Daylight', listens: 85 },
+  { title: 'Warm Machine', listens: 45 }
+];
+```
+
+<table cellpadding="10" cellspacing="0" border="1">
+  <tr>
+    <td>Is 85 < 55?</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Is 45 < 55?</td>
+    <td>Yes. Swap by putting songs[4] at index 1 and songs[1] at index 4</td>
+  </tr>
+</table>
 
 The `songs` array will now look like this:
 
