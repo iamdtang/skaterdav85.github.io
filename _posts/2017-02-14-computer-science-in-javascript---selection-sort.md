@@ -2,7 +2,7 @@
 layout: post
 title: Computer Science in JavaScript - Selection Sort
 date: 2017-02-14
-description: Have you ever felt like you had a gap in your learning because you did't know common algorithms and data structures in computer science? Maybe you've tanked an interview where they asked you an algorithm question? Want to see implementations in JavaScript instead of Java? If this sounds familiar, this series is for you.
+description: Have you ever felt like you had a gap in your learning because you didn't know common algorithms and data structures in computer science? Maybe you've tanked an interview where they asked you an algorithm question? Want to see implementations in JavaScript instead of Java? If this sounds familiar, this series is for you.
 keywords: algorithms, algorithm, javascript, computer science, selection sort, algorithms in javascript, swap, big O notation
 ---
 
