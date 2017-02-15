@@ -170,7 +170,7 @@ let songs = [
   </tr>
 </table>
 
-Now `songs` will look like this:
+After a first pass, `songs` will now look like this:
 
 ```js
 let songs = [
@@ -214,7 +214,7 @@ let songs = [
   </tr>
 </table>
 
-The `songs` array will now look like this:
+After a second pass, `songs` will now look like this:
 
 ```js
 let songs = [
