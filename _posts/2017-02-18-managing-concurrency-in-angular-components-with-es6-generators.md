@@ -64,7 +64,7 @@ In the Ember ecosystem there is an awesome library called [ember-concurrency](ht
 
 So how can we do something similar with our Angular 1.5 components?
 
-First, I've created a base controller class to set flags in the `$onInit` and `$onDestroy` lifecycle hooks that indicate if the component has been destroyed or not. This class can be a base controller class for any component. You don't have to use ES6 classes if you don't want to, but I find it cleaner than doing inheritance with a regular constructor function.
+First, I've created a base controller class to set flags in the `$onInit` and `$onDestroy` lifecycle hooks that indicate if the component has been destroyed or not. This class can be a base controller class for any component. You don't have to use ES6 classes if you don't want to, but I find it cleaner than doing inheritance the ES3/ES5 way.
 
 ```js
 class ConcurrentController {
@@ -158,4 +158,4 @@ Now, if you click on the `async-button` component, it still triggers the async o
 
 ## Summary
 
-Generator functions can be paused and resumed so that other code can execute in between. We can take advantage of this feature to check whether a component should continue to execute asynchronous handlers based on if the component has been destroyed or not. I like this approach because not only is it reusable, it also has the side effect of making our async code look synchronous. How do you manage concurrency in your Angular apps? Let me know in the comments.
+Generator functions can be paused and resumed so that other code can execute in between. We can take advantage of this feature to check whether a component should continue to execute asynchronous handlers based on if the component has been destroyed or not. I like this approach because not only is it reusable, it also has the side effect of making async code look synchronous. How do you manage concurrency in your Angular apps? Let me know in the comments.
