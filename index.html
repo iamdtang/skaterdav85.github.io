@@ -7,10 +7,6 @@ keywords: Ember Data, javascript testing, javascript architecture, unit testing,
   {% for post in paginator.posts %}
     {% unless post.active == "off" %}
     <div class="post">
-      <h2>
-        {{post.active}}
-        <a href="{{ post.url }}" class="title">{{ post.title }}</a>
-      </h2>
       <span class="date">
         {{ post.date | date: "%A" }},
         {% assign d = post.date | date: "%d" | plus:'0' %}
@@ -23,10 +19,10 @@ keywords: Ember Data, javascript testing, javascript architecture, unit testing,
         {% endcase %}
         {{ post.date | date: "%Y" }}
       </span>
-      <div>
-        {{ post.excerpt }}
-        <p class="read-more"><a href="{{post.url}}">Read More</a></p>
-      </div>
+      <h2>
+        {{post.active}}
+        <a href="{{ post.url }}" class="title">{{ post.title }}</a>
+      </h2>
     </div>
     {% endunless %}
   {% endfor %}

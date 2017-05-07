@@ -90,8 +90,12 @@ h1 {
 
 .date, .meta {
   color: #aaa;
-  font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
+}
+
+.date {
+  margin-top: 20px;
+  display: block;
 }
 
 .post {
