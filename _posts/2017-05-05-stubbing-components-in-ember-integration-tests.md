@@ -4,7 +4,7 @@ title: Stubbing Components in Ember Integration Tests
 date: 2017-05-05
 description: TBA
 excerpt_separator: ""
-keywords: stub, component, integration test, test double, spy on components, stub components, testing charts, chart components, c3, tests, d3
+keywords: stub, spy, component, integration test, ember, test double, spy on components, stub components, testing charts, chart components, c3, tests, d3, ember.js, emberJS
 ---
 
 Imagine you have the following component:
