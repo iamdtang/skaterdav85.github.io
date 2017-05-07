@@ -18,7 +18,7 @@ Imagine you have the following component:
 {% raw %}{{donut-chart data=gradeData}}{% endraw %}
 ```
 
-The `student-grades-donut` component is a light wrapper around the `donut-chart` component to handle the specifics of manipulating a student's grades into the format `donut-chart` expects.
+The `student-grades-donut` component is a light wrapper around the `donut-chart` component to handle the specifics of manipulating a student's grades into the format `donut-chart` expects, so `gradeData` is computed from `grades`.
 
 So, how do you test the `student-grades-donut` component?
 
