@@ -86,7 +86,10 @@ export default Ember.Mixin.create({
       let relationshipName = descriptor.key;
 
       if (options.cascadeDelete && kind === 'hasMany') {
-        let hasManyRecords = snapshot.record.hasMany(relationshipName).value().toArray();
+        let hasManyRecords = snapshot.record.hasMany(relationshipName).value();
+        if (hasManyRecords !== null) {
+          hasManyRecordsArray = hasManyRecords.toArray();
+        }
         recordsToUnload = recordsToUnload.concat(hasManyRecords);
       }
 
