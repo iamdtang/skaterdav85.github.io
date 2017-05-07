@@ -15,7 +15,7 @@ Imagine you have the following component:
 {% raw %}{{student-grades-donut grades=grades}}{% endraw %}
 ```
 
-This component takes in a student's `grades`, manipulates the data a bit, and passes the manipulated data `gradeData` along to a generic `donut-chart` component.
+This component takes in a student's `grades`, manipulates the data a bit, and passes the manipulated data (we'll call it `gradeData`) along to a generic `donut-chart` component.
 
 ```html
 <!-- app/templates/components/student-grades-donut.hbs -->
