@@ -13,14 +13,34 @@ Imagine you have the following component:
 {% raw %}{{student-grades-donut grades=grades}}{% endraw %}
 ```
 
+where `grades` looks like:
+
+```js
+[ 'A', 'A', 'C', 'A', 'B', 'D', 'B', 'B' ]
+```
+
+and the template looks like:
+
 ```html
 <!-- app/templates/components/student-grades-donut.hbs -->
 {% raw %}{{donut-chart data=gradeData}}{% endraw %}
 ```
 
-The `student-grades-donut` component is a light wrapper around the `donut-chart` component to handle the specifics of manipulating a student's grades into the format `donut-chart` expects, so `gradeData` is computed from `grades`.
+The `student-grades-donut` component is a light wrapper around the `donut-chart` component to handle the specifics of manipulating a student's grades into the format `donut-chart` expects. That is, `gradeData` is computed from `grades` into a format like:
 
-So, how do you test the `student-grades-donut` component?
+```js
+{
+  columns: [
+    [ 'A', 3 ],
+    [ 'B', 3 ],
+    [ 'C', 1 ],
+    [ 'D', 1 ],
+    [ 'F', 0 ]
+  ]
+}
+```
+
+[This is pretty straightforward to implement](https://github.com/skaterdav85/stubbing-components-in-ember-integration-tests/blob/master/app/components/student-grades-donut.js), but how do you test the `student-grades-donut` component?
 
 ## A Few Approaches
 
