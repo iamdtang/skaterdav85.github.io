@@ -12,7 +12,7 @@ In this course, I teach test-driven development (TDD) using practical examples. 
 
 [Watch the first lesson for free!](https://www.sitepoint.com/premium/courses/test-driven-development-in-node-js-2932/?aref=dtang)!
 
-This week I will be giving away __3 vouchers__ to access the course for a year for free. See below for details:
+On Saturday June 3rd, 2017, I will be giving away __3 vouchers__ to access the course for a year for free. See below for a chance to win free access:
 
 <a class="e-widget" href="https://gleam.io/LFNFC/free-vouchers-for-my-new-testdriven-development-in-nodejs-course-on-sitepoint" rel="nofollow">Free Vouchers For My New &quot;Test-Driven Development in Node.js&quot; course on SitePoint</a>
 <script type="text/javascript" src="https://js.gleam.io/e.js" async="true"></script>
