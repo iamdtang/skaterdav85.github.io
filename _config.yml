@@ -8,3 +8,7 @@ gems: [jekyll-paginate, jekyll-feed, jekyll-sitemap]
 sass:
   sass_dir: _scss
   style: :compressed # You might prefer to minify using :compressed
+collections:
+  tutorials:
+    output: true
+    permalink: /:collection/:title
