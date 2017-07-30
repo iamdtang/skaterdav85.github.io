@@ -80,3 +80,11 @@ code.highlighter-rouge {
   color: #36a582;
   background: inherit;
 }
+
+.language-hbs {
+  .highlight .s { color: #98C379 } /* closing html tag in hbs */
+  .highlight .nn { color: #C673BD } /* Name.Namespace */
+  .highlight .nt { color: #98C379 } /* opening tag */
+  .highlight .nv { color: #4AA0D6 } /* Name.Variable */
+  .err { color: #C673BD; }
+}
