@@ -219,3 +219,22 @@ h1 {
   color: $primary;
   font-family: Consolas, Monaco, "Courier New" !important;
 }
+
+.main-menu {
+  list-style-type: none;
+  text-align: right;
+  margin-right: 15px;
+
+  li:first-child {
+    margin-left: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}

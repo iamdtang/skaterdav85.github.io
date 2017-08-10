@@ -3,22 +3,13 @@ layout: default
 title: Tutorials
 ---
 
+<h1>Tutorials</h1>
+<p>A collection of tutorials and resources for my classes at USC.</p>
+
 <div class="posts">
   {% for tutorial in site.tutorials %}
     {% unless tutorial.active == "off" %}
     <div class="post">
-      <span class="date">
-        {{ tutorial.date | date: "%A" }},
-        {% assign d = tutorial.date | date: "%d" | plus:'0' %}
-        {{ tutorial.date | date: "%B" }}
-        {% case d %}
-          {% when 1 or 21 or 31 %}{{ d }}st,
-          {% when 2 or 22 %}{{ d }}nd,
-          {% when 3 or 23 %}{{ d }}rd,
-          {% else %}{{ d }}th,
-        {% endcase %}
-        {{ tutorial.date | date: "%Y" }}
-      </span>
       <h2>
         {{tutorial.active}}
         <a href="{{ tutorial.url }}" class="title">{{ tutorial.title }}</a>
