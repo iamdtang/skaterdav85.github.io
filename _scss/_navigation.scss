@@ -87,15 +87,17 @@
     }
   }
 
+  $height: 135px;
+
   .navigation {
     transition: all 0.3s ease-in-out;
     background-color: $primary;
     position: absolute;
-    top: -100px;
+    top: -$height;
     right: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: $height;
     z-index: 1;
 
     li {
