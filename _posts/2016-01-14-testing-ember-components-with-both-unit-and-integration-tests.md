@@ -6,6 +6,14 @@ description: In this post, we'll look at how integration tests can be used in co
 keywords: ember component, unit test, integration test, testing component computed properties, ember.js, emberJS, testing ember components, component unit tests, component computed properties
 ---
 
+__Updated on 8/20/2017__
+
+Since I last wrote this post, my thoughts on testing components with both unit and integration tests have changed, and I no longer recommend writing unit tests for components. Components are a lot like functions, where the inputs are the attributes and the output is DOM. That is more representative of the component's public API as opposed to the instance variables on the component. I think treating a few instance properties on a component as public API and writing assertions against that is fine and can be useful. The problem I've seen is when newer developers see these types of tests and aren't familiar with privacy and start testing every property on a component with a unit test. This makes it difficult to change the internals of a component without having to update several unit tests despite the component's behavior staying the same.
+
+If the data manipulation for a component is complex enough where it becomes difficult to write an integration test, I instead recommend promoting that logic to a separate class or function (service or utility) which can be unit tested in isolation and having my component consume that. This way you're less likely to end up with a component unit test that tests a lot of private implementation details. I was tempted to delete this post, but I figured sharing my new thoughts on this subject would be useful for anyone who lands on this post. 🙂
+
+<hr>
+
 In this post, we'll look at how integration tests can be used in conjunction with unit tests to effectively test different aspects of your Ember components.
 
 When you generate an Ember component, Ember CLI also creates a corresponding integration test. Integration tests allow you to invoke the component as you would in your templates with the necessary data and write assertions against the resulting DOM using jQuery.
@@ -89,9 +97,9 @@ test('it renders all cats sorted by their age', function(assert) {
 {% endraw %}
 ```
 
-As you can see, this can be quite cumbersome, especially when the HTML becomes more complicated. You basically have to go through the DOM and see what was rendered in order to verify that the computed property returns what is expected.
+This can be a little cumbersome, especially when the HTML becomes more complicated. You basically have to go through the DOM and see what was rendered in order to make assertions against the data.
 
-Instead, I prefer to test the computed property itself. This is where a unit test for a component becomes useful.
+Instead, another approach is to test the computed property itself in a unit test.
 
 To generate a unit test for a component, run:
 
@@ -103,7 +111,6 @@ To unit test the `sortedCats` computed property, we can do the following:
 
 ```js
 // tests/unit/components/cat-list-test.js
-
 test('sortedCats contains the cats sorted by age', function(assert) {
   let component = this.subject();
   component.set('cats', [
@@ -122,7 +129,7 @@ test('sortedCats contains the cats sorted by age', function(assert) {
 });
 ```
 
-This test verifies that `sortedCats` is an array with the cats in the correct order. You'd probably agree that testing `sortedCats` this way is much easier to read and write than the integration test. Don't get me wrong, integration tests are extremely useful for testing components, but sometimes a unit test is better suited for testing a particular aspect, like a computed property that returns sorted or filtered data.
+Although this sorting example isn't very complex, testing more complicated data manipulations can be a little easier this way. This approach has some drawbacks though. If multiple properties are tested this way, the component's internals can become difficult to change without having to update several unit tests.
 
 One thing to note about unit testing components is that the tests don't wire up dependencies for you. If you have nested components within your component, you will need to add those to the `needs` property in your setup, unlike with a component integration test. For example, if each cat were rendered in a `rescued-cat` component, `moduleForComponent` would need to look like this:
 
@@ -136,4 +143,4 @@ moduleForComponent('cat-list', 'Unit | Component | cat list', {
 
 ## Conclusion
 
-When it comes to testing components, I start off writing integration tests. When I want to test computed properties on the component, like those that return sorted or filtered data, then I often find myself writing a unit test as well.
+When it comes to testing components, I start off writing integration tests. When I want to test more complex data manipulation, like computed properties that sort or filter data, then I sometimes find it useful to write a component unit test as well.
