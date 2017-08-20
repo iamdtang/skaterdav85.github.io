@@ -12,3 +12,90 @@
     font-size: 80%;
   }
 }
+
+@mixin veggie-burger-nav {
+  $burger--thickness: 4px;
+  .burger {
+    position: absolute;
+    top: 22px;
+    right: 8%;
+    z-index: 2;
+  	width: 28px;
+  	display: inline-block;
+    border: 0;
+  	background: none;
+  	outline: 0;
+  	padding: 0;
+  	cursor: pointer;
+  	border-bottom: $burger--thickness solid white;
+  	transition: border-bottom 1s ease-in-out;
+  	-webkit-transition: border-bottom 1s ease-in-out;
+
+  	// Fix for extra space in Firefox
+  	&::-moz-focus-inner {
+  		border: 0;
+  		padding: 0;
+  	}
+
+  	&:before {
+  		content: "";
+  		display: block;
+  		border-bottom: $burger--thickness solid white;
+  		width: 100%;
+  		margin-bottom: 5px;
+  		transition: transform 0.5s ease-in-out;
+  		-webkit-transition: -webkit-transform 0.5s ease-in-out;
+  	}
+
+  	&:after {
+  		content: "";
+  		display: block;
+  		border-bottom: $burger--thickness solid white;
+  		width: 100%;
+  		margin-bottom: 5px;
+  		transition: transform 0.5s ease-in-out;
+  		-webkit-transition: -webkit-transform 0.5s ease-in-out;
+  	}
+  }
+
+  .burger-check {
+    display: none;
+  }
+
+  .burger-check:checked ~ .burger {
+    border-bottom: $burger--thickness solid transparent;
+    transition: border-bottom 0.8s ease-in-out;
+    -webkit-transition: border-bottom 0.8s ease-in-out;
+
+    &:before {
+      transform: rotate(-405deg) translateY(1px) translateX(-3px);
+      -webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);
+      transition: transform 0.5s ease-in-out;
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    }
+
+    &:after {
+      transform: rotate(405deg) translateY(-4px) translateX(-5px);
+      -webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);
+      transition: transform 0.5s ease-in-out;
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    }
+  }
+
+  $sidebar-width: 200px;
+
+  .navigation {
+    transition: all 0.3s ease-in-out;
+    background-color: $primary;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -$sidebar-width;
+    width: $sidebar-width;
+    z-index: 1;
+  }
+
+  .burger-check:checked ~ .navigation {
+    right: 0;
+  }
+}

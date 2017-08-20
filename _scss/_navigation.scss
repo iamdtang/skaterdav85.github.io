@@ -1,0 +1,17 @@
+.burger-check {
+  display: none;
+}
+
+.navigation ul {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.navigation li {
+  display: inline-block;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

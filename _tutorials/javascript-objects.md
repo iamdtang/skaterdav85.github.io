@@ -8,7 +8,7 @@ keywords: javascript, objects, object literals
 
 ## What Are Objects?
 
-Before diving into constructor functions and classes in JavaScript, let's review objects. Objects are containers for a collection of related variables (properties) and functions (methods). Some native browser objects that you might be familiar with include the `document` object and the `window` object.
+Objects are containers for a collection of related variables (properties) and functions (methods). Some native browser objects that you might be familiar with include the `document` object and the `window` object.
 
 The document object contains related methods for querying the DOM:
 
@@ -39,38 +39,33 @@ let cat = {
 };
 ```
 
-Object keys must:
-
-* start with a letter, dollar sign, or underscore
-* only contain alphanumeric characters, underscores, and dollar signs
-* cannot be a reserved word in JavaScript
-* If you must use a reserved word or a special character for the key name, you must put the key in quotes
-
-Object properties can contain:
-
-* strings
-* numbers
-* booleans
-* arrays
-* functions
-* other objects
-
-We can read properties off of objects using dot notation or bracket notation:
+Object keys follow the same rules as variable definitions. If you want to use special characters or reserved words as keys, you can put the key in quotes:
 
 ```js
-cat.name // Fiona
-cat['name'] // Fiona
+let obj = {
+  '$%#': 'some value'
+};
 ```
 
-We can also set or change properties on an object:
+Object properties can contain any value, so strings, numbers, booleans, arrays, functions, and other objects.
+
+Properties can be accessed using dot notation or bracket notation:
+
+```js
+let name = cat.name; // Fiona
+name = cat['name']; // Fiona
+```
+
+Properties on an object can also be changed through dot or bracket notation:
 
 ```js
 cat.name = 'Chestnut';
+cat['name'] = 'Fiona';
 ```
 
 ## Object Methods
 
-We can give objects custom behaviors / functions called methods. In order to access properties on an object within a method, you use the _this_ keyword.
+We can give objects custom behaviors / functions called methods. Inside a method, the object can be referenced using the _this_ keyword.
 
 ```js
 let cat = {
@@ -83,7 +78,7 @@ let cat = {
 cat.meow();
 ```
 
-In the example above inside the meow method, if I want to access the name property on the cat object, I need to say _this.name_. The value of _this_ is determined when the function is invoked. In the example above when meow is called, _this_ corresponds to the object on which meow is called on, which in this case is the cat object.
+Inside the meow method, the name property on the cat object can be accessed by _this.name_. The value of _this_ is determined when the function is invoked. When meow is called via `cat.meow()`, _this_ corresponds to the object on which meow is called on, which in this case is the `cat` object.
 
 Alternatively, you could write the meow method like this:
 
@@ -98,9 +93,9 @@ let cat = {
 };
 ```
 
-We can explicitly reference the cat object within the meow method, but this has a drawback. If we rename the cat object to something other than cat, we would have to find every reference to cat within our object and replace it. Using the keyword _this_ makes our methods less coupled to the name of the letiable containing the object.
+We can explicitly reference the `cat` object within the `meow` method, but this has a drawback. If we rename the `cat` variable to something else, we would have to find every reference to `cat` within our object and replace it. Using the keyword _this_ makes our methods less coupled to the name of the variable.
 
-Methods can also call other methods on the same object:
+Methods can also call other methods:
 
 ```js
 let cat = {
@@ -119,4 +114,17 @@ let cat = {
 cat.greet();
 ```
 
-The cat _greet()_ method calls the _meow()_ method using the keyword _this_. Remember, in order to access any properties or methods from within a method on an object, you need to use the _this_ keyword.
+The cat `greet()` method calls the `meow()` method using the _this_ keyword.
+
+Before wrapping up, I want to mention that ES 2015 has introduced a new way to defining methods:
+
+```js
+let cat = {
+  name: 'Fiona',
+  meow() {
+    console.log(this.name);
+  }
+};
+```
+
+Notice how the `: function` part can be removed. Much more concise!

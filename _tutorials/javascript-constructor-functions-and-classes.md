@@ -8,210 +8,221 @@ keywords: javascript, constructor function, es6, class, classes, prototype
 
 ## Constructor Functions
 
-Functions used as constructors are sometimes referred to as:
+Constructor functions are the equivalent of classes in many programming languages. Sometimes people will refer to them as as reference types, classes, data types, or simply constructors. If you aren't familiar with classes, they are a construct that allows you to specify some properties and behaviors (functions), and multiple objects can be created with those properties and behaviors. A common analogy you'll often hear is, a class is to a blueprint as an object is to a house. Multiple houses can be created from a single blueprint, as multiple objects can be created from a class.
 
-* constructor functions
-* constructors
-* data types
-* reference types
-* classes
-
-Functions can be invoked with the _new_ operator. When a function is invoked with the _new_ operator, this function is being used as a constructor. Why is it called a constructor? The function is _constructing_ a new object.
-
-Functions used as constructors are useful if you want to create _many_ objects with the same properties and methods. A function, when used as a constructor, is like a template which is used as a basis for creating 1 to many objects.
-
-In the following example, I am creating 2 instances of the Person constructor.
+Let's define a constructor function:
 
 ```js
-let Person = function(name, position) {
-	this.name = name;
-	this.position = position;
-};
-
-let david = new Person('David Tang', 'Lecturer');
-let patrick = new Person('Patrick Dent', 'Senior Lecturer');
+function Person(name, position) {
+  this.name = name;
+  this.position = position;
+}
 ```
 
-When a constructor function is invoked with the _new_ keyword, the keyword _this_ refers to the current object that is being constructed (more on this later).
+There is really nothing special about this function except that the function name starts with a capital letter. This isn't mandatory, but it is popular convention so that other developers know to invoke it as a constructor function. So how is the invocation different? Normally, functions are invoked with parenthesis. Constructor functions instead are invoked using the `new` operator:
 
-If a constructor is invoked without _new_, _this_ will point to the global object, which is the _window_ object in the browser. This will end up creating properties on the window object (also known as global variables), and as we learned before, you want to minimize the number of global variables in your applications.
+```js
+let david = new Person('David Tang', 'Lecturer');
+let patrick = new Person('Patrick Dent', 'Associate Professor');
+```
 
-It is considered good practice to capitalize the first letter of a function used as a constructor so others know to invoke it using the "new" keyword. You don't have to, but it is a very common convention.
+Here we are _constructing_ two `Person` objects.
+
+When a constructor function is invoked with the `new` keyword, _this_ refers to the object that is being constructed. Note, if a constructor is invoked without the `new` keyword, _this_ will point to the global object, which is the `window` object in the browser. This will end up creating properties on the window object (also known as global variables), which is not a recommended practice.
 
 ## Methods
 
-To create methods for your objects, assign a function to a property. In the example below, the _hi_ property is assigned a function. When _hi_ is called off of a Person object, the keyword _this_ will correspond to the newly constructed Person object.
+Methods can be defined on constructor functions by assigning a function to a property.
 
 ```js
-let Person = function(name) {
-	this.name = name;
-
-	this.hi = function() {
-		console.log('Hi! my name is ' + this.name);
-	};
-};
+function Person(name) {
+  this.name = name;
+  this.hi = function() {
+    console.log('Hi! My name is ' + this.name);
+  };
+}
 
 let eminem = new Person('Slim Shady');
 eminem.hi(); // Hi! my name is Slim Shady
 ```
 
-## Storing Methods on the Prototype
+In this example, the `hi` property is assigned a function. When it is invoked off of a `Person` object, the keyword _this_ will correspond to the newly constructed `Person` object.
 
-Above is one way you can create methods. However, this approach does have a downside. Every time an instance of Person is created, a new function is defined and assigned to the _hi_ property of that object. So if we create 5 Person objects, they will all have their own hi methods that behave the EXACT same. Having 5 copies of a function that does the same thing takes up more memory, especially if you are dealing with hundreds of objects. Wouldn't it be more efficient if we could define the _hi_ function once, and all object instances can share that same function definition? This is where prototypal inheritance comes in.
-
-Methods can be shared across object instances via the _prototype_ property which is just an object. Object instances inherit the properties and methods defined on the prototype property of the constructor function that created the object. This is called __prototypal inheritance__. That sounds like a mouthful so let's look at an example:
+Although methods can be defined this way, this approach does have a downside. Every time an instance of `Person` is created, a new function is defined and assigned to the `hi` property of that object. If we create 5 `Person` objects, they will all have their own `hi` methods that do the same thing. A more efficient way to do this is to define `hi` once, and have each `Person` object use that same function reference. To do this, we can use a function's `prototype`.
 
 ```js
-let Person = function(name) {
-	this.name = name;
-};
+function Person(name) {
+  this.name = name;
+}
 
 Person.prototype.hi = function() {
-	console.log('hi, my name is ' + this.name);
-};
-
-Person.prototype.sleep = function() {
-	console.log(this.name + ' is sleeping.');
+  console.log('Hi! My name is ' + this.name);
 };
 
 let david = new Person('David');
-david.hi(); // hi, my name is David
-david.sleep(); // David is sleeping
+david.hi(); // Hi! My name is David
 
 let patrick = new Person('Patrick');
-patrick.hi(); // hi, my name is Patrick
-patrick.sleep(); // Patrick is sleeping
+patrick.hi(); // Hi! My name is Patrick
 ```
 
-Here we have defined a Person constructor or Person "class". Every function in JavaScript has a property called _prototype_ which is just an almost empty object. This property is useful when you are using a function as a constructor. We are attaching 2 methods to Person.prototype, hi and sleep. Whenever a Person instance is created, the object constructed will inherit any properties or methods defined on Person.prototype.
-
-## Redefining the Prototype Object
+Every function in JavaScript has a property called `prototype` which contains an almost empty object (more on this later). Whenever a `Person` instance is created, the object will inherit any properties or methods defined on `Person.prototype`.
 
 We could have written the example above like this:
 
 ```js
-let Person = function(name) {
-	this.name = name;
-};
+function Person(name) {
+  this.name = name;
+}
 
 Person.prototype = {
-	constructor: Person,
-
-	hi: function() {
-		console.log('hi, my name is ' + this.name);
-	},
-
-	sleep: function() {
-		console.log(this.name + ' is sleeping.');
-	}
+  constructor: Person,
+  hi: function() {
+    console.log('Hi! My name is ' + this.name);
+  }
 };
 ```
 
-Rather than adding new methods to Person.prototype in several statements, we can just redefine the Person.prototype object. There is one caviat though. Remember when I said that the prototype is an "almost empty" object? Technically it has a property on it named _constructor_ that points back to its constructor function. If we override the prototype by setting it to a completely new object, we _should_ reset this _constructor_ property. Many times this might not make a difference, especially if you never use that _constructor_ property, but it is recommended just to be safe.
+Rather than adding new methods to `Person.prototype` in several statements, we can just redefine the `Person.prototype` object. There is one caviat though. Remember when I said that the prototype is an "almost empty" object? Technically it has a property on it named `constructor` that points back to its constructor function. If we override the prototype by setting it to a completely new object, we should reset this `constructor` property.
 
-## What should you put on the prototype?
+## What Should Be Set On `prototype`?
 
-Because anything on the prototype is shared across all object instances of that constructor, typically you see only methods being placed on the prototype and properties stored on the constructed object itself. Methods are shared behaviors so each object doesn't need its own unique method. However, each object does need to have its own unique set of properties. Properties defined on the an object itself and not the prototype are referred to as "own properties".
+Because anything on the prototype is shared across all object instances of that constructor, typically you only see methods defined on the prototype and properties stored on the constructed object itself. Methods are shared behaviors so each object doesn't need its own unique method. However, each object often needs its own unique set of properties. Properties defined on the an object itself and not the prototype are referred to as "own properties".
 
-## Property lookups
+## Property Lookups
 
-So what happens if we define a property with the same name on an object and on the prototype? For example:
+What happens if we define a property with the same name on an object and its constructor's prototype? For example:
 
 ```js
-let Person = function(name) {
-	this.name = name;
-	this.walk = function() {
-		console.log('moon walking');
-	};
-};
+function Person(name) {
+  this.name = name;
+  this.walk = function() {
+    console.log('moon walking');
+  };
+}
 
 Person.prototype.walk = function() {
-	console.log('normal walking');
+  console.log('normal walking');
 };
 
 let mj = new Person('Michael Jackson');
 mj.walk();
 ```
 
-So what will get logged to the console when mj.walk() is called?
+In this example, a `walk` method is defined both on a `Person` instance and `Person.prototype`. What do you think will get logged to the console?
 
-The way objects work is that JavaScript will try and lookup a property on the object itself (an "own property"). If it exists, that property is used. If not, it will look at the prototype of the function that created the object.
+JavaScript will first try and look up a property on the object itself (an "own property"). If it exists, that property is used. If not, it will look at the prototype of the function that created the object.
 
-So in the example above, walk() is found on the mj object itself so it will log "moon walking" to the console. If our Person function looked like this:
+So in the example above, `walk` is found on the `mj` object itself so it will log "moon walking" to the console. If our `Person` function looked like this:
 
 ```js
-let Person = function(name) {
-	this.name = name;
-};
+function Person(name) {
+  this.name = name;
+}
 ```
 
-then "normal walking" would be logged to the console because a walk() method was not found on the object itself (it wasnt an own property), so it next looked on the prototype where it did find a walk() method.
+Then "normal walking" would be logged to the console because a `walk` method was not found on the object itself, so JavaScript looked next on `Person.prototype` in which the `walk` method was found.
 
 ## Inheritance
 
-Let's say we have an Animal constructor.
+If you've come from a class-based language, you might be wondering how inheritance works. Let's say we have an `Animal` constructor.
 
 ```js
-let Animal = function() {};
+function Animal() {};
 Animal.prototype.eat = function() {
-	console.log('eating');
+  console.log('eating');
+}
+```
+
+Now let's say we have a `Cat` constructor:
+
+```js
+function Cat() {}
+Cat.prototype.meow = function() {
+  console.log('meowing');
 };
 ```
 
-Now let's say we have a Cat constructor:
+A cat is a type of animal and we want `Cat` to extend from `Animal`. One way to achieve inheritance is like this:
 
 ```js
-let Cat = function() {};
-Cat.prototype.meow = function() {};
-```
-
-Cat objects should also be able to eat. Clearly there is a hierarchy here because a cat __is an__ Animal. How can Cat objects inherit Animal methods? This is one way we can do it:
-
-```js
-let Animal = function() {};
+function Animal() {}
 Animal.prototype.eat = function() {
-	console.log('eating');
+  console.log('eating');
 };
 
-let Cat = function() {};
+function Cat() {}
 Cat.prototype = new Animal();
-Cat.prototype.meow = function() {};
+Cat.prototype.constructor = Cat;
+Cat.prototype.meow = function() {
+  console.log('meowing');
+};
 ```
 
-_prototype_ is just a unique object on every function. Because all cat instances inherit from the Cat.prototype object, we can set that Cat.prototype object equal to an an Animal object. That Animal object will inherit from Animal.prototype where eat() is contained.
+You're probably reading this and thinking "what the ...". Yes, it is a little clunky. Thankfully, ES6 / ES 2015 classes make this much much cleaner:
 
-Because inheritance in JS is kind of clunky, many libraries abstract this to make inheritance a little more digestable.
+```js
+class Animal {
+  eat() {
+    console.log('eating');
+  }
+}
 
-## Native Constructor Functions & their Shorthand (literal) Counterparts
+class Cat extends Animal {
+  constructor() {
+    super();
+  }
+  meow() {
+    console.log('meowing');
+  }
+}
+```
+
+## Native Constructor Functions & Their Shorthand (literal) Counterparts
 
 JavaScript has several built in functions used as constructors. They are: String, Number, Boolean, Array, Function, Object, RegExp, and Date.
 
 ```js
 let str = new String('some string');
 // OR
-let str = 'some string'; // literal sytax
+let str = 'some string'; // literal syntax
 ```
 
 ```js
 let age = new Number(26);
 // OR
-let age = 26; // literal sytax
+let age = 26; // literal syntax
 ```
 
 ```js
 let person = new Object();
 // OR
-let person = {}; // literal sytax
+let person = {}; // literal syntax
 ```
 
-Even though you can techincally create numbers, strings etc using the native constructors, it is almost always simpler and more straighforward to use the literal syntax.
+```js
+let x = new Boolean(false);
+// OR
+let x = false; // literal syntax
+```
+
+```js
+let add = new Function('a', 'b', 'return a + b;');
+let add = function(a, b) {
+  return a + b;
+} // literal syntax
+```
+
+Even though you can technically create numbers, strings, objects, booleans, and functions using the native constructors, it is almost always simpler and more straightforward to use the literal syntax.
 
 ## Extending Native Constructors
 
-Native constructors can be extended. This is often considered a bad practice because if you for example create a custom String method and browsers in the future implement that method, then there can be lots of confusion among a team of developers and your code may not always work as expected. Despite that, it is still a good exercise and worthwhile to learn for understanding prototypes.
+Native constructor functions can be extended as well. This is often considered a bad practice because if you create a custom `String` method and browsers in the future implement that method slightly differently, code may not work as you'd expect. Despite that, it is still a good exercise and worthwhile to learn for understanding prototypes.
 
 ```js
-String.prototype.dashify = function() {
-	return this.replace(/\s/g, '-');
+String.prototype.dasherize = function() {
+  return this.replace(/\s/g, '-');
 };
+
+'hello world'.dasherize(); // hello-world
 ```

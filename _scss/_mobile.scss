@@ -6,6 +6,7 @@
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
   @include disable-sticky-footer();
+  @include veggie-burger-nav();
 }
 
 /* Portrait */
@@ -33,6 +34,7 @@
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
   @include disable-sticky-footer();
+  @include veggie-burger-nav();
 }
 
 /* Portrait */
@@ -60,6 +62,7 @@
   and (max-device-width: 667px)
   and (-webkit-min-device-pixel-ratio: 2) {
   @include disable-sticky-footer();
+  @include veggie-burger-nav();
 }
 
 /* Portrait */
@@ -88,6 +91,7 @@
   and (max-device-width: 736px)
   and (-webkit-min-device-pixel-ratio: 3) {
   @include disable-sticky-footer();
+  @include veggie-burger-nav();
 }
 
 /* Portrait */
