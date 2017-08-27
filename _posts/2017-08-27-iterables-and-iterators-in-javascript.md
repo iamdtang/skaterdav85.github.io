@@ -12,6 +12,8 @@ The iterable protocol was introduced to JavaScript in ES2015, and it allows us t
 
 A few built-in objects that implement the iterable protocol include `Array`, `String`, `Map`, `Set` and `NodeList`.
 
+Not familiar with the new `Set` class? Read my other post [An Introduction to Sets in JavaScript](/2017/08/21/an-introduction-to-sets-in-javascript.html).
+
 To loop through every letter in a string, you can do:
 
 ```js
