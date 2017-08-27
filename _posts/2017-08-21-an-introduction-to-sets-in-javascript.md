@@ -3,7 +3,7 @@ layout: post
 title: An Introduction to Sets in JavaScript
 date: 2017-08-21
 description: This post is an introduction to the Set class in JavaScript.
-keywords: Set tutorial, Set class, removing duplicates in an array, JavaScript Set, Set, js Set, ES6 Set, ES2015 Set
+keywords: Set tutorial, Set class, Set example, example of Set, removing duplicates in an array, JavaScript Set, Set, js Set, ES6 Set, ES2015 Set
 ---
 
 A set is a collection of distinct objects. In ES2015, a `Set` class was introduced.
