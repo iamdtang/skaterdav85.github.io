@@ -200,4 +200,6 @@ for (let city of cities) {
 
 [Try it here](http://jsbin.com/xabulefeqo/1/edit?js,console)
 
+## Conclusion
+
 That's a quick overview of iterables and iterators. If you're interested in learning more, check out the [MDN docs on iterables and iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). One thing I didn't cover was how generators, another ES2015 feature, return iterator objects. If you're interested in learning about generators, check out my other post [A Practical Introduction to ES6 Generator Functions](/2016/10/15/a-practical-introduction-to-es6-generator-functions.html).
