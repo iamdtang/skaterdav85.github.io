@@ -103,6 +103,18 @@ Here we've defined our `Symbol.iterator` method which returns an iterator (an ob
 
 [Try it here](http://jsbin.com/fotusenude/1/edit?js,console)
 
+Although less common, you can also interact with the iterator itself by invoking `users[Symbol.iterator]` to grab a reference to the iterator and calling `next` for each value in the sequence. Each call to `next` will return an object with the `done` boolean flag and the value in the sequence. For example:
+
+```js
+let iterator = users[Symbol.iterator]();
+console.log(iterator.next()); // { done: false, value: { first: 'Yehuda', last: 'Katz' } }
+console.log(iterator.next()); // { done: false, value: { first: 'Tom', last: 'Dale' } }
+console.log(iterator.next()); // { done: false, value: { first: 'Taylor', last: 'Otwell' } }
+console.log(iterator.next()); // { done: true  }
+```
+
+[Try it here](http://jsbin.com/yihivuluvu/1/edit?js,console)
+
 The `for...of` loop isn't the only way to consume an iterable. You can also use the spread operator to create an array from a sequence of values. For example, the following will spread out the values in the `UserCollection` into an array.
 
 ```js
