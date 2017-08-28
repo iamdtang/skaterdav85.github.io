@@ -99,7 +99,7 @@ class UserCollection {
 }
 ```
 
-Here we've defined our `Symbol.iterator` method which returns an iterator (an object with a `next` method). When `next` gets invoked, it needs to return an object containing a property called `done`, holding a boolean of whether the iterator has gone through the entire sequence of values, and a property called `value` containing the value in the sequence. Behind the scenes, the `for...of` loop will keep calling `next` on the iterator until it is done. It is up to you to control when that happens and what the values are. Note that the `value` property doesn't need to be specified when `done` is `true`.
+Here we've defined our `Symbol.iterator` method which returns an iterator (an object with a `next` method). When `next` gets invoked, it needs to return an object containing a property called `done`, holding a boolean of whether the iterator has gone through the entire sequence of values, and a property called `value` containing the value in the sequence. Behind the scenes, the `for...of` loop will keep calling `next` on the iterator until `done` is true. It is up to you to control when that happens and what the values are. Note that the `value` property doesn't need to be specified when `done` is `true`.
 
 The `for...of` loop isn't the only way to consume an iterable. You can also use the spread operator to create an array from a sequence of values. For example, the following will spread out the values in the `UserCollection` into an array.
 
