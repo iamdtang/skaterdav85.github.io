@@ -16,12 +16,14 @@ const { Route } = Ember;
 export default Route.extend({
   actions: {
     willTransition(transition) {
-      let confirmation = window.confirm(
-        'Are you sure you want to leave without saving your changes?'
-      );
+      if (this.get('controller.model.hasDirtyAttributes')) {
+        let confirmation = window.confirm(
+          'Are you sure you want to leave without saving your changes?'
+        );
 
-      if (!confirmation) {
-        transition.abort();
+        if (!confirmation) {
+          transition.abort();
+        }
       }
     }
   }
@@ -65,12 +67,14 @@ const { confirm } = window;
 export default Route.extend({
   actions: {
     willTransition(transition) {
-      let confirmation = confirm(
-        'Are you sure you want to leave without saving your changes?'
-      );
+      if (this.get('controller.model.hasDirtyAttributes')) {
+        let confirmation = confirm(
+          'Are you sure you want to leave without saving your changes?'
+        );
 
-      if (!confirmation) {
-        transition.abort();
+        if (!confirmation) {
+          transition.abort();
+        }
       }
     }
   }
@@ -106,12 +110,14 @@ export default Route.extend({
   window: service(),
   actions: {
     willTransition(transition) {
-      let confirmation = this.get('window').confirm(
-        'Are you sure you want to leave without saving your changes?'
-      );
+      if (this.get('controller.model.hasDirtyAttributes')) {
+        let confirmation = this.get('window').confirm(
+          'Are you sure you want to leave without saving your changes?'
+        );
 
-      if (!confirmation) {
-        transition.abort();
+        if (!confirmation) {
+          transition.abort();
+        }
       }
     }
   }
