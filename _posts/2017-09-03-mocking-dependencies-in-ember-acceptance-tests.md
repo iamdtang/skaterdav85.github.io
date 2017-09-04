@@ -36,7 +36,7 @@ One way to mock `window.confirm` is to override it in your test. This can easily
 
 ```js
 import { test } from 'qunit';
-import moduleForAcceptance from 'stubbing-services-in-acceptance-tests/tests/helpers/module-for-acceptance';
+import moduleForAcceptance from 'demo/tests/helpers/module-for-acceptance';
 import Ember from 'ember';
 import sinon from 'sinon';
 
@@ -128,7 +128,7 @@ Then in my acceptance tests, I can mock out the `window` service dependency by r
 
 ```js
 import { test } from 'qunit';
-import moduleForAcceptance from 'stubbing-services-in-acceptance-tests/tests/helpers/module-for-acceptance';
+import moduleForAcceptance from 'demo/tests/helpers/module-for-acceptance';
 import Ember from 'ember';
 
 const { Object: EmberObject } = Ember;
