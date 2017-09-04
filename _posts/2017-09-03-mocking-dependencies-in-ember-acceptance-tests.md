@@ -2,11 +2,11 @@
 layout: post
 title: Mocking Dependencies in Ember Acceptance Tests
 date: 2017-09-03
-description: TBA
-keywords: mock, dependency, stub, fake, service, ember, ember.js, emberJS, acceptance , test, testing, window, mock window, confirm, alert, stub confirm, mock confirm, mocking
+description: Sometimes it can be useful to mock dependencies in Ember acceptance tests. This isn't something I do frequently, as I like my acceptance tests to be as high level as possible and not know too many implementation details. Nevertheless, there are some situations where you may need to. In this post, I will show you how.
+keywords: mock, dependency, stub, fake, service, ember, ember.js, emberJS, acceptance , test, testing, window, mock window, confirm, alert, stub confirm, mock confirm, mocking services in acceptance tests, stubbing services in acceptance tests
 ---
 
-Sometimes it can be useful to mock dependencies in your acceptance tests in Ember. This isn't something I do frequently, as I like my acceptance tests to be as high level as possible and not know too many implementation details. Nevertheless, there are some situations where you need to. `XMLHttpRequest` is one example, and I use Mirage for that. Another example is `window.confirm` since that is blocking and can't be interacted with from an acceptane test. The browser's `window.confirm` can be useful for when you want the user to confirm leaving a page without saving their changes. In that example, you might have a route like the following:
+Sometimes it can be useful to mock dependencies in your acceptance tests in Ember. This isn't something I do frequently, as I like my acceptance tests to be as high level as possible and not know too many implementation details. Nevertheless, there are some situations where you may need to. `XMLHttpRequest` is one example, and I use Mirage for that. Another example is `window.confirm` since that is blocking and can't be interacted with from an acceptane test. The browser's `window.confirm` can be useful for when you want the user to confirm leaving a page without saving their changes. In that example, you might have a route like the following:
 
 ```js
 import Ember from 'ember';
