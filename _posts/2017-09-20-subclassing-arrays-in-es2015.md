@@ -2,7 +2,7 @@
 layout: post
 title: Subclassing Arrays in ES2015
 date: 2017-09-20
-description: Prior to ES2015 (ES6), you couldn't really subclass an array in JavaScript without a few caveats. In this post I cover how you can in ES2015.
+description: In this post, I cover how you can subclass an array in JavaScript in ES2015 (ES6).
 keywords: extend javascript arrays, subclass javascript array, es6 subclassing, es6 classes, ES2015 classes, javascript collections, collection classes, prototypal inheritance with arrays
 ---
 
