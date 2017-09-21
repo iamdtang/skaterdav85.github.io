@@ -1,7 +1,7 @@
 ---
 layout: post
 title: An Overview of Subclassing JavaScript Arrays in ES2015
-date: 2017-09-17
+date: 2017-09-20
 description: TBA
 keywords: extend javascript arrays, subclass javascript array, es6 subclassing, es6 classes, ES2015 classes, javascript collections, collection classes, prototypal inheritance with arrays
 ---
@@ -13,7 +13,7 @@ Prior to ES2015 (ES6), you couldn't really subclass JavaScript arrays without a 
 Let's say we want to define a collection class with an `average` method. We can do that using a class:
 
 ```js
-class CollectionFromClass extends Array {
+class Collection extends Array {
   average(callback) {
     let total = this.reduce((total, item) => {
       return total + callback(item);
@@ -29,14 +29,14 @@ We can then instantiate the class, passing it several items just like we would w
 ```js
 const assert = require('assert');
 
-let studentGrades = new CollectionFromClass(
+let studentGrades = new Collection(
   { name: 'Leticia', grade: 95 },
   { name: 'Austen', grade: 85 },
   { name: 'Shane', grade: 90 }
 );
 
 assert.ok(studentGrades instanceof Array); // true
-assert.ok(studentGrades instanceof CollectionFromClass); // true
+assert.ok(studentGrades instanceof Collection); // true
 assert.strictEqual(studentGrades.constructor, Collection); // true
 assert.equal(studentGrades.length, 3); // true
 studentGrades[3] = { name: 'Samantha', grade: 86 };
@@ -55,9 +55,22 @@ assert.deepEqual(studentGrades, [
 ]); // true
 ```
 
-## Subclassing `Array` Without Classes
+## Can You Subclass `Array` Without Classes?
 
-Although much uglier, we can also subclass arrays through prototypal inheritance without the syntactic sugar from classes.
+I then wondered if it was possible to extend `Array` without a class. I knew this would be uglier code, but I was more curious for learning purposes. It turns out you can't, and it has to do with an internal `[[Class]]` property.
+
+Arrays and objects have an internal `[[Class]]` property. [As described in the ECMAScript specification](http://ecma-international.org/ecma-262/#sec-object.prototype.tostring), `[[Class]]` is an "internal slot that was used in previous editions of this specification as a nominal type tag for various built-in objects". This property isn't something we have control over, but it can be inspected via `Object.prototype.toString`. For example:
+
+```js
+Object.prototype.toString.call([]); // [object Array]
+({}).toString(); // [object Object]
+```
+
+JavaScript engines do some magic so that the internal `[[Class]]` property is set to "Array" when subclassing `Array` with a class.
+
+kangax goes into more depth on `[[Class]]` in [his post](http://perfectionkills.com/how-ecmascript-5-still-does-not-allow-to-subclass-an-array/#class_limitations) if you're curious.
+
+To subclass `Array` without a class, you can use an approach that he calls "Wrappers. Prototype Injection". Basically this approach leverages an array and changes its prototype to another object that inherits from `Array.prototype`. Here is a modified version of that approach:
 
 ```js
 function CollectionNotFromClass(...args) {
@@ -119,7 +132,7 @@ function Collection(...args) {
 }
 ```
 
-In ES2015, [`Object.prototype.__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) was standardized as a legacy feature for browser compatibility. However, as MDN states, it is deprecated in favor of  `Object.getPrototypeOf` / `Reflect.getPrototypeOf` and `Object.setPrototypeOf` / `Reflect.setPrototypeOf`.
+In ES2015, [`Object.prototype.__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) was standardized, but it is recommened that you use  `Object.getPrototypeOf` / `Reflect.getPrototypeOf` and `Object.setPrototypeOf` / `Reflect.setPrototypeOf`.
 
 ## Performance Comparison
 
@@ -127,17 +140,10 @@ If you checked out the documentation for [Object.setPrototypeOf](https://develop
 
 ![Object.setPrototypeOf performance warning](/images/object-setprototypeof-warning.png)
 
-I ran a [JSPerf test](https://jsperf.com/subclass-array) comparing these two approaches to subclassing arrays and as expected, subclassing arrays via classes is faster than manual prototypal inheritance.
+I ran a [JSPerf test](https://jsperf.com/subclass-array) comparing these two approaches to subclassing arrays, and as expected, subclassing arrays via classes is faster than manual prototypal inheritance.
 
 ![Subclassing Array performance comparison](/images/array-subclass-performance-comparison.png)
 
-So, is it possible make an array from a regular object so that we don't have to change an array's prototype which is slow? Unfortunately, the answer is no.
+## Conclusion
 
-Arrays and objects have an internal `[[Class]]` property. [As described in the ECMAScript specification](http://ecma-international.org/ecma-262/#sec-object.prototype.tostring), `[[Class]]` is an "internal slot that was used in previous editions of this specification as a nominal type tag for various built-in objects". This property isn't something we have control over, but it can be inspected via `Object.prototype.toString`. For example:
-
-```js
-Object.prototype.toString.call([]); // [object Array]
-({}).toString(); // [object Object]
-```
-
-I suspect that JavaScript engines set this internal `[[Class]]` property to "Array" when subclassing `Array` with ES2015 classes. In other words, we can't create custom array objects ourselves without using `Array` or literal notation (brackets). By creating an array using `Array` or literal notation, the only way to add custom methods is by changing its prototype which results in lesser performance. Despite this, I think most people would agree that using classes to extend arrays is the cleaner approach.
+To summarize, we can't create custom array objects ourselves without using `Array` or literal notation (brackets). By creating an array using `Array` or literal notation, the only way to add custom methods is by changing its prototype which results in lesser performance. Despite this, I think most people would agree that using classes to extend arrays is the cleaner approach.
