@@ -125,9 +125,11 @@ If you checked out the documentation for [Object.setPrototypeOf](https://develop
 
 ![Object.setPrototypeOf performance warning](/images/object-setprototypeof-warning.png)
 
-I ran a [JSPerf test](https://jsperf.com/subclassing-arrays) comparing these two approaches to subclassing an array, and unexpectedly, subclassing an array via classes is slower than taking an array and changing its prototype.
+I ran a [JSPerf test](https://jsperf.com/subclassing-arrays) comparing these two approaches to subclassing an array, and results varied across browsers.
 
-![Subclassing Array performance comparison](/images/array-subclass-performance-comparison.png)
+![Performance comparison in Chrome](/images/subclassing-arrays-in-es2015/chrome.png)
+![Performance comparison in Safari](/images/subclassing-arrays-in-es2015/safari.png)
+![Performance comparison in Firefox](/images/subclassing-arrays-in-es2015/firefox.png)
 
 ## Support
 
