@@ -14,11 +14,24 @@ Here are the project requirements:
 * Each page has a unique title using [this addon](https://www.npmjs.com/package/ember-cli-document-title)
 * 3 practical acceptance tests
 * 3 practical integration tests
-* Cleanly formatted code. Don't just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), and readable variable and function names
+* Cleanly formatted code. Don't just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), consistent spacing, and readable variable and function names.
 * Your project should be styled so that it presents a good user experience and looks organized and professional.
 * Frontend and API are deployed to Heroku
 * Travis CI integration with all tests passing
 * Notifications using Toastr
+  * a success notification when something is successfully updated, deleted, or created
+  * an error notification when an AJAX call fails
+
+Projects will be graded based on overall complexity and user experience.
+
+Some extras that you may want to use or that may spark some ideas:
+
+* Google Maps integration
+* Geolocation API
+* Google Charting - https://developers.google.com/chart/
+* Using modals with [ember-modal-dialog](https://github.com/yapplabs/ember-modal-dialog)
+* Integration with 3rd party APIs. You can search for APIs on https://www.programmableweb.com. Many require an authentication process, which you can get to work but requires some extra learning, or you may find some that are publicly open, like some of the Reddit endpoints.
+* [tracking.js](https://trackingjs.com/examples/face_hello_world.html) (face and shape detection in images)
 
 Send a single email containing the following to the TA and myself on the project due date:
 

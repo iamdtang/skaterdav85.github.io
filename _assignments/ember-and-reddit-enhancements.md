@@ -29,3 +29,11 @@ Now, we have a dedicated service for interacting with the Reddit API with a self
 ## Display `thumbnail`
 
 If a subreddit post has a value in the `thumbnail` property, display the image. If it doesn't, show some kind of placeholder image.
+
+## Submission
+
+```
+git add --all
+git commit -m 'your commit message here'
+git push origin assignment6
+```
