@@ -1,0 +1,27 @@
+---
+layout: assignment
+title: ITP 404 Final Project
+date: 2017-10-17
+---
+
+For the final project, you will develop a single page application with Ember and Loopback on a topic of your choice. If you are familiar with developing APIs and don't wish to use Loopback, you are welcome to build out an API in whatever technology you wish as long as you can host it.
+
+Here are the project requirements:
+
+* At least 3 client side routes
+* At least 1 GET, 1 POST, 1 PUT or PATCH, and 1 DELETE AJAX request
+* Use of a CSS loading indicator for when AJAX requests are processing
+* Each page has a unique title using [this addon](https://www.npmjs.com/package/ember-cli-document-title)
+* 3 practical acceptance tests
+* 3 practical integration tests
+* Cleanly formatted code. Don't just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), and readable variable and function names
+* Your project should be styled so that it presents a good user experience and looks organized and professional.
+* Frontend and API are deployed to Heroku
+* Travis CI integration with all tests passing
+* Notifications using Toastr
+
+Send a single email containing the following to the TA and myself on the project due date:
+
+* A link to your frontend repo and a link to your API repo
+* A link to your hosted Ember app
+* A list that explains where you fulfilled each requirement. I will use this as my basis for grading.
