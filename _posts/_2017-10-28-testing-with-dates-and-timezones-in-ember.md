@@ -96,7 +96,7 @@ On Travis CI, you can set the timezone with the following:
 process.env.TZ = 'America/Los_Angeles';
 ```
 
-or alternatively:
+You can also set the timezone in your `.travis.yml` like this:
 
 ```
 # .travis.yml
@@ -104,9 +104,14 @@ before_install:
   - export TZ=America/Los_Angeles
 ```
 
+However, if you have teammates working in different timezones, their tests won't execute locally with the same timezone since `.travis.yml` is only used on Travis CI, so I recommend putting this configuration in `testem.js`.
+
+
+It is still a good idea to
+
 Great, tests are passing!
 
----- keep the rest?
+---- keep the rest? check if we can remove timezoneOffsetMinutes in core-styles-forms
 
 Now let's say we add a "Today" option to the list.
 
