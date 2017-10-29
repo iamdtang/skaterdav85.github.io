@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Thinking in "Data Down, Actions Up"
-date: 2017-06-30
+date: 2017-10-28
 description: TBA
 keywords: DDAU, data down, actions up, one way data flow, unidirectional data flow
 ---
