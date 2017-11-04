@@ -55,7 +55,7 @@ export default Component.extend({
 });
 ```
 
-Ideally we want to freeze today to October 29th, 2017 so that our assertions will pass today and in the future. Thankfully, there is a library for this called [MockDate](https://github.com/boblauer/MockDate), and an Ember addon for it called [ember-mockdate-shim](https://github.com/Ticketfly/ember-mockdate-shim). Note that this shim renames a couple methods in MockDate for more clarity.
+Ideally we want to freeze today to October 29th, 2017 so that our assertions will pass today and in the future. Thankfully, there is a library for this called [MockDate](https://github.com/boblauer/MockDate), and an Ember addon for it called [ember-mockdate-shim](https://github.com/Ticketfly/ember-mockdate-shim). MockDate essentially overrides the native `Date` class. Note that this shim renames a couple methods in MockDate for more clarity.
 
 We can install the addon:
 
