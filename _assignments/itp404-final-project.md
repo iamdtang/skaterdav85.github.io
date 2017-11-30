@@ -16,8 +16,7 @@ Here are the project requirements:
 * 3 practical integration tests
 * Cleanly formatted code. Don't just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), consistent spacing, and readable variable and function names.
 * Your project should be styled so that it presents a good user experience and looks organized and professional.
-* Frontend is deployed to [surge.sh](https://www.npmjs.com/package/ember-cli-surge)
-* The API is deployed to Heroku (video coming soon)
+* Frontend is deployed to [surge.sh](https://www.npmjs.com/package/ember-cli-surge) and the API is deployed to Heroku. Watch how to host the two here: http://www.youtube.com/watch?v=Ue1YHH5lHSo
 * ~~Travis CI integration with all tests passing~~
 * Notifications using Toastr
   * a success notification when something is successfully updated, deleted, or created
