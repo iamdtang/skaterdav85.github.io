@@ -13,17 +13,17 @@ If you're new to JavaScript, you may be wondering what the difference is between
 Let's review the mechanics of the standard `for` loop and the `forEach()` method.
 
 ```js
-for (var i = 0; i < 3; i++) {
+for (let i = 0; i < 3; i++) {
   console.log(i);
 }
 ```
 
-The `for` loop takes 3 statements. The first statement `var i = 0;` is executed before the loop starts. The second statement `i < 3` defines the condition for running the block of code. The third statement runs after each loop. The result is that this loop will execute the `console.log()` statement 3 times with the values 0, 1, and 2.
+The `for` loop takes 3 statements. The first statement `let i = 0;` is executed before the loop starts. The second statement `i < 3` defines the condition for running the block of code. The third statement runs after each loop. The result is that this loop will execute the `console.log()` statement 3 times with the values 0, 1, and 2.
 
 Let's say we have an array of products:
 
 ```js
-var products = [
+let products = [
   { name: 'Running shoes', price: 75 },
   { name: 'Golf shoes',    price: 85 },
   { name: 'Dress shoes',   price: 95 },
@@ -35,7 +35,7 @@ var products = [
 If we wanted to loop over each product, we would change the condition in the `for` loop and use `i` as the numeric index to access the product for the current iteration.
 
 ```js
-for (var i = 0; i < products.length; i++) {
+for (let i = 0; i < products.length; i++) {
   console.log(products[i]);
 }
 ```
@@ -43,7 +43,7 @@ for (var i = 0; i < products.length; i++) {
 The `forEach()` method on arrays can be used to achieve the same thing:
 
 ```js
-products.forEach(function(product, index) {
+products.forEach((product, index) => {
   console.log(product);
 });
 ```
@@ -59,9 +59,9 @@ Now let's look at why you might want to choose one over the other.
 Both a `for` loop and the `forEach()` method allow you to loop over an array, but let me give you my perspective on why I prefer `forEach()` most of the time. First, I find that `forEach()` has better readability than the `for` loop. In the example above, the product for each iteration is passed to the callback function. I don't have to access the current iteration's product using the temporary `i` variable as such: `products[i]`. Even though it isn't THAT hard to read, when you add more code, it adds a little more cognitive overhead. Imagine if you had a `for` loop within a `for` loop, like this:
 
 ```js
-for (var i = 0; i < products.length; i++) {
+for (let i = 0; i < products.length; i++) {
   console.log(products[i]);
-  for (var j = 0; j < products[i].sizes.length; j++) {
+  for (let j = 0; j < products[i].sizes.length; j++) {
     console.log(products[i].sizes[j]);
   }
 }
@@ -70,11 +70,11 @@ for (var i = 0; i < products.length; i++) {
 This is even harder to read, and the problem compounds when you do more than a `console.log()`. You could improve this code by using a few variables, as such:
 
 ```js
-for (var i = 0; i < products.length; i++) {
-  var product = products[i];
+for (let i = 0; i < products.length; i++) {
+  let product = products[i];
   console.log(product);
-  for (var j = 0; j < product.sizes.length; j++) {
-    var size = product.sizes[j];
+  for (let j = 0; j < product.sizes.length; j++) {
+    let size = product.sizes[j];
     console.log(size);
   }
 }
@@ -83,8 +83,8 @@ for (var i = 0; i < products.length; i++) {
 Having variables `product` and `size` helps a little bit, but I still don't like those temporary `i` and `j` variables. Now compare the above code with using `forEach()` below:
 
 ```js
-products.forEach(function(product) {
-  product.sizes.forEach(function(size) {
+products.forEach((product) => {
+  product.sizes.forEach((size) => {
     console.log(size);
   });
 });
@@ -101,7 +101,7 @@ Wikipedia defines an [off-by-one error](https://en.wikipedia.org/wiki/Off-by-one
 There are a few ways of producing an off-by-one error, but here is a simple example.
 
 ```js
-for (var i = 0; i <= products.length; i++) {
+for (let i = 0; i <= products.length; i++) {
   console.log(products[i]);
 }
 ```
@@ -113,7 +113,7 @@ This `for` loop looks pretty similar to the one earlier in this post, right? The
 One scenario where I choose a `for` loop over the `forEach()` method is when I want to break out of a loop early. Imagine I had a longer list of products and as soon as I found one that matches some criteria, I want to perform some action. If I used `forEach()`, it would iterate over every single product resulting in unnecessary iterations, potentially causing performance issues depending on how long the array is. With a `for` loop, you have the ability to break out early and stop the loop from continuing. For example:
 
 ```js
-for (var i = 0; i < products.length; i++) {
+for (let i = 0; i < products.length; i++) {
   if (matchesSomeCriteria(products[i])) {
     doSomething();
     break;
