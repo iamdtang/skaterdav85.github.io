@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Conditional Validation with Ember Changeset Validations
+title: Conditional Validations with ember-changeset-validations
 date: 2018-02-11
 description: TBA
 keywords: ember changeset, conditional validations
