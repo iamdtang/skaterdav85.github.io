@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Conditional Validation with Ember Changeset Validations
-date: 2018-02-10
+date: 2018-02-11
 description: TBA
 keywords: ember changeset, conditional validations
 ---
 
-A feature I was recently working on required lots of conditional validation. I used [ember-changeset](https://github.com/poteto/ember-changeset) and [ember-changeset-validations](https://github.com/poteto/ember-changeset-validations), as I love how you can buffer changes on your model and declaratively specify validation rules.
+I was recently working on a feature that required lots of conditional validation. I used [ember-changeset](https://github.com/poteto/ember-changeset) and [ember-changeset-validations](https://github.com/poteto/ember-changeset-validations), as I love how you can buffer changes on your model and declaratively specify validation rules.
 
 As I was looking through [ember-changeset-validations](https://github.com/poteto/ember-changeset-validations), it didn't seem like the addon addressed conditional validation. I wanted to run validation checks against a field only if another field was present.
 
@@ -41,9 +41,9 @@ export default {
 };
 ```
 
-The way this works is that you can specify any number of validation rules for a property, and they will only be applied if the callback function to `validateSometimes()` returns `true`. In this example, `paymentMethod` would be some kind of model with a computed property `isCreditCard`. The callback function is invoked with the changeset's `changes` and original `content` object.
+The way this works is that you can specify any number of validation rules for a property, and they will only be applied if the callback function to `validateSometimes()` returns `true`. In this example, `paymentMethod` would be some kind of model with a computed property `isCreditCard`. The callback function is invoked with the changeset's `changes` and the original `content` object.
 
-This works, but I didn't like having to check both the `changes` and `content` object for the same property, so I added a `this.get(property)` method that essentially is a more terse version of the above.
+This works, but I didn't like having to check both the `changes` and the `content` object for the same property, so I added a `this.get(property)` method that essentially is a more terse version of the above.
 
 ```js
 import { validatePresence, validateLength } from 'ember-changeset-validations/validators';
