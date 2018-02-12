@@ -16,7 +16,7 @@ When the user hits the "Save" button, the following should happen:
 
 * validate the data to ensure the playlist name is present and at least 3 characters long
 * if the name is valid, the playlist name is updated in the database and the user is redirected back to the `/playlists` page
-* if the name is invalid, error messages are displayed at the top of the screen and the user can see their invalid input in the text field
+* if the name is invalid, error messages are displayed at the top of the screen and the user can see their invalid input in the text field (which is flash data)
 
 Check out the [Laravel documentation on how to update records using Laravel's Query Builder](https://laravel.com/docs/5.5/queries#updates).
 
