@@ -8,6 +8,17 @@ This assignment will use Laravel and the [chinook SQLite database](http://www.sq
 
 All Laravel assignments, labs, and class demos will build on the same installation.
 
+## Editing and Deleting a Playlist
+
+Modify assignment 2 to use Eloquent instead of the query builder.
+
+## The Tracks by Genre Page
+
+Modify the queries on this page to use Eloquent instead of the Query Builder. When displaying the tracks, also display the Media Type.
+
+## Listing Tracks without a Genre
+
+On the /tracks page, if a genre query param isn't supplied, display 100 tracks to the user. (This part of the assignment doesn't have to Eloquent).
 
 ## Submission
 
