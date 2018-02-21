@@ -14,7 +14,7 @@ Modify the `/` route so that it directs users to `/genres` instead of `/login`.
 
 ## Maintenance Mode Middleware
 
-You are going to create middleware that redirects users to a maintenance mode page (that you create - have fun and be creative with it) with the URL `/maintenance` if there is a record in the `settings` table with an `id` of `maintenance_mode` and its `value` is 1. If that record's `value` is 0, users should not be redirected to that page. Name the middleware `MaintenanceMode`. This middleware should only apply to public routes (the ones without the `protected` middleware), but exclude the following:
+You are going to create middleware that redirects users to a maintenance mode page that comes default with Laravel if you visit the URL `/maintenance`, if there is a record in the `settings` table with an `id` of `maintenance_mode` and its `value` is 1. If that record's `value` is 0, users should not be redirected to that page. Name the middleware `MaintenanceMode`. This middleware should only apply to public routes (the ones without the `protected` middleware), but exclude the following:
 
 ```php
 Route::get('/login', 'LoginController@index');
