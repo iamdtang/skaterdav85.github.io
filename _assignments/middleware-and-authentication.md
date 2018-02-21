@@ -8,9 +8,21 @@ This assignment will use Laravel and the [chinook SQLite database](http://www.sq
 
 All Laravel assignments, labs, and class demos will build on the same installation.
 
+## The Home Page
+
+Modify the `/` route so that it directs users to `/genres` instead of `/login`.
+
 ## Maintenance Mode Middleware
 
-You are going to create middleware that redirects users to a maintenance mode page (that you create - have fun and be creative with it) with the URL `/maintenance` if there is a record in the `settings` table with an `id` of `maintenance_mode` and its `value` is 1. If that record's `value` is 0, users should not be redirected to that page. Name the middleware `MaintenanceMode`. This middleware should only apply to public routes (the ones without the `protected` middleware).
+You are going to create middleware that redirects users to a maintenance mode page (that you create - have fun and be creative with it) with the URL `/maintenance` if there is a record in the `settings` table with an `id` of `maintenance_mode` and its `value` is 1. If that record's `value` is 0, users should not be redirected to that page. Name the middleware `MaintenanceMode`. This middleware should only apply to public routes (the ones without the `protected` middleware), but exclude the following:
+
+```php
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login');
+Route::get('/logout', 'LoginController@logout');
+```
+
+This is so that certain users can login even if the site is in maintenance mode.
 
 ## Toggling Maintenance Mode
 
