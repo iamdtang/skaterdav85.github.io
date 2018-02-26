@@ -83,8 +83,27 @@ code.highlighter-rouge {
 
 .language-hbs {
   .highlight .s { color: #98C379 } /* closing html tag in hbs */
-  .highlight .nn { color: #C673BD } /* Name.Namespace */
-  .highlight .nt { color: #98C379 } /* opening tag */
-  .highlight .nv { color: #4AA0D6 } /* Name.Variable */
-  .err { color: #C673BD; }
+
+  .highlight {
+    // component tags and curlies
+    .k, .nn, .nv {
+      color: #98C379;
+    }
+
+    // block param pipes, parens, = sign
+    .err {
+      color: #D19A66;
+    }
+  }
+}
+
+.language-jsx {
+  .si {
+    // curly braces for data
+    color: #ABB2B6;
+  }
+  .nc {
+    // closing component tag
+    color: #98C379;
+  }
 }
