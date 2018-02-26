@@ -2,7 +2,7 @@
 layout: post
 title: React Patterns in Ember - Render Props
 date: 2018-02-25
-description: TBA
+description: In this blog post, I cover the Render Props pattern in React and what it looks like in Ember.
 keywords: react patterns, ember, render props
 ---
 
@@ -108,7 +108,3 @@ and the `mouse-event` component's template:
 ```
 
 We can `yield` state from within the `mouse-event` component back to the scope that invoked the component as a [block parameter](https://guides.emberjs.com/v3.0.0/components/block-params/) called `mouse`.
-
-## Multiple Render Props
-
-In React, you can have multiple render props. To achieve
