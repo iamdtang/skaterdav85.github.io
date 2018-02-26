@@ -107,4 +107,4 @@ and the `mouse-event` component's template:
 {% raw %}{{yield (hash x=event.clientX y=event.clientY)}}{% endraw %}
 ```
 
-We can `yield` state from within the `mouse-event` component back to the scope that invoked the component as a [block parameter](https://guides.emberjs.com/v3.0.0/components/block-params/) called `mouse`.
+We can `yield` state from within the `mouse-event` component back to the scope that invoked the component as a [block parameter](https://guides.emberjs.com/v3.0.0/components/block-params/) called `mouse`. This ultimately lets the consumer of the component control what to render.
