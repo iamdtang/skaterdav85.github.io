@@ -1,6 +1,6 @@
-name: The JS Guy
+name: David Tang
 author: David Tang
-description: Thoughts and tutorials on JavaScript frameworks, testing, and patterns
+description: Thoughts and tutorials on JavaScript, frameworks, testing, and patterns
 bio:
 paginate: 50
 markdown: kramdown
