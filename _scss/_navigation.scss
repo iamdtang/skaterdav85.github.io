@@ -24,42 +24,42 @@
     top: 20px;
     right: 20px;
     z-index: 2;
-  	width: 28px;
-  	display: inline-block;
+    width: 28px;
+    display: inline-block;
     border: 0;
-  	background: none;
-  	outline: 0;
-  	padding: 0;
-  	cursor: pointer;
-  	border-bottom: $burger--thickness solid white;
-  	transition: border-bottom 1s ease-in-out;
-  	-webkit-transition: border-bottom 1s ease-in-out;
+    background: none;
+    outline: 0;
+    padding: 0;
+    cursor: pointer;
+    border-bottom: $burger--thickness solid white;
+    transition: border-bottom 1s ease-in-out;
+    -webkit-transition: border-bottom 1s ease-in-out;
 
-  	// Fix for extra space in Firefox
-  	&::-moz-focus-inner {
-  		border: 0;
-  		padding: 0;
-  	}
+    // Fix for extra space in Firefox
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
 
-  	&:before {
-  		content: "";
-  		display: block;
-  		border-bottom: $burger--thickness solid white;
-  		width: 100%;
-  		margin-bottom: 5px;
-  		transition: transform 0.5s ease-in-out;
-  		-webkit-transition: -webkit-transform 0.5s ease-in-out;
-  	}
+    &:before {
+      content: "";
+      display: block;
+      border-bottom: $burger--thickness solid white;
+      width: 100%;
+      margin-bottom: 5px;
+      transition: transform 0.5s ease-in-out;
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    }
 
-  	&:after {
-  		content: "";
-  		display: block;
-  		border-bottom: $burger--thickness solid white;
-  		width: 100%;
-  		margin-bottom: 5px;
-  		transition: transform 0.5s ease-in-out;
-  		-webkit-transition: -webkit-transform 0.5s ease-in-out;
-  	}
+    &:after {
+      content: "";
+      display: block;
+      border-bottom: $burger--thickness solid white;
+      width: 100%;
+      margin-bottom: 5px;
+      transition: transform 0.5s ease-in-out;
+      -webkit-transition: -webkit-transform 0.5s ease-in-out;
+    }
   }
 
   .burger-check {
@@ -87,7 +87,7 @@
     }
   }
 
-  $height: 100px;
+  $height: 140px;
 
   .navigation {
     transition: all 0.3s ease-in-out;
