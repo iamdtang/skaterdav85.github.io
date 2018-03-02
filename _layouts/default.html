@@ -5,27 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
       {% if page.title %}
-        {{ page.title }} - 
+        {{page.title}} -
       {% endif %}
-      {{ site.author }}
+      {{site.author}} - {{site.bio}}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="{{ page.keywords }}">
+    <meta name="keywords" content="{{page.keywords}}">
     {% feed_meta %}
     {% if page.description %}
-      <meta name="description" content="{{ page.description }}">
-      <meta property="og:description" content="{{ page.description }}" />
+      <meta name="description" content="{{page.description}}">
+      <meta property="og:description" content="{{page.description}}" />
     {% else %}
-      <meta name="description" content="{{ site.description }}">
-      <meta property="og:description" content="{{ site.description }}" />
+      <meta name="description" content="{{site.description}}">
+      <meta property="og:description" content="{{site.description}}" />
     {% endif %}
-    <meta property="og:title" content="{{ page.title }} - {{ site.name }}" />
-    <meta property="og:url" content="http://thejsguy.com{{ page.url }}" />
+    <meta property="og:title" content="{{page.title}} - {{site.name}}" />
+    <meta property="og:url" content="http://thejsguy.com{{page.url}}" />
     <meta property="og:image" content="http://www.gravatar.com/avatar/1c31a96c0a474a6795637081bde42acc.png?s=500" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="{{ "/style.css" | prepend: site.baseurl }}?{{site.time | date: '%s%N'}}" rel="stylesheet">
-
+    <link href="{{"/style.css" | prepend: site.baseurl}}?{{site.time | date: '%s%N'}}" rel="stylesheet">
 </head>
 <body>
 <header class="sticky-header">
@@ -33,8 +32,9 @@
     <div class="pure-u-3-4">
       <div style="padding: 15px;">
         <h1>
-          <a href="/" title="{{ site.name}}" class="logo">{{ site.author }}</a>
+          <a href="/" title="{{site.name}}" class="logo">{{site.author}}</a>
         </h1>
+        <p>{{site.bio}}</p>
       </div>
     </div>
     <div class="pure-u-1-4">
@@ -51,13 +51,12 @@
 </header>
 <div class="pure-g main-content">
   <div class="pure-u-3-4 l-box mobile content">
-    {{ content }}
+    {{content}}
   </div>
   <div class="pure-u-1-4 l-box sidebar mobile">
     <a href="/">
       <img src="//www.gravatar.com/avatar/1c31a96c0a474a6795637081bde42acc.png?s=500" alt="David Tang photo" class="avatar">
     </a>
-    <p>{{ site.bio }}</p>
     <ul class="social">
       <li>
         <a href="https://twitter.com/iamdtang" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
@@ -75,16 +74,13 @@
         <a href="/feed.xml" target="_blank"><i class="fa fa-rss fa-lg"></i></a>
       </li>
     </ul>
-
     {% include nav-subscribe.html %}
     {% include other-posts.html %}
     <br>
     {% include google-ads.html %}
   </div>
 </div>
-
 {% include mailchimp-subscribe-js.html %}
 {% include google-analytics.html %}
-
 </body>
 </html>
