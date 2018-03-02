@@ -6,7 +6,9 @@ description: In this blog post, I cover the Render Props pattern in React and wh
 keywords: react patterns, ember, render props
 ---
 
-Lately I've been hearing a lot about various component patterns in React. One pattern that has been coming up is the Render Props pattern. I was curious about what problem it solves and what the equivalent is in Ember. 
+Lately I've been hearing a lot about various component patterns in React. One pattern that has been coming up is the Render Props pattern. I was curious about what problem it solves and what the equivalent is in Ember.
+
+> TL;DR - An Ember component in its block form yielding state through a block param can be similar to a single render prop. Contextual components can be used similarly to multiple render props in React, with a few minor differences.
 
 The [React docs](https://reactjs.org/docs/render-props.html) describe Render Props as:
 
