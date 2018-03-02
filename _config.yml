@@ -2,7 +2,7 @@ name: David Tang
 author: David Tang
 description: Thoughts and tutorials on JavaScript, frameworks, testing, and patterns
 bio: Software Developer, Teacher, Author, and Blogger
-paginate: 50
+paginate: 15
 markdown: kramdown
 gems: [jekyll-paginate, jekyll-feed, jekyll-sitemap]
 sass:
