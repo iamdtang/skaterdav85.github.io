@@ -7,6 +7,9 @@
   and (-webkit-min-device-pixel-ratio: 2) {
   @include disable-sticky-footer();
   @include veggie-burger-nav();
+  .tagline {
+    font-size: 16px;
+  }
 }
 
 /* Portrait */

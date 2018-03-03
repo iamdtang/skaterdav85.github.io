@@ -29,24 +29,29 @@
 <body>
 <header class="sticky-header">
   <div class="pure-g">
-    <div class="pure-u-3-4">
-      <div style="padding: 15px;">
+    <div class="pure-u-3-5">
+      <div style="padding: 15px 0 0 15px;">
         <h1>
           <a href="/" title="{{site.name}}" class="logo">{{site.author}}</a>
         </h1>
-        <p>{{site.bio}}</p>
       </div>
     </div>
-    <div class="pure-u-1-4">
+    <div class="pure-u-2-5">
       <input class="burger-check" id="burger-check" type="checkbox">
       <label for="burger-check" class="burger"></label>
       <nav class="navigation">
         <ul>
           <li><a href="/">Blog</a></li>
           <li><a href="https://leanpub.com/emberdatainthewild" target="_blank">Book</a></li>
-          <li><a href="/usc.html">Teaching</a></li>
+          <li><a href="/teaching">Teaching</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </nav>
+    </div>
+  </div>
+  <div class="pure-g">
+    <div class="pure-u-5-5">
+      <p style="padding: 0 0 15px 15px;" class="tagline">{{site.bio}}</p>
     </div>
   </div>
 </header>

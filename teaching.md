@@ -1,10 +1,11 @@
 ---
 layout: default
 title: Teaching
+permalink: teaching
 ---
-<h1>Teaching at USC</h1>
+# Teaching
 
-<p>Click the link for your course to see weekly topics, readings, assignments, and course details.</p>
+Click the link for your course to see weekly topics, readings, assignments, and course details
 
 <ul>
   <li>
