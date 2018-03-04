@@ -2,9 +2,10 @@
 layout: default
 ---
 
-<a href="/usc.html">Back</a>
+[Back](/teaching)
 
-<h1>ITP 405: Professional Frameworks and Applications in Web Development</h1>
+# ITP 405: Professional Frameworks and Applications in Web Development
+
 <ul class="no-bullets m0 p0">
   <li>
     <a href="http://web-app.usc.edu/soc/syllabus/20181/32074.pdf" target="_blank">Syllabus</a>
@@ -14,16 +15,20 @@ layout: default
   </li>
 </ul>
 
-<div class="midterm">
-  <h3>(2/27) Midterm</h3>
-  <p>The midterm will be an in-class practical where you will build a small web app in 2.5 hours
-    based on some requirements I give you using things you learned in the weeks leading up to the exam. You can use
-    previous assignments, notes, and the internet to look things up. You are not allowed to
-    communicate with anyone in or outside of the class by any means. To study, review all assigned readings and your past
-    assignments and labs.</p>
-</div>
+### (3/6) Introduction to Node.js
+* [Installing Node Version Manager (nvm)](https://github.com/creationix/nvm)
+* Asynchronous programming with callback functions
+* [Node Package Manager (npm)](https://www.npmjs.com/)
+* Building your first API with [Express](https://expressjs.com/)
 
-<h3>(2/20) Week 6 - Middleware and Authentication</h3>
+### (2/27) Midterm
+The midterm will be an in-class practical where you will build a small web app in 2.5 hours
+based on some requirements I give you using things you learned in the weeks leading up to the exam. You can use
+previous assignments, notes, and the internet to look things up. You are not allowed to
+communicate with anyone in or outside of the class by any means. To study, review all assigned readings and your past
+assignments and labs.
+
+### (2/20) Week 6 - Middleware and Authentication
 <ul>
   <li>
     <a href="https://laravel.com/docs/5.6/eloquent-relationships#many-to-many" target="_blank">
@@ -47,7 +52,7 @@ layout: default
   </li>
 </ul>
 
-<h3>(2/13) Week 5 - Object Relational Mapping with Eloquent</h3>
+### (2/13) Week 5 - Object Relational Mapping with Eloquent
 <ul>
   <li>
     <a href="https://laravel.com/docs/5.6/eloquent" target="_blank">
@@ -61,7 +66,7 @@ layout: default
   </li>
 </ul>
 
-<h3>(2/6) Week 4 - Blade Layouts, Creating Records, Flash Messages, and Data Validation</h3>
+### (2/6) Week 4 - Blade Layouts, Creating Records, Flash Messages, and Data Validation
 <ul>
   <li>
     <a href="https://laravel.com/docs/5.5/blade#defining-a-layout" target="_blank">
@@ -95,7 +100,7 @@ layout: default
   </li>
 </ul>
 
-<h3>(1/29) Week 3 - Introduction to MVC and Laravel</h3>
+### (1/29) Week 3 - Introduction to MVC and Laravel
 <ul>
   <li>
     <a href="/assignments/laravel1">
@@ -104,7 +109,7 @@ layout: default
   </li>
 </ul>
 
-<h3>(1/22) Week 2 - Object Oriented PHP</h3>
+### (1/22) Week 2 - Object Oriented PHP
 <ul>
   <li>
     Reading: Chapters 1 and 2 of PHPOOS
@@ -116,7 +121,7 @@ layout: default
   </li>
 </ul>
 
-<h3>(1/16) Week 1 - SQL Joins, SQLite, and PDO</h3>
+### (1/16) Week 1 - SQL Joins, SQLite, and PDO
 <ul>
   <li>
     <a href="http://www.sqlitetutorial.net/sqlite-sample-database/" target="_blank">
