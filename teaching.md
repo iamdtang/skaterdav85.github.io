@@ -5,63 +5,31 @@ permalink: teaching
 ---
 # Teaching
 
-Click the link for your course to see weekly topics, readings, assignments, and course details
-
-<ul>
-  <li>
-    <a href="/itp-405/spring-2018">Spring 2018 - ITP 405: Professional Frameworks and Applications in Web Development</a>
-  </li>
-  <li>
-    <a href="/itp-404/fall-2017">Fall 2017 - ITP 404: Modern Technologies in Web Development</a>
-  </li>
-  <li>Spring 2017 - ITP 405: Professional Applications and Frameworks in Web Development</li>
-  <li>Fall 2016 - ITP 404: Modern Technologies in Web Development</li>
-  <li>Spring 2016 - ITP 405: Professional Applications and Frameworks in Web Development</li>
-  <li>Fall 2015 - ITP 404: Modern Technologies in Web Development</li>
-  <li>Spring 2015 - ITP 405: Professional Applications and Frameworks in Web Development</li>
-  <li>Fall 2014 - ITP 404: Modern Technologies in Web Development</li>
-  <li>
-    Spring 2014
-    <ul>
-      <li>ITP 104: Internet Publishing Technologies</li>
-      <li>ITP 301: Interactive Web Development</li>
-      <li>ITP 499: Professional Applications and Frameworks in Web Development</li>
-    </ul>
-  </li>
-  <li>
-    Fall 2013
-    <ul>
-      <li>ITP 104: Internet Publishing Technologies</li>
-      <li>ITP 300: Database Web Development</li>
-      <li>ITP 404: Modern Technologies in Web Development</li>
-    </ul>
-  </li>
-  <li>
-    Spring 2013
-    <ul>
-      <li>ITP 104: Internet Publishing Technologies</li>
-      <li>ITP 460: Web Application Project</li>
-    </ul>
-  </li>
-  <li>
-    Fall 2012
-    <ul>
-      <li>ITP 104: Internet Publishing Technologies</li>
-      <li>ITP 404: Modern Technologies in Web Development</li>
-    </ul>
-  </li>
-  <li>
-    Spring 2012
-    <ul>
-      <li>ITP 104: Internet Publishing Technologies</li>
-      <li>ITP 460: Web Application Project</li>
-    </ul>
-  </li>
-  <li>
-    Fall 2011
-    <ul>
-      <li>ITP 104: Internet Publishing Technologies</li>
-      <li>ITP 404: Developing Web Services and Application Programming Interfaces</li>
-    </ul>
-  </li>
-</ul>
+*   [Spring 2018 - ITP 405: Professional Frameworks and Applications in Web Development](/itp-405/spring-2018)
+*   [Fall 2017 - ITP 404: Modern Technologies in Web Development](/itp-404/fall-2017)
+*   Spring 2017 - ITP 405: Professional Applications and Frameworks in Web Development
+*   Fall 2016 - ITP 404: Modern Technologies in Web Development
+*   Spring 2016 - ITP 405: Professional Applications and Frameworks in Web Development
+*   Fall 2015 - ITP 404: Modern Technologies in Web Development
+*   Spring 2015 - ITP 405: Professional Applications and Frameworks in Web Development
+*   Fall 2014 - ITP 404: Modern Technologies in Web Development
+*   Spring 2014
+    *   ITP 104: Internet Publishing Technologies
+    *   ITP 301: Interactive Web Development
+    *   ITP 499: Professional Applications and Frameworks in Web Development
+*   Fall 2013
+    *   ITP 104: Internet Publishing Technologies
+    *   ITP 300: Database Web Development
+    *   ITP 404: Modern Technologies in Web Development
+*   Spring 2013
+    *   ITP 104: Internet Publishing Technologies
+    *   ITP 460: Web Application Project
+*   Fall 2012
+    *   ITP 104: Internet Publishing Technologies
+    *   ITP 404: Modern Technologies in Web Development
+*   Spring 2012
+    *   ITP 104: Internet Publishing Technologies
+    *   ITP 460: Web Application Project
+*   Fall 2011
+    *   ITP 104: Internet Publishing Technologies
+    *   ITP 404: Developing Web Services and Application Programming Interfaces
