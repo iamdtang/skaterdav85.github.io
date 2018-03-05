@@ -19,6 +19,8 @@ layout: default
 * [Node Package Manager (npm)](https://www.npmjs.com/)
   * [Knex](https://www.npmjs.com/package/knex)
 * Building your first API with [Express](https://expressjs.com/)
+* Deploying to Heroku
+* [Lab - Building API Endpoints with Express](/teaching/2018/labs/node1)
 
 ### (2/27) Week 7 - Midterm
 
