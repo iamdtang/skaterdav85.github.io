@@ -9,6 +9,8 @@ layout: default
 *   [Syllabus](http://web-app.usc.edu/soc/syllabus/20181/32074.pdf)
 *   [TA: Andrew Maney](mailto:amaney@usc.edu)
 
+__[Final Project Requirements (due 4/29 at midnight)](/teaching/2018/final-project)__
+
 ### (3/6) Week 8 - Introduction to Node.js
 
 * [Installing Node Version Manager (nvm)](https://github.com/creationix/nvm)
