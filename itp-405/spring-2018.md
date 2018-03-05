@@ -12,8 +12,12 @@ layout: default
 ### (3/6) Week 8 - Introduction to Node.js
 
 * [Installing Node Version Manager (nvm)](https://github.com/creationix/nvm)
-* Asynchronous programming with callback functions
+* JavaScript Fundamentals
+  * Defining functions
+  * Callback functions
+  * Asynchronous programming
 * [Node Package Manager (npm)](https://www.npmjs.com/)
+  * [Knex](https://www.npmjs.com/package/knex)
 * Building your first API with [Express](https://expressjs.com/)
 
 ### (2/27) Week 7 - Midterm
