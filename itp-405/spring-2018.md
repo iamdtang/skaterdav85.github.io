@@ -31,12 +31,12 @@ The midterm will be an in-class practical where you will build a small web app i
 *   [Many to Many Relationships with Eloquent](https://laravel.com/docs/5.6/eloquent-relationships#many-to-many)
 *   [Middleware](https://laravel.com/docs/5.6/middleware)
 *   [Authentication](https://laravel.com/docs/5.6/authentication)
-*   [Assignment: Middleware and Authentication (due 2/27)](/assignments/middleware-and-authentication)
+*   [Assignment: Middleware and Authentication (due 2/27)](/teaching/2018/assignments/middleware-and-authentication)
 
 ### (2/13) Week 5 - Object Relational Mapping with Eloquent
 
 *   [Eloquent](https://laravel.com/docs/5.6/eloquent)
-*   [Assignment: Laravel 3 (due 2/20)](/assignments/laravel3)
+*   [Assignment: Laravel 3 (due 2/20)](/teaching/2018/assignments/laravel3)
 
 ### (2/6) Week 4 - Blade Layouts, Creating Records, Flash Messages, and Data Validation
 
@@ -45,11 +45,11 @@ The midterm will be an in-class practical where you will build a small web app i
 *   [Retrieving Old Input](https://laravel.com/docs/5.5/requests#old-input)
 *   [Data Validation](https://laravel.com/docs/5.5/validation#manually-creating-validators)
 *   [CSRF](https://laravel.com/docs/5.5/csrf)
-*   [Assignment: Laravel 2 (due 2/13)](/assignments/laravel2)
+*   [Assignment: Laravel 2 (due 2/13)](/teaching/2018/assignments/laravel2)
 
 ### (1/29) Week 3 - Introduction to MVC and Laravel
 
-*   [Assignment: Laravel 1 (due 2/6)](/assignments/laravel1)
+*   [Assignment: Laravel 1 (due 2/6)](/teaching/2018/assignments/laravel1)
 
 ### (1/22) Week 2 - Object Oriented PHP
 
@@ -60,4 +60,4 @@ The midterm will be an in-class practical where you will build a small web app i
 
 *   [Sample SQLite database](http://www.sqlitetutorial.net/sqlite-sample-database/)
 *   [SQLite Cheatsheet](/tutorials/sqlite)
-*   [Assignment: PDO (due 1/23)](/assignments/pdo)
+*   [Assignment: PDO (due 1/23)](/teaching/2018/assignments/pdo)

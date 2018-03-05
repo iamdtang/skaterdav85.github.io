@@ -12,6 +12,3 @@ collections:
   tutorials:
     output: true
     permalink: /:collection/:title
-  assignments:
-    output: true
-    permalink: /:collection/:title
