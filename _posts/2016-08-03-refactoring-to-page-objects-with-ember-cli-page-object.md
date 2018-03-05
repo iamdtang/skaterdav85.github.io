@@ -110,7 +110,7 @@ test('typing into the search box filters the list of contacts', function(assert)
 
 // Before
 test('it renders the contact', function(assert) {
-  this.render(hbs`{{contact-details contact=contact}}`);
+  {% raw %}this.render(hbs`{{contact-details contact=contact}}`);{% endraw %}
   assert.equal(this.$('h3').text().trim(), 'Dwayne Johnson');
   assert.equal(this.$('[data-test="details"]').length, 0);
   this.$('h3').click();
@@ -122,7 +122,7 @@ test('it renders the contact', function(assert) {
 
 // After
 test('it renders the contact', function(assert) {
-  page.render(hbs`{{contact-details contact=contact}}`);
+  {% raw %}page.render(hbs`{{contact-details contact=contact}}`);{% endraw %}
   assert.equal(page.contacts(0).fullName, 'Dwayne Johnson');
   assert.ok(page.contacts(0).detailsHidden);
   page.contacts(0).clickOnName();

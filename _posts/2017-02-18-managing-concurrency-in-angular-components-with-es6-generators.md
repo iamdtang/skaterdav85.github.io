@@ -24,10 +24,10 @@ app.component('asyncButton', {
     default: '@'
   },
   template: `
-    <button ng-click="$ctrl.handleAction()">
+    {% raw %}<button ng-click="$ctrl.handleAction()">
       <span ng-if="$ctrl.isRunning">{{$ctrl.pending}}</span>
       <span ng-if="!$ctrl.isRunning">{{$ctrl.default}}</span>
-    </button>
+    </button>{% endraw %}
   `,
   controller: function() {
     this.handleAction = function() {
@@ -87,10 +87,10 @@ app.component('asyncButton', {
     default: '@'
   },
   template: `
-    <button ng-click="$ctrl.handleAction()">
+    {% raw %}<button ng-click="$ctrl.handleAction()">
       <span ng-if="$ctrl.isRunning">{{$ctrl.pending}}</span>
       <span ng-if="!$ctrl.isRunning">{{$ctrl.default}}</span>
-    </button>
+    </button>{% endraw %}
   `,
   controller: class AsyncButtonController extends ConcurrentController {
     constructor() {

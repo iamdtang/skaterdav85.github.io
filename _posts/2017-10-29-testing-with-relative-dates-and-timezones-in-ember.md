@@ -29,7 +29,7 @@ moduleForComponent('date-range-picker', 'Integration | Component | date range pi
 
 test('onchange is invoked with the "from" and "to" dates when Last 7 days is clicked', function(assert) {
   let handleChange = this.set('handleChange', sinon.spy());
-  this.render(hbs`{{date-range-picker onchange=handleChange}}`);
+  {% raw %}this.render(hbs`{{date-range-picker onchange=handleChange}}`);{% endraw %}
   click('#last-7-days');
   let [ from, to ] = handleChange.getCall(0).args;
   assert.equal(from, '2017-10-22');
@@ -93,7 +93,7 @@ Now let's say we want `onchange` invoked with the "from" and "to" dates as ISO 8
 // tests/integration/components/date-range-picker.js
 test('onchange is invoked with "from" and "to" as ISO 8601 strings in UTC when Last 7 days is clicked', function(assert) {
   let handleChange = this.set('handleChange', sinon.spy());
-  this.render(hbs`{{date-range-picker onchange=handleChange}}`);
+  {% raw %}this.render(hbs`{{date-range-picker onchange=handleChange}}`);{% endraw %}
   click('#last-7-days');
   let [ from, to ] = handleChange.getCall(0).args;
   assert.equal(from, '2017-10-22T07:00:00.000Z');

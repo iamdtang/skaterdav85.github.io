@@ -43,7 +43,7 @@ class Mouse extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
+      <div style={% raw %}{{ height: '100%' }}{% endraw %} onMouseMove={this.handleMouseMove}>
         {this.props.render(this.state)}
       </div>
     );
@@ -54,9 +54,7 @@ class Cat extends React.Component {
   render() {
     const mouse = this.props.mouse;
     return (
-      {% raw %}
-      <img src="/cat.jpg" style={{ position: 'absolute', left: mouse.x, top: mouse.y }} />
-      {% endraw %}
+      {% raw %}<img src="/cat.jpg" style={{ position: 'absolute', left: mouse.x, top: mouse.y }} />{% endraw %}
     );
   }
 }
