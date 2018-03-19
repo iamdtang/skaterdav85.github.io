@@ -148,4 +148,4 @@ class Checkbox extends React.Component {
 
 The use of contextual components can help encapsulate state and actions, which can result in a more concise API. Callers of `<CheckboxList />` can write less boilerplate when using this component and no longer have to know about internal actions and state like `CheckboxListItem.handleCheck` or `CheckboxListItem.isChecked`.
 
-When building components with contextual components, I often find it most useful to start with the public API that I want, and implement from there, only exposing the state and actions that are necessary for the caller. This helps ensure encapsulation and makes it easier to refactor in the future without breaking backwards compatibility.
+When building components with contextual components, I often find it most useful to start with the public API that I want, and implement from there, only exposing the state and actions that are necessary for the caller. This helps maintain encapsulation and can make it easier to refactor in the future without breaking backwards compatibility.
