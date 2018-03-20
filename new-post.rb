@@ -33,6 +33,8 @@ class BlogPost
       "title: #{@title}",
       "date: #{Date.today.strftime('%Y-%m-%d')}",
       'description: TBA',
+      'image: ',
+      'image_alt: ',
       "keywords: #{@keywords}",
       '---'
     ].join("\n")
