@@ -11,6 +11,13 @@ layout: default
 
 **[Final Project Requirements (due 4/29 at midnight)](/teaching/2018/final-project)**
 
+### (3/27) Week 11 - Working with APIs using OAuth 2 - Client Credentials
+
+* [OAuth 2 - Client Credentials Flow with Twitter](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only)
+* [dotenv](https://www.npmjs.com/package/dotenv)
+* [Register a Twitter App](https://apps.twitter.com/)
+* [Twitter API Reference](https://developer.twitter.com/en/docs/api-reference-index)
+
 ### (3/20) Week 10 - Promises & Object Relational Mapping
 
 * [Exercise - Promisify setTimeout](/teaching/2018/exercises/promisify-setTimeout)
