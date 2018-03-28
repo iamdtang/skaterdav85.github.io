@@ -2,10 +2,9 @@
 layout: post
 title:  "Jasmine vs. Mocha, Chai, and Sinon"
 date:   2015-01-12
+updated: 2016-01-02
 keywords: Jasmine unit testing, Jasmine vs. Mocha, Jasmine spies vs Sinon, JavaScript unit testing, Introduction to Sinon.js, Sinon Tutorial
 ---
-
-__This article was updated on 4/15/15 to reflect Jasmine 2.x and updated again on 1/2/16__
 
 Testing in JavaScript is becoming expected by developers more and more. But where do you start? There are so many framework choices out there. It can feel pretty overwhelming. This post is a quick overview of the differences between two popular JavaScript testing frameworks: [Jasmine 2](http://jasmine.github.io/) and [Mocha](https://mochajs.org/). We will also discuss commonly used libraries, [Chai](http://chaijs.com/) and [Sinon](http://sinonjs.org/), that are often used in conjunction with Jasmine and Mocha.
 

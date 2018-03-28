@@ -2,11 +2,10 @@
 layout: post
 title: Testing Ember Components With Both Unit and Integration Tests
 date: 2016-01-14
+updated: 2017-08-20
 description: In this post, we'll look at how integration tests can be used in conjunction with unit tests to effectively test different aspects of your Ember components.
 keywords: ember component, unit test, integration test, testing component computed properties, ember.js, emberJS, testing ember components, component unit tests, component computed properties
 ---
-
-__Updated on 8/20/2017__
 
 Since I last wrote this post, my thoughts on testing components with both unit and integration tests have changed, and I no longer recommend writing unit tests for components. Components are a lot like functions, where the inputs are the attributes and the output is DOM. That is more representative of the component's public API as opposed to the instance variables on the component. I think treating a few instance properties on a component as public API and writing assertions against that is fine and can be useful. The problem I've seen is when newer developers see these types of tests and aren't familiar with privacy and start testing every property on a component with a unit test. This makes it difficult to change the internals of a component without having to update several unit tests despite the component's behavior staying the same.
 

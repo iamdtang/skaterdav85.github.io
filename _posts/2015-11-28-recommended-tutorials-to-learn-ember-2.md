@@ -2,11 +2,12 @@
 layout: post
 title:  "Recommended Tutorials to Learn Ember 2"
 date:   2015-11-27
+updated: 2016-08-12
 description: For those who want to start learning Ember 2, here is a list of my recommendations for the best places to learn Ember.
 keywords: Ember 2 tutorial, how to learn Ember, Ember books, Ember courses, Ember tutorials, learning Ember, Ember 2, tutorial, Ember training, Ember tuts, learn Ember, EmberJS, Ember.js, Best places to learn Ember
 ---
 
-__Updated on 8/12/2016:__ For those who want to start learning Ember 2, here is a list of my recommendations for the best places to learn Ember.
+For those who want to start learning Ember 2, here is a list of my recommendations for the best places to learn Ember.
 
 ## 1. CodeSchool - Try Ember (paid)
 
