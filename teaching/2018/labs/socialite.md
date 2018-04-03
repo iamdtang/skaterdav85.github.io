@@ -4,7 +4,7 @@ title: Socialite
 date: 2018-04-02
 ---
 
-Revisit your Laravel application and implement Socialite using one of the supported providers that we didn't cover in class.
+Revisit your Laravel application and implement Socialite using one of the supported providers that we didn't cover in class. Your application should be able to login via another provider, similar to the example we did in class.
 
 ## Submission
 
