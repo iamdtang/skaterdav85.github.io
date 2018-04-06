@@ -108,19 +108,19 @@ export default RESTSerializer.extend({
     return this._super(...arguments);
   },
   extractMeta(store, modelClass, payload) {
-    let { totalItems } = payload;
-    payload.meta = { totalItems };
-    delete payload.totalItems;
+    let { total } = payload;
+    payload.meta = { total };
+    delete payload.total;
     return this._super(...arguments);
   }
 });
 ```
 
-Here we are normalizing the payload to fit the `DS.RESTSerializer` format, which involves changing the `items` key to `post`. The normalized payload gets passed into `extractMeta`, which still has `totalItems`. We can then assign `totalItems` as a property in a `meta` object.
+Here we are normalizing the payload to fit the `DS.RESTSerializer` format, which involves changing the `items` key to `post`. The normalized payload gets passed into `extractMeta`, which still has `total`. We can then assign `total` as a property in a `meta` object.
 
 That's it! Now the result of `store.query()` has a `meta` property. 🙌
 
-In closing, although we could have used either `DS.JSONSerializer` or `DS.RESTSerializer` to normalize this payload, `DS.RESTSerializer` allowed for extracting metadata. This might be one thing to consider when working with a custom API and deciding on which serializer to extend.
+In closing, although we could have used either `DS.JSONSerializer` or `DS.RESTSerializer` to normalize this payload, `DS.RESTSerializer` allows for extracting metadata off of collection responses. This might be one thing to consider when working with a custom API and deciding on which serializer to extend.
 
 [Here is the code from this post.](https://github.com/skaterdav85/extracting-metadata-in-ember-data)
 
