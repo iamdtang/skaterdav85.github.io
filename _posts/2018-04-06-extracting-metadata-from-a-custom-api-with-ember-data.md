@@ -121,3 +121,7 @@ Here we are normalizing the payload to fit the `DS.RESTSerializer` format, which
 That's it! Now the result of `store.query()` has a `meta` property. 🙌
 
 In closing, although we could have used either `DS.JSONSerializer` or `DS.RESTSerializer` to normalize this payload, `DS.RESTSerializer` allowed for extracting metadata. This might be one thing to consider when working with a custom API and deciding on which serializer to extend.
+
+[Here is the code from this post.](https://github.com/skaterdav85/extracting-metadata-in-ember-data)
+
+{% include promo.html %}
