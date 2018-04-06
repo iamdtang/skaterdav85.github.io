@@ -59,7 +59,7 @@ import DS from 'ember-data';
 const { JSONSerializer } = DS;
 
 export default JSONSerializer.extend({
-  normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
+  normalizeQueryResponse(store, primaryModelClass, payload, id, requestType) {
     return this._super(store, primaryModelClass, payload.items, id, requestType);
   }
 });
@@ -73,7 +73,7 @@ import DS from 'ember-data';
 const { JSONSerializer } = DS;
 
 export default JSONSerializer.extend({
-  normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
+  normalizeQueryResponse(store, primaryModelClass, payload, id, requestType) {
     return this._super(store, primaryModelClass, payload.items, id, requestType);
   },
   extractMeta(store, modelClass, payload) {
@@ -92,7 +92,7 @@ Unfortunately, the payload logged to the console in `extractMeta()` was the foll
 ]
 ```
 
-No sight of that `total` property. It turns out, `extractMeta()` gets called after `normalizeArrayResponse()`, so `payload` in `extractMeta` isn't the original payload; it is the normalized one. If we think about it, the expected format of `DS.JSONSerializer` for a collection of resources doesn't even allow for a `meta` object, as the expected response is an array of objects, so why is this method even present on this class? Good question! If you know the answer, please let me know in the comments 😃.
+No sight of that `total` property. It turns out, `extractMeta()` gets called after `normalizeQueryResponse()`, so `payload` in `extractMeta` isn't the original payload; it is the normalized one. If we think about it, the expected format of `DS.JSONSerializer` for a collection of resources doesn't even allow for a `meta` object, as the expected response is an array of objects, so why is this method even present on this class? Good question! If you know the answer, please let me know in the comments 😃.
 
 So how can we make this work? Instead of extending `DS.JSONSerializer`, we can extend the `DS.RESTSerializer`:
 
@@ -102,7 +102,7 @@ import DS from 'ember-data';
 const { RESTSerializer } = DS;
 
 export default RESTSerializer.extend({
-  normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
+  normalizeQueryResponse(store, primaryModelClass, payload, id, requestType) {
     payload[primaryModelClass.modelName] = payload.items;
     delete payload.items;
     return this._super(...arguments);
