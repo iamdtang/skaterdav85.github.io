@@ -92,9 +92,9 @@ Unfortunately, the payload logged to the console in `extractMeta()` was the foll
 ]
 ```
 
-No sight of that `total` property. It turns out, `extractMeta()` gets called after `normalizeArrayResponse()`, so `payload` in `extractMeta` isn't the original payload; it is the normalized one.
+No sight of that `total` property. It turns out, `extractMeta()` gets called after `normalizeArrayResponse()`, so `payload` in `extractMeta` isn't the original payload; it is the normalized one. If we think about it, the expected format of `DS.JSONSerializer` for a collection of resources doesn't even allow for a `meta` object, as the expected response is an array of objects, so why is this method even present on this class? Good question! If you know the answer, please let me know in the comments 😃.
 
-So how can we make this work? Instead, we can use the `DS.RESTSerializer`:
+So how can we make this work? Instead of extending `DS.JSONSerializer`, we can extend the `DS.RESTSerializer`:
 
 ```js
 import DS from 'ember-data';
@@ -125,3 +125,5 @@ In closing, although we could have used either `DS.JSONSerializer` or `DS.RESTSe
 [Here is the code from this post.](https://github.com/skaterdav85/extracting-metadata-in-ember-data)
 
 {% include promo.html %}
+
+Comments for this post can be found [on this GitHub issue.](https://github.com/skaterdav85/extracting-metadata-in-ember-data/issues/1)
