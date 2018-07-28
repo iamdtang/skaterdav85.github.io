@@ -30,12 +30,13 @@ We might think to try:
 postChangeset.get('tags').pushObject(tag);
 ```
 
-But this approach has some subtle issues. The issue here is that the changeset won't track the changes to the `tags` relationship because we are modifying the `hasMany` reference directly. Thus, changeset properties like `change`, `isInvalid`, and others might not work the way as expected.
+But this approach has some subtle issues. The issue here is that the changeset won't track the changes to the `tags` relationship because we are modifying the `hasMany` reference directly. Thus, changeset properties like `change`, `isInvalid`, and others won't work the way we expect.
 
 Here has been my solution:
 
 ```js
 // app/utils/ember-changeset.js
+
 export function addToHasMany(changeset, relationship, item) {
   let hasMany = changeset.get(relationship).pushObjects([item]);
   changeset.set(relationship, hasMany.toArray());
@@ -47,8 +48,8 @@ export function removeFromHasMany(changeset, relationship, item) {
 }
 ```
 
-I've used the previous approach but then call `changeset.set()` with a new array reference. Note that `pushObjects` was used instead of `pushObject`. This is because `pushObjects` returns the array reference whereas `pushObject` returns the same object that was passed to it as a param.
+I've used the previous approach but then call `changeset.set()` with a new array reference created by calling `toArray()`.
 
-
+Note that `pushObjects` was used instead of `pushObject`. This is because `pushObjects` returns the array reference whereas `pushObject` returns the same object that was passed to it as a param.
 
 Have you dealt with tracking `hasMany` relationship changes differently? Let me know on [Twitter](https://twitter.com/iamdtang)!
