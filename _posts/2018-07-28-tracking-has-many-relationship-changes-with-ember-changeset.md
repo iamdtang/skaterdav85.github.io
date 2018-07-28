@@ -48,7 +48,14 @@ export function removeFromHasMany(changeset, relationship, item) {
 }
 ```
 
-I've used the previous approach but then call `changeset.set()` with a new array reference created by calling `toArray()`.
+In an action, we can do:
+
+```js
+addToHasMany(changeset, 'tags', tag);
+removeFromHasMany(changeset, 'tags', tag);
+```
+
+These utility functions do what we did before but then calls `changeset.set()` with a new array reference created by calling `toArray()`.
 
 Note that `pushObjects` was used instead of `pushObject`. This is because `pushObjects` returns the array reference whereas `pushObject` returns the same object that was passed to it as a param.
 
