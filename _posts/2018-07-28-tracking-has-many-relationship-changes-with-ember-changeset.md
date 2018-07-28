@@ -48,17 +48,17 @@ export function removeFromHasMany(changeset, relationship, item) {
 }
 ```
 
-In an action, we can do:
+Then, we can do the following in an action:
 
 ```js
 addToHasMany(changeset, 'tags', tag);
 removeFromHasMany(changeset, 'tags', tag);
 ```
 
-These utility functions do what we did before but then calls `changeset.set()` with a new array reference created by calling `toArray()`.
+These utility functions do what we did before but then call `changeset.set()` with a new array reference via `toArray()`.
 
 Note that `pushObjects` was used instead of `pushObject`. This is because `pushObjects` returns the array reference whereas `pushObject` returns the same object that was passed to it as a param.
 
-Another thing to note about this solution is that it won't tell you what items have been added and what items have been removed from the relationship.
+Another thing to note about this solution is that the changeset won't keep track of which items have been added and which items have been removed from the relationship. Personally I haven't needed that level of detail in the forms I've been building.
 
 Have you dealt with tracking `hasMany` relationship changes differently? Let me know on [Twitter](https://twitter.com/iamdtang)!
