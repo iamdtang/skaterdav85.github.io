@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tracking hasMany Relationship Changes With ember-changeset
+title: Tracking hasMany Relationship Changes with ember-changeset
 date: 2018-07-28
 description: This post covers how I handled tracking hasMany relationship changes with ember-changeset.
 image: tracking-has-many-relationship-changes-with-ember-changeset.png
