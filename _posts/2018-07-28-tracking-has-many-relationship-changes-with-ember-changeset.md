@@ -12,7 +12,7 @@ I've been using [ember-changeset](https://github.com/poteto/ember-changeset) at 
 
 This post is based on version 1.3.0 of [ember-changeset](https://github.com/poteto/ember-changeset), [which I believe is the most stable version at the time of this writing](https://github.com/poteto/ember-changeset/issues/299).
 
-Let's say we have a form where we are applying tags to a post. If we look at the [README](https://github.com/poteto/ember-changeset) or [the example demo](https://ember-twiddle.com/e5eaa7bee6ed76257f5a62e618c315e8?fileTreeShown=false&openFiles=templates.application.hbs,), there aren't examples of tracking `hasMany` relationship changes. If we are doing this without a changeset, we might do something like:
+Let's say we have a form where we are applying tags to a post. If we look at the [README](https://github.com/poteto/ember-changeset) or [the example demo](https://ember-twiddle.com/e5eaa7bee6ed76257f5a62e618c315e8?fileTreeShown=false&openFiles=templates.application.hbs,), there aren't examples of tracking `hasMany` relationship changes. If we are doing this without a changeset, we might do something like the following, as suggested in the Ember Guides.
 
 ```js
 post.get('tags').pushObject(tag);
