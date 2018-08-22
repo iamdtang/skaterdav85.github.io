@@ -16,7 +16,7 @@ To get data for the "javascript" subreddit, swap `{subreddit}` with "javascript"
 
 At the top of the page, create a form with a single search input and a submit button. When the user submits the form, fire off an Ajax request (using jQuery, `fetch`, or `XMLHttpRequest`)  to get all the threads for the subreddit that was typed into the search box.
 
-Note: Bind to the submit event on the form element instead of binding a click event to the button.
+Note: Bind to the submit event on the form element instead of binding to the click event on the button.
 
 ## Rendering the Results
 
