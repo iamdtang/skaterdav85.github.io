@@ -4,7 +4,7 @@ title: Ajax
 date: 2018-08-28
 ---
 
-In this assignment, you will interact with the Reddit API using Ajax. The Reddit API endpoint you'll be working with looks like this:
+In this assignment, you will create a search and results page using Ajax and the Reddit API. The Reddit API endpoint you'll be working with looks like this:
 
 `https://www.reddit.com/r/{subreddit}.json`
 
@@ -12,13 +12,15 @@ To get data for the "javascript" subreddit, swap `{subreddit}` with "javascript"
 
 [https://www.reddit.com/r/javascript.json](https://www.reddit.com/r/javascript.json)
 
-## The Ajax Request
+## The Search Form
 
-Write a function named `fetchPostsForSubreddit(subreddit)`. This function will receive a subreddit name as the only parameter, and will make an Ajax request to the Reddit API for the passed in subreddit. This function can either uses jQuery's Ajax functions, `fetch`, or `XMLHttpRequest`.
+At the top of the page, create a form with a single search input and a submit button. When the user submits the form, fire off an Ajax request (using jQuery, `fetch`, or `XMLHttpRequest`)  to get all the threads for the subreddit that was typed into the search box.
 
-## Rendering
+Note: Bind to the submit event on the form element instead of binding a click event to the button.
 
-When the Ajax request comes back successfully, render an unordered list of all the post titles. Each post can be found in `data.children`. Render the following attributes: `title`, `score`, and `author`.
+## Rendering the Results
+
+When the Ajax request responds successfully, render the `title`, `score`, and `author` of each post. Each post can be found in `data.children`.
 
 ## A Loading Spinner
 
