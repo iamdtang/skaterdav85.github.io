@@ -56,7 +56,7 @@ export default function(context, toastrType, expectedToastrMessage) {
 }
 ```
 
-A `context` object is always injected as the first argument.
+This file should export a default function. This function will receive the arguments from when the assertion is invoked starting with the second argument, as a `context` object is always injected as the first argument. In this example, `toastrType` will be "info" and `expectedToastrMessage` will be "Your settings will take effect within 5 minutes.".
 
 [`this.pushResult`](https://api.qunitjs.com/assert/pushResult) is an API in QUnit to report the result of a custom assertion.
 
