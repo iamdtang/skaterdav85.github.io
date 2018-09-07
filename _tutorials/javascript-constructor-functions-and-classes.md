@@ -159,7 +159,7 @@ Cat.prototype.meow = function() {
 };
 ```
 
-You're probably reading this and thinking "what the ...". Yes, it is a little clunky. Thankfully, ES6 / ES 2015 classes make this much much cleaner:
+If you've used classes in other languages before, you're probably reading this and thinking "what the ...". Yes, it is a little clunky. Thankfully, ES6 / ES2015 classes make this much much cleaner:
 
 ```js
 class Animal {
