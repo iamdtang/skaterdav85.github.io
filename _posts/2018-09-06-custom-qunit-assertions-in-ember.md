@@ -3,7 +3,7 @@ layout: post
 title: Custom QUnit Assertions in Ember
 date: 2018-09-06
 description: This post covers creating custom QUnit assertions in Ember.
-image: custom-assertions.png
+image: custom-assertions-600x335.png
 image_alt: Screenshot of a test with a custom QUnit assertion
 keywords: ember, qunit, custom assertion, testing, multiple assertions, test
 ---
