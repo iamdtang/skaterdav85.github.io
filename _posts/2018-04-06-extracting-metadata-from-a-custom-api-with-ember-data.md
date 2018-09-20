@@ -2,10 +2,11 @@
 layout: post
 title: Extracting Metadata from a Custom API with Ember Data
 date: 2018-04-06
-description: In this post, we'll cover how to extract metadata from a customer API with Ember Data.
+updated: 2018-09-20
+description: This post covers how to extract metadata from a custom API with Ember Data.
 image: extracting-metadata-with-ember-data.png
 image_alt: screenshot of code from this blog post
-keywords: ember data, metadata, meta, ember, custom, API, backend, non-standard
+keywords: ember data, metadata, meta, ember, custom, API, backend, non-standard, extractMeta
 ---
 
 When querying an API, sometimes metadata is returned such as pagination information. For example:
@@ -49,9 +50,9 @@ Great, but what if our API isn't structured like above? Let's say we have someth
 }
 ```
 
-This response doesn't fit any of the expected serializer formats, but it can easily be normalized into either the `DS.JSONSerializer` or `DS.RESTSerializer` format. If you're not familiar with the different Ember Data serializer formats, check out my other post, [Which Ember Data Serializer Should I Use?](/2015/12/05/which-ember-data-serializer-should-i-use.html).
+This response doesn't match what any of the built-in serializers expect. If you're not familiar with the different Ember Data serializers, check out my other post, [Which Ember Data Serializer Should I Use?](/2015/12/05/which-ember-data-serializer-should-i-use.html).
 
-Let's try normalizing this response for `DS.JSONSerializer`:
+Let's try normalizing this response for `JSONSerializer`:
 
 ```js
 import DS from 'ember-data';
@@ -59,13 +60,13 @@ import DS from 'ember-data';
 const { JSONSerializer } = DS;
 
 export default JSONSerializer.extend({
-  normalizeQueryResponse(store, primaryModelClass, payload, id, requestType) {
-    return this._super(store, primaryModelClass, payload.items, id, requestType);
+  normalizeQueryResponse(store, ModelClass, payload, id, requestName) {
+    return this._super(store, ModelClass, payload.items, id, requestName);
   }
 });
 ```
 
-Cool, that works. Next, let's extract the metadata. Looking at the API documentation for `DS.JSONSerializer`, my first thought was to use the [`extractMeta(store, modelClass, payload)`](https://www.emberjs.com/api/ember-data/3.0/classes/DS.JSONSerializer/methods/extractMeta?anchor=extractMeta) method. I tried something like this:
+Cool, that works. Next, let's extract the metadata. Looking at the API documentation for `JSONSerializer`, my first thought was to use the [`extractMeta(store, ModelClass, payload)`](https://www.emberjs.com/api/ember-data/3.0/classes/JSONSerializer/methods/extractMeta?anchor=extractMeta) method. I tried something like this:
 
 ```js
 import DS from 'ember-data';
@@ -73,16 +74,16 @@ import DS from 'ember-data';
 const { JSONSerializer } = DS;
 
 export default JSONSerializer.extend({
-  normalizeQueryResponse(store, primaryModelClass, payload, id, requestType) {
-    return this._super(store, primaryModelClass, payload.items, id, requestType);
+  normalizeQueryResponse(store, ModelClass, payload, id, requestName) {
+    return this._super(store, ModelClass, payload.items, id, requestName);
   },
-  extractMeta(store, modelClass, payload) {
+  extractMeta(store, ModelClass, payload) {
     console.log('payload', payload);
   }
 });
 ```
 
-Unfortunately, the payload logged to the console in `extractMeta()` was the following:
+Unfortunately, the payload logged to the console in `extractMeta` was the following:
 
 ```js
 [
@@ -92,9 +93,9 @@ Unfortunately, the payload logged to the console in `extractMeta()` was the foll
 ]
 ```
 
-No sight of that `total` property. It turns out, `extractMeta()` gets called after `normalizeQueryResponse()`, so `payload` in `extractMeta` isn't the original payload; it is the normalized one. If we think about it, the expected format of `DS.JSONSerializer` for a collection of resources doesn't even allow for a `meta` object, as the expected response is an array of objects. You may be asking, why is this method even present on this class? Good question! If you know the answer, please let me know in the comments 😃.
+No sight of that `total` property. It turns out, `extractMeta()` gets called after `normalizeQueryResponse()`, so `payload` in `extractMeta` isn't the original payload; it is the normalized one. If we think about it, `JSONSerializer` expects an array of resources and doesn't allow for a `meta` object in the payload. You may be asking, why is this method even present on this class? Good question! If you know the answer, please let me know in the comments 😃. (See the end of this post for an update.)
 
-So how can we make this work? Instead of extending `DS.JSONSerializer`, we can extend `DS.RESTSerializer`:
+So how can we make this work? Instead of extending `JSONSerializer`, we can extend `RESTSerializer`:
 
 ```js
 import DS from 'ember-data';
@@ -102,12 +103,12 @@ import DS from 'ember-data';
 const { RESTSerializer } = DS;
 
 export default RESTSerializer.extend({
-  normalizeQueryResponse(store, primaryModelClass, payload, id, requestType) {
-    payload[primaryModelClass.modelName] = payload.items;
+  normalizeQueryResponse(store, ModelClass, payload, id, requestName) {
+    payload[ModelClass.modelName] = payload.items;
     delete payload.items;
     return this._super(...arguments);
   },
-  extractMeta(store, modelClass, payload) {
+  extractMeta(store, ModelClass, payload) {
     let { total } = payload;
     payload.meta = { total };
     delete payload.total;
@@ -116,13 +117,40 @@ export default RESTSerializer.extend({
 });
 ```
 
-Here we are normalizing the payload to fit the `DS.RESTSerializer` format, which involves changing the `items` key to `post`. The normalized payload gets passed into `extractMeta`, which still has `total`. We can then assign `total` as a property in a `meta` object.
+Here we are normalizing the payload to match what `RESTSerializer` expects, which involves changing the `items` key to `post`. The normalized payload gets passed into `extractMeta`, which still has `total`. We can then assign `total` as a property in a `meta` object.
 
 That's it! Now the result of `store.query()` has a `meta` property. 🙌
 
-In closing, although we could have used either `DS.JSONSerializer` or `DS.RESTSerializer` to normalize this payload, `DS.RESTSerializer` allows for extracting metadata off of collection responses. This might be one thing to consider when working with a custom API and deciding on which serializer to extend.
+In closing, although we could have used either `JSONSerializer` or `RESTSerializer` to normalize this payload, `RESTSerializer` allows for extracting metadata off of collection responses. This might be one thing to consider when working with a custom API and deciding on which serializer to extend.
 
 [Here is the code from this post.](https://github.com/skaterdav85/extracting-metadata-in-ember-data)
+
+## UPDATE {{page.updated | date: "%B %e, %Y"}}
+
+After talking with [@Runspired](https://twitter.com/Runspired), it turns out you can use `JSONSerializer` to extract metadata.
+
+```js
+import DS from 'ember-data';
+
+const { JSONSerializer } = DS;
+
+export default JSONSerializer.extend({
+  normalizeQueryResponse(store, ModelClass, payload, id, requestName) {
+    let normalized = this._super(store, ModelClass, payload.items, id, requestName);
+    normalized.meta = this.extractMeta(store, ModelClass, payload);
+    return normalized;
+  },
+  extractMeta(store, ModelClass, payload) {
+    let meta = {
+      total: payload.total
+    };
+
+    return meta;
+  }
+});
+```
+
+In this implementation with `JSONSerializer`, the payload is first normalized into JSON:API since Ember Data uses that internally. Then, we can call `extractMeta` ourselves with the raw payload and assign the result as the `meta` property on the normalized payload.
 
 {% include promo.html %}
 
