@@ -125,7 +125,7 @@ In closing, although we could have used either `JSONSerializer` or `RESTSerializ
 
 [Here is the code from this post.](https://github.com/skaterdav85/extracting-metadata-in-ember-data)
 
-## UPDATE {{page.updated | date: "%B %e, %Y"}}
+## UPDATE - {{page.updated | date: "%B %e, %Y"}}
 
 After talking with [@Runspired](https://twitter.com/Runspired), it turns out you can use `JSONSerializer` to extract metadata.
 
