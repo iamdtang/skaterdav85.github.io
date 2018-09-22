@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "name": "Crossroads",
+      "location": "West Hollywood",
+      "ownedBy": ["Travis Barker", "Tal Ronnen"],
+      "yelpPage": "https://www.yelp.com/biz/crossroads-los-angeles-3",
+      "acceptsApplePay": false
+    },
+    {
+      "name": "Little Pine",
+      "location": "Silverlake",
+      "ownedBy": ["Moby"],
+      "yelpPage": "https://www.yelp.com/biz/little-pine-los-angeles-2",
+      "acceptsApplePay": true
+    }
+  ]
+}
