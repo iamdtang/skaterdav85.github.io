@@ -46,7 +46,7 @@ To get started, you will need to [create an API key](https://developers.google.c
 </html>
 ```
 
-Replace `YOUR_API_KEY` with your API key.
+Replace `YOUR_API_KEY` with your API key. Note, the API key isn't required, but you will be rate limited.
 
 The first thing you'll notice is that a map is created using the [`Map` constructor function](https://developers.google.com/maps/documentation/javascript/reference#Map) under the `google.maps` namespace. The first argument is an element on the page for where the map will be placed, and the second argument is an object containing some configuration options.
 
