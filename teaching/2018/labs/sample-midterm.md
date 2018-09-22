@@ -23,8 +23,8 @@ export default function() {
   this.namespace = 'api';
 
   let profile = {
-    name: 'Ed Winters',
-    instagram: 'earthinged'
+    name: 'Crossroads',
+    instagram: 'crossroadskitchen'
   };
 
   this.get('/profile', () => {
