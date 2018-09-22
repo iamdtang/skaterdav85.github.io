@@ -14,43 +14,30 @@ Push this code up to a repo named `itp404-lab2-part1`.
 
 ## Ember.js
 
-Create a new Ember app and install [`ember-cli-mirage`](http://www.ember-cli-mirage.com/docs/v0.4.x/). Next, replace the contents of `mirage/config.js` with the following:
+Create a new Ember app and install [`ember-cli-mirage`](http://www.ember-cli-mirage.com/docs/v0.4.x/).
 
-```js
-import { Response } from 'ember-cli-mirage';
+Build a mock REST API with Mirage for a `user` resource for the following operations:
 
-export default function() {
-  this.namespace = 'api';
+* listing users
+* viewing a single user's details
+* creating a user
+* deleting a user
+* editing a user
 
-  let profile = {
-    name: 'Crossroads',
-    instagram: 'crossroadskitchen'
-  };
+Use a Mirage factory and create randomized values for the following attributes using faker.js:
 
-  this.get('/profile', () => {
-    return new Response(200, {}, profile);
-  });
+* `firstName`
+* `lastName`
+* `jobTitle`
+* `phoneNumber`
 
-  this.patch('/profile', (schema, request) => {
-    let body = request.requestBody.split('&').reduce((hash, pair) => {
-      let [ key, value ] = pair.split('=');
-      hash[key] = value;
-      return hash;
-    }, {});
+Next, create pages with unique routes for listing all users, viewing more details about a user, deleting a user, creating a user, and editing a user.
 
-    Object.assign(profile, body);
-    return new Response(200, {}, profile);
-  });
-}
-```
+The user list page should only show `firstName` and `lastName`. The user details pages should show all attributes.
 
-You don't have to look at this in much detail. Just know that this creates 2 API endpoints: `GET /api/profile` and `PATCH /api/profile`.
+After saving successfully on the create page, transition to the user details page for the user that was just created.
 
-Next, create a route named `profile`. This page should display all attributes from `GET /api/profile`. On this page, display a link that says "Edit Profile". Clicking this link should take users to a nested route named `profile.edit`.
-
-The `profile.edit` page should display a form populated with the profile data. There should be text fields for `name` and `instagram`. When the form is submitted, make the Ajax request `PATCH /api/profile`. On success, transition back to the `profile` route where we can the updated profile. There should be no page refreshes.
-
-Make sure that when the user navigates to the `profile.edit` page, the template from the `profile` route doesn't change as the user fills out the form. It should only update when the user saves the changes.
+After editing a user successfully on the edit page, transition back to that user's detail page.
 
 Push this code up to a repo named `itp404-lab2-part2`.
 
