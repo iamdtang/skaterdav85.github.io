@@ -4,7 +4,7 @@ title: Sample Midterm
 date: 2018-09-21
 ---
 
-### Client-side Templating
+## Client-side Templating
 
 Download the [starter files](/teaching/2018/labs/midterm-starter.zip).
 
@@ -12,7 +12,7 @@ Make an Ajax request to [this endpoint](https://thejsguy.com/teaching/2018/api/r
 
 Push this code up to a repo named `itp404-lab2-part1`.
 
-### Ember.js
+## Ember.js
 
 Create a new Ember app and install [`ember-cli-mirage`](http://www.ember-cli-mirage.com/docs/v0.4.x/). Next, replace the contents of `mirage/config.js` with the following:
 
