@@ -157,6 +157,6 @@ any attributes in `...attributes` that are present on the element will win out r
 </div>
 ```
 
-Personally, I have found myself just using them as the last thing on an element. Another thing to note is that `attributes` can only be used within an element position prefixed with `...`. `{% raw %}{{log attributes}}{% endraw %}` logs `undefined`.
+Personally, I have found myself only using `...attributes` as the last thing on an element. Another thing to note is that `attributes` can only be used within an element position prefixed with `...`. `{% raw %}{{log attributes}}{% endraw %}` logs `undefined`.
 
 [Here is the original blog post on Template-only Glimmer Components.](https://www.emberjs.com/blog/2018/04/13/ember-3-1-released.html#toc_introducing-optional-features-3-of-4)
