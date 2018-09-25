@@ -10,7 +10,7 @@ keywords: ember, component, angle bracket syntax, components, spreading HTML att
 
 ## Named Arguments (as of 3.1)
 
-In short, with Named Arguments, `{{title}}` becomes `@title` in the template of `{{my-header title=title}}`. This helps distinguish component arguments from component properties such as local component state and computed properties.
+In short, with Named Arguments, `{% raw %}{{title}}{% endraw %}` becomes `{% raw %}{{@title}}{% endraw %}` in the template of `{% raw %}{{my-header title=title}}{% endraw %}`. This helps distinguish component arguments from component properties such as local component state and computed properties.
 
 [Here is the original blog post on Named Arguments.](https://www.emberjs.com/blog/2018/04/13/ember-3-1-released.html#toc_named-arguments-1-of-4)
 
