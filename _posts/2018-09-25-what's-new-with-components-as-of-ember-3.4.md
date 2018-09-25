@@ -24,6 +24,8 @@ Prior to Ember 3.4, components were invoked using double curlies. For example:
 {% endraw %}
 ```
 
+or this in block form:
+
 ```hbs
 {% raw %}
 {{#characters-remaining max=36 value=name as |charactersRemaining|}}
@@ -39,6 +41,8 @@ Now with angle bracket invocation, we can do this:
 <CharactersRemaining @max={{36}} @value={{name}} />
 {% endraw %}
 ```
+
+or this in block form:
 
 ```hbs
 {% raw %}
@@ -69,7 +73,7 @@ If your app isn't on Ember 3.4 or above, you can install the [`ember-angle-brack
 
 ## Template-only Glimmer Components (as of 3.1)
 
-Template-only glimmer components are an optional feature that allows us to have components without a JavaScript file. This is great for those cases where we had components with an empty class definition. To get started, install the optional features addon:
+Template-only glimmer components are an optional feature that allow us to have components without a JavaScript file. This is great for those cases where we had components with an empty class definition. To get started, install the optional features addon:
 
 ```
 ember install @ember/optional-features
@@ -103,7 +107,7 @@ to this:
 {% endraw %}
 ```
 
-## `...attributes`
+## HTML Attribute Spreading with `...attributes`
 
 One of my favorite features of angle bracket invocation is being able to capture all HTML attributes and spread them over another element via `...attributes`. I have found this particularly useful with template-only Glimmer components. For example, let's say we created a template-only Glimmer component called `required-action-callout` with a template like this:
 
