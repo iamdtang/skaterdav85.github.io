@@ -16,7 +16,9 @@ In short, with Named Arguments, `{% raw %}{{title}}{% endraw %}` becomes `{% raw
 
 ## Angle Bracket Invocation (as of 3.4)
 
-Prior to Ember 3.4, components were invoked using double curlies. For example:
+Prior to Ember 3.4, components were invoked using double curlies. Now we can invoke them using angle bracket invocation.
+
+### Without a Block
 
 ```hbs
 {% raw %}
@@ -24,7 +26,15 @@ Prior to Ember 3.4, components were invoked using double curlies. For example:
 {% endraw %}
 ```
 
-or this in block form:
+becomes
+
+```hbs
+{% raw %}
+<CharactersRemaining @max={{36}} @value={{name}} />
+{% endraw %}
+```
+
+### With a Block
 
 ```hbs
 {% raw %}
@@ -34,15 +44,7 @@ or this in block form:
 {% endraw %}
 ```
 
-Now with angle bracket invocation, we can do this:
-
-```hbs
-{% raw %}
-<CharactersRemaining @max={{36}} @value={{name}} />
-{% endraw %}
-```
-
-or this in block form:
+becomes
 
 ```hbs
 {% raw %}
