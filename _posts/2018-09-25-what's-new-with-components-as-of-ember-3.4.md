@@ -18,7 +18,7 @@ In short, with Named Arguments, `{% raw %}{{title}}{% endraw %}` becomes `{% raw
 
 Prior to Ember 3.4, components were invoked using double curlies. Now we can invoke them using angle bracket invocation.
 
-### Without a Block
+### Non-Block Component
 
 ```hbs
 {% raw %}
@@ -34,7 +34,7 @@ becomes
 {% endraw %}
 ```
 
-### With a Block
+### Block Component
 
 ```hbs
 {% raw %}
