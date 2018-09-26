@@ -107,3 +107,8 @@ code.highlighter-rouge {
     color: #98C379;
   }
 }
+
+// remove spacing due to those raw/endraw Jekyll tags
+.language-hbs pre {
+  padding: 0 20px;
+}
