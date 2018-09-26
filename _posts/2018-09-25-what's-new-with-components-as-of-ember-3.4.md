@@ -65,7 +65,7 @@ Because component arguments are prefixed with `@`, any other attributes on the c
 
 The `data-test` attribute will automatically be set as an HTML data attribute on the component's element. No need for `attributeBindings` here!
 
-We can even use single world component names with angle bracket invocation! However, this doesn't work when generating a component via Ember CLI at the moment. We can get around this by generating a component with a hyphen and then renaming it to a single word.
+We can even use single word component names with angle bracket invocation! However, this doesn't work when generating a component via Ember CLI at the moment. We can get around this by generating a component with a hyphen and then renaming it to a single word.
 
 If your app isn't on Ember 3.4 or above, you can install the [`ember-angle-bracket-invocation-polyfill`](https://github.com/rwjblue/ember-angle-bracket-invocation-polyfill), which allows you to use angle bracket invocation all the way back to Ember 2.12.
 
