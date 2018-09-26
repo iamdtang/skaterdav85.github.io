@@ -20,9 +20,6 @@ Build a mock REST API with Mirage for a `user` resource for the following operat
 
 * listing users
 * viewing a single user's details
-* creating a user
-* deleting a user
-* editing a user
 
 Use a Mirage factory and create randomized values for the following attributes using faker.js:
 
@@ -31,22 +28,14 @@ Use a Mirage factory and create randomized values for the following attributes u
 * `jobTitle`
 * `phoneNumber`
 
-Next, build out the functionality for listing all users, viewing more details about a user, deleting a user, creating a user, and editing a user.
+Next, build out the functionality for listing all users and viewing more details about a user.
 
 The URLs for each page should be:
 
 * user list - /users
 * user details - /users/:id
-* create user - /users/new
-* edit user - /users/:id/edit
 
 The user list page should only show `firstName` and `lastName`. The user detail page should show all attributes for its users.
-
-After saving successfully on the create page, transition to the user details page for the user that was just created.
-
-After editing a user successfully on the edit page, transition back to that user's detail page.
-
-When deleting a user, add a confirmation prompt to make sure the user wants to continue with deleting using `window.confirm`.
 
 Push this code up to a repo named `itp404-lab2-part2`.
 
