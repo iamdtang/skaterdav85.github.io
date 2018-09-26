@@ -114,49 +114,61 @@ to this:
 One of my favorite features of angle bracket invocation is being able to capture all HTML attributes and spread them over another element via `...attributes`. I have found this particularly useful with template-only Glimmer components. For example, let's say we created a template-only Glimmer component called `required-action-callout` with a template like this:
 
 ```hbs
+{% raw %}
 <div class="alert alert-warning">
   ...
 </div>
+{% endraw %}
 ```
 
 We can invoke it as such:
 
 ```hbs
+{% raw %}
 <RequiredActionCallout class="mt-2" data-test="required-action-callout">
   ...
 </RequiredActionCallout>
+{% endraw %}
 ```
 
 In order for `div.alert.alert-warning` to get the class `mt-2` and the `data-test` attribute, we can modify our template as such:
 
 ```hbs
+{% raw %}
 <div class="alert alert-warning" ...attributes>
   ...
 </div>
+{% endraw %}
 ```
 
 The final result will be:
 
 ```hbs
+{% raw %}
 <div class="alert alert-warning mt-2" data-test="required-action-callout">
   ...
 </div>
+{% endraw %}
 ```
 
 If you put `...attributes` first, such as:
 
 ```hbs
+{% raw %}
 <div ...attributes class="alert alert-warning">
   ...
 </div>
+{% endraw %}
 ```
 
 any attributes in `...attributes` that are present on the element will win out resulting in:
 
 ```hbs
+{% raw %}
 <div class="mt-2" data-test="required-action-callout">
   ...
 </div>
+{% endraw %}
 ```
 
 Personally, I have found myself only using `...attributes` as the last thing on an element. Another thing to note is that `...attributes` can only be used within an element position. `{% raw %}{{log attributes}}{% endraw %}` logs `undefined`.
