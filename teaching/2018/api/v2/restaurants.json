@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "restaurants",
+      "attributes": {
+        "name": "Crossroads",
+        "city": "West Hollywood",
+        "owners": [
+          { "name": "Travis Barker" },
+          { "name": "Tal Ronnen" }
+        ],
+        "yelp": "https://www.yelp.com/biz/crossroads-los-angeles-3",
+        "caters": true,
+        "instagram": "crossroadskitchen"
+      }
+    },
+    {
+      "id": "2",
+      "type": "restaurants",
+      "attributes": {
+        "name": "Little Pine",
+        "city": "Silverlake",
+        "owners": [
+          { "name": "Moby" }
+        ],
+        "yelp": "https://www.yelp.com/biz/little-pine-los-angeles-2",
+        "caters": false,
+        "instagram": "littlepinerestaurant"
+      }
+    }
+  ]
+}
