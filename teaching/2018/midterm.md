@@ -39,7 +39,7 @@ Also add an `id` property as follows:
 
 ```js
 id() {
-  return faker.helpers.slugify(this.productName);
+  return faker.helpers.slugify(this.name);
 }
 ```
 
