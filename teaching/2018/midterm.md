@@ -26,7 +26,7 @@ Build a mock REST API with Mirage for a `product` resource for the following ope
 * listing all products
 * viewing a single product's details
 
-This API should have a namespace of `api/v1`.
+This API should have a namespace of `api/v1.0`.
 
 Use a Mirage factory and create randomized values for the following attributes using [faker.js](https://github.com/marak/Faker.js/).
 
@@ -35,26 +35,28 @@ Use a Mirage factory and create randomized values for the following attributes u
 * `color`: use `color` under `faker.commerce`
 * `material`: use `productMaterial` under `faker.commerce`
 
-Also add a `slug` property as follows:
+Also add an `id` property as follows:
 
 ```js
-slug() {
+id() {
   return faker.helpers.slugify(this.productName);
 }
 ```
 
-This will build a URL slug from `productName`. For example, if `productName` is "Incredible Soft Soap", `slug` would end up being `Incredible-Soft-Soap`.
+This will build a URL slug from `productName` for `id`. For example, if `productName` is "Incredible Soft Soap", `id` would end up being `Incredible-Soft-Soap`.
 
 Next, build out the functionality for listing all products and viewing more details about a product.
 
 The URLs for each page should be:
 
 * product list - /
-* product details - /products/:slug
+* product details - /products/:id
 
 The product list page should only show `name` and `price`. The product detail page should show `name`, `price`, `color`, and `material`.
 
-Lastly, add a simple header and footer that displays on all pages without duplicating code on every route template.
+Create an About page with something unique.
+
+Lastly, add a simple header, navigation, and footer that displays on all pages without duplicating code on every route template. The navigation should have links to the home page (the product list page) and the About page.
 
 ## Submission
 
