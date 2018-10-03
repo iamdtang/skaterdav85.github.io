@@ -54,7 +54,7 @@ The URLs for each page should be:
 
 The product list page should only show `name` and `price`. The product detail page should show `name`, `price`, `color`, and `material`.
 
-Create an About page with something unique.
+Create an About page with something unique. If you couldn't figure out anything in Part 2 of the midterm, explain yourself on the About page for partial credit.
 
 Lastly, add a simple header, navigation, and footer that displays on all pages without duplicating code on every route template. The navigation should have links to the home page (the product list page) and the About page.
 
