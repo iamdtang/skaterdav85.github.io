@@ -39,11 +39,11 @@ Also add an `id` property as follows:
 
 ```js
 id() {
-  return faker.helpers.slugify(this.productName);
+  return faker.helpers.slugify(this.name);
 }
 ```
 
-This will build a URL slug from `productName` for `id`. For example, if `productName` is "Incredible Soft Soap", `id` would end up being `Incredible-Soft-Soap`.
+This will build a URL slug from `name` for `id`. For example, if `name` is "Incredible Soft Soap", `id` would end up being `Incredible-Soft-Soap`.
 
 Next, build out the functionality for listing all products and viewing more details about a product.
 
