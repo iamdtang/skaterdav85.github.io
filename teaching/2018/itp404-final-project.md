@@ -11,13 +11,13 @@ For the final project, you will develop a single page application with Ember and
 * Use of Ember's loading and error substates. Change the `timing` property in Mirage to 1000 milliseconds so that I can easily see the loading states of your app.
 * Form validation
 * At least 1 reusable component
-* Each page has a unique title using [this addon](https://www.npmjs.com/package/ember-cli-document-title)
-* Use of at least 1 addon of your choice that isn't ember-cli-mirage, ember-cli-surge, or ember-cli-document-title
+* Each page has a unique title using [ember-cli-document-title](https://www.npmjs.com/package/ember-cli-document-title)
+* Use of at least 1 addon of your choice that isn't one of the ones listed in these requirements
 * 5 practical acceptance tests
 * 5 practical integration (component) tests
 * Cleanly formatted code. Don't just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), consistent spacing, and readable variable and function names.
 * Your project should be styled so that it presents a good user experience and looks organized and professional. You are welcome to use libraries like Bootstrap.
-* Deployed to [surge.sh](https://www.npmjs.com/package/ember-cli-surge)
+* Deployed to [Surge.sh](https://surge.sh/) with [ember-cli-surge](https://www.npmjs.com/package/ember-cli-surge)
 * Travis CI integration with all tests passing and a status badge on your project's README
 
 Projects will be graded based on overall complexity and user experience.
@@ -28,6 +28,9 @@ Some addons you may want to consider using include:
 * [ember-modal-dialog](https://github.com/yapplabs/ember-modal-dialog)
 * [liquid-fire](https://github.com/ember-animation/liquid-fire)
 * [ember-leaflet](https://github.com/miguelcobain/ember-leaflet)
+* [ember-burger-menu](https://offirgolan.github.io/ember-burger-menu/)
+
+Explore more addons on [Ember Observer](https://www.emberobserver.com/).
 
 ## Submission
 
