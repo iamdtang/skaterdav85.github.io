@@ -39,17 +39,17 @@ The Inbox navigation item should link to the `index` route. The Sent navigation 
 
 When you visit the `index` route, display a list of emails showing the `from` email and a preview of the message. Only show a portion of the message followed by ellipsis [using CSS](https://css-tricks.com/snippets/css/truncate-string-with-ellipsis/).
 
-## Displaying a Single Email
+## Email Details
 
 When you click on an email in the list, it should take you to an email detail page that displays all of the attributes. This page should have a back button at the top of the screen to link back to the list of emails similar to that on Gmail.
 
 ## Deleting a Single Email
 
-At the top of the screen, display a trash can icon. When this icon is clicked, it should delete the email and redirect back to the `index` route without a page refresh.
+At the top of the screen of the Email Details page, display a trash icon. When this icon is clicked, it should delete the email and redirect back to the `index` route without a page refresh.
 
 ## Creating an Email
 
-Create a "Compose" link that is shown above the navigation. In Gmail, this opens in an overlay that is fixed to the bottom of the window. This requires learning a bit more, so for now, have this link take us to a page that shows a form for writing an email. This form should have fields for `from`, `to`, `subject`, and `message`. When the form is submitted, save the model, which will utilize the POST /api/emails endpoint. Redirect to the `index` route and you should see this email in the list. Normally, this list doesn't show emails that you have sent. We will address this in a future assignment.
+Create a "Compose" link that is shown above the navigation. In Gmail, this opens in an overlay that is fixed to the bottom of the window. This requires learning a bit more, so for now, have this link take us to a page that shows a form for writing an email. This form should have fields for `from`, `to`, `subject`, and `message`. When the form is submitted, save the model, which will utilize the `POST /api/emails` endpoint. Redirect to the `index` route and you should see this email in the list. Normally, this list doesn't show emails that you have sent. We will address this in a future assignment.
 
 ## Styling
 
@@ -66,4 +66,4 @@ Deploy your app using [ember-cli-surge](https://github.com/kiwiupover/ember-cli-
 
 ## Submission
 
-Create a repo on Github called __itp404-gmail__ and upload your files. Send an email with the GitHub repo URL and the Surge URL to the TA and myself.
+Create a repo on GitHub called __itp404-gmail__ and upload your files. Send an email with the GitHub repo URL and the Surge URL to the TA and myself.
