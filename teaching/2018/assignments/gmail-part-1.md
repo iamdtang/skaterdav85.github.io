@@ -61,7 +61,8 @@ Deploy your app using [ember-cli-surge](https://github.com/kiwiupover/ember-cli-
 
 1. Install the addon: `ember install ember-cli-surge`
 2. Modify the CNAME file so that the domain is `{usc email prefix}-gmail.surge.sh`. For example, mine would be `dtang-gmail.surge.sh`.
-3. Deploy your project with: `ember surge --environment development`
+3. Enable Mirage in the production environment like we did in class
+3. Deploy your project with: `ember surge`
 4. Verify your project works on Surge
 
 ## Submission
