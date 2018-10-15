@@ -8,7 +8,7 @@ In this assignment, you will be working off of the same repo as [the last assign
 
 ## A `truncate-text` Helper
 
-Instead of truncating the text via CSS, create a helper to do this. This way, the full message won't be in the DOM in the email list. Name the helper `truncate-text`.
+Instead of truncating the text via CSS, create a helper to do this. This way, the full message won't be in the DOM in the email list. Name the helper `truncate-text`. This helper should receive 2 arguments. The first argument is the text and the second argument is a number specifies how long the text should be.
 
 ## A `StarButton` Component
 
