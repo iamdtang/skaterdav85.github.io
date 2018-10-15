@@ -15,19 +15,19 @@ Create a new Ember application. Delete the contents in the README and write a pa
 
 ### Coffee, Now!
 
-http://coffee-now.surge.sh/
+[http://coffee-now.surge.sh](http://coffee-now.surge.sh/)
 
 Coffee Now is a web app used to find coffee shops open now near you.
 
 ### Favorite Restaurants
 
-http://kunal-itp404.surge.sh/
+[http://kunal-itp404.surge.sh](http://kunal-itp404.surge.sh)
 
 If you have a multitude of restaurants on your to-try list, its hard to know if you’re close to one unless you happen to remember where it is. With my application, you will be able to see all the restaurants you want to try on a convenient map so you can see if you happen to be close to one when you are out and about.
 
 ### A News Site
 
-http://worldly.surge.sh
+[http://worldly.surge.sh](http://worldly.surge.sh)
 
 People who want to be educated in the news about different topics and areas; readers of the New York Times.
 
@@ -35,7 +35,7 @@ Addressing the problem that people are often constrained to only a few topics ab
 
 ### Multi-Source Web Setlists
 
-http://setlistxyz.surge.sh/
+[http://setlistxyz.surge.sh](http://setlistxyz.surge.sh/)
 
 Every weekend, I hold a DJ show at KXSC, the student radio station on campus. When I build setlists for the 2-hour show, I generally pull from many sources - Soundcloud and Bandcamp URLs, my personal iTunes library, Spotify and Apple Music, raw audio files of unreleased tracks, illicitly uploaded YouTube videos, non-illicitly uploaded YouTube videos, etc.
 
