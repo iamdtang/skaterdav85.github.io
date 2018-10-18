@@ -1,0 +1,27 @@
+{
+  "restaurants": [
+    {
+      "data": {
+        "name": "Crossroads",
+        "city": "West Hollywood",
+        "owners": [
+          { "firstName": "Travis", "lastName": "Barker" },
+          { "firstName": "Tal", "lastName": "Ronnen" }
+        ],
+        "yelp": "https://www.yelp.com/biz/crossroads-los-angeles-3",
+        "instagram": "crossroadskitchen"
+      }
+    },
+    {
+      "data": {
+        "name": "Little Pine",
+        "city": "Silverlake",
+        "owners": [
+          { "nickName": "Moby" }
+        ],
+        "yelp": "https://www.yelp.com/biz/little-pine-los-angeles-2",
+        "instagram": "littlepinerestaurant"
+      }
+    }
+  ]
+}
