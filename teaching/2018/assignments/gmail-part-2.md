@@ -12,7 +12,7 @@ Instead of truncating the text via CSS, create a helper to do this. This way, th
 
 ## A `StarButton` Component
 
-Create a component with the following API:
+Create a `StarButton` component with the following API:
 
 ```hbs
 {% raw %}
@@ -21,6 +21,11 @@ Create a component with the following API:
   @onClick={{action "star"}} />
 {% endraw %}
 ```
+
+* `starred` is a boolean. If true, show a filled star. If false, show an empty star.
+* `onClick` is a function that is fired when the star is clicked.
+
+This component should adhere to the Data Down, Actions Up (DDAU) paradigm. This means that `onClick` should get invoked when the star is clicked with the new starred boolean. The component should not modify `starred` directly. The `star` action should set the new `starred` value.
 
 Next, implement this on the email list view so that emails can be quickly starred.
 
