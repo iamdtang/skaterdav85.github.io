@@ -1,1 +1,5 @@
-My blog: http://thejsguy.com
+# Running
+
+```
+docker-compose up
+```
