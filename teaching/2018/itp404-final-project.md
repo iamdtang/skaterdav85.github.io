@@ -24,6 +24,7 @@ __Projects will be graded based on overall complexity and user experience.__
 
 Some addons you may want to consider using include:
 
+* [ember-cli-notifications](http://stonecircle.github.io/ember-cli-notifications/)
 * [ember-moment](https://github.com/stefanpenner/ember-moment)
 * [ember-modal-dialog](https://github.com/yapplabs/ember-modal-dialog)
 * [liquid-fire](https://github.com/ember-animation/liquid-fire)
