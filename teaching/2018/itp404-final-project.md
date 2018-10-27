@@ -16,7 +16,7 @@ For the final project, you will develop a single page application with Ember and
 * 5 practical acceptance tests
 * 5 practical integration (component) tests
 * Cleanly formatted code. Don't just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), consistent spacing, and readable variable and function names.
-* Your project should be styled so that it presents a good user experience and looks organized and professional. You are welcome to use libraries like Bootstrap.
+* Your project should be styled so that it presents a good user experience and looks organized and professional. You are welcome to use libraries like Bootstrap. In fact, there is an addon that integrates Ember and Bootstrap together called [`ember-bootstrap`](https://www.ember-bootstrap.com/).
 * Deployed to [Surge.sh](https://surge.sh/) with [ember-cli-surge](https://www.npmjs.com/package/ember-cli-surge)
 * Travis CI integration with all tests passing and a status badge on your project's README
 
