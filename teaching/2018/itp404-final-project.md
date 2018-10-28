@@ -8,7 +8,7 @@ For the final project, you will develop a single page application with Ember and
 
 * At least 4 routes
 * At least 1 GET, 1 POST, 1 PUT or PATCH, and 1 DELETE AJAX request. You don't have to use Ember Data, but it is highly recommended.
-* Use of Ember's loading and error substates. Change the `timing` property in Mirage to 1000 milliseconds so that I can easily see the loading states of your app.
+* Use of Ember's loading and error substates. Change the `timing` property in Mirage to 1000 milliseconds (only for the `development` environment so that your tests don't take longer to run) so that I can easily see the loading states of your app.
 * Form validation
 * At least 1 reusable component
 * Each page has a unique title using [ember-cli-document-title](https://www.npmjs.com/package/ember-cli-document-title)
@@ -16,14 +16,15 @@ For the final project, you will develop a single page application with Ember and
 * 5 practical acceptance tests
 * 5 practical integration (component) tests
 * Cleanly formatted code. Don't just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), consistent spacing, and readable variable and function names.
-* Your project should be styled so that it presents a good user experience and looks organized and professional. You are welcome to use libraries like Bootstrap.
+* Your project should be styled so that it presents a good user experience and looks organized and professional. You are welcome to use libraries like Bootstrap. In fact, there is an addon that integrates Ember and Bootstrap together called [`ember-bootstrap`](https://www.ember-bootstrap.com/).
 * Deployed to [Surge.sh](https://surge.sh/) with [ember-cli-surge](https://www.npmjs.com/package/ember-cli-surge)
 * Travis CI integration with all tests passing and a status badge on your project's README
 
-Projects will be graded based on overall complexity and user experience.
+__Projects will be graded based on overall complexity and user experience.__
 
 Some addons you may want to consider using include:
 
+* [ember-cli-notifications](http://stonecircle.github.io/ember-cli-notifications/)
 * [ember-moment](https://github.com/stefanpenner/ember-moment)
 * [ember-modal-dialog](https://github.com/yapplabs/ember-modal-dialog)
 * [liquid-fire](https://github.com/ember-animation/liquid-fire)
