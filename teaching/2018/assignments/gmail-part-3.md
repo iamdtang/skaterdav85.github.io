@@ -1,6 +1,6 @@
 ---
 layout: assignment
-title: Testing Gmail - Part 3
+title: Testing Gmail
 date: 2018-10-30
 ---
 
