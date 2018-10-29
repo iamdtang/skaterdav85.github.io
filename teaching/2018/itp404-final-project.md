@@ -10,11 +10,11 @@ For the final project, you will develop a single page application with Ember and
 * At least 1 GET, 1 POST, 1 PUT or PATCH, and 1 DELETE AJAX request. You don't have to use Ember Data, but it is highly recommended.
 * Use of Ember's loading and error substates. Change the `timing` property in Mirage to 1000 milliseconds (only for the `development` environment so that your tests don't take longer to run) so that I can easily see the loading states of your app.
 * Form validation
-* At least 1 reusable component
+* At least 1 reusable/generic component designed by you that adheres to the Data Down, Actions Up paradigm.
 * Each page has a unique title using [ember-cli-document-title](https://www.npmjs.com/package/ember-cli-document-title)
 * Use of at least 1 addon of your choice that isn't one of the ones listed in these requirements
-* 5 practical acceptance tests
-* 5 practical integration (component) tests
+* At least 5 application tests that cover all types of CRUD operations
+* At least 5 rendering tests. These should be a mixture of tests for helpers and components.  
 * Cleanly formatted code. Don't just make the code work. Make it also easy to read. This includes proper indentation, consistent casing (camelCase is the JavaScript convention), consistent spacing, and readable variable and function names.
 * Your project should be styled so that it presents a good user experience and looks organized and professional. You are welcome to use libraries like Bootstrap. In fact, there is an addon that integrates Ember and Bootstrap together called [`ember-bootstrap`](https://www.ember-bootstrap.com/).
 * Deployed to [Surge.sh](https://surge.sh/) with [ember-cli-surge](https://www.npmjs.com/package/ember-cli-surge)
