@@ -20,7 +20,7 @@ Write tests with the following descriptions:
 * the star is filled when `starred` is `true`
 * the star is empty when `starred` is `false`
 * ~~`onClick` is called with the new starred value when clicked~~
-  * Use `assert.step` and `assert.verifySteps`
+  * ~~Use `assert.step` and `assert.verifySteps`~~
 
 ## Application Tests
 
