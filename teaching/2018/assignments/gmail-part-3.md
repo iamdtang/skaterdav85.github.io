@@ -19,7 +19,7 @@ Write tests with the following descriptions:
 
 * the star is filled when `starred` is `true`
 * the star is empty when `starred` is `false`
-* `onClick` is called with the new starred value when clicked
+* ~~`onClick` is called with the new starred value when clicked~~
   * Use `assert.step` and `assert.verifySteps`
 
 ## Application Tests
@@ -35,7 +35,7 @@ Write tests with the following descriptions:
 * creating an email
   * Seed Mirage with 0 emails. Verify that when a user fills out the new email form and clicks the submit button, the number of emails in the unstarred section is 1.
   * Verify that the current URL is `/`.
-  * Verify that all of the data was sent to the server by inspecting Mirage's `server.db.emails[0]`.
+  * ~~Verify that all of the data was sent to the server by inspecting Mirage's `server.db.emails[0]`.~~
 
 ## Travis CI
 
