@@ -6,9 +6,10 @@ permalink: teaching
 
 # USC Teaching History
 
+* [Spring 2019 - ITP 405: Professional Applications and Frameworks in Web Development](/teaching/2019/itp405)
 *   [Fall 2018 - ITP 404: Modern Technologies in Web Development](/teaching/2018/itp404)
 *   [Spring 2018 - ITP 104 Guest Lecture](https://slides.com/davidtang/itp-104-intro-to-javascript-and-jquery#/)
-*   [Spring 2018 - ITP 405: Professional Frameworks and Applications in Web Development](/teaching/2018/itp405)
+*   [Spring 2018 - ITP 405: Professional Applications and Frameworks in Web Development](/teaching/2018/itp405)
 *   [Fall 2017 - ITP 404: Modern Technologies in Web Development](/teaching/2017/itp404)
 *   Spring 2017 - ITP 405: Professional Applications and Frameworks in Web Development
 *   Fall 2016 - ITP 404: Modern Technologies in Web Development
