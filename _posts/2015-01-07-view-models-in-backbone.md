@@ -165,4 +165,4 @@ This is just one implementation I am experimenting with. I haven't tried it in t
 
 ## Related Posts
 
-* [5 Reasons Why A Backbone Developer Loves Ember](http://thejsguy.com/javascript/ember/backbone/2015/01/06/5-reasons-why-a-backbone-developer-loves-ember.html)
+* [5 Reasons Why A Backbone Developer Loves Ember](http://davidtang.io/javascript/ember/backbone/2015/01/06/5-reasons-why-a-backbone-developer-loves-ember.html)
