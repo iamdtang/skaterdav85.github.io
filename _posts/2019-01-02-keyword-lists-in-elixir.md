@@ -2,7 +2,7 @@
 layout: post
 title: Keywords Lists in Elixir
 date: 2019-01-02
-description: To learn more about functional programming, I've decided to learn Elixir and blog about my journey. This post covers keyword lists.
+description: Time to dive into functional programming and learn Elixir. This post covers keyword lists.
 image: elixir.png
 image_alt: Elixir programming language logo
 card_style: summary
