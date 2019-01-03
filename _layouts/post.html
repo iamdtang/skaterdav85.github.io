@@ -23,9 +23,14 @@ layout: default
 {% endunless %}
 
 <div class="post">
-{{content}}
-{% include footer-subscribe.html %}
-<p><em>Disclaimer: Any viewpoints and opinions expressed in this article are those of David Tang and do not reflect those of my employer or any of my colleagues.</em></p>
+  {{content}}
+  {% include footer-subscribe.html %}
+  <p>
+    <em>
+      Disclaimer: Any viewpoints and opinions expressed in this article are those of David Tang and do not reflect those of
+      my employer or any of my colleagues.
+    </em>
+  </p>
 </div>
 
 {% include disqus.html %}
