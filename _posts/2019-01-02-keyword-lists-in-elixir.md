@@ -5,6 +5,7 @@ date: 2019-01-02
 description: This post covers keyword lists in Elixir.
 image: elixir.png
 image_alt: Elixir programming language logo
+card_style: summary
 keywords: elixir, keyword list
 ---
 
