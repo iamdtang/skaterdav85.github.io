@@ -6,7 +6,7 @@ keywords: javascript, ember, ember data, web development, javascript testing, em
 <div class="posts">
   {% for post in paginator.posts %}
     {% unless post.active == "off" %}
-    <div class="post">
+    <div class="post bb">
       <span class="date">
         {{ post.date | date: "%A" }},
         {% assign d = post.date | date: "%d" | plus:'0' %}
@@ -21,7 +21,7 @@ keywords: javascript, ember, ember data, web development, javascript testing, em
       </span>
       <h2>
         {{post.active}}
-        <a href="{{ post.url }}" class="title">{{ post.title }}</a>
+        <a href="{{post.url}}" class="title">{{post.title}}</a>
       </h2>
     </div>
     {% endunless %}
