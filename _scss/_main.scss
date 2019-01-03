@@ -242,3 +242,12 @@ h1 {
 .highlighter-rouge ~ h2 {
   margin-top: 35px;
 }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #36a582;
+  margin: 1em 0;
+  padding: 0;
+}
