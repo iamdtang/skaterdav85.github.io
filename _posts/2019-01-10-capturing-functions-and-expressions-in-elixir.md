@@ -76,9 +76,9 @@ To filter a list of numbers to those greater than 3, we can do:
 Enum.filter([5, 2, 6], &(&1 > 3))
 ```
 
-To sum an array of numbers, we can use `Enum.reduce/3`. If you aren't familiar with reducing, it is a way to reduce a list to a single value. Summing an array of numbers is one example.
+To sum an array of numbers, we can use `Enum.reduce/3`. If you aren't familiar with reduce, it is a way to reduce a list to a single value. Summing an array of numbers is one example.
 
-Using an anonymous function, it looks like the following:
+Using an anonymous function in the long form, it looks like the following:
 
 ```elixir
 Enum.reduce([1, 2, 3, 4, 5], 0, fn(x, total) -> x + total end)
