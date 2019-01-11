@@ -13,7 +13,7 @@ keywords: elixir, capturing, capture operator, capture function, capture express
 
 ## Capturing Functions
 
-In Elixir, we can use `Enum.each/2` to loop over an enumerable data type, like a list. If you haven't seen the `"/2"` notation before, that just denotes the function's arity (number of arguments) since you can define multiple functions with the same name with different arities. In `Enum.each/2`, the first argument is the enumerable and the second argument is an anonymous function. For example:
+In Elixir, we can use `Enum.each/2` to loop over an enumerable data type, like a list. If you haven't seen the `"/2"` notation before, that just denotes the function's arity (number of arguments) since you can define multiple functions with the same name with different arities. With `Enum.each/2`, the first argument is the enumerable and the second argument is an anonymous function. For example:
 
 ```elixir
 Enum.each([1, 2, 3, 4, 5], fn(x) -> IO.puts(x) end)
@@ -32,7 +32,13 @@ This can be a little verbose, especially if we are creating an anonymous functio
 Enum.each([1, 2, 3, 4, 5], &IO.puts/1)
 ```
 
-Here we captured `IO.puts/1` by prefixing it with `&`. This essentially wrapped `IO.puts(x)` with an anonymous function, like `fn(x) -> IO.puts(x) end`. Much more terse!
+Here we captured `IO.puts/1` by prefixing it with `&`. This essentially wrapped `IO.puts(x)` within an anonymous function, like so:
+
+```elixir
+fn(x) -> IO.puts(x) end
+```
+
+Much more terse!
 
 Another way we could have written this is as follows:
 
