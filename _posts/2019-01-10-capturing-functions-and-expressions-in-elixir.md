@@ -26,7 +26,7 @@ print_value = fn(x) -> IO.puts(x) end
 Enum.each([1, 2, 3, 4, 5], print_value)
 ```
 
-This can be a little verbose, especially if we are creating an anonymous function just to call another function, like `IO.puts`. Why not pass in `IO.puts` directly? `Enum.each/2` expects an anonymous function, and `IO.puts/1` is not an anonymous function. However, we can use `"&"`, known as the capture operator, to deal with this:
+This can be a little verbose, especially if we are creating an anonymous function just to call another function, like `IO.puts`. Why not pass in `IO.puts` directly? `Enum.each/2` expects an anonymous function, and `IO.puts/1` is not an anonymous function. It is a named function. However, we can use `"&"`, known as the capture operator, to deal with this:
 
 ```elixir
 Enum.each([1, 2, 3, 4, 5], &IO.puts/1)
