@@ -46,7 +46,7 @@ Another way we could have written this is as follows:
 Enum.each([1, 2, 3, 4, 5], &IO.puts(&1))
 ```
 
-The `&1` references the first argument of the anonymous function that is created when `IO.puts/1` is captured. `&2`, `&3`, and so on would reference subsequent arguments.
+The `&1` references the first parameter of the anonymous function that is created when `IO.puts/1` is captured. `&2`, `&3`, and so on would reference subsequent parameters.
 
 `IO.puts(1)` is shorthand for `IO.puts(:stdio, 1)`. The above could also be written as such:
 
