@@ -2,7 +2,7 @@
 layout: post
 title: Capturing Functions and Expressions in Elixir
 date: 2019-01-10
-description: This post covers capturing functions and expressions in Elixir.
+description: This post covers capturing functions and expressions in Elixir  to help keep our code more concise.
 image: elixir-thumb.png
 image_alt: Elixir programming language logo
 card_style: summary
@@ -10,6 +10,8 @@ keywords: elixir, capturing, capture operator, capture function, capture express
 ---
 
 {% include elixir-series-intro.md %}
+
+In this post, we're going to look at capturing functions and expressions in Elixir, which can help keep our code more concise.
 
 ## Capturing Functions
 
