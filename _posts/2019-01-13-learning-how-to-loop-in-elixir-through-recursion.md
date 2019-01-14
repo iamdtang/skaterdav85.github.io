@@ -2,7 +2,7 @@
 layout: post
 title: Learning How To Loop in Elixir Through Recursion
 date: 2019-01-13
-description: In this post, we'll look at how to loop in Elixir through recursion by rebuilding Enum.each/2, Enum.reduce/3, Enum.map/2, and Enum.filter/2.
+description: In this post, we'll look at how to loop in Elixir through recursion by rebuilding Enum.each, Enum.reduce, Enum.map, and Enum.filter.
 image: elixir-thumb.png
 image_alt: Elixir programming language logo
 card_style: summary
