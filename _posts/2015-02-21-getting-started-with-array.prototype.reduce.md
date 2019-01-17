@@ -4,6 +4,7 @@ title:  Getting Started with Array.prototype.reduce()
 date:   2015-02-21
 description: In this post, learn how to transform code using forEach to using reduce on JavaScript Arrays.
 keywords: Array.prototype.reduce tutorial, array reduce tutorial, javascript array reduce, reduce vs forEach, Array.prototype.reduce vs Array.prototype.forEach, javascript reduce vs forEach
+image: javascript
 ---
 
 [Array.prototype.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) is one of those Array methods in JavaScript that I knew existed but I never really looked into it because I could achieve the same output using `Array.prototype.forEach`. Recently I decided to learn how it worked and wanted to show a couple examples of how you can transform some code using `forEach` to using `reduce`.

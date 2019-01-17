@@ -9,7 +9,7 @@ keywords: Laravel, SQLite, Heroku
 Make sure your SQLite database is at `database/database.sqlite`.
 
 1. Add `"ext-pdo_sqlite": "*"` to the `require` block in `composer.json`. You can read about how to enable various PHP extensions on Heroku [here](https://devcenter.heroku.com/articles/php-support#extensions).
-2. Run `composer update`
+2. Run `composer update`.
 3. Create a Heroku account.
 4. Create a new app in the Heroku dashboard and link your GitHub repo to it.
 5. Click the "Enable Automatic Deploys" button. Now, every time you push to your GitHub repo, Heroku will automatically deploy your app.

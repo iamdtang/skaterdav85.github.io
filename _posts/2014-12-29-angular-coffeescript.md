@@ -4,6 +4,7 @@ title:  "Angular and CoffeeScript: The Tricky Parts"
 date:   2014-12-29
 categories: JavaScript Angular.js CoffeeScript
 keywords: Angular and CoffeeScript, Angular, CoffeeScript, CoffeeScript function declarations
+image: angular
 ---
 
 CoffeeScript has been an interesting language to learn. At first, I wasn't really into it because it required me to learn another another language that compiled down to the language I was already comfortable with. I also didn't like the fact that CoffeeScript wasn't a superset of JavaScript. I couldn't incrementally learn CoffeeScript by writing JavaScript while incorporating CoffeeScript features as I learned them. Being forced to use CoffeeScript at work, after a couple weeks, I became comfortable with the language and I could appreciate certain aspects. Then, I started using CoffeeScript with Angular.js and ran into a few troubles that I thought I'd share.

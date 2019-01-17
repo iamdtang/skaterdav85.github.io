@@ -3,6 +3,7 @@ layout: post
 title:  "Maintainable Language Translations in JavaScript Templates and Backbone Views"
 date:   2015-01-09
 keywords: JavaScript internationalization, JavaScript localization, languages translations, language translations in client-side templates
+image: handlebars
 ---
 
 There are many things that you need to consider when writing JavaScript for an international site. Things such as formatting currency, dates and times, and translating almost every piece of text on the site. If you don't create an extensible approach, it can easily become a mess to maintain and update when new countries are introduced. In this post I wanted to go over a really simple and maintainable approach that I have been using to translate all text in my JavaScript templates. I'll first show an example using client-templating by itself and then I'll show how to create a `Backbone.View` that abstracts this away for you.

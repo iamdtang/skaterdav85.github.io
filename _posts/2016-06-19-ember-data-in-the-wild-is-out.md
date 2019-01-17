@@ -5,7 +5,9 @@ date: 2016-06-19
 excerpt: <p>I'm happy to announce that my book <a href="https://leanpub.com/emberdatainthewild" target="_blank">Ember Data in the Wild - Getting Ember Data to Work With Your API</a> is finally finished and available for purchase!</p>
 description: Have a custom API that you aren't sure how to use with Ember Data? Interested in writing your own adapter or serializer? Want to just know more about how Ember Data works? This is the Ember Data book you have been waiting for.
 keywords: customizing ember data, non-standard APIs, custom APIs, ember data, custom adapter, custom serializer
+image: ember
 ---
+
 <a href="https://leanpub.com/emberdatainthewild" target="_blank">
   <img src="/images/ember-data-in-the-wild.jpg" alt="Ember Data in the Wild - Getting Ember Data to Work With Your API" class="side-image" style="width: 200px;">
 </a>

@@ -4,6 +4,7 @@ title: Updating Relationships Independently in JSON:API with Ember Data
 date: 2016-10-28
 description: Did you know that JSON:API supports updating relationships independently at URLs from relationship links? Learn how to do this with Ember Data.
 keywords: ember data, updating relationships, json:api, json-api, updating relationships independently at URLs from relationships links, updating resources, resource relationships, relationship links, adapterOptions
+image: ember
 ---
 
 In JSON:API, relationships can be modified when updating resources. For example, if you wanted to add or remove tags from an article, you could make a PATCH request to `/articles/:id` with the following request payload:

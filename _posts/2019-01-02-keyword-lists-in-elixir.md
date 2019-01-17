@@ -7,6 +7,7 @@ image: elixir-thumb.png
 image_alt: Elixir programming language logo
 card_style: summary
 keywords: elixir, keyword list
+image: elixir
 ---
 
 {% include elixir-series-intro.md %}

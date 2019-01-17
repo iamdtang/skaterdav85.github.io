@@ -4,6 +4,7 @@ title: Creating a Custom Ember CLI Command
 date: 2016-07-10
 description: Ever wondered how to create your own custom Ember CLI command? Recently I went through this process and today I'd like to share what I learned in case you wanted to create your own custom command too.
 keywords: ember cli, custom command, emberjs, ember.js, cli
+image: ember
 ---
 
 Ever wondered how to create your own custom Ember CLI command? Recently I created a custom Ember CLI command as an addon called [ember-share](https://github.com/skaterdav85/ember-share) that allows you to share your local running Ember app with the world via a publicly accessible URL. This endeavor took some research and required looking at other addons like ember-cli-deploy, so I thought I'd share what I learned in case you want to create your own custom command too.

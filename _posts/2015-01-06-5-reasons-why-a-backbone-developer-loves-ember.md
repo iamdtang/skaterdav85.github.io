@@ -4,6 +4,7 @@ title:  "5 Reasons Why A Backbone Developer Loves Ember"
 date:   2015-01-06
 categories: ['JavaScript', 'Ember', 'Backbone']
 keywords: Ember vs Backbone, Ember.js vs Backbone.js, Ember techniques for Backbone, Backbone computed properties, Backbone data store, Ember with Backbone, Backbone best practices, Ember.js, Ember, Backbone, Backbone
+image: backbone
 ---
 
 Last year I started a new job as where I am currently tasked with rebuilding an ecommerce site for the company. The JavaScript stack is using Backbone, Lodash, Handlebars, Zepto, Require.js, and CoffeeScript. I had played with Backbone when it first came out and used it for small things but this has definitely been my biggest Backbone project. Prior to this job I had been using a lot of Angular. As I learned more and more about Backbone, I kept missing some of the features and structure Angular had. So I thought to myself, maybe I am doing something wrong. I went on to read [Building Backbone Plugins by Derick Bailey](https://leanpub.com/building-backbone-plugins), looked at Marionette.js, and incorporated several of those ideas into our own abstractions. This definitely helped remove some of the boilerplate code since Backbone is really minimalistic. Even with these abstractions, certain things felt wrong and messy. At that point, I decided to learn Ember just to hopefully learn and borrow some new concepts despite knowing that Ember was something we wouldn't use for this project. So here is my list of 5 things that I learned and borrowed from Ember for Backbone.

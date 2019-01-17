@@ -4,6 +4,7 @@ title:  "Unit Testing with $httpBackend in Angular.js - Request Expectations"
 date:   2014-01-18
 categories: Angular.js JavaScript
 keywords: Request expectations with $httpBackend, $httpBackend, Angular.js, Unit Testing in Angular.js, Angular Mocks
+image: angular
 ---
 
 So you have an Angular service that communicates with an API, but you're not really sure how to go about testing it. Maybe you read the documentation on _$httpBackend_, but you were a little confused by the examples. I know I was. Let's see how we can set __Request Expectations__ using _$httpBackend_.

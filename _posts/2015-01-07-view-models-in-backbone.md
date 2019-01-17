@@ -4,6 +4,7 @@ title:  "An Approach to View-Models in Backbone"
 date:   2015-01-07
 categories: ['JavaScript', 'Backbone']
 keywords: Backbone View-Models, Backbone View Models, Backbone Controllers, View Models in Backbone, View-Models in Backbone
+image: backbone
 ---
 
 One of the difficult parts I am experiencing when working with Backbone is separating out display logic properties from models. Let's look at a simple example where we display a user model in a view and allow the user's email address to be edited.

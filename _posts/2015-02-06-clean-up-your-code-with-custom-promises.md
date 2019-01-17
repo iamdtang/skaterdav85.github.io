@@ -3,6 +3,7 @@ layout: post
 title:  "Clean Up Your Code With Custom Promises"
 date:   2015-02-06
 keywords: JavaScript flow control, async.js, promises, q.js, nested callback functions, callback hell, asynchronous programming in JavaScript, AJAX
+image: javascript
 ---
 
 Custom promises can really clean up your code in certain situations. For me, I have found that using custom promises can clean up consumers of my data services and models. I wanted to show a couple examples where I have found them really useful. The following examples use Angular's `$http` service, but the same ideas can likely be applied if you are working with another deferred and promise implementation.

@@ -4,6 +4,7 @@ title: Testing Serializers in Ember - Part 2
 date: 2016-02-06
 description: Not too long ago I wrote about Testing Serializers in Ember. The examples in the post went over testing the serialization process on responses and verifying methods like normalizeResponse and keyForRelationship worked correctly. But what if you want to verify that data is serialized correctly when it is sent to your API? Let me show you my approach that has worked well for me.
 keywords: Ember, testing, serializers, JavaScript, unit test, Ember.js, EmberJS, Ember Data, adapter, serialize, RESTSerializer
+image: ember
 ---
 
 Not too long ago I wrote about [Testing Serializers in Ember](/2015/11/04/testing-serializers-in-ember.html). The examples in the post went over testing the serialization process on responses and verifying methods like `normalizeResponse` and `keyForRelationship` worked correctly. But what if you want to verify that data is serialized correctly when it is sent to your API? Let me show you an approach that has worked well for me.

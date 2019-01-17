@@ -6,7 +6,11 @@ keywords: javascript, ember, ember data, web development, testing, elixir, ember
 <div class="posts">
   {% for post in paginator.posts %}
     {% unless post.active == "off" %}
-    <div class="post bb">
+    <div class="post bb clearfix">
+      <img
+        src="/images/{{post.image}}{% if post.image_extension %}{{post.image_extension}}{% else %}-logo.png{% endif %}"
+        alt="{{post.image}} logo"
+        class="post-thumbnail">
       <span class="date">
         {{ post.date | date: "%A" }},
         {% assign d = post.date | date: "%d" | plus:'0' %}

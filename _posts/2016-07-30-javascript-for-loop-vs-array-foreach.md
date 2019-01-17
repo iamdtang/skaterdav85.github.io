@@ -4,6 +4,7 @@ title: The for Loop vs. forEach in JavaScript
 date: 2016-07-30
 description: If you're new to JavaScript, you may be wondering what the difference is between using a classic `for` loop versus using the `forEach()` method on arrays. In this post, I'd like to discuss why you might want to choose one over the other.
 keywords: for vs forEach, forEach vs for, forEach, for loop, javascript, looping, js, Array.prototype.forEach vs for
+image: javascript
 ---
 
 If you're new to JavaScript, you may be wondering what the difference is between using a classic `for` loop versus using the `forEach()` method on arrays. In this post, I'd like to review how each of these work and discuss why you might want to choose one over the other.

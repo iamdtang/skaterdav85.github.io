@@ -3,6 +3,7 @@ layout: post
 title:  "How to Learn Angular.js"
 date:   2015-02-01
 keywords: Angular.js tutorial, How to learn angular, learning angular, getting started with angular
+image: angular
 ---
 
 I get asked pretty frequently, "What is the best way to learn Angular.js?". Here is a path of resources in order of what I think is a good way to learn Angular.

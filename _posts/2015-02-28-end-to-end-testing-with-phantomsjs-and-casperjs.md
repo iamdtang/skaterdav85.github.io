@@ -3,6 +3,7 @@ layout: post
 title:  "End To End Testing with PhantomJS and CasperJS"
 date:   2015-02-28
 keywords: Phantom.js vs Casper.js, PhantomJS vs CasperJS, Phantom vs Casper, phantomjs vs casperjs, End to End testing Casper, e2e casper, end to end testing, e2e testing, functional testing, integration testing, testing with casper, casper vs phantom, casper.js vs phantom.js, casperjs vs phantomjs
+image: casper
 ---
 
 When it comes to testing in JavaScript, I would say that there are two types of tests: unit tests and end to end tests, which are also referred to as integration tests or functional tests depending on who you talk to and what articles you read. For me, I have found unit testing to be beneficial and relatively straightforward for code that does not involve the DOM much. Unit testing allows you to test modules in isolation and is great for (but not limited to) testing things like data structures, data manipulation, validation, etc. But how do you test JavaScript that heavily depends on the DOM and user interactions? How do you test that the different modules of your application work together? This is where end to end testing comes in. In this article we will look at how we can set up a simple end to end testing system using CasperJS, which sits on top of PhantomJS.

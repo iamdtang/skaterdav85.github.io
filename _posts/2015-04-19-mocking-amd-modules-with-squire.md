@@ -3,6 +3,7 @@ layout: post
 title:  "Mocking AMD Modules with Squire.js"
 date:   2015-04-20
 keywords: mocking amd modules, unit testing require.js, unit testing requireJS, requireJS unit testing, require.js unit testing, mocking AMD, AMD unit testing, mocking window object
+image: requirejs
 ---
 
 Writing unit tests when working with Require.js is tough. Out of the box, Require.js does not make mocking very easy. It involves setting up a separate Require.js context and a complicated setup in a `beforeEach`.

@@ -3,6 +3,7 @@ layout: post
 title:  "Mocking Services in Angular with $provide"
 date:   2015-01-28
 keywords: Mocking in Angular, Testing services in Angular, Unit Testing Angular services, Unit tests, Jasmine unit testing
+image: angular
 ---
 
 In Angular, we can mock out services using [$provide](https://docs.angularjs.org/api/auto/service/$provide). Let's look at a simple example.

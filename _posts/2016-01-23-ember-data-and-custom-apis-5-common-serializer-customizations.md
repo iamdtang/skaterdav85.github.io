@@ -4,6 +4,7 @@ title: Ember Data and Custom APIs - 5 Common Serializer Customizations
 date: 2016-01-23
 description: When I first started working with Ember Data in the 1.X days, one of the most frustrating things was having to work with custom APIs. In this post, I'd like to share a few common ways to customize serializers that others might be wanting to make as well, especially those new to the framework.
 keywords: ember data, custom api, custom serializers, customizing adapters, customizing ember data, ember, primary key, foreign key, ember embedded model, nested data, data root key, adapter vs serializer, custom apis, custom backends
+image: ember
 ---
 
 When I first started working with Ember Data in the 1.X days, one of the most frustrating things was having to work with custom APIs. This wasn't because of Ember Data but because I was new to it and there is a lot to learn. I was motivated to use Ember Data but I just couldn't get it to work with whatever API I was using at the time. Do I massage the data in an adapter or a serializer? What is the difference between `normalizeReponse()` and `normalize()` in serializers? How do I handle related data that is nested? I had lots of questions like these. Even today I see a lot of the same questions being asked on the Ember Discussion Forum about getting Ember Data to work with custom APIs. In this post, I'd like to share a few common ways to customize serializers that others might be wanting to make as well, especially those new to the framework.

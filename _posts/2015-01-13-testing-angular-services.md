@@ -3,6 +3,7 @@ layout: post
 title:  "Testing Services in Angular.js"
 date:   2015-01-13
 keywords: Testing services in Angular, Unit Testing Angular services, Unit tests, Jasmine unit testing
+image: angular
 ---
 
 Getting started with unit testing your Angular code can be tricky due to setting up your test runner, learning some of the conventions, and figuring out how dependency injection works with your tests. One of the first things you will probably want to test are your services. There are two ways to inject services into your unit tests.

@@ -4,6 +4,7 @@ title:  "Testing with Ember Data RecordArrays"
 date:   2015-11-09
 description: How do you go about testing controllers, components, and services that are given Ember Data objects like DS.AdapterPopulatedRecordArray or DS.RecordArray? Let me show you!
 keywords: Ember, testing, unit testing, ember data, JavaScript, unit test, Ember.js, EmberJS, AdapterPopulatedRecordArray, RecordArray, ArrayProxy, DS
+image: ember
 ---
 
 Recently I was in a situation where I had a list of Ember Data records and I wanted to write a unit test for a computed property in my controller that returned the most recent record. My model hook called `query` on the store for all `cat` objects:

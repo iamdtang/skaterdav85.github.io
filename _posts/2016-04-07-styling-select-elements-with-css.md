@@ -4,6 +4,7 @@ title: Styling &lt;select&gt; Elements with CSS
 date: 2016-04-07
 description: This post shows how you can style your select menus with modern CSS
 keywords: styling, select, menus, dropdowns, css, style arrow, select arrow
+image: css
 ---
 
 As a JavaScript developer, I find myself keeping up less and less with CSS. Recently I had to style a select menu and figured this was probably now possible in at least modern browsers. After some research and trial and error, this is the solution I ended up with that worked pretty well:

@@ -4,6 +4,7 @@ title: Subclassing Arrays in ES2015
 date: 2017-09-21
 description: In this post, I cover how you can subclass an array in JavaScript in ES2015 (ES6).
 keywords: extend javascript arrays, subclass javascript array, es6 subclassing, es6 classes, ES2015 classes, javascript collections, collection classes, prototypal inheritance with arrays
+image: javascript
 ---
 
 Prior to ES2015 (ES6), you couldn't really subclass an array in JavaScript without a few caveats, which [kangax](https://twitter.com/kangax) outlines in a fantastic post called [How ECMAScript 5 still does not allow to subclass array](http://perfectionkills.com/how-ecmascript-5-still-does-not-allow-to-subclass-an-array/). Now in ES2015, you can. This can be useful for defining custom collection classes that leverage all of the array methods and properties while also automatically implementing the iterable and iterator protocols, [which I wrote about recently](/2017/08/27/iterables-and-iterators-in-javascript.html). In short, objects that implement these protocols can be looped through with the `for...of` loop or can be used with the spread operator.

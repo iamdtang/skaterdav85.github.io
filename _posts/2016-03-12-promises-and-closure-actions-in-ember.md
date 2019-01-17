@@ -4,6 +4,7 @@ title: Promises and Closure Actions in Ember
 date: 2016-03-12
 description: TL;DR - If both success and reject handlers are executing unintentionally, you might be forgetting to throw after you catch in the promise chain.
 keywords: ember, promises, RSVP, closure actions, catch, error, reject, throw, both resolve and reject are executing, Promises/A+, RSVP vs jQuery promises
+image: ember
 ---
 
 Recently I was working with closure actions and learned something new about promises in the process. So you're probably familiar with this:

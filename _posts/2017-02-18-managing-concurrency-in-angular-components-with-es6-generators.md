@@ -4,6 +4,7 @@ title: Managing Concurrency in Angular Components with ES6 Generators
 date: 2017-02-18
 description: One idea I've been been experimenting with in an Angular 1.5 application I've been working on is using ES6 generators to manage concurrency in components.
 keywords: angular 1.5, components, component, generator, es6, generators, generator functions, asychronous, async, ember-concurrency, concurrency, es2015
+image: angular
 ---
 
 One idea I've been been experimenting with in an Angular 1.5 application I've been working on is using ES6 generators to manage concurrency in components.

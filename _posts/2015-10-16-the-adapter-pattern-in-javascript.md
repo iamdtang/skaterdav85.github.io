@@ -3,6 +3,7 @@ layout: post
 title:  "The Adapter Pattern in JavaScript"
 date:   2015-10-16
 keywords: JavaScript design patterns, adapter pattern, adapter design pattern, shopping cart in javascript, javascript shopping cart, shopping cart local storage
+image: javascript
 ---
 
 The adapter design pattern is very useful in JavaScript when it comes to data fetching and persistence. The travel adapter is the most common comparison for this pattern. If you have a three-pronged electrical plug, it won't fit in a two-prong wall outlet. Instead, you need to use a travel adapter to convert energy from the wall outlet to the plug you have.  

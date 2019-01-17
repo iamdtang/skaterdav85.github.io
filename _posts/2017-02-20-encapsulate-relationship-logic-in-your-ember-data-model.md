@@ -4,6 +4,7 @@ title: Encapsulate Relationship Logic In Your Ember Data Model
 date: 2017-02-20
 description: One technique I often like to do when I am refactoring is move relationship logic outside of an action into the Ember Data model behind a custom method. Let me show you.
 keywords: ember, ember data, relationship, relationships, model, belongsTo, hasMany
+image: ember
 ---
 
 One technique I often like to do when I am refactoring is move relationship logic outside of an action into the Ember Data model behind a custom method. Here's an example:

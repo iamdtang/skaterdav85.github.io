@@ -4,6 +4,7 @@ title: Working With Nested Data In Ember Data Models
 date: 2016-01-29
 description: In today's post, I'd like to share a few ways of how you can work with nested data in Ember Data models.
 keywords: ember data, nested models, embedded models, nested data, nested records, embedded records, model relationships, belongsTo, hasMany, nesting models, embedding models, nesting data, embedding data
+image: ember
 ---
 
 In today's post, I'd like to share a few ways of how you can work with nested data in Ember Data models.

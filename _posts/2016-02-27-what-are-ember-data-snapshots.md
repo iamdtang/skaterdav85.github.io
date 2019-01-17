@@ -4,6 +4,7 @@ title: What are Ember Data Snapshots?
 date: 2016-02-27
 description: If you've had to work with Ember Data and non-standard APIs, you may have dug into the adapters and serializers a bit and seen snapshot as a parameter to a few of the methods. Let me show you what a snapshot is and why you might need to use it.
 keywords: Ember Data snapshot, DS.Snapshot, snapshots, snapshot, nested resources, custom API, nested URL, nested endpoint, override serialize method, RESTSerializer, JSONSerializer, customizing serializers, customizing adapters, custom adapters, custom serializer
+image: ember
 ---
 
 If you've had to work with Ember Data and non-standard APIs, you may have dug into the adapters and serializers a bit and seen `snapshot` as a parameter to a few of the methods. If you dug a little deeper, you may have learned that a snapshot is an instance of `DS.Snapshot`, a private class in Ember Data. If you visit the API docs for this class, it doesn't really tell you what it is. It just tells you what methods and properties are available on snapshots. So what is a snapshot and why do you care?

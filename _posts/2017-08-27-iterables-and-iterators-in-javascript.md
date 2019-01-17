@@ -4,6 +4,7 @@ title: Iterables and Iterators in JavaScript
 date: 2017-08-27
 description: In this post, I go over the iterable and iterator protocols and show some examples of making your own objects iterable so that they can be used with the for...of loop or the spread operator.
 keywords: iterable, iterator, introduction, tutorial, javascript, protocol, next, done, Symbol.iterator, for...of, custom iterable, custom iterator, spread operator, iterable example, iterator example, es6, es 2015, es2015
+image: javascript
 ---
 
 ## What are Iterables?

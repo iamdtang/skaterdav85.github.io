@@ -3,6 +3,7 @@ layout: post
 title:  "Unit Testing Singletons"
 date:   2015-01-19
 keywords: unit testing singletons, unit test, singleton, singleton in javascript, singleton design pattern
+image: javascript
 ---
 
 Often times in web applications you only want a single instance of a class/constructor/reference type to ever be created. This is called the singleton pattern. [Wikipedia defines the singleton pattern](http://en.wikipedia.org/wiki/Singleton_pattern) as:

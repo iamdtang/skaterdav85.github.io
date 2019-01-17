@@ -3,6 +3,7 @@ layout: post
 title:  "Taking Screenshots with CasperJS"
 date:   2015-04-30
 keywords: screenshots with CasperJS, Casper screenshots, CasperJS screenshots, PhantomJS screenshots, screenshots with Phantom
+image: casper
 ---
 
 Lately I have been trying out more end-to-end / integration testing with CasperJS. Having these tests in place seems valuable for critical paths of an application but it can be pretty frustrating when sometimes tests pass and other times they fail. For me, the test results have not been consistent. Because CasperJS doesn't pop open a browser, it is difficult to know what exactly is going wrong. Many times I had a hunch that my tests were failing because of race conditions with the loading of the JavaScript of the pages under test. Then I discovered that CasperJS allows you take screenshots at any point during your test. This allows me to see if pages are fully rendering before assertions!

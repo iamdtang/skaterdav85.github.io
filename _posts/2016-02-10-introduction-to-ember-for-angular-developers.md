@@ -4,6 +4,7 @@ title: An Introduction to Ember for Angular Developers
 date: 2016-02-10
 description: One pain point of Ember that I often hear is that the learning curve is a little steep. Because Angular is extremely popular, I'd like to introduce Ember from the perspective of an Angular developer, hopefully getting those who know Angular up and running quickly based on something you are already familiar with. Ember is a fantastic framework that I've grown to love coming from the Angular world myself, and you may too.
 keywords: Ember tutorial, Angular, Angular tutorial, Ember, beginners, Ember 101, Ember intro, EmberJS, Ember.js, AngularJS, Angular.js, Ember vs. Angular, Angular vs. Ember, Ember vs Angular, Angular vs Ember
+image: ember
 ---
 
 One pain point of Ember that I often hear is that the learning curve is a little steep. Because Angular is extremely popular, I'd like to introduce Ember from the perspective of an Angular developer, hopefully getting those who know Angular up and running quickly based on something you are already familiar with. Ember is a fantastic framework that I've grown to love coming from the Angular world myself, and you may too.

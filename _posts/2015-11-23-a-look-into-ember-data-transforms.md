@@ -4,6 +4,7 @@ title:  "A Look Into Ember Data Transforms"
 date:   2015-11-23
 description: Ember Data has a feature called transforms that allow you to transform values before they are set on a model or sent back to the server. If you've been working with Ember Data, then you have already been using transforms and may not have known it.
 keywords: Ember Data, Transforms, tutorial, DS.Transform, custom transform, transform tutorial
+image: ember
 ---
 
 Ember Data has a feature called transforms that allow you to transform values before they are set on a model or sent back to the server. A transform has two functions: `serialize` and `deserialize`. Deserialization converts a value to a format that the client expects. Serialization does the reverse and converts a value to the format expected by the backend. If you've been working with Ember Data, then you have already been using transforms and may not have known it. The built in transforms include:

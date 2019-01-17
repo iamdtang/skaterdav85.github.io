@@ -4,6 +4,7 @@ title: Testing with Relative Dates and Timezones in Ember
 date: 2017-10-29
 description: In this post, I cover how to test with relative dates and timezones in an Ember application.
 keywords: mock today, stub today, Ember, testing, dates, mockdate, timezone, ember.js
+image: ember
 ---
 
 Imagine you have a component that allows users to select a date range. The component might also have a list of date range presets such as Last 7 days, Last 14 days, Last 3 months, etc.

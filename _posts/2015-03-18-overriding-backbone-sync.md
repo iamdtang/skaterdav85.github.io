@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Overriding Backbone.sync"
+title:  Overriding Backbone.sync
 date:   2015-03-18
 keywords: Backbone.sync, Backbone model custom url, Backbone model sync, custom endpoint in Backbone model, custom url in Backbone Models
+image: backbone
 ---
 
 As a frontend developer, you might find yourself in a situation where you have to work with unRESTful endpoints. If you are working with Backbone, Backbone models follow traditional REST. As mentioned in the [docs for Backbone.sync()](http://backbonejs.org/#Sync):

@@ -4,6 +4,7 @@ title: 5 Ways Unit Testing Can Help You
 date: 2016-01-28
 description: Have you ever been on a project where you make one change and later realize you broke something else? It feels like you're playing whack-a-mole. In today's post, I'd like to introduce you to some of the benefits of unit testing and why you should get started with it right now.
 keywords: javascript unit testing, why should I unit test, reasons to unit test, mocha, karma, jasmine, chai
+image: javascript
 ---
 
 Have you ever been on a project where you make one change and later realize you broke something else? It feels like you're playing whack-a-mole. Working on a JavaScript project like this is no fun at all. I've worked on plenty of projects like this, some of which I wrote all code. That's when I learned about automated testing, and specifically unit testing. Once I got into unit testing and following the test driven development (TDD) methodology, it completely changed the way I wrote code. In today's post, I'd like to introduce you to some of the benefits of unit testing and why you should get started with it right now.

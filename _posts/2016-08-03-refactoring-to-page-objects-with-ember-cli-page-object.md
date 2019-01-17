@@ -4,6 +4,7 @@ title: Refactoring to Page Objects with ember-cli-page-object
 date: 2016-08-03
 description: The Page Object design pattern is used to isolate HTML structure and CSS selectors from your tests. In this post and video tutorial, I'll refactor an acceptance and integration test in Ember to use a page object with the ember-cli-page-object addon.
 keywords: ember testing, page objects, ember-cli-page-object, tutorial, introduction to ember-cli-page-object, page objects in ember, readable tests, page objects in acceptance tests, page objects in integration tests, emberjs, EmberJS, ember.js, page object example
+image: ember
 ---
 
 The [Page Object design pattern](http://martinfowler.com/bliki/PageObject.html) is used to isolate HTML structure and CSS selectors from your tests. One of the main benefits from the page object pattern is test readability, and this really starts to shine as your acceptance and integration (component) tests get more complicated. Not only do page objects greatly improve test readability, they also make your tests more DRY. When HTML structure and CSS selectors change, you can make a change in a single place in your page object as opposed to going through and updating multiple, repeated selectors in your tests. Personally, I have also found that tests have become easier to write as my page objects get more defined.

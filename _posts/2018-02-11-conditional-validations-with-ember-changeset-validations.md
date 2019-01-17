@@ -4,6 +4,7 @@ title: Conditional Validations with ember-changeset-validations
 date: 2018-02-11
 description: TBA
 keywords: ember changeset, conditional validations
+image: ember
 ---
 
 I was recently working on a feature that required lots of conditional validation. I used [ember-changeset](https://github.com/poteto/ember-changeset) and [ember-changeset-validations](https://github.com/poteto/ember-changeset-validations), as I love how you can buffer changes on your model and declaratively specify validation rules.

@@ -7,6 +7,7 @@ image: elixir-thumb.png
 image_alt: Elixir programming language logo
 card_style: summary
 keywords: elixir, loop, recursion, map, filter, reduce, each, foreach, for loop, enum, enumerable, iterate
+image: elixir
 ---
 
 {% include elixir-series-intro.md %}

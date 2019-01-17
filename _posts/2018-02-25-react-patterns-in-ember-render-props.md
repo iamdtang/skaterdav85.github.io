@@ -4,6 +4,7 @@ title: React Patterns in Ember - Render Props
 date: 2018-02-25
 description: In this blog post, I cover the Render Props pattern in React and what it looks like in Ember.
 keywords: react patterns, ember, render props
+image: react
 ---
 
 Lately I've been hearing a lot about various component patterns in React. One pattern that has been coming up is the Render Props pattern. I was curious about what problem it solves and what the equivalent is in Ember.

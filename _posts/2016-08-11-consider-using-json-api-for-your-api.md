@@ -4,6 +4,7 @@ title: Consider Using JSON:API For Your API
 date: 2016-08-11
 description: Have you ever argued with your team on how an API should be formatted? JSON:API was created to standardize how APIs are built and keep API formatting discussions to a minimum.
 keywords: json-api, json:api, json:api tutorial, json:api introduction, json, api, spec, specification, yehuda katz, ember data, steve klabnik, tyler kellen, dan gebhardt, ethan resnick
+image: jsonapi
 ---
 
 Have you ever argued with your team on how an API should be formatted? [JSON:API](http://jsonapi.org/) is a specification that was created to standardize and reduce the number of decisions that have to be made when building JSON APIs. (Yes, it can be confusing talking about JSON:API compliant APIs and JSON APIs that don't follow the spec). The benefit of following a specification that is opinionated about the format of your API is that it allows developers to be more productive and focus on what matters, the _unique parts_ of an application.

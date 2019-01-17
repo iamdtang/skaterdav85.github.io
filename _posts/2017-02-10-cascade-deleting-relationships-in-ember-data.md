@@ -4,6 +4,7 @@ title: Cascade Deleting Relationships in Ember Data
 date: 2017-02-10
 description: In Ember Data, if you delete a record from the store, related records are kept in the store. How do you cascade delete related records? Find out in this post.
 keywords: ember data, ED, cascade delete, belongsTo, hasMany, unload relationships, eachRelationship, relationship options, snapshot
+image: ember
 ---
 
 In Ember Data, if you delete a record from the store, related records are kept in the store. Let's say you have the following models:

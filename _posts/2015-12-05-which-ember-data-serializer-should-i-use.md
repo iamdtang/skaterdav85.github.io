@@ -4,6 +4,7 @@ title: Which Ember Data Serializer Should I Use?
 date: 2015-12-05
 description: A serializer in Ember Data is used to massage data as it is transferred between the client and the persistence layer. Which one should you use? The answer is, choose the one that fits your API data format, or is as close to it as possible. But what format do each of these serializers expect? Let's find out.
 keywords: ember, ember data, ember data serializer, jsonserializer, jsonapiserializer, restserializer, data store, DS, serializer, api
+image: ember
 ---
 
 A serializer in Ember Data is used to massage data as it is transferred between the client and the persistence layer. This includes manipulating attribute values, normalizing property names, serializing relationships, and adjusting the structure of request payloads and responses. Ember Data comes with a few serializers:

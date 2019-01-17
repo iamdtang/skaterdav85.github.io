@@ -4,6 +4,7 @@ title: My Course "Test-Driven Development in Node.js" Has Been Published on Site
 date: 2017-05-29
 description: In my new SitePoint course "Test-Driven Development in Node.js", I teach test-driven development using practical examples, covering a range of topics including the fundamental theory, testing asynchronous code, and the different types of test doubles.
 keywords: test-driven development, node.js, node, mocha, chai, sinon, chai as promised, nock, lab, tape, tap, testing, test, tdd, bdd, behavior-driven development, javascript, jasmine, assert, expect, assertions, mocking, mock, spy, stub, test double, fake, real-world example'
+image: node
 ---
 
 I'm excited to announce that my course [Test-Driven Development in Node.js](https://www.sitepoint.com/premium/courses/test-driven-development-in-node-js-2932/?aref=dtang) has been published on SitePoint!

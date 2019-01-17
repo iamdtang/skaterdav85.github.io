@@ -3,6 +3,7 @@ layout: post
 title:  "Unit Testing Angular Directives Part 2"
 date:   2015-09-01
 keywords: unit testing directives, testing angular directives, testing directive controllers, unit testing angular, unit testing isolate scope directives, testing isolate scope, angular components, unit testing angular components
+image: angular
 ---
 
 Earlier this year I wrote about [Unit Testing Angular Directives with Isolate Scope](/2015/02/12/unit-testing-angular-directives.html). Now that I am working with Angular again, I've discovered another way to improve unit testing Angular directives using controllers. Let's look at an example.

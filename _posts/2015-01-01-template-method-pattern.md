@@ -4,6 +4,7 @@ title:  "The Template Method Design Pattern in JavaScript"
 date:   2015-01-01
 categories: ['JavaScript', 'Design Patterns']
 keywords: JavaScript design patterns, the template method pattern
+image: javascript
 ---
 
 Over the past year I have been reading a lot about design patterns. One of the patterns I learned about was the Template Method pattern. After reading about it, I realized that I had already been using it and found there was a name for it. I wanted to show a practical example of this pattern where I used it to create a reusable class for autocomplete components.
@@ -44,7 +45,7 @@ Autocomplete.prototype.search = function(searchTerm) {
   var deferred = new $.Deferred();
 
   this.clearPreviousRequests();
-  
+
   this.timeout = setTimeout(function() {
     self.request(searchTerm).then(function(results) {
       deferred.resolve(results);
@@ -71,7 +72,7 @@ function ItunesAutocomplete() {
 ItunesAutocomplete.prototype = Object.create(Autocomplete.prototype);
 ItunesAutocomplete.prototype.constructor = ItunesAutocomplete;
 
-ItunesAutocomplete.prototype.request = function(searchTerm) { 
+ItunesAutocomplete.prototype.request = function(searchTerm) {
   var url = 'https://itunes.apple.com/search?' + $.param({
     term: searchTerm
   });
@@ -97,7 +98,7 @@ function FacebookAutocomplete() {
 FacebookAutocomplete.prototype = Object.create(Autocomplete.prototype);
 FacebookAutocomplete.prototype.constructor = FacebookAutocomplete;
 
-FacebookAutocomplete.prototype.request = function(searchTerm) { 
+FacebookAutocomplete.prototype.request = function(searchTerm) {
   var url = 'https://graph.facebook.com/' + searchTerm;
   url += '?callback=?';
 
@@ -107,11 +108,10 @@ FacebookAutocomplete.prototype.request = function(searchTerm) {
 
 Again, note how this class contains only the specifics of requesting data while the _search()_ template method simply uses it.
 
-The full demo can be found <a href="/demos/template-method/">here</a>. 
+The full demo can be found <a href="/demos/template-method/">here</a>.
 
 ## Summary
 
 The template method design pattern is a very useful pattern and one are likely using already. It allows a parent class to define a general algorithm, and delegates some of the steps, namely the parts that will vary, to subclasses. In our example, _Autocomplete_ is the parent class with the general algorithm contained in the template method _search()_. _ItunesAutocomplete_ is a subclass of _Autocomplete_ that implements the specifics for fetching data in _request()_.
 
 I will be posting more articles on design patterns in the near future because it is a topic I am very interested in. Let me know in the comments how you have used the template method pattern in your applications!
-

@@ -197,6 +197,7 @@ h1 {
   li {
     border-bottom: 1px solid #ccc;
     padding: 7px;
+    padding-top: 0;
     font-size: 90%;
   }
 
@@ -250,4 +251,17 @@ hr {
   border-top: 1px solid #ddd;
   margin: 1em 0;
   padding: 0;
+}
+
+.posts {
+  .post {
+    padding: 20px 20px 20px 0;
+
+    img.post-thumbnail {
+      width: 100px;
+      height: 100px;
+      float: left;
+      margin-right: 20px;
+    }
+  }
 }

@@ -4,6 +4,7 @@ title:  "Unit Testing with $httpBackend in Angular.js - Backend Definitions"
 date:   2014-01-20
 categories: Angular.js JavaScript
 keywords: Backend definitions, $httpBackend, Angular.js, Unit Testing in Angular.js, Angular Mocks
+image: angular
 ---
 
 In the [last post on Request Expectations]({% post_url 2014-01-18-request-expectations-with-httpBackend %}), we looked at how we can set expectations that certain requests are made. Here we will look at how we can define our backend with fake responses for our unit tests.

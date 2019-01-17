@@ -6,6 +6,7 @@ description: This post covers creating custom QUnit assertions in Ember.
 image: custom-assertions-600x335.png
 image_alt: Screenshot of a test with a custom QUnit assertion
 keywords: ember, qunit, custom assertion, testing, multiple assertions, test
+image: qunit
 ---
 
 Recently I was working on a feature to display different toastr notifications based on what the user filled out in a form. I wrote some acceptance tests with assertions like the following:

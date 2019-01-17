@@ -3,6 +3,7 @@ layout: post
 title:  "Upgrading Jasmine from 1.3 to 2.1"
 date:   2015-01-29
 keywords: Upgrading Jasmine, Jasmine migration path, Jasmine framework, Upgrading jasmine framework
+image: jasmine
 ---
 
 Recently I upgraded the unit tests for a work project from using Jasmine 1.3 to Jasmine 2.1. The suite had about 400 tests. When I upgraded, only about 60 tests broke due to Jasmine API changes. Here are some of the differences I found between Jasmine 1.3 and Jasmine 2.1. The process took me about 2 hours. Hopefully this post will make the upgrade path a little faster for someone else.

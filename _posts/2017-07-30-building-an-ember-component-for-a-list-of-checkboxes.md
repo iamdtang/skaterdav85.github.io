@@ -4,6 +4,7 @@ title: Building an Ember Component for a List of Checkboxes
 date: 2017-07-30
 description: How I built a checkbox list Ember component using contextual components and an ES 2015 Set
 keywords: checkbox list component, ember component, checkboxes, contextual components, data down actions up, DDAU, component helper, hash helper, contextual input component, yield checkbox, ES 2015 Set, ES6 Set
+image: ember
 ---
 
 This week I found myself needing to build a component for a list of checkboxes. I wanted to render a checkbox for a list of items. Each time a checkbox was clicked, a specified action would get fired with an argument containing all the checked items. I also wanted to make the component flexible enough to handle a few checkbox and label markup variations. Given those requirements, this was the component API that I settled on:

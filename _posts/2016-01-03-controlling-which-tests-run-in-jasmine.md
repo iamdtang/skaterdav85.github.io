@@ -4,6 +4,7 @@ title: Controlling Which Tests Run In Jasmine
 date: 2016-01-03
 description: When working with Jasmine, you might find yourself wanting to control which tests execute. Let me show you how to do this with Jasmine.
 keywords: jasmine, single test, exclude tests, focus, focused, specs, fit, fdescribe, xit, xdescribe, karma
+image: jasmine
 ---
 
 When working with Jasmine, you might find yourself wanting to control which

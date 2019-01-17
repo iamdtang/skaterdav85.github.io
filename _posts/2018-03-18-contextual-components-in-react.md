@@ -7,6 +7,7 @@ description: Contextual Components are one of my favorite features in Ember. In 
 image: contextual-components-in-react.png?cache-bust
 image_alt: Code snippet of a contextual component in React
 keywords: ember, react, contextual components, Render Props pattern
+image: react
 ---
 
 Contextual Components are one of my favorite features in Ember. They allow you to expose components pre-wired with state and actions as part of a component's public API, without having to directly expose that state or those actions. This same pattern can be applied to React components using the Render Props pattern. Let's look at an example to make this more concrete.

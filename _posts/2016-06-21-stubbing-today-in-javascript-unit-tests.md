@@ -4,6 +4,7 @@ title: Stubbing "Today" in JavaScript Unit Tests
 date: 2016-06-21
 description: One of the challenges of working with dates is unit testing code that depends on the current date. Let's look at how to stub out "today".
 keywords: unit test, testing, moment, momentJS, current date, today, now, mocking Date, mock Date, fake Date, sinon Date, fake Date, stub Date, spy Date, spy moment, mock moment
+image: javascript
 ---
 
 One of the challenges of working with dates is unit testing code that depends on the current date. For example, let's say we have a purchase history, and we want to find all purchase transactions for today. Let's write a test for this:

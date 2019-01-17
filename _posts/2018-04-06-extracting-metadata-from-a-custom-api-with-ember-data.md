@@ -7,6 +7,7 @@ description: This post covers how to extract metadata from a custom API with Emb
 image: extracting-metadata-with-ember-data.png
 image_alt: screenshot of code from this blog post
 keywords: ember data, metadata, meta, ember, custom, API, backend, non-standard, extractMeta
+image: ember
 ---
 
 When querying an API, sometimes metadata is returned such as pagination information. For example:

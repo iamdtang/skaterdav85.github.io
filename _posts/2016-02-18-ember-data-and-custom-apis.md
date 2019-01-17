@@ -4,6 +4,7 @@ title: Ember Data and Custom APIs
 date: 2016-02-18
 description: TBA
 keywords: ember data, custom apis, customizing serializers, customizing adapters, customm, serializer, adapter, snapshot, RESTSerializer, JSONSerializer, JSONAPISerializer, ember data 2
+image: ember
 ---
 
 Here are the slides from my presentation at the <a href="http://www.meetup.com/Ember-SC/events/228289932/" target="_blank">EmberSC meetup on 2/17/16</a> on Ember Data and Custom APIs.

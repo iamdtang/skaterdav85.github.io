@@ -3,6 +3,7 @@ layout: post
 title:  "Unit Testing Angular Directives with Isolate Scope"
 date:   2015-02-12
 keywords: unit testing directives, angular directives, unit testing, angular $compile, isolate scope directives, testing isolate scope
+image: angular
 ---
 
 If you are building complex user interfaces, you will at some point want to start unit testing your directives. Below is a simple directive called `blog-status` that displays either "Active" or "Inactive" on the page. This might be a directive used in the admin section for a blog where it shows a list of all your posts and the status of each post. It's not the most useful directive but it is simple enough to show how to unit test a directive with isolate scope. Usage of this directive would be:

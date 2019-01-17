@@ -6,6 +6,7 @@ description: This post covers how to access the instance of a model in the defau
 image: conditional-default-values-in-ember-data-model-attributes.png
 image_alt: code screenshot of conditionally setting a default value in an Ember Data model attribute
 keywords: ember data, model, attribute, conditional, default value, defaultValue
+image: ember
 ---
 
 When defining attributes on Ember Data models, you can specify a default value through the second argument to `DS.attr()`:

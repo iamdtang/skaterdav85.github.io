@@ -4,6 +4,7 @@ title: (Podcast) Why Should Ember.js Be Your First Framework You Learn?
 date: 2016-02-29
 description: Why should Ember be your first framework? This question and many more is discussed today in this special podcast episode with Jeff Biles from Ember Screencasts, Erik Hanchett from programwitherik.com, and myself. We discuss frameworks, Emberconf, and much more. Check it out below!
 keywords: Ember tutorial, EmberJS tutorial, javascript frameworks, which framework should i learn, beginner javascript framework, angular vs ember, react vs angular, react vs ember, emberJS, ember.js, learning, ember podcast, javascript podcast
+image: ember
 ---
 
 Why should Ember be your first framework? This question and many more is discussed today in this special podcast episode with Jeff Biles from Ember Screencasts, Erik Hanchett from <a href="http://www.programwitherik.com/" target="_blank">programwitherik.com</a>, and myself. We discuss frameworks, Emberconf, and much more. Check it out below!

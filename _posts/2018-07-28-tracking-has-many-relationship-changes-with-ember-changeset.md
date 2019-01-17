@@ -6,6 +6,7 @@ description: This post covers how I handled tracking hasMany relationship change
 image: tracking-has-many-relationship-changes-with-ember-changeset.png?bust=1
 image_alt: Screenshot of code snippets from this post
 keywords: ember-changeset, ember.js, tracking hasMany relationship changes
+image: ember
 ---
 
 I've been using [ember-changeset](https://github.com/poteto/ember-changeset) at work for a handful of forms, and it works great! However, tracking `hasMany` relationships can be a little tricky.
