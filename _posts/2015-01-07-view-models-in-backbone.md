@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "An Approach to View-Models in Backbone"
+title:  An Approach to View-Models in Backbone
 date:   2015-01-07
 categories: ['JavaScript', 'Backbone']
 keywords: Backbone View-Models, Backbone View Models, Backbone Controllers, View Models in Backbone, View-Models in Backbone
