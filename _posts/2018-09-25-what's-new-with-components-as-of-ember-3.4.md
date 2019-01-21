@@ -3,8 +3,8 @@ layout: post
 title: What's New with Components as of Ember 3.4
 date: 2018-09-25
 description: This post covers new Ember component features as of 3.4.
-image: ember-3.4-components-600x335.png
-image_alt: Screenshot of invoking an Ember component with angle bracket syntax
+twitter_image: ember-3.4-components-600x335.png
+twitter_image_alt: Screenshot of invoking an Ember component with angle bracket syntax
 keywords: ember, component, angle bracket syntax, components, spreading HTML attributes, named arguments, template-only glimmer components
 image: ember
 ---

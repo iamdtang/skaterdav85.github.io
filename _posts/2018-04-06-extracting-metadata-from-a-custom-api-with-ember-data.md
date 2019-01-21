@@ -4,8 +4,8 @@ title: Extracting Metadata from a Custom API with Ember Data
 date: 2018-04-06
 updated: 2018-09-20
 description: This post covers how to extract metadata from a custom API with Ember Data.
-image: extracting-metadata-with-ember-data.png
-image_alt: screenshot of code from this blog post
+twitter_image: extracting-metadata-with-ember-data.png
+twitter_image_alt: screenshot of code from this blog post
 keywords: ember data, metadata, meta, ember, custom, API, backend, non-standard, extractMeta
 image: ember
 ---

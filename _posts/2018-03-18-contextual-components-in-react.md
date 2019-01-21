@@ -4,8 +4,8 @@ title: Contextual Components in React
 date: 2018-03-18
 updated: 2018-03-28
 description: Contextual Components are one of my favorite features in Ember. In this post, I show how you can implement the same pattern in React components using the Render Props pattern.
-image: contextual-components-in-react.png?cache-bust
-image_alt: Code snippet of a contextual component in React
+twitter_image: contextual-components-in-react.png?cache-bust
+twitter_image_alt: Code snippet of a contextual component in React
 keywords: ember, react, contextual components, Render Props pattern
 image: react
 ---
