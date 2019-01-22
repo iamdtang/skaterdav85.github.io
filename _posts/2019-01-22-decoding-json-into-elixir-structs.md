@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Converting JSON into Elixir Structs
-date: 2019-01-21
-description: This post covers a few things I learned when converting JSON into Elixir structs.
+title: Decoding JSON into Elixir Structs
+date: 2019-01-22
+description: This post covers a few things I learned when decoding JSON into Elixir structs.
 twitter_image: elixir-thumb.png
 twitter_image_alt: Elixir programming language logo
 card_style: summary
