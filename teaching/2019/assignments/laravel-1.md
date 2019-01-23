@@ -40,4 +40,4 @@ To access the `genre` query string parameter value, use the `query()` method off
 
 * Please push up your code including the database to GitHub to a repository named EXACTLY __itp405-laravel__. You will be using this repository for all Laravel assignments, labs, and class lectures. As mentioned in class, you can use the same installation of Laravel that we did in class, unless you want the experience of doing it yourself :)
 * Deploy your app to Heroku by [following these instructions](/tutorials/deploying-laravel-with-sqlite-to-heroku). Verify that your app has been deployed and it works on Heroku.
-* Send an email to me and the TA with the repository URL and the URL to the live site on Heroku.
+* Send an email to me and the TA with the repository URL and the URL to the live site on Heroku. Please use the subject line __ITP 405 Assignment Submission - Laravel 1__.

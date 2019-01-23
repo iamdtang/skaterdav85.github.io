@@ -30,4 +30,4 @@ Once you've gotten it working, deploy your pages and database to Heroku.
 
 ## Submission
 
-Please push up your code including the database to GitHub to a repository named EXACTLY __itp405-assignment1__. Send an email to the TA and myself with the repository URL and the Heroku URL.
+Please push up your code including the database to GitHub to a repository named EXACTLY __itp405-assignment1__. Send an email to the TA and myself with the repository URL and the Heroku URL. Please use the subject line __ITP 405 Assignment Submission - PDO__.
