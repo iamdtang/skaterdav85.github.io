@@ -64,6 +64,8 @@ When the user hits the "Save" button, the following should happen:
 
 Check out the [Laravel documentation on how to update records using Laravel's Query Builder](https://laravel.com/docs/5.7/queries#updates).
 
+Also, check out how to [retrieve a single row from a table using first()](https://laravel.com/docs/5.7/queries#retrieving-results).
+
 ## Submission
 
 * Please push up your code to your repository __itp405-laravel__.
