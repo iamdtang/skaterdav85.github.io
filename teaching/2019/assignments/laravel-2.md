@@ -35,23 +35,22 @@ When the user hits the "Save" button, the following should happen:
   * All fields are required
   * Milliseconds, bytes, and unit price are numbers
 * If the form is valid, the track is added in the database and the user is redirected back to `/tracks`
-* If the form is invalid, error messages are displayed at the top of the screen. The form should also contain the user's invalid form data.
+* If the form is invalid, display an error message next to the corresponding form control. The form should also contain the user's invalid form data. For the select menu options, you will want to conditionally add the [`selected` attribute](https://www.w3schools.com/tags/tag_option.asp) in order to preserve what the user had previously selected.
 
 ## Editing a Genre Name
 
-Next to each genre on the `/genres` page that you did in Assignment 1, display an "Edit" link. When this link clicked, it will take you to `/genres/{id}/edit`, where the user is presented with a form prepopulated with the name of the genre that was clicked.
+Next to each genre on the `/genres` page that you did in Assignment 1, display an "Edit" link. When this link clicked, it will take you to `/genres/{id}/edit`, where the user is presented with a form populated with the name of the genre that was clicked.
 
 When the user hits the "Save" button, the following should happen:
 
-* Server-side validation using the `Validator` class to ensure the genre name is present and at least 3 characters long
+* Server-side validation using the `Validator` class with the following validation rules:
+  * The genre name is required
+  * The genre name is at least 3 characters long
+  * The genre name doesn't already exist in the `genres` table. (see the `unique` rule)
 * If the name is valid, the genre name is updated in the database and the user is redirected back to the `/genres` page
-* If the name is invalid, error messages are displayed at the top of the screen and the user can see their invalid input in the text field (which is flash data)
+* If the name is invalid, the error message from the validation is shown underneath the genre name text input.
 
 Check out the [Laravel documentation on how to update records using Laravel's Query Builder](https://laravel.com/docs/5.7/queries#updates).
-
-## Other Requirements
-
-* Error messages should be flash data
 
 ## Submission
 
