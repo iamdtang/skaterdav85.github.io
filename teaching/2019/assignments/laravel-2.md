@@ -35,7 +35,19 @@ When the user hits the "Save" button, the following should happen:
   * All fields are required
   * Milliseconds, bytes, and unit price are numbers
 * If the form is valid, the track is added in the database and the user is redirected back to `/tracks`
-* If the form is invalid, display an error message next to the corresponding form control. The form should also contain the user's invalid form data. For the select menu options, you will want to conditionally add the [`selected` attribute](https://www.w3schools.com/tags/tag_option.asp) in order to preserve what the user had previously selected.
+* If the form is invalid, display an error message next to the corresponding form control. The form should also contain the user's invalid form data. For the select menu options, you will want to conditionally add the [`selected` attribute](https://www.w3schools.com/tags/tag_option.asp) in order to preserve what the user had previously selected. For example, if I were building a select menu for a list of tracks and wanted the one with `TrackId` equal to "2822", it might look like this:
+
+```html
+<select>
+  @foreach($tracks as $track)
+    <option value="{{$track->TrackId}}" {{$track->TrackId == '2822' ? "selected" : ""}}>
+      {{$track->Name}}
+    </option>
+  @endforeach
+</select>
+```
+
+This example is using a shorthand if/else statement called the [ternary operator](http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary).
 
 ## Editing a Genre Name
 
