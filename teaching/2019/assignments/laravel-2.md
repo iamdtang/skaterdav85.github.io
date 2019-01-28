@@ -53,9 +53,7 @@ This example is using a shorthand if/else statement called the [ternary operator
 
 ## Editing a Genre Name
 
-Next to each genre on the `/genres` page that you did in Assignment 1, display an "Edit" link. When this link clicked, it will take you to `/genres/{id}/edit`, where the user is presented with a form populated with the name of the genre that was clicked.
-
-Check out how to [retrieve a single row from a table using first()](https://laravel.com/docs/5.7/queries#retrieving-results)
+Next to each genre on the `/genres` page that you did in Assignment 1, display an "Edit" link. When this link clicked, it will take you to `/genres/{id}/edit`, where the user is presented with a form populated with the name of the genre that was clicked. Check out how to [retrieve a single row from a table using first()](https://laravel.com/docs/5.7/queries#retrieving-results).
 
 When the user hits the "Save" button, the following should happen:
 
