@@ -55,18 +55,16 @@ This example is using a shorthand if/else statement called the [ternary operator
 
 Next to each genre on the `/genres` page that you did in Assignment 1, display an "Edit" link. When this link clicked, it will take you to `/genres/{id}/edit`, where the user is presented with a form populated with the name of the genre that was clicked.
 
+Check out how to [retrieve a single row from a table using first()](https://laravel.com/docs/5.7/queries#retrieving-results)
+
 When the user hits the "Save" button, the following should happen:
 
 * Server-side validation using the `Validator` class with the following validation rules:
   * The genre name is required
   * The genre name is at least 3 characters long
   * The genre name doesn't already exist in the `genres` table. (see the `unique` rule)
-* If the name is valid, the genre name is updated in the database and the user is redirected back to the `/genres` page
+* If the name is valid, the genre name is updated in the database and the user is redirected back to the `/genres` page. Check out the [Laravel documentation on how to update records using Laravel's Query Builder](https://laravel.com/docs/5.7/queries#updates).
 * If the name is invalid, the error message from the validation is shown underneath the genre name text input.
-
-Check out the [Laravel documentation on how to update records using Laravel's Query Builder](https://laravel.com/docs/5.7/queries#updates).
-
-Also, check out how to [retrieve a single row from a table using first()](https://laravel.com/docs/5.7/queries#retrieving-results).
 
 ## Submission
 
