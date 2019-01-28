@@ -60,9 +60,11 @@ When the user hits the "Save" button, the following should happen:
 * Server-side validation using the `Validator` class with the following validation rules:
   * The genre name is required
   * The genre name is at least 3 characters long
-  * The genre name doesn't already exist in the `genres` table. (see the `unique` rule)
+  * The genre name doesn't already exist in the `genres` table. (See the `unique` rule)
 * If the name is valid, the genre name is updated in the database and the user is redirected back to the `/genres` page. Check out the [Laravel documentation on how to update records using Laravel's Query Builder](https://laravel.com/docs/5.7/queries#updates).
-* If the name is invalid, the error message from the validation is shown underneath the genre name text input.
+* If the name is invalid:
+  * The error message from the validation is shown underneath the genre name text input.
+  * The old input is displayed in the text field. This is another good use case for the ternary operator. When the page loads, it should show the genre that is in the database. When the form has been submitted and it contains an invalid genre name, display the user's old input.
 
 ## Submission
 
