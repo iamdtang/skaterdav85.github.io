@@ -90,8 +90,19 @@
         <a href="/feed.xml" target="_blank"><i class="fa fa-rss fa-lg"></i></a>
       </li>
     </ul>
-    {% include other-posts.html %}
-    {% include nav-subscribe.html %}
+    {% if page.show_students %}
+      <div id="students-container" class="students-container"></div>
+      <script>
+        var DAVID = {
+          course: "{{page.course}}",
+          year: "{{page.year}}"
+        };
+      </script>
+      <script src="/js/index.js"></script>
+    {% else %}
+      {% include other-posts.html %}
+      {% include nav-subscribe.html %}
+    {% endif %}
     <br>
     {% include google-ads.html %}
   </div>

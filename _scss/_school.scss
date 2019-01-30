@@ -12,3 +12,18 @@
     line-height: 1.5;
   }
 }
+
+.students-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .student {
+    margin-bottom: 10px;
+
+    img {
+      width: 75px;
+      display: block;
+    }
+  }
+}
