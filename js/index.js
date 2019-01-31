@@ -12,12 +12,10 @@
   function buildHTML({ students }) {
     return students
       .map(({ name, image }) => {
-        let [last, first, middle] = name.split(', ');
-
         return `
           <div class="student">
-            <img src="${url}${image}" alt="${first} image">
-            <small>${first}</small>
+            <img src="${url}${image}" alt="${name} image">
+            <small>${name}</small>
           </div>
         `;
       })
