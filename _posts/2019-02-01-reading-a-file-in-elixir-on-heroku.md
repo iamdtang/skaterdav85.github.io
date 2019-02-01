@@ -28,7 +28,7 @@ end
 
 Locally, the path that was logged was `/Users/david/Sites/students/data/2019/itp405.html`. Everything worked.
 
-Once I pushed it up to Heroku, I noticed that the file couldn't be read. After inspecting the logs on Heroku (using `heroku logs --app davids-api`), I found that the path that was generated when running on Heroku was `/tmp/build_b2f02984e1fe996483c2e4e14d6e337d/data/2019/itp405.html`. For whatever reason, that path wasn't working and resulted in a "file not found" error.
+Once I pushed it up to Heroku, I noticed that the file couldn't be read. After inspecting the logs on Heroku (using `heroku logs --app davids-api`), I found that the path that was generated from `Path.expand` was `/tmp/build_b2f02984e1fe996483c2e4e14d6e337d/data/2019/itp405.html`. For whatever reason, that path wasn't working and resulted in a "file not found" error.
 
 Eventually I discovered that the file could be read using the path `/app/data/2019/itp405.html`. My final solution turned out to be:
 
