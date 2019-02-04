@@ -2,6 +2,7 @@
 layout: post
 title: Reading a File in Elixir on Heroku
 date: 2019-02-01
+updated: 2019-02-03
 description: This post covers a problem I ran into when reading files on Heroku in an Elixir Phoenix app.
 twitter_image: elixir-thumb.png
 twitter_image_alt: Elixir programming language logo
@@ -51,3 +52,18 @@ end
 ```
 
 It turns out there is an environment variable named `HEROKU_EXEC_URL` when running on Heroku. I ended up using that to conditionally determine the file path. This isn't an ideal solution, but it got my app working. If you know of a better way, please let me know in the comments!
+
+## UPDATE (2/3/2019)
+
+It turns out, there is a better way to do this, as David made me aware of in the comments section. Instead of putting the `data` folder in the root of my project, I moved it into the `priv` directory. Then, I used [`code:priv_dir` from Erlang](http://erlang.org/doc/man/code.html#priv_dir-1) to get the path to the `priv` directory:
+
+```elixir
+defp get_path(course, year) do
+  "#{:code.priv_dir(:students)}/data/#{year}/"
+  |> Path.join("#{course}.html")
+end
+```
+
+This function takes the application name, which you can find in the `project` function in `mix.exs`.
+
+No more conditional logic based on a Heroku environment variable!
