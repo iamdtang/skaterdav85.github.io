@@ -37,6 +37,8 @@ You will also build an API for your database using Node. This API should:
   * 1 DELETE
 * POST and PATCH requests should have validation. If validation fails, the response should return a 422 HTTP status code with the body containing the validation errors
 * The GET request for a single resource and the DELETE request should respond with a 404 HTTP status code if the resource doesn't exist.
+* Use an ORM for database access instead of building raw strings of SQL
+* Use [dotenv](https://www.npmjs.com/package/dotenv) for sensitive data like API keys and credentials
 
 ## Part 3: Testing and Continuous Integration (CI)
 
