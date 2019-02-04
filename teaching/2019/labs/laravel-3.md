@@ -15,4 +15,4 @@ To test out your code, use `php artisan tinker`.
 
 ## Submission
 
-* Send an email to me and the TA with the link to your GitHub Gist. Please use the subject line __ITP 405 Lab Submission - Laravel 3__.
+Send an email to me and the TA with the link to your GitHub Gist. Please use the subject line __ITP 405 Lab Submission - Laravel 3__.

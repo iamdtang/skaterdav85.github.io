@@ -3,7 +3,7 @@ layout: assignment
 title: Final Project Proposal
 ---
 
-Create a Google Doc titled "<First Name> <Last Name> ITP 405 Project Proposal" and share it with me and the TA. In this doc, explain what you want to build for your final project.
+Create a Google Doc titled "First Name Last Name ITP 405 Project Proposal" and share it with me and the TA. In this doc, explain what you want to build for your final project.
 
 1. What problem are you trying to solve?
 2. Who is the primary audience?
