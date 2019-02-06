@@ -13,6 +13,8 @@ To test out your code, use `php artisan tinker`.
 1. Create a relationship between an invoice and invoice items such that all invoice items for an invoice can be accessed through an `items` property off of an invoice object.
 1. Create a relationship between an invoice and invoice items such that the invoice can be accessed from an invoice item object through an `invoice` property.
 
+__NOTE:__ The primary key in the `invoice_items` table is NOT `InvoiceItemId` as you might expect. The primary key of `invoice_items` is actually `InvoiceLineId`. If you open up the database in SQLite from the command line, (see [this page](/tutorials/sqlite) if you forgot), you will see that. This is pertinent to the last 2 questions.
+
 ## Submission
 
 Send an email to me and the TA with the link to your GitHub Gist. Please use the subject line __ITP 405 Lab Submission - Laravel 3__.
