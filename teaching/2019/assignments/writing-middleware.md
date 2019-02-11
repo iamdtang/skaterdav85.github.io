@@ -7,7 +7,7 @@ This assignment will build off the authentication demo we do in class, so you wi
 
 ## Create a `configurations` Table
 
-In your database, create a table named `configurations` with columns for `id`, `name` (text), and `value` (text). See [this page](/tutorials/sqlite) for how to create tables in SQLite.
+In your database, create a table named `configurations` with columns for `id` (primary key), `name` (string), and `value` (string). Create this table with a migration.
 
 Insert a records into this table `name` set to "maintenance" and `value` set to "off".
 
