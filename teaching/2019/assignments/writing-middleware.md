@@ -13,7 +13,7 @@ Insert a records into this table `name` set to "maintenance" and `value` set to 
 
 ## The Home Page
 
-Modify the `/` route so that it directs users to `/genres`.
+Modify the `/` route so that it redirects to some existing route.
 
 ## Maintenance Mode Middleware
 
