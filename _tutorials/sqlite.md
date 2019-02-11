@@ -57,6 +57,9 @@ drop table employees;
 .mode html
 select * from employees;
 .output stdout
+
+// display table information
+PRAGMA table_info(tracks);
 ```
 
 This is a modified version from [http://www.newthinktank.com/2013/05/sqlite3-tutorial/](http://www.newthinktank.com/2013/05/sqlite3-tutorial/), which has more details if you are interested in learning more.
