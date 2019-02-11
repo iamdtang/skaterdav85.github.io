@@ -31,6 +31,5 @@ Create a `/settings` page that is protected by authentication. This page will ha
 
 ## Submission
 
-* Please push up your code to your repository __itp405-laravel__.
 * Deploy your app to Heroku. Verify that your app has been deployed and it works on Heroku.
-* Send an email to me and the TA with the repository URL and the URL to the live site on Heroku. Please use the subject line __ITP 405 Assignment Submission - Writing Middleware__.
+* Send an email to me and the TA with the GitHub URL and the Heroku URL. Please use the subject line __ITP 405 Assignment Submission - Writing Middleware__.
