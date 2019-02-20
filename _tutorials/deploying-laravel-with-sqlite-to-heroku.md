@@ -6,7 +6,7 @@ description: Deploying Laravel with SQLite to Heroku
 keywords: Laravel, SQLite, Heroku
 ---
 
-Make sure your SQLite database is at `database/database.sqlite`.
+Make sure your SQLite database is at `database/database.sqlite` and remove the `database/.gitignore` file.
 
 1. Add `"ext-pdo_sqlite": "*"` to the `require` block in `composer.json`. You can read about how to enable various PHP extensions on Heroku [here](https://devcenter.heroku.com/articles/php-support#extensions).
 2. Run `composer update`.
