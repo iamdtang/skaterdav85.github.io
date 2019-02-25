@@ -26,7 +26,7 @@ If the update fails validation, return a JSON response in the following format, 
   "errors": [
     {
       "attribute": "name",
-      "message": "Name must be between 2 and 10 characters"
+      "message": "..."
     }
   ]
 }
