@@ -10,3 +10,7 @@ The app that you build during the midterm will need to be a separate installatio
 __PLEASE NAME YOURE REPO `lastname-firstname-405-midterm`__.
 
 Lastly, please make this repo private. Add `skaterdav85` (me) and `frumsdotxyz` (Finn) to Collaborators in Settings.
+
+## Submission
+
+Send an email to Finn and me with your GitHub repo URL and Heroku URL.
