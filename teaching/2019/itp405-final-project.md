@@ -49,6 +49,11 @@ TBD
 * If you'd like to add real-time functionality to your app with Web Sockets in Node.js, you can do that and skip out on the PATCH and DELETE API endpoints in Part 2. If you choose to do this, your feature shouldn't be the same as the class or lab example, unless extensively modified or implemented more robustly.
 * You're welcome to use NoSQL and MongoDB for your database instead of SQLite. You will need to figure out how to host this though.
 
+## Other Requirements
+
+* All code should be nicely formatted. Points will be deducted for sloppy code.
+* I will take into account your application's complexity. You will not get full credit by doing the bare minimum.
+
 ## Submission
 
 Send a single email to the TA and myself on the project due date containing the following:
