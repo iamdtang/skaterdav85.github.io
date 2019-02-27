@@ -3,13 +3,15 @@ layout: assignment
 title: Node 2
 ---
 
-Create the following endpoints in your Express application using the Sequelize ORM. Test out your endpoints using [Postman](https://www.getpostman.com/).
+Create the following endpoint in your Express application using the Sequelize ORM. Test out your endpoint using [Postman](https://www.getpostman.com/).
 
+<!--
 ## DELETE /tracks/:id
 
-This endpoint should delete a track by the `id` parameter. If the deletion is successful, respond with a 204 status code and an empty response body. The 204 status code stands for "No Content" and means that "the server has fulfilled the request but does not need to return an entity-body". [See a full list of HTTP status codes](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). 
+This endpoint should delete a track by the `id` parameter. If the deletion is successful, respond with a 204 status code and an empty response body. The 204 status code stands for "No Content" and means that "the server has fulfilled the request but does not need to return an entity-body". [See a full list of HTTP status codes](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
 If the track is not found, return a response with a 404 status code. The response should be an object with a key `error` that has some message indicating that the track wasn't found.
+-->
 
 ## PATCH /tracks/:id
 
@@ -19,7 +21,9 @@ This endpoint should update a track by the `id` parameter. This endpoint should 
 * milliseconds must be numeric
 * unit price must be numeric
 
-If the update fails validation, return a JSON response in the following format, where each object contains the attribute that failed validation and a user freindly error message.
+If the update passes validation, respond with a 200 status code and the updated track in the response body.
+
+If the update fails validation, return a JSON response in the following format, where each object contains the attribute that failed validation and a user friendly error message.
 
 ```json
 {
@@ -32,7 +36,7 @@ If the update fails validation, return a JSON response in the following format, 
 }
 ```
 
-If the track isn't found, return a response with a 404 status code. The response should be an object with a key `error` that has some message indicating that the track wasn't found.
+If the track isn't found, return an empty response with a 404 status code.
 
 For your `Track` model, alias the column names to their camelCased version. For example, the column `UnitPrice` should be `unitPrice` on your model. Also, alias your primary key `TrackId` to just `id`.
 
