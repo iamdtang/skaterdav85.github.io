@@ -17,7 +17,7 @@ Build a server-rendered application using Laravel and the database you have buil
 * At least 2 POST routes
 * Data validation with Laravel's Validator
 * Error messages as flash data for when form submissions fail validation
-* Form submissions that fail validation should repopulate the form with the user's invalid input
+* Form submissions that fail validation should repopulate the form with the user's input
 * Authentication
 * Use of Blade templating and Blade layouts
 * The title tag for each page should be unique
@@ -36,7 +36,7 @@ You will also build an API for your database using Node. This API should:
   * 1 PATCH
   * 1 DELETE
 * POST and PATCH requests should have validation. If validation fails, the response should return a 422 HTTP status code with the body containing the validation errors
-* The GET request for a single resource and the DELETE request should respond with a 404 HTTP status code if the resource doesn't exist.
+* The GET request for a single resource and the DELETE request should respond with a 404 HTTP status code and an empty response body if the resource doesn't exist.
 * Use an ORM for database access instead of building raw strings of SQL
 * Use [dotenv](https://www.npmjs.com/package/dotenv) for sensitive data like API keys and credentials
 
@@ -46,7 +46,7 @@ TBD
 
 ## Other Things You Can Do
 
-* If you'd like to add real-time functionality to your app with Web Sockets in Node.js, you can do that and skip out on the PATCH and DELETE API endpoints in Part 2.
+* If you'd like to add real-time functionality to your app with Web Sockets in Node.js, you can do that and skip out on the PATCH and DELETE API endpoints in Part 2. If you choose to do this, your feature shouldn't be the same as the class or lab example, unless extensively modified or implemented more robustly.
 * You're welcome to use NoSQL and MongoDB for your database instead of SQLite. You will need to figure out how to host this though.
 
 ## Submission
