@@ -7,7 +7,7 @@ For this lab, you will create a very basic version of Google Docs in your Larave
 
 Start by creating a public route `/docs` in your Laravel project. On this page, display a simple editor using an editable div through the [`contenteditable` attribute](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content).
 
-Users will be able to type content into this div. Every time a user pauses typing for 500 milliseconds, send the content through the web socket connection so that all connected clients receive it and see the most up to date document.
+Users will be able to type content into this div. As a user types, send the content through the web socket connection so that all connected clients receive it and see the most up to date document.
 
 ## Submission
 
