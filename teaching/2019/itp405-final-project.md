@@ -7,7 +7,7 @@ For the final project, you will build a Laravel app and a Node API on whatever i
 
 ## Database
 
-Design and build a SQLite database with at least 3 tables having relationships (one to one, one to many, many to many, etc).
+Design and build a SQLite database with at least 3 tables having relationships (one to one, one to many, many to many, etc). Please include a schema similar to [this one](http://www.sqlitetutorial.net/sqlite-sample-database/), where you specify the tables, their columns, and how columns relate. You can either draw this out on paper or whiteboard and take a picture of it, or use some other software. Please put this pic on your README.md.
 
 ## Part 1: Server-Rendered Web Application with Laravel
 
@@ -37,7 +37,8 @@ You will also build an API for your database using Node. This API should:
   * 1 DELETE
 * POST and PATCH requests should have validation. If validation fails, the response should return a 422 HTTP status code with the body containing the validation errors
 * The GET request for a single resource and the DELETE request should respond with a 404 HTTP status code and an empty response body if the resource doesn't exist.
-* Use an ORM for database access instead of building raw strings of SQL
+* The DELETE request should not result in any orphaned records. An orphaned record is a record whose foreign key value references a non-existent primary key value.
+* Use Sequelize for database access
 * Use [dotenv](https://www.npmjs.com/package/dotenv) for sensitive data like API keys and credentials
 
 ## Part 3: Testing and Continuous Integration (CI)
