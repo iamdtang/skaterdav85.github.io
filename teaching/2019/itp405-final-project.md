@@ -20,7 +20,7 @@ Build a server-rendered application using Laravel and the database you have buil
 * Form submissions that fail validation should repopulate the form with the user's input
 * Authentication
 * Use of Blade templating and Blade layouts
-* The title tag for each page should be unique
+* The title tag for each page should be unique and contain meaningful data. This includes pages with different data. For example, on Amazon, the title of a product page is different for every product listed. 
 * Use of Eloquent or the Query Builder for database access
 * Pages where user(s) can create, edit, and delete data. For example, maybe you have an admin section where the logged in user can create, edit, and delete data that regular users cannot.
 * Consistent layout / theming. It doesn't have to be fancy, but the site/app should look organized and presentable. Feel free to use Bootstrap if you'd like.
