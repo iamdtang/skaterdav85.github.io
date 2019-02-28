@@ -29,12 +29,12 @@ Build a server-rendered application using Laravel and the database you have buil
 
 You will also build an API for your database using Node. This API should:
 
-* Return JSON
 * Have 5 different routes using the following HTTP methods
   * 2 GET endpoints (one endpoint for a collection of resources and another endpoint for a single resource)
   * 1 POST
   * 1 PATCH
   * 1 DELETE
+* Endpoints that have a response body should be JSON
 * POST and PATCH requests should have validation. If validation fails, the response should return a 422 HTTP status code with the body containing the validation errors
 * The GET request for a single resource and the DELETE request should respond with a 404 HTTP status code and an empty response body if the resource doesn't exist.
 * The DELETE request should not result in any orphaned records. An orphaned record is a record whose foreign key value references a non-existent primary key value.
