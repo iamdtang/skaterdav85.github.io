@@ -1,6 +1,6 @@
 ---
 layout: assignment
-title: Node 1 - Express and Knex
+title: Express and Knex
 ---
 
 ## GET /api/artists

@@ -1,6 +1,6 @@
 ---
 layout: assignment
-title: Node 2
+title: Sequelize ORM
 ---
 
 Create the following endpoint in your Express application using the Sequelize ORM. Test out your endpoint using [Postman](https://www.getpostman.com/).
