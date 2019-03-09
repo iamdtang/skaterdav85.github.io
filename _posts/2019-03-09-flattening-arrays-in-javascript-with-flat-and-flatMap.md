@@ -1,6 +1,6 @@
 ---
 layout: post
-title: flat and flatMap in JavaScript
+title: Flattening Arrays in JavaScript with flat() and flatMap()
 date: 2019-03-09
 description:
 keywords: flat vs flatMap, flat, flatMap, map, JavaScript, ES2019, functional programming
@@ -8,18 +8,18 @@ image: javascript
 card_style: summary
 ---
 
-As of ES2019, there are two new methods on arrays:  [`flat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) and [`flatMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap).
+As of ES2019, there are two new methods on arrays:  [`Array.prototype.flat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) and [`Array.prototype.flatMap()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap).
 
-## The `flat` Method
+## The `Array.prototype.flat()` Method
 
-The `flat` method can flatten a multidimensional array. For example:
+The `flat()` method can flatten a multidimensional array. For example:
 
 ```js
 [[1, 2], [3, 4, 5], [6]].flat();
 // [1, 2, 3, 4, 5, 6]
 ```
 
-You can even flatten multiple levels deep by passing a depth argument to `flat`:
+You can even flatten multiple levels deep by passing a depth argument to `flat()`:
 
 ```js
 [[1, 2], [3, [4, 5]], [6]].flat(2);
@@ -28,9 +28,9 @@ You can even flatten multiple levels deep by passing a depth argument to `flat`:
 
 Here, the depth is 2 since the array at index 1 contains the array `[4, 5]`.
 
-## The `flatMap` Method
+## The `Array.prototype.flatMap()` Method
 
-The `flatMap` method is like calling `map` followed by calling `flat(1)`. For example:
+The `flatMap()` method is like calling `map()` followed by calling `flat(1)`. For example:
 
 ```js
 ['Hello', 'World'].flatMap(word => word.split(''));
@@ -44,18 +44,18 @@ If we were to first call `map` on this array, this is what we'd get:
 // [['H', 'e', 'l', 'l', 'o'], ['W', 'o', 'r', 'l', 'd']]
 ```
 
-Then, if we call `flat(1)` on this resulting array, we'd get the same result as when we called `flatMap`:
+Then, if we call `flat(1)` on this resulting array, we'd get the same result as when we called `flatMap()`:
 
 ```js
 [['H', 'e', 'l', 'l', 'o'], ['W', 'o', 'r', 'l', 'd']].flat(1);
 // ['H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd']
 ```
 
-So, `flatMap` is like calling `map` followed by `flat(1)`.
+So, `flatMap()` is like calling `map` followed by `flat(1)`.
 
-## Writing Your Own `flatMap` Function
+## Writing Your Own `flatMap()` Function
 
-Prior to the addition of `flatMap` to JavaScript, I had a `flatMap` utility function in one of my projects. The following was my implementation:
+Prior to the addition of `flatMap()` to JavaScript, I had a `flatMap()` utility function in one of my projects. The following was my implementation:
 
 ```js
 function flatMap(array, callback) {
@@ -72,11 +72,11 @@ flatMap(['Hello', 'World'], word => word.split(''));
 // ['H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd']
 ```
 
-You could also use [`flatMap` in Lodash](https://lodash.com/docs/4.17.11#flatMap), which I imagine is more robust and faster.
+You could also use [`flatMap()` in Lodash](https://lodash.com/docs/4.17.11#flatMap), which I imagine is more robust and faster.
 
-## A Practical Example of `flatMap`
+## A Practical Example of `flatMap()`
 
-One situation I have found `flatMap` to be useful is when dealing with time series data. For example, imagine you get the following JSON from an API:
+One situation I have found `flatMap()` to be useful is when dealing with time series data. For example, imagine you get the following JSON from an API:
 
 ```json
 [
@@ -104,7 +104,7 @@ One situation I have found `flatMap` to be useful is when dealing with time seri
 ]
 ```
 
-If I wanted to plot this data on a chart, I might need to collect the `total` for each respective product into a single array, depending on the charting library. I could do that with `flatMap`!
+If I wanted to plot this data on a chart, I might need to collect the `total` for each respective product into a single array, depending on the charting library. I could do that with `flatMap()`!
 
 ```js
 let product1Sales = json.flatMap(({ purchases }) => {
