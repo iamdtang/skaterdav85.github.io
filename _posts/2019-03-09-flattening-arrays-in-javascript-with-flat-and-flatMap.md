@@ -5,6 +5,8 @@ date: 2019-03-09
 description: This post covers two new methods in ES2019 for flattening JavaScript arrays: flat() and flatMap().
 keywords: flat vs flatMap, flat, flatMap, map, JavaScript, ES2019, functional programming
 image: javascript
+twitter_image: javascript.png
+twitter_image_alt: JavaScript logo
 card_style: summary
 ---
 
