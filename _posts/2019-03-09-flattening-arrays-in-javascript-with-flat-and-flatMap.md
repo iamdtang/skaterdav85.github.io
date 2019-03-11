@@ -106,14 +106,11 @@ One situation I have found `flatMap()` to be useful is when dealing with time se
 ]
 ```
 
-If I wanted to plot this data on a chart, I might need to collect the `total` for each respective product into a single array, depending on the charting library. I could do that with `flatMap()`!
+If I wanted to plot this data on a chart, I might need to sum the `total` for each day and collect those values into an array, depending on the charting library. For the JSON above, that array would be `[80, 70, 30]`. With `flatMap()`, we can produce that!
 
 ```js
-let product1Sales = json.flatMap(({ purchases }) => {
-  return purchases
-    .filter(sale => sale.product === 'Product 1')
-    .map(sale => sale.total);
+json.flatMap(({ purchases }) => {
+  return purchases.reduce((sum, { total }) => sum + total, 0);
 });
-
-// [20, 60, 40, 10]
+// [80, 70, 30]
 ```
