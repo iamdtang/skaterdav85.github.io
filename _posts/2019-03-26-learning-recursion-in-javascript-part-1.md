@@ -2,7 +2,7 @@
 layout: post
 title: Learning Recursion in JavaScript Part 1 - The Obligatory Factorial Function
 date: 2019-03-26
-description:
+description: Does recursion make your head spin? Haven't used it in awhile and want a refresher? If so, this series is for you.
 keywords: recursion, JavaScript, call stack, RangeError, factorial
 image: javascript
 twitter_image: javascript.png
