@@ -1,9 +1,9 @@
 ---
 layout: assignment
-title: Testing
+title: Testing and Continuous Integration
 ---
 
-Revisit your [Sequelize ORM lab](/teaching/2019/labs/sequelize-orm) and write some tests for it and hook it up with Travis CI.
+Revisit your [Sequelize ORM lab](/teaching/2019/labs/sequelize-orm), write some tests for it, and hook it up with Travis CI.
 
 ## API Tests
 
