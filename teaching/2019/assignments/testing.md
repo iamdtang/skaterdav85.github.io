@@ -27,7 +27,7 @@ Create a test with a request body of:
 
 Your test should assert that a 422 status code is returned.
 
-Also write assertion(s) verifying the validation error messages. The `name` attribute should fail because it is empty. The `milliseconds` and `unitPrice` attributes should fail because they aren't numeric.
+Also write assertion(s) verifying that the API responds with the correct validation error messages. The `name` attribute should fail because it is empty. The `milliseconds` and `unitPrice` attributes should fail because they aren't numeric.
 
 ## Unit Tests
 
