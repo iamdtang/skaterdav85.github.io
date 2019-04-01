@@ -72,8 +72,8 @@ function sum(array) {
   if (array.length === 0) {
     return 0;
   } else {
-    let [first, ...remaining] = array;
-    return first + sum(remaining);
+    let [head, ...tail] = array;
+    return head + sum(tail);
   }
 }
 
