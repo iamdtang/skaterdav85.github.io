@@ -80,4 +80,6 @@ function sum(array) {
 sum([1, 2, 3, 4, 5]); // 15
 ```
 
+## Conclusion
+
 So there you have it, 3 ways to sum an array of numbers. I think most would agree that the simplest solution is using `Array.prototype.reduce`, but nevertheless this is another good exercise to illustrate how loops can implemented with recursion. Stay tuned for the next post in my series on recursion, as we'll continue to look at more examples and facets of recursion.

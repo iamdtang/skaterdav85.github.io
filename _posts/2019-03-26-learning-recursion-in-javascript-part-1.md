@@ -69,4 +69,6 @@ Here, the base case is when `n === 0`, in which `factorial` isn't called again a
 
 > RangeError: Maximum call stack size exceeded
 
+## Conclusion
+
 I hope you found this post useful. This isn't the most practical application of recursion, but I find it to be a great, basic example to illustrate how recursion works. Stay tuned for the next post in my series on recursion, as we'll continue to look at more examples and facets of recursion.

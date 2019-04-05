@@ -21,14 +21,14 @@ The `flat()` method can flatten a multidimensional array. For example:
 // [1, 2, 3, 4, 5, 6]
 ```
 
-You can even flatten multiple levels deep by passing a depth argument to `flat()`:
+By default, `flat()` will only go one level deep. You can flatten more than 1 level deep by passing a depth argument to `flat()`:
 
 ```js
 [[1, 2], [3, [4, 5]], [6]].flat(2);
 // [1, 2, 3, 4, 5, 6]
 ```
 
-Here, the depth is 2 since the array at index 1 contains the array `[4, 5]`.
+Here, the depth of this array is 2 since the array at index 1 contains the array `[4, 5]`.
 
 ## The `Array.prototype.flatMap()` Method
 
