@@ -43,11 +43,14 @@ You will also build an API for your database using Node. This API should:
 
 ## Part 3: Testing and Continuous Integration (CI)
 
-TBD
+* API tests for each of the 5 endpoints in Part 2. If an API has branching logic, there should be separate tests for each condition. For example, let's say you have `GET /posts/:id`. For this endpoint, you should have one test that verifies the happy path, where a 200 status code and a post resource is returned. You should also have a second test that verifies a 404 status is returned if a user requests a post that does not exist.
+* At least 5 unit tests
+* Enable Travis CI for your repository
+* Create a README.md file in your API repo and add the Travis CI status badge to it
 
 ## Other Things You Can Do
 
-* If you'd like to add real-time functionality to your app with Web Sockets in Node.js, you can do that and skip out on the PATCH and DELETE API endpoints in Part 2. If you choose to do this, your feature shouldn't be the same as the class or lab example, unless extensively modified or implemented more robustly.
+* If you'd like to add real-time functionality to your app with Web Sockets in Node.js, you can do that and skip out on the PATCH and DELETE API endpoints in Part 2 and the corresponding API tests for those endpoints. If you choose to do this, your feature shouldn't be the same as the class or lab example, unless extensively modified or implemented more robustly.
 * You're welcome to use NoSQL and MongoDB for your database instead of SQLite. You will need to figure out how to host this though.
 
 ## Other Requirements
