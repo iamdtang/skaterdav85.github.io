@@ -10,7 +10,9 @@ twitter_image_alt: JavaScript logo
 card_style: summary
 ---
 
-In this post, we're going to look at writing a function to flatten a nested array with an arbitrary depth. For example, let's say we have the following array:
+{% include recursion-series-intro.md %}
+
+For this third post in this series on recursion, we're going to look at writing a function to flatten a nested array with an arbitrary depth. For example, let's say we have the following array:
 
 ```js
 let array = [[1, 2], 3, [4, [5]]];

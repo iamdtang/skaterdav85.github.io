@@ -10,7 +10,9 @@ twitter_image_alt: JavaScript logo
 card_style: summary
 ---
 
-Ah, recursion, one of those topics that makes many developers' heads spin 🤯 . Recursion is something I don't end up using too often, but when I do, I find it to be a powerful technique to have under my programming belt. It is a skill that is also worth learning since it may come up in interviews.
+{% include recursion-series-intro.md %}
+
+For the first post in this series on recursion, we are going to look at what recursion is and walk through the "Hello World" of recursion.
 
 So what is recursion? Recursion occurs when a function keeps calling itself until some condition is met. This condition is often referred to as the base case. Without the base case, the function would never stop calling itself resulting in what's known as a stack overflow error. The base case is really important and returns a value to end the recursive process.
 

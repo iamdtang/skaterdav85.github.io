@@ -10,7 +10,9 @@ twitter_image_alt: JavaScript logo
 card_style: summary
 ---
 
-In the last post, [Learning Recursion in JavaScript Part 1 - The Obligatory Factorial Function](/2019/03/26/learning-recursion-in-javascript-part-1.html), we learned that code implemented with loops can also be written with recursion. In this post, let's look at an interview problem I was given once. The problem was, "Write a function that sums an array of numbers".
+{% include recursion-series-intro.md %}
+
+In the last post, [The Obligatory Factorial Function](/2019/03/26/learning-recursion-in-javascript-part-1.html), we learned that code implemented with loops can also be written with recursion. For this second post in this series on recursion, let's look at an interview problem I was given once. The problem was, "Write a function that sums an array of numbers".
 
 My first implementation was using a standard `for` loop:
 

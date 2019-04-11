@@ -10,6 +10,8 @@ twitter_image_alt: JavaScript logo
 card_style: summary
 ---
 
+{% include recursion-series-intro.md %}
+
 For this fourth post in this series on recursion, we're going to look at palindromes. If you're not familiar with a palindrome, it is a word, phrase, or sequence that reads the same backward as forward. For example, "madam", "noon", "eve", and "level" are palindromes.
 
 In this post, we're going to write a function that checks if a string is a palindrome.
