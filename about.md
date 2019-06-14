@@ -15,10 +15,13 @@ I am also a part-time lecturer at the University of Southern California, [teachi
 
 Outside of my tech life, I live a vegan lifestyle, play ice hockey, and enjoy traveling the world with my wife.
 
-If you are reading this, please watch [Dominion](https://www.dominionmovement.com/watch) and consider [going vegan](https://challenge22.com/). If you are not vegan, then you are contributing to the needless slaughter of trillions of animals per year.
+<div style="background-color: #fffca6;">
+  
+<p>If you are reading this, please watch <a href="https://www.dominionmovement.com/watch" target="_blank">Dominion</a> and consider <a href="https://challenge22.com/" target="_blank" title="Join thousands of participants for a 22-day vegan experience. FREE!">going vegan</a>. If you are not vegan, then you are contributing to the needless slaughter of trillions of animals per year.</p>
 
-We don't need to eat animals or their secretions (milk and eggs) to survive or be healthy. We don't need to experiment on them to make sure products are safe to use. We don't need to wear their skin or their fur to stay warm. Nothing can justify what we do to animals. Even if you have been tricked into believing that free-range chickens and organic grass-fed cows lived a good life, they still had to die in order to end up on your plate. How can we morally justify exploiting them when we don't need to? Is our taste worth more than their life? 
+<p>We don't need to eat animals or their secretions (milk and eggs) to survive or be healthy. We don't need to experiment on them to make sure products are safe to use. We don't need to wear their skin or their fur to stay warm. Nothing can justify what we do to animals. Even if you have been tricked into believing that free-range chickens and organic grass-fed cows lived a good life, they still had to die in order to end up on your plate. How can we morally justify exploiting them when we don't need to? Is our taste worth more than their life? </p>
 
-If you are feeling guilty or uneasy, I know how you feel. I felt the same way when I learned about all of the ways animals were exploited on my behalf. I found that going vegan wasn't as hard as I had thought, and by doing so, I removed the guilt from my conscious because I had aligned my actions with my values of being against animal cruelty. 
+<p>If you are feeling guilty or uneasy, I know how you feel. I felt the same way when I learned about all of the ways animals were exploited on my behalf. I found that going vegan wasn't as hard as I had thought, and by doing so, I removed the guilt from my conscious because I had aligned my actions with my values of being against animal cruelty. </p>
+</div>
 
 If you'd like to get in touch, you can follow me on [Twitter](https://twitter.com/iamdtang) or email me at [david@thejsguy.com](mailto:david@thejsguy.com).
