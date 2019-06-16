@@ -1,7 +1,7 @@
 name: David Tang
 author: David Tang
 description: Thoughts and tutorials on web programming
-bio: Vegan · Software Developer · Teacher · Author · Blogger
+bio: Vegan · Software Developer · Teacher · Author
 paginate: 15
 markdown: kramdown
 plugins: [jekyll-paginate, jekyll-feed, jekyll-sitemap]
