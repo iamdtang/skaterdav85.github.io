@@ -5,8 +5,8 @@ date: 2019-06-22
 description: This post covers how to build a simple chat application with Web Sockets in Node.js.
 keywords: Web Sockets, ws://, wss://, Node.js, chat application, web socket server
 image: node
-twitter_image: javascript.png
-twitter_image_alt: JavaScript logo
+twitter_image: node.png
+twitter_image_alt: Node.js logo
 card_style: summary
 ---
 
