@@ -79,7 +79,7 @@ The first thing that happens in this script is establishing a connection to the 
 
 There are several different event handlers on the [`WebSocket` class](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) including `onopen`, `onclose`, `onerror`, and `onmessage`.
 
-The one that we will be concerned with primarily is `onmessage`. This event handler will get called whenever a new message is received from the server. Here, we'll simply create a list item with the message and append it to `#chat`.
+The one that we will be concerned with primarily is `onmessage`. This event handler will get called whenever a new message is received from the server. Here, we'll simply create a list item with the message and append it to `ul#chat`.
 
 The last piece of our script is to submit the message through the web socket connection when a user submits the form. Here, we have added an event listener to the form's submit event. The `event.preventDefault()` is used to prevent the page from refreshing. After that, we grab the message from the textarea, send it to the web socket server, and clear out the textarea so that the user can type another message.
 
@@ -95,6 +95,10 @@ First, create a `package.json` file and install [ws](https://www.npmjs.com/packa
     "ws": "^7.0.1"
   }
 }
+```
+
+```
+npm install
 ```
 
 Next, create a file called `server.js` with the following contents:
@@ -124,8 +128,4 @@ Here, we created a new `WebSocket.Server` instance on port 8080. Next, we added 
 
 ## Running the App
 
-Run the backend in terminal with the command `node server.js`.
-
-Next, open up two tabs with `index.html` with the Chrome Console open.
-
-You should see the chat application working!
+Run the backend in terminal with the command `node server.js`. Next, open up two browser tabs with `index.html` with the Chrome Console open. You should see the chat application working!
