@@ -1,20 +1,20 @@
 ---
 layout: post
-title: Creating and Parsing Query Strings in JavaScript
+title: Building and Parsing Query Strings in JavaScript
 date: 2019-07-17
-description: The URLSearchParams and URL classes can be used to create and parse query strings in JavaScript in both the browser and Node.
-keywords: query string, javascript, browser, node, URLSearchParams, URL, search params
+description: The URLSearchParams and URL classes can be used to build and parse query strings in JavaScript in both the browser and Node.
+keywords: query string, javascript, browser, node, URLSearchParams, URL, search params, build query string, create query string, generate query string
 image: javascript
 twitter_image: javascript.png
 twitter_image_alt: JavaScript logo
 card_style: summary
 ---
 
-The [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) and [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) classes can be used to create and parse query strings in JavaScript in both the browser and Node.
+The [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) and [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) classes can be used to build and parse query strings in JavaScript in both the browser and Node.
 
-## Creating a Query String
+## Building a Query String
 
-Not too long ago, in order to create a query string we had to do messy string concatenation (although it got much better with template literals) or rely on a library. Now, we can use the `URLSearchParams` class.
+Not too long ago, in order to build a query string we had to do messy string concatenation (although it got much better with template literals) or rely on a library. Now, we can use the `URLSearchParams` class.
 
 ```js
 let qs = new URLSearchParams();
