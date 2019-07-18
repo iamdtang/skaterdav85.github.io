@@ -14,7 +14,7 @@ The [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSear
 
 ## Creating a Query String
 
-Not too long ago, in order to create a query string we had to do messy string concatenation (although it got better much better with template literals) or rely on a library. Now, we can use the `URLSearchParams` class.
+Not too long ago, in order to create a query string we had to do messy string concatenation (although it got much better with template literals) or rely on a library. Now, we can use the `URLSearchParams` class.
 
 ```js
 let qs = new URLSearchParams();
