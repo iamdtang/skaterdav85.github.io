@@ -35,7 +35,6 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="{{"/style.css" | prepend: site.baseurl}}?{{site.time | date: '%s%N'}}" rel="stylesheet">
-    {% include google-ads.html %}
 </head>
 <body>
 <header class="sticky-header">
@@ -105,6 +104,7 @@
       {% include nav-subscribe.html %}
     {% endif %}
     <br>
+    {% include google-adsense-ad-unit.html %}
   </div>
 </div>
 {% include mailchimp-subscribe-js.html %}
