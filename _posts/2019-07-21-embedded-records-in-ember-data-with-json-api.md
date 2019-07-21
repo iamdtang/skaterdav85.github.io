@@ -5,7 +5,8 @@ date: 2019-07-21
 description: This post covers how I used embedded records with a JSON:API-ish response.
 twitter_image: ember.png
 twitter_image_alt: Ember.js logo
-keywords: Ember Data, EmbeddedRecordsMixin, embedded records, JSON:API, JSON-API
+card_style: summary
+keywords: Ember Data, EmbeddedRecordsMixin, embedded records, JSON:API, JSON-API, embedded attributes, embedded relationships
 image: ember
 ---
 
