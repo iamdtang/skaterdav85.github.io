@@ -227,4 +227,4 @@ Here is the [full source code](https://github.com/skaterdav85/ember-cats) for th
 
 Personally I have found testing serializers through the store to be the most straightforward since I never directly interact with serializers. If you test serializers differently, let me know your approach in the comments!
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

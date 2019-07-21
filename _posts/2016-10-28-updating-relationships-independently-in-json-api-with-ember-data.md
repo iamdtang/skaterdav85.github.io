@@ -169,4 +169,4 @@ export default DS.Model.extend({
 });
 ```
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

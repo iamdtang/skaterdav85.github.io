@@ -38,4 +38,4 @@ The [Ember Guides](http://guides.emberjs.com/) provide great documentation on al
 
 The path to learning Ember isn't as difficult as it used to be and there are some great resources out there. If you have questions, I have found the [Ember Discussion Forum](http://discuss.emberjs.com/) to be really active and useful. If you want to keep up to date on the latest Ember news, sign up for [Ember Weekly](http://emberweekly.com/) and subscribe to the [Ember Weekend Podcast](https://emberweekend.com/).
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

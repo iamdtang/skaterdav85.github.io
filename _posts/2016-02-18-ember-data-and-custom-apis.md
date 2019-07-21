@@ -12,4 +12,4 @@ Here are the slides from my presentation at the <a href="http://www.meetup.com/E
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/aHH6lU8zpU52nk" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/DavidTang1/ember-data-and-custom-apis" title="Ember Data and Custom APIs" target="_blank">Ember Data and Custom APIs</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/DavidTang1">David Tang</a></strong> </div>
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

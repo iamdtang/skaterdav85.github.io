@@ -237,4 +237,4 @@ If all of your records use a property like `_id` as the `id`, then you might wan
 
 There are different takes on what API payloads should look like and they won't always follow the formats expected by the default Ember Data serializers. Hopefully this post helps reduce some of the frustration that I experienced when I first started using Ember Data with custom APIs. What serializer customizations have you made? Let me know in the comments!
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

@@ -135,4 +135,4 @@ The response will also have a root key `errors`. Each property corresponds to a 
 
 Thanks to Artur Kesik (qnsi) and Jason Mitchell (jsonmit) for helping me out in the Ember discussion forum!
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

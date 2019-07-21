@@ -153,6 +153,6 @@ export default JSONSerializer.extend({
 
 In this implementation with `JSONSerializer`, the payload is first normalized into JSON:API since Ember Data uses that internally. Then, we can call `extractMeta` ourselves with the raw payload and assign the result as the `meta` property on the normalized payload.
 
-{% include promo.html %}
+{% include ember-data-promo.html %}
 
 Comments for this post can be found [on this GitHub issue.](https://github.com/skaterdav85/extracting-metadata-in-ember-data/issues/1)

@@ -128,4 +128,4 @@ Now, whenever a post is deleted, all of its comments will be unloaded from the s
 
 Here is the [code](https://github.com/skaterdav85/cascade-delete-relationships-in-ember-data) in a working demo.
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

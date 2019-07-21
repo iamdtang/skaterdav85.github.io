@@ -180,4 +180,4 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
 });
 ```
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

@@ -91,4 +91,4 @@ In this example, maybe the backend requires that the payload is an array where t
 
 Snapshots represent records that you can inspect without causing side effects. This means you can access attributes and relationships off of a record in a synchronous manner without having to deal with promises or causing side effects like triggering Ember Data to request that related data.
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

@@ -334,4 +334,4 @@ I didn't cover actions, but actions get fired on user events. For example, you m
 
 As someone who has worked a lot with Angular, what drew me to Ember was its strong sense of convention over configuration, out of the box testing, development consistency across teams, upgrade paths between major versions of the framework, and Ember Data. I didn't talk about Ember Data in this post because it can be a whole post in itself, but it is a robust library for modeling your data and working with APIs and offers much more than `$resource`. This post hasn't been a comprehensive look at Ember, but hopefully it is enough to get you started.
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

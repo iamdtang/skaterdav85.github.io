@@ -125,4 +125,4 @@ Here we are simply creating a `cat` record and calling `save()`. `handledRequest
 
 I have to deal with a lot of APIs that don't follow the exact conventions of the `JSONSerializer`, `RESTSerializer`, or `JSONAPISerializer` so I find it necessary to test every serializer customization. This process has worked great for me so far. However, if your persistence layer isn't HTTP based, such as a local storage backend, this approach wouldn't work since you wouldn't be using Pretender. Have you tested a similar situation differently? If so, I would love to hear about it in the comments!
 
-{% include promo.html %}
+{% include ember-data-promo.html %}

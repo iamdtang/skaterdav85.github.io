@@ -113,4 +113,4 @@ export default DS.RESTSerializer.extend({
 
 Here I have created a model-specific serializer to add `links` to each `user` resource. You could probably make this a little more dynamic and use it across the board in an `application` serializer. I'll leave that to you.
 
-{% include promo.html %}
+{% include ember-data-promo.html %}
