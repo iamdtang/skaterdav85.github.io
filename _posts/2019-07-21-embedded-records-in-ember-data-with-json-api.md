@@ -68,7 +68,7 @@ export default Model.extend({
 });
 ```
 
-Unfortunately, this API isn't responding with `tags` as a JSON:API relationship. What can we do? If you're familiar with the `EmbeddedRecordsMixin`, you might think to try using that:
+Unfortunately, this API isn't responding with `tags` as a JSON:API relationship. What can we do? If you're familiar with the [`EmbeddedRecordsMixin`](https://api.emberjs.com/ember-data/3.10/classes/DS.EmbeddedRecordsMixin), you might think to try using that:
 
 ```js
 import DS from 'ember-data';
@@ -84,7 +84,7 @@ export default JSONAPISerializer.extend(EmbeddedRecordsMixin, {
 });
 ```
 
-However, this doesn't work, since the `JSONAPISerializer` expects JSON:API relationships as opposed to nested attributes.
+However, this doesn't work, since the [`JSONAPISerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPISerializer) expects JSON:API relationships as opposed to nested attributes.
 
 One approach to get this working would be to normalize the payload and turn `tags` into a JSON:API relationship, which means transforming the above payload into the following:
 
@@ -162,7 +162,7 @@ One approach to get this working would be to normalize the payload and turn `tag
 }
 ```
 
-We could do this by creating a custom `post` serializer that extends `JSONAPISerializer` and override the `normalizeFindAllResponse` method (assuming `store.findAll('post')` is being called):
+We could do this by creating a custom `post` serializer that extends [`JSONAPISerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPISerializer) and override the `normalizeFindAllResponse` method (assuming `store.findAll('post')` is being called):
 
 ```
 ember g serializer post
@@ -214,7 +214,7 @@ export default JSONAPISerializer.extend({
 
 What do you think? Personally I found this solution to be a lot of code to have to write and maintain.
 
-If we look at the `GET /posts` response again, if we remove the keys `data`, `type`, and `attributes`, it looks pretty similar to the expected payload structure of the `JSONSerializer`. Although unconventional, why not try using the `JSONSerializer` alongside the `JSONAPIAdapter` instead of the `JSONAPISerializer`? By doing so, we can then leverage the `EmbeddedRecordsMixin` for `tags`. Let's try it!
+If we look at the `GET /posts` response again, if we remove the keys `data`, `type`, and `attributes`, it looks pretty similar to the expected payload structure of the [`JSONSerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONSerializer). Although unconventional, why not try using the [`JSONSerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONSerializer) alongside the [`JSONAPIAdapter`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPIAdapter) instead of the [`JSONAPISerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPISerializer)? By doing so, we can then leverage the [`EmbeddedRecordsMixin`](https://api.emberjs.com/ember-data/3.10/classes/DS.EmbeddedRecordsMixin) for `tags`. Let's try it!
 
 If you'd like to learn more about the different serializers, read my other blog post [Which Ember Data Serializer Should I Use?](/2015/12/05/which-ember-data-serializer-should-i-use.html).
 
@@ -243,7 +243,7 @@ export default JSONSerializer.extend(EmbeddedRecordsMixin, {
 });
 ```
 
-I also need to create a serializer for the `tag` model that extends from `JSONSerializer`, since each tag in the payload follows the structure expected by that serializer:
+I also need to create a serializer for the `tag` model that extends from [`JSONSerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONSerializer), since each tag in the payload follows the structure expected by that serializer:
 
 ```
 ember g serializer tag
@@ -264,6 +264,6 @@ What do you think? To me, it is less code and much simpler.
 
 ## Conclusion
 
-Ideally, this API would use a JSON:API relationship for `tags`. However, for one reason or another, I have run into this scenario enough times where relationships aren't used and the API won't be changed. In this particular case, I found it useful to just use the `JSONSerializer` alongside the `JSONAPIAdapter` instead of the `JSONAPISerializer`.
+Ideally, this API would use a JSON:API relationship for `tags`. However, for one reason or another, I have run into this scenario enough times where relationships aren't used and the API won't be changed. In this particular case, I found it useful to just use the [`JSONSerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONSerializer) alongside the [`JSONAPIAdapter`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPIAdapter) instead of the [`JSONAPISerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPISerializer).
 
 {% include ember-data-promo.html %}
