@@ -282,7 +282,7 @@ export default JSONSerializer.extend(EmbeddedRecordsMixin, {
 });
 ```
 
-Instead of mapping over the array in `normalizeFindAllResponse` as we did in our previous implementation, we can let Ember Data do that and just override the `normalize` hook which gets called for each resource. I _think_ this might result in one less loop than our last implementation, but I could be wrong. If anyone knows, please drop a line in the comments!
+Instead of mapping over the array in `normalizeFindAllResponse` as we did in our previous implementation, we can let Ember Data do that and just override the `normalize` hook which gets called for each resource. I _think_ this approach might result in one less loop than our last implementation since we eliminated the `map()`, but I could be wrong. If anyone knows, please drop a line in the comments!
 
 ## Conclusion
 
