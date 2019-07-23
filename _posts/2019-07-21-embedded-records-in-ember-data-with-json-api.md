@@ -232,10 +232,7 @@ export default JSONSerializer.extend(EmbeddedRecordsMixin, {
   },
   normalizeFindAllResponse(store, primaryModelClass, payload, id, requestType) {
     let newPayload = payload.data.map(({ id, attributes }) => {
-      return {
-        id,
-        ...attributes
-      };
+      return { id, ...attributes };
     });
 
     return this._super(store, primaryModelClass, newPayload, id, requestType);
@@ -262,8 +259,33 @@ export default JSONSerializer.extend();
 
 What do you think? To me, it is less code and much simpler.
 
+Here is another way we could implement the `post` serializer:
+
+```js
+// app/serializers/post.js
+import DS from 'ember-data';
+
+const { JSONSerializer, EmbeddedRecordsMixin } = DS;
+
+export default JSONSerializer.extend(EmbeddedRecordsMixin, {
+  attrs: {
+    tags: {
+      embedded: 'always'
+    }
+  },
+  normalize(typeClass, { id, attributes }) {
+    return this._super(typeClass, { id, ...attributes });
+  },
+  normalizeFindAllResponse(store, primaryModelClass, payload, id, requestType) {
+    return this._super(store, primaryModelClass, payload.data, id, requestType);
+  }
+});
+```
+
+Instead of mapping over the array in `normalizeFindAllResponse` as we did in our previous implementation, we can let Ember Data do that and just override the `normalize` hook which gets called for each resource. I _think_ this might result in one less loop than our last implementation, but I could be wrong. If anyone knows, please drop a line in the comments!
+
 ## Conclusion
 
-Ideally, this API would use a JSON:API relationship for `tags`. However, for one reason or another, I have run into this scenario enough times where relationships aren't used and the API won't be changed. In this particular case, I found it useful to just use the [`JSONSerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONSerializer) alongside the [`JSONAPIAdapter`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPIAdapter) instead of the [`JSONAPISerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPISerializer).
+Ideally, this API would use a JSON:API relationship for `tags`. However, for one reason or another, I have run into this scenario enough times where relationships aren't used and the API won't be changed. Although unconventional, in these cases I found it useful to use the [`JSONSerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONSerializer) alongside the [`JSONAPIAdapter`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPIAdapter) instead of the [`JSONAPISerializer`](https://api.emberjs.com/ember-data/3.10/classes/DS.JSONAPISerializer).
 
 {% include ember-data-promo.html %}
