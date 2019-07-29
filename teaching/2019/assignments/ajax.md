@@ -19,11 +19,11 @@ Note: Bind to the submit event on the form element instead of binding to the cli
 
 ## Rendering the Results
 
-When the Ajax request responds successfully, render the `title`, `score`, and `author` of each post. Each post can be found in `data.children`.
+When the Ajax request responds with the data, render the `title`, `score`, and `author` of each post. Each post can be found in `data.children`. The `title` should be an anchor tag that links to `url` and opens in a new tab/window. Make sure that you are taking measures to protect against XSS attacks.
 
 ## A Loading Spinner
 
-While the Ajax request is pending, show some sort of loading indicator on the screen. This could be as simple as "Loading..." or [one of these cool CSS spinners](https://projects.lukehaas.me/css-loaders/).
+While the Ajax request is pending, show a loading indicator on the screen using [one of these CSS spinners](https://projects.lukehaas.me/css-loaders/).
 
 ## Submission
 
