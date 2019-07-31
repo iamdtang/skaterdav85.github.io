@@ -28,3 +28,7 @@ While the Ajax request is pending, show a loading indicator on the screen using 
 ## Submission
 
 Create a repo on GitHub called __itp404-assignment1-ajax__ (named EXACTLY that) and upload your files. Send an email to the TA and myself with the GitHub URL.
+
+## Due Date
+
+This assignment is due Tuesday 9/3 at midnight. Submissions after that will result in a 0.
