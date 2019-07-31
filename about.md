@@ -15,6 +15,19 @@ I am also a part-time lecturer at the University of Southern California, [teachi
 
 Outside of my tech life, I live a vegan lifestyle, play ice hockey, and enjoy traveling the world with my wife.
 
-{% include go-vegan.html %}
+## Why I Went Vegan
+
+If you are reading this, please watch [The Best Speech You Will Ever Hear by Gary Yourofsky](http://bit.ly/2ynL4Ds) and consider [trying a 21 day vegan challenge with Challenge 22](https://challenge22.com/). If you are not vegan, then you are contributing to the needless suffering, slaughter, and exploitation of trillions of animals per year.
+
+We don't need to eat animals or their secretions (milk and eggs) to survive or be healthy. We don't need to experiment on them to make sure products are safe to use. We don't need to wear their skin or their fur to stay warm. Even if you were tricked into believing that free-range, cage-free, or grass-fed animals lived a good life, they were still slaughtered when they didn't want to die in order to end up on your plate. How can we morally justify exploiting and killing animals when we don't need to? Is our taste worth more than their life? Why would we choose to support cruelty when we don't have to?
+
+I encourage everyone to also watch [Dominion](http://bit.ly/2LSRumI). This documentary covers what animals go through because humans choose to exploit them. Many people turn away from seeing these types of videos. Before deciding not to watch this, ask yourself, if seeing how animals are raised and slaughtered isn't good enough for our eyes, how is it good enough for your stomach?
+
+If this makes you feel sad, angry, guilty, or uncomfortable, I know how you feel. I felt the same way when I learned about all of the ways animals were exploited on my behalf. I found that going vegan wasn't as hard as I had thought, and by doing so, I cleared my conscious because I aligned my actions with my values of being against animal cruelty. I only wish I had gone vegan sooner.
+
+This is a picture of me giving water to a pig moments before slaughter in Downtown Los Angeles at the Farmer John Slaughterhouse.
+![picture of me giving water to a pig moments before slaughter](/images/pig-vigil.jpg)
+
+This is systemized cruelty on a massive scale, and we only get away with it because everyone is prepared to look the other way.
 
 If you'd like to get in touch, you can follow me on [Twitter](https://twitter.com/iamdtang) or email me at [david@thejsguy.com](mailto:david@thejsguy.com).
