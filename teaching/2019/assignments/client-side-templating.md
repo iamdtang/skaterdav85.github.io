@@ -22,8 +22,4 @@ If the user typed in an invalid subreddit name, the Reddit API will respond with
 
 ## Submission
 
-Create a repo on Github called __itp404-assignment2-client-side-templating__ and upload your files. Send an email to the TA and myself with the Github URL. As always, assignments are due the following Tuesday at midnight.
-
-## Due Date
-
-This assignment is due Tuesday 9/10 at midnight. Submissions after that will result in a 0.
+Create a repo on Github called __itp404-assignment2-client-side-templating__ and upload your files. Send an email to the TA and myself with the Github URL. Failure to submit by the deadline will result in a 0.
