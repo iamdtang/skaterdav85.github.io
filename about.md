@@ -26,8 +26,9 @@ I encourage everyone to also watch [Dominion](http://bit.ly/2LSRumI). This docum
 If this makes you feel sad, angry, guilty, or uncomfortable, I know how you feel. I felt the same way when I learned about all of the ways animals were exploited on my behalf. I found that going vegan wasn't as hard as I had thought, and by doing so, I cleared my conscious because I aligned my actions with my values of being against animal cruelty. I only wish I had gone vegan sooner.
 
 This is a picture of me giving water to a pig moments before slaughter in Downtown Los Angeles at the Farmer John Slaughterhouse.
+
 ![picture of me giving water to a pig moments before slaughter](/images/pig-vigil.jpg)
 
-This is systemized cruelty on a massive scale, and we only get away with it because everyone is prepared to look the other way.
+We only get away with this because everyone is prepared to look the other way.
 
 If you'd like to get in touch, you can follow me on [Twitter](https://twitter.com/iamdtang) or email me at [david@thejsguy.com](mailto:david@thejsguy.com).
