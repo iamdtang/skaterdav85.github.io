@@ -21,6 +21,8 @@ Something I see frequently in APIs are attributes that map to foreign key column
 }
 ```
 
+Here, there is an attribute `sanctuaryId` that probably came from a foreign key database column `sanctuary_id`.
+
 Those new to Ember Data might create a model like this:
 
 ```js
@@ -34,9 +36,9 @@ export default Model.extend({
 });
 ```
 
-Here, there is an attribute for the foreign key `sanctuaryId`. This can be used to look up a `sanctuary` model with an `id` of `3`.
+The attribute `sanctuaryId` can then be used to look up a `sanctuary` record with an `id` of `3`.
 
-Now although this can work, what ends up happening is the need to look up the sanctuary by this attribute in other parts of the app.
+Now although this can work, what ends up happening is the need to look up the `sanctuary` record by this `sanctuaryId` attribute in other parts of the app.
 
 First, the `store` will need to be injected if the current context doesn't have access to the store. Then, something like the following will happen:
 
@@ -58,9 +60,9 @@ Or if you're familiar with [`findBy`](https://api.emberjs.com/ember/3.11/classes
 let sanctuary = sanctuaries.findBy('id', animal.sanctuaryId);
 ```
 
-Not bad, but it can be tedious to write if it occurs in multiple places and if there are multiple foreign key type of attributes.
+Not bad, but it can be tedious to write if it occurs in multiple places and if there are multiple foreign key type of attributes. Also, this extra code makes the app unnecessarily more complex.
 
-We can do better though and eliminate this lookup by leveraging a `belongsTo` relationship.
+We can do better and eliminate this lookup by leveraging a `belongsTo` relationship.
 
 Instead, we'll define our `animal` model like this:
 
