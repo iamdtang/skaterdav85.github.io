@@ -10,7 +10,7 @@ keywords: Ember Data, foreign key, belongs to, belongsTo, relationship
 image: ember
 ---
 
-Something I see frequently in APIs are attributes that map to foreign key columns. For example, let's say we have the following response from an endpoint `GET /animals/0`:
+Something I frequently see in APIs are attributes that map to foreign key columns. For example, let's say we have the following response from an endpoint `GET /animals/0`:
 
 ```json
 {
@@ -38,15 +38,9 @@ export default Model.extend({
 
 The attribute `sanctuary_id` can then be used to look up a `sanctuary` record with an `id` of `3`.
 
-Now although this can work, what ends up happening is the need to look up the `sanctuary` record by this `sanctuary_id` attribute in other parts of the app.
+Now although this can work, what often ends up happening is the need to look up the `sanctuary` record by this `sanctuary_id` attribute, and this code gets scattered throughout the app in a few forms.
 
-First, the `store` will need to be injected if the current context doesn't have access to the store. Then, something like the following will happen:
-
-```js
-let sanctuary = this.store.peekRecord('sanctuary', animal.sanctuary_id);
-```
-
-Maybe the current context already has the full list of sanctuaries. In that case, we'd have to do something like the following:
+Maybe the current context already has the full list of sanctuaries. In that case, there might be code that does something like the following:
 
 ```js
 let sanctuary = sanctuaries.find((sanctuary) => {
@@ -54,13 +48,19 @@ let sanctuary = sanctuaries.find((sanctuary) => {
 });
 ```
 
-Or if you're familiar with [`findBy`](https://api.emberjs.com/ember/3.11/classes/EmberArray/methods/findBy?anchor=findBy) in Ember:
+Or maybe [`findBy`](https://api.emberjs.com/ember/3.11/classes/EmberArray/methods/findBy?anchor=findBy) is used:
 
 ```js
 let sanctuary = sanctuaries.findBy('id', animal.sanctuary_id);
 ```
 
-Not bad, but it can be tedious to write if it occurs in multiple places and if there are multiple foreign key type of attributes. Also, this extra code makes the app unnecessarily more complex.
+Or maybe [`peekRecord`](https://api.emberjs.com/ember-data/3.11/classes/Store/methods/peekRecord?anchor=peekRecord) is used:
+
+```js
+let sanctuary = this.store.peekRecord('sanctuary', animal.sanctuary_id);
+```
+
+All of these approaches get the job done, but it can be tedious to write if it occurs in multiple places and if there are multiple foreign key type of attributes. Also, this extra code makes the app unnecessarily more complex.
 
 We can do better and eliminate this lookup by leveraging a `belongsTo` relationship.
 
@@ -77,9 +77,11 @@ export default Model.extend({
 });
 ```
 
-Here I am assuming that all of the sanctuaries have already been loaded into the Ember Data store (which is often times the scenario) so I made the relationship synchronous.
+We removed the `sanctuary_id` attribute and added a `sanctuary` `belongsTo` relationship.
 
-So how does Ember Data map `sanctuary` to `sanctuary_id`? It won't as it currently stands. If `sanctuary_id` was `sanctuary`, everything would work. If this can't be changed at the API level, we can do this mapping in the `animal` serializer. For example:
+Here I am assuming that all of the sanctuaries have already been loaded into the Ember Data store (which is often times the scenario in my experience) so I made the relationship synchronous.
+
+So how does Ember Data map the `sanctuary` `belongsTo` relationship to the `sanctuary_id` property in the API response? It won't as it currently stands. If `sanctuary_id` was `sanctuary`, everything would work. If this can't be changed at the API level, we can do this mapping in the `animal` serializer. For example:
 
 ```js
 // app/serializers/animal.js
