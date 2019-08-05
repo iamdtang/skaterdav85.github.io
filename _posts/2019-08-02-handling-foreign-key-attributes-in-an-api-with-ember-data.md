@@ -10,7 +10,7 @@ keywords: Ember Data, foreign key, belongs to, belongsTo, relationship
 image: ember
 ---
 
-Something I frequently see in APIs are attributes that map to foreign key columns. For example, let's say we have the following response from a `GET /animals/0` endpoint:
+Something I frequently see in APIs are attributes that map to foreign key database columns. For example, let's say we have the following response from a `GET /animals/0` endpoint:
 
 ```json
 {
