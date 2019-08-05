@@ -21,7 +21,7 @@ Something I frequently see in APIs are attributes that map to foreign key column
 }
 ```
 
-Here, there is an attribute `sanctuary_id` that probably came from a foreign key database column `sanctuary_id`.
+Here, there is an attribute `sanctuary_id` that probably came from a foreign key database column named `sanctuary_id`.
 
 Those new to Ember Data might create a model like this:
 
