@@ -16,10 +16,6 @@ Display a div for each subreddit post containing the following fields:
 * `subreddit_subscribers` formatted with commas. Use a helper for this. To format a number, check out [`Number.prototype.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString).
 * If `num_comments` > 0, show the number of comments, also formatted with commas. Otherwise, show "No comments". Use the Handlebars `if` helper. In Handlebars, 0 is treated as falsey.
 
-## Handling Errors
-
-If the user typed in an invalid subreddit name, the Reddit API will respond with a [404 HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404). This means that the subreddit can't be found. If a user types an invalid subreddit into the search box and submits the form, display "Oops! Something went wrong!" on the page in red.
-
 ## Submission
 
-Create a repo on Github called __itp404-assignment2-client-side-templating__ and upload your files. Send an email to the TA and myself with the Github URL. Failure to submit by the deadline will result in a 0.
+Create a repo on GitHub called __itp404-assignment2-client-side-templating__ and upload your files. Send an email to the TA and myself with the GitHub URL. Failure to submit by the deadline will result in a 0.
