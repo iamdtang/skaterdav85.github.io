@@ -9,7 +9,6 @@ In this assignment, you will build a page in React using Create React App that f
 
 * Display a div for each subreddit post containing the following fields:
   * `title` that links to `url` in a new tab
-  * `description`
   * `score`
   * `ups` formatted with commas. To format a number, check out [`Number.prototype.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString).
   * If `num_comments` > 0, show the number of comments, also formatted with commas. Otherwise, show "No comments".
