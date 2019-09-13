@@ -9,10 +9,11 @@ In this assignment, you will build a page in React using Create React App that f
 
 * Display a div for each subreddit post containing the following fields:
   * `title` that links to `url` in a new tab
-  * `score`
+  * `author`
+  * ~~`score`~~ - this is the same as `ups`
   * `ups` formatted with commas. To format a number, check out [`Number.prototype.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString).
   * If `num_comments` > 0, show the number of comments, also formatted with commas. Otherwise, show "No comments".
-  * Display `banner_background_image` in some way if it exists.
+  * ~~Display `banner_background_image` in some way if it exists.~~
 * While the Ajax request is pending, show a loading indicator on the screen using [one of these CSS spinners](https://projects.lukehaas.me/css-loaders/). This loading indicator should be its own component.
 * Display `subreddit_subscribers` at the top of the page before the list. This value is the same for every subreddit post in the JSON.
 
