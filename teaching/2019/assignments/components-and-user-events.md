@@ -13,6 +13,20 @@ Add a search bar at the top of the page. The search bar should contain a text in
 
 Add a feature that keeps track of all previous searches and display them somewhere on the page. Make it such that a user can click on one of the previous searches and the app fetches and renders the data for that search term.
 
+Tip: When looping through the previous searches to render them, you're going to need to bind a class method to `onClick` and have it "remember" the current item in the `map()` call. See the [`bind()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) function. Your code might look something like this:
+
+```jsx
+{this.state.previousSearches.map((term) => {
+  return (
+    <button type="button" onClick={this.applyPreviousSearch.bind(this, term)}>
+      {term}
+    </button>
+  );
+})}
+```
+
+There are other ways to do achieve this, so your code doesn't have to follow this approach.
+
 ## Read Count
 
 Add a feature that tracks every time a post is clicked regardless if it is the same post. This total can be rendered anywhere on the page and should start at 0. This number will reset back to 0 when the page reloads.
