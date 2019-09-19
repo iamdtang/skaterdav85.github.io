@@ -4,51 +4,14 @@ h1 {
 }
 
 .logo {
-  color: #1884BB;
   text-transform: uppercase;
   font-size: 1em;
-}
-
-.sticky-header {
-  background-color: $bg1;
-  width: 100%;
-  z-index: 100;
-
-  h1, p {
-    margin: 0;
-    padding: 0;
-  }
-
-  a, p {
-    color: white;
-  }
 }
 
 .avatar {
   border-radius: 50%;
   width: 100%;
   max-width: 200px;
-}
-
-.pure-g > div {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.l-box {
-  padding: 1.5em;
-}
-
-.social {
-  list-style: none;
-  padding: 0;
-}
-
-.social li {
-  display: inline-block;
-  padding: 1.5%;
-  margin-bottom: 5px;
 }
 
 .fa {
@@ -62,9 +25,9 @@ h1 {
 }
 
 .social li:hover .fa {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 .sidebar {
@@ -81,7 +44,6 @@ h1 {
 .post a.title {
   color: $primary;
   text-decoration: none;
-  /* text-transform: uppercase; */
 }
 
 .post h3 {
@@ -94,44 +56,17 @@ h1 {
 }
 
 .date {
-  margin-top: 20px;
   display: block;
 }
 
 .post {
   border-bottom: 1px solid #ddd;
+  padding-top: 20px;
 }
 
 .post img {
   width: 100%;
 }
-
-.read-more {
-    text-align: right;
-}
-
-.read-more a {
-    font-size: 12px;
-    text-decoration: none;
-}
-
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-}
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix {
-    height: 1%;
-}
-.clearfix {
-    display: block;
-}
-/* close commented backslash hack */
 
 .categories {
   list-style-type: none;
@@ -178,35 +113,11 @@ h1 {
 
 .block-title {
   color: $bg1;
-  margin-top: 40px;
-  padding-bottom: 0;
+  margin-top: 30px;
   margin-bottom: 0;
+  padding-bottom: 0;
   font-weight: lighter;
-}
-
-.guest-posts {
-  text-align: left;
-  list-style-type: none;
-  padding: 0;
-
-  .date {
-    display: block;
-    font-size: 85%;
-  }
-
-  li {
-    border-bottom: 1px solid #ccc;
-    padding: 7px;
-    font-size: 90%;
-  }
-
-  li:last-child {
-    border-bottom: 0;
-  }
-}
-
-.guest-posts a:hover {
-  text-decoration: none;
+  text-align: center;
 }
 
 .side-image {
