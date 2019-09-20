@@ -3,9 +3,9 @@ layout: assignment
 title: Build a Reusable Component
 ---
 
-For this assignment, you will build a reusable component of your choice. It might help to look at web applications that you use and see what user interface elements might be worth making a reusable component for.
+For this assignment, you will build a reusable component of your choice. Take a look at web applications that you use and see what user interface elements might be worth making a reusable component for. Your reusable component must have at least 2 props. One of the props can be `children`. Also, add the necessary `propTypes` to your component.
 
-Create a page that demos this component. Write 1-3 sentences explaining how to use it. Also, somewhere on the page, write about your motivations for this component, how it is reusable, and why you named the component and its props the way that you did.
+Create a page that demos this component. Write 1-3 sentences explaining how developers would use it. Also, somewhere on the page, write about your motivations for this component, how it is reusable, and why you named the component and its props the way that you did. Well designed components have good naming, so spend some time thinking about what to name the component and its props.
 
 ## Submission
 
