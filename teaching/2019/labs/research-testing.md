@@ -11,4 +11,4 @@ Create a publicly accessible Google Doc and perform some research on automated t
 
 ## Submission
 
-Email your publicly accessible Google Doc link to the TA and myself with the subject line __Lab 1: Research Testing__. Failure to submit by the deadline will result in a 0.
+Email your publicly accessible Google Doc link to the TA and myself with the subject line __Lab 2: Research Testing__. Failure to submit by the deadline will result in a 0.
