@@ -28,4 +28,6 @@ Lastly, if a user types an invalid URL, display the navigation and some helpful 
 
 ## Submission
 
-Create a repo on GitHub called __itp404-assignment6-routing__ and upload your files. Also, deploy your app to Surge. Send an email to the TA and me with the title "ITP 404 - Assignment 6" with the GitHub and Surge URLs in the body. Failure to submit by the deadline will result in a 0.
+When you are finished, deploy your project to Surge and include a link to your Surge URL in the README.md of your repo. 
+
+Submit your assignment [here](https://classroom.github.com/a/ggDTdtW-) on our GitHub classroom. Failure to submit by the deadline will result in a 0.
