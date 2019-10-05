@@ -9,19 +9,19 @@ For the final project, you will develop a single page application (SPA) on a top
 
 ## Application Requirements
 
-* At least 4 routes / "pages"
+* At least 4 routes. At least one of these routes should be a nested route.
 * At least one AJAX request for each of the following request types: GET, POST, PUT/PATCH, and DELETE
-* If you are using Mirage, change the `timing` property to 1000 milliseconds, except for the `test` environment so that tests don't take longer to run. Add loading indicators of some sort for things that take time. In Ember, you may want to use [Loading Substates](https://guides.emberjs.com/release/routing/loading-and-error-substates/) in some cases.
+* If you are using Mirage, change the `timing` property to 1000 milliseconds, except for the `test` environment so that tests don't take longer to run. Add loading indicators of some sort for things that take time.
 * There should be some sort of feedback to the user when forms are processing. For example, a save button could have its display text change from "Save" to "Saving..." and then back to "Save". Another example is having a "Save" button show a loading indicator on the button while the form is processing. Check out other sites that you use and see what they do.
 * Custom form validation (don't use HTML5 form validation). If a form is invalid, there should be unique error messages next to each field.
-* At least one reusable/generic component designed by you that adheres to the Data Down, Actions Up / One-Way Data Flow paradigm. This should not be any of the components we did together in class.
-* Each page should have a unique title. For Ember projects, check out [ember-cli-document-title](https://www.npmjs.com/package/ember-cli-document-title).
+* At least one reusable/generic component designed by you. This should not be any of the components we did together in class.
+* Each page should have a unique document title.
 
 __Projects will be graded based on overall complexity.__
 
 ## Code Quality Requirements
 
-* At least 15 component tests
+* At least 15 tests
 * Travis CI integration with all tests passing and a status badge on your project's README.md
 * Cleanly formatted code. I recommend using Prettier. 
 * Don't just make the code work. Make it also easy to read. Write readable variable and function names.
