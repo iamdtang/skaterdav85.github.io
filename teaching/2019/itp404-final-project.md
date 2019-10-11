@@ -5,17 +5,16 @@ title: Final Project
 
 The final project is due on __12/8 at 11:59pm__. Points will be deducted if you turn it in late. Turning it in 1 day late is -10 points, and each subsequent day will be -5 points.
 
-For the final project, you will develop a single page application (SPA) on a topic of your choice with React for the frontend. For the backend, you are welcome to build your own or use an API mocking library like Mirage.
+For the final project, you will develop a single page application (SPA) on a topic of your choice with React for the frontend. For the backend, you will build an in-memory API like we did in class. For those with more experience on the backend, you are welcome to use a database and whatever else you'd like.
 
 ## Application Requirements
 
 * At least 4 routes. At least one of these routes should be a nested route.
-* At least one AJAX request for each of the following request types: GET, POST, PUT/PATCH, and DELETE
-* If you are using Mirage, change the `timing` property to 1000 milliseconds, except for the `test` environment so that tests don't take longer to run. Add loading indicators of some sort for things that take time.
-* There should be some sort of feedback to the user when forms are processing. For example, a save button could have its display text change from "Save" to "Saving..." and then back to "Save". Another example is having a "Save" button show a loading indicator on the button while the form is processing. Check out other sites that you use and see what they do.
+* At least one AJAX request for each of the following request types: GET, POST, PUT/PATCH, and DELETE.
 * Custom form validation (don't use HTML5 form validation). If a form is invalid, there should be unique error messages next to each field.
 * At least one reusable/generic component designed by you. This should not be any of the components we did together in class.
 * Each page should have a unique document title.
+* Display notifications of some sort when a user has taken an action and it was successful, like deleting, creating, and updating something. 
 
 __Projects will be graded based on overall complexity.__
 
