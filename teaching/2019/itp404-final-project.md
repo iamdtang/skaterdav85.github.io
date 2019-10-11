@@ -9,9 +9,11 @@ For the final project, you will develop a single page application (SPA) on a top
 
 ## Application Requirements
 
-* At least 4 routes. At least one of these routes should be a nested route.
+* Client-side routing with React Router
+  * At least 4 routes. You must have at least one nested route and one route with a URL parameter.
+  * A 404 page if a user navigates to a route that doesn't exist
 * At least one AJAX request for each of the following request types: GET, POST, PUT/PATCH, and DELETE.
-* Custom form validation (don't use HTML5 form validation). If a form is invalid, there should be unique error messages next to each field.
+* Custom form validation (don't use HTML5 form validation). If a form is invalid, there should be unique error messages next to each field. This can be done either client-side or server-side.
 * At least one reusable/generic component designed by you. This should not be any of the components we did together in class.
 * Each page should have a unique document title.
 * Display notifications of some sort when a user has taken an action and it was successful, like deleting, creating, and updating something. 
