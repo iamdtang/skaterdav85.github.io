@@ -96,15 +96,15 @@ function captureTime(target, name, descriptor) {
 
 Decorators are just functions that receive information about the function being decorated. Our `captureTime` decorator function will receive the following parameters:
 
-* `target`: The `prototype` of the class that the method belongs to (`Foo.prototype`)
-* `name`: The name of the method in the class (`bar`)
-* `descriptor`: This is a descriptor object, which is the same descriptor that would be passed to [`Object.defineProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty).
+* `target`: The `prototype` of the class that the decorated method belongs to (`Foo.prototype`)
+* `name`: The name of the decorated method in the class (`bar`)
+* `descriptor`: A descriptor object, which is the same descriptor object that would be passed to [`Object.defineProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 
-The original function can be accessed from the descriptor object at `descriptor.value`. Here, we replaced the decorated function with one that adds in time logging.
+The decorated function can be accessed from the descriptor object at `descriptor.value`. Here, we replaced the decorated function with one that adds in time logging.
 
 [Try it out here](https://jsbin.com/teleridahi/1/edit?js,console)
 
-Let's say we want to allow developers the option to specify a label for `console.time()` and `console.timeEnd()` instead of using the method name (`bar` in this example), like this:
+Let's say we want to allow developers the option to specify a label for `console.time()` and `console.timeEnd()` instead of using the method name (`bar` in this example). We can modify our decorator so that it receives a label as an argument:
 
 ```js
 class Foo {
@@ -125,7 +125,7 @@ class Foo {
 }
 ```
 
-We can modify our decorator function like so:
+Then, we can modify our decorator function like so:
 
 ```js
 function captureTime(label) {
