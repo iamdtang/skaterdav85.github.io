@@ -33,7 +33,9 @@ Your project should be styled so that it presents a good user experience and loo
 
 ## Deployment
 
-Your project should be deployed to a public URL. I suggest using [Surge.sh](https://surge.sh/) like we did in class.
+Your project should be deployed to a public URL. I suggest using [Surge.sh](https://surge.sh/).
+
+[Deploying React Projects to Surge.sh](/2019/10/17/deploying-react-to-surge.html)
 
 ## Submission
 
