@@ -12,7 +12,7 @@ Create a new React application and install React Router. At the top of the READM
 
 ## Submission
 
-https://classroom.github.com/a/Wh3OynhV
+[https://classroom.github.com/a/Wh3OynhV](https://classroom.github.com/a/Wh3OynhV)
 
 ## Project Ideas From Previous Semesters
 
