@@ -1,6 +1,6 @@
 ---
 layout: assignment
-title: Testing React Components
+title: In-Memory API
 ---
 
 For this assignment, you will extend the [in-memory API](https://github.com/itp404-fall-2019/in-memory-express-api) we built in class with new endpoints relating to comments.
