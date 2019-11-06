@@ -92,4 +92,6 @@ If the update is successful, return a 204 status code. If the comment doesn't ex
 
 ## Submission
 
+Deploy your API to Heroku and add your Heroku link to your your repo's README.
+
 [https://classroom.github.com/a/KT7XsdD6](https://classroom.github.com/a/KT7XsdD6)
