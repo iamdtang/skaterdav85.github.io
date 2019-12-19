@@ -8,7 +8,7 @@ permalink: teaching
 
 Learn more about the [Information Technology Program (ITP)](https://itp.usc.edu/) and the [Master of Science Integrated Design, Business and Technology (IDSN)](https://iovine-young.usc.edu/program/graduate-program.html).
 
-- Spring 202
+- Spring 2020
     -   [ITP 405: Advanced Back-End Web Development](/teaching/2020/itp405)
 - Fall 2019
     -   [ITP 404: Advanced Front-End Web Development](/teaching/2019/itp404)
