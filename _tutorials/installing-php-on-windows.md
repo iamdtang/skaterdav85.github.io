@@ -8,7 +8,7 @@ keywords: php, windows
 
 Note: These instructions were originally taken from 
 [https://www.sitepoint.com/how-to-install-php-on-windows/](https://www.sitepoint.com/how-to-install-php-on-windows/)
-and slighly modified.
+and slightly modified.
 
 ## Step 1: Download the files
 
@@ -44,8 +44,6 @@ To ensure Windows can find PHP, you need to change the path environment variable
 
 Scroll down the System variables list and click on "Path" followed by the "Edit" button. Click "Edit text" and add `;C:\php` to the end of the Variable value line (remember the semicolon).
 
-![Windows environment variable for php](/images/windows-php-environment-variable.jpg)
-
-
+<img src="/images/windows-php-environment-variable.jpg" alt="Windows environment variable for php" style="width: 716px; height: 695px;">
 
 Now click OK until you’re out. You might need to reboot at this stage.
