@@ -30,7 +30,7 @@ Define the extension directory:
 extension_dir = "C:/php/ext"
 ```
 
-Enable extensions by removing the semicolon. The semicolon is used to comment out lines in a `php.ini` file. The extensions you will want to enable will depend on the libraries you want to use, but the following extensions should be suitable for the majority of applications:
+Enable the following extensions. (The extensions you will want to enable will depend on the libraries you want to use, but the following extensions should be suitable for the majority of applications.)
 
 ```
 extension=curl
