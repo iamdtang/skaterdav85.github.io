@@ -47,3 +47,7 @@ Scroll down the System variables list and click on "Path" followed by the "Edit"
 <img src="/images/windows-php-environment-variable.jpg" alt="Windows environment variable for php" style="width: 716px; height: 695px;">
 
 Now click OK until you’re out. You might need to reboot at this stage.
+
+## Step 5: Test it out
+
+Open up your command line interface and type in `php -v`. Hopefully you see the version of php that you installed.
