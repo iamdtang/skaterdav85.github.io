@@ -2,15 +2,14 @@
 layout: default
 ---
 <h1>{{page.title}}</h1>
-{% if page.updated %}
-  <p class="meta">
+<p class="meta">
+  Last reviewed on 
+  {% if page.updated %}
     {{page.updated | date: "%B %e, %Y"}}
-  </p>
-{% else %}
-  <p class="meta">
+  {% else %}
     {{page.date | date: "%B %e, %Y"}}
-  </p>
-{% endif %}
+  {% endif %}
+</p>
 
 {% unless page.categories == empty %}
 <ul class="categories">
