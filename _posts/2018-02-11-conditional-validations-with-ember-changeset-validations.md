@@ -2,7 +2,7 @@
 layout: post
 title: Conditional Validations with ember-changeset-validations
 date: 2018-02-11
-description: TBA
+description: This post covers how I approached conditional validations with ember-changeset.
 keywords: ember changeset, conditional validations
 image: ember
 ---
