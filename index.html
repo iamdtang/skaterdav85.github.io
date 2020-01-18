@@ -12,16 +12,11 @@ keywords: javascript, ember, ember data, web development, testing, elixir, ember
         alt="{{post.image}} logo"
         class="post-thumbnail">
       <span class="date">
-        {{ post.date | date: "%A" }},
-        {% assign d = post.date | date: "%d" | plus:'0' %}
-        {{ post.date | date: "%B" }}
-        {% case d %}
-          {% when 1 or 21 or 31 %}{{ d }}st,
-          {% when 2 or 22 %}{{ d }}nd,
-          {% when 3 or 23 %}{{ d }}rd,
-          {% else %}{{ d }}th,
-        {% endcase %}
-        {{ post.date | date: "%Y" }}
+        {% if post.last_modified_at %}
+          {{post.last_modified_at | date: "%B %e, %Y"}}
+        {% else %}
+          {{post.date | date: "%B %e, %Y"}}
+        {% endif %}
       </span>
       <h2>
         {{post.active}}
