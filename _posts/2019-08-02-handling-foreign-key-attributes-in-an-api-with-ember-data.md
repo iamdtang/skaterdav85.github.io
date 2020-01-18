@@ -2,6 +2,7 @@
 layout: post
 title: Handling Foreign Key Attributes in an API with Ember Data
 date: 2019-08-02
+updated: 2020-01-18
 description: This post covers how to deal with foreign key type of attributes in an API with Ember Data.
 twitter_image: ember.png
 twitter_image_alt: Ember.js logo
@@ -29,11 +30,11 @@ Those new to Ember Data might create a model like this:
 // app/models/animal.js
 import Model, { attr } from '@ember-data/model';
 
-export default Model.extend({
-  name: attr('string'),
-  species: attr('string'),
-  sanctuary_id: attr('number')
-});
+export default class AnimalModel extends Model {
+  @attr('string') name;
+  @attr('string') species;
+  @attr('number') sanctuary_id;
+}
 ```
 
 The attribute `sanctuary_id` can then be used to look up a `sanctuary` record with an `id` of `3`.
@@ -70,11 +71,11 @@ Instead, we'll define our `animal` model like this:
 // app/models/animal.js
 import Model, { attr, belongsTo } from '@ember-data/model';
 
-export default Model.extend({
-  name: attr('string'),
-  species: attr('string'),
-  sanctuary: belongsTo('sanctuary', { async: false })
-});
+export default class AnimalModel extends Model {
+  @attr('string') name;
+  @attr('string') species;
+  @belongsTo('sanctuary', { async: false }) sanctuary;
+}
 ```
 
 We removed the `sanctuary_id` attribute and added a `sanctuary` `belongsTo` relationship.
@@ -87,11 +88,11 @@ So how does Ember Data map the `sanctuary` `belongsTo` relationship to the `sanc
 // app/serializers/animal.js
 import JSONSerializer from '@ember-data/serializer/json';
 
-export default JSONSerializer.extend({
-  attrs: {
+export default class AnimalSerializer extends JSONSerializer {
+  attrs = {
     sanctuary: 'sanctuary_id'
-  }
-});
+  };
+}
 ```
 
 Boom! Everything now works!
@@ -104,15 +105,15 @@ Assuming that all relationships follow this `_id` suffix convention, we could ta
 // app/serializers/application.js
 import JSONSerializer from '@ember-data/serializer/json';
 
-export default JSONSerializer.extend({
+export default class ApplicationSerializer extends JSONSerializer {
   keyForRelationship(key, relationship, method) {
     if (relationship === 'belongsTo') {
       return `${key}_id`;
     }
 
-    return this._super(...arguments);
+    return super.keyForRelationship(...arguments);
   }
-});
+}
 ```
 
 In my experience, foreign key type of attributes have also come up frequently in JSON:API responses, even though JSON:API relationships should be used.  Although unconventional, you can use the `JSONAPIAdapter` with the `JSONSerializer`, which I wrote about in [Embedded Records in Ember Data with JSON:API](/2019/07/21/embedded-records-in-ember-data-with-json-api.html) and follow the same approach I took in this post.
