@@ -2,7 +2,7 @@
 layout: post
 title: Handling Nested Resources and Relationship Links in Ember Data
 date: 2016-02-21
-updated: 2016-10-24
+last_modified_at: 2016-10-24
 description: Many APIs use nested resource paths. That is, URL paths that contain a hierarchy of resource types. How do you handle that in Ember Data? Let me show you.
 keywords: nested resources, ember data, relationship links, nested resource paths, nested resource URLs
 image: ember

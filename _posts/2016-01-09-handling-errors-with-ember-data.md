@@ -2,7 +2,7 @@
 layout: post
 title: Handling Errors with Ember Data
 date: 2016-01-09
-updated: 2016-03-25
+last_modified_at: 2016-03-25
 description: So you know how to work with Ember Data and the happy paths when your promises resolve. That's great, but you also need to handle error responses. Let's look at how to do that when your API adheres to the JSON API specification or the formats expected by the `RESTSerializer` and `JSONSerializer`.
 keywords: ember data errors, AdapterError, DS.AdapterError, model errors, JSON API errors, JSONAPI errors, JSONAPISerializer, errors, RESTSerializer, JSONSerializer, isValid, DS.Errors, DS.InvalidError
 image: ember

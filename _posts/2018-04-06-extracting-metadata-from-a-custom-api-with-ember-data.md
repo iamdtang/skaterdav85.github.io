@@ -2,7 +2,7 @@
 layout: post
 title: Extracting Metadata from a Custom API with Ember Data
 date: 2018-04-06
-updated: 2018-09-20
+last_modified_at: 2018-09-20
 description: This post covers how to extract metadata from a custom API with Ember Data.
 twitter_image: extracting-metadata-with-ember-data.png
 twitter_image_alt: screenshot of code from this blog post
@@ -126,7 +126,7 @@ In closing, although we could have used either `JSONSerializer` or `RESTSerializ
 
 [Here is the code from this post.](https://github.com/skaterdav85/extracting-metadata-in-ember-data)
 
-## UPDATE - {{page.updated | date: "%B %e, %Y"}}
+## UPDATE - {{page.last_modified_at | date: "%B %e, %Y"}}
 
 After talking with [@Runspired](https://twitter.com/Runspired), it turns out you can use `JSONSerializer` to extract metadata.
 

@@ -2,7 +2,7 @@
 layout: post
 title: Conditional Default Values for Ember Data Model Attributes
 date: 2018-05-26
-updated: 2020-01-18
+last_modified_at: 2020-01-18
 description: This post covers how to access the instance of a model in the defaultValue function of an attribute to conditionally set a default value.
 twitter_image: conditional-default-values-in-ember-data-model-attributes.png
 twitter_image_alt: code screenshot of conditionally setting a default value in an Ember Data model attribute

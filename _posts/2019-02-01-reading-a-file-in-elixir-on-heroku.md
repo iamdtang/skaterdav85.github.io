@@ -2,7 +2,7 @@
 layout: post
 title: Reading a File in Elixir on Heroku
 date: 2019-02-01
-updated: 2019-02-03
+last_modified_at: 2019-02-03
 description: This post covers a problem I ran into when reading files on Heroku in an Elixir Phoenix app.
 twitter_image: elixir-thumb.png
 twitter_image_alt: Elixir programming language logo

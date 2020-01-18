@@ -2,7 +2,7 @@
 layout: post
 title:  "Jasmine vs. Mocha, Chai, and Sinon"
 date:   2015-01-12
-updated: 2016-01-02
+last_modified_at: 2016-01-02
 keywords: Jasmine unit testing, Jasmine vs. Mocha, Jasmine spies vs Sinon, JavaScript unit testing, Introduction to Sinon.js, Sinon Tutorial
 image: jasmine
 ---

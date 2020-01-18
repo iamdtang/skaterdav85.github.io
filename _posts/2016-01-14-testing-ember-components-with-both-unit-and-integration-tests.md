@@ -2,7 +2,7 @@
 layout: post
 title: Testing Ember Components With Both Unit and Integration Tests
 date: 2016-01-14
-updated: 2017-08-20
+last_modified_at: 2017-08-20
 description: In this post, we'll look at how integration tests can be used in conjunction with unit tests to effectively test different aspects of your Ember components.
 keywords: ember component, unit test, integration test, testing component computed properties, ember.js, emberJS, testing ember components, component unit tests, component computed properties
 image: ember

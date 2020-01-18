@@ -2,7 +2,7 @@
 layout: post
 title: Handling Foreign Key Attributes in an API with Ember Data
 date: 2019-08-02
-updated: 2020-01-18
+last_modified_at: 2020-01-18
 description: This post covers how to deal with foreign key type of attributes in an API with Ember Data.
 twitter_image: ember.png
 twitter_image_alt: Ember.js logo

@@ -2,7 +2,7 @@
 layout: post
 title: Embedded Records in Ember Data with JSON:API
 date: 2019-07-21
-updated: 2020-01-18
+last_modified_at: 2020-01-18
 description: This post covers how I used embedded records with a JSON:API-ish response.
 twitter_image: ember.png
 twitter_image_alt: Ember.js logo

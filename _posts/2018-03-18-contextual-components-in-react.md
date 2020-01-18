@@ -2,7 +2,7 @@
 layout: post
 title: Contextual Components in React
 date: 2018-03-18
-updated: 2018-03-28
+last_modified_at: 2018-03-28
 description: Contextual Components are one of my favorite features in Ember. In this post, I show how you can implement the same pattern in React components using the Render Props pattern.
 twitter_image: contextual-components-in-react.png?cache-bust
 twitter_image_alt: Code snippet of a contextual component in React
@@ -154,7 +154,7 @@ The use of contextual components can help encapsulate state and actions, which c
 
 When building components with contextual components, I often find it most useful to start with the public API that I want, and implement from there, only exposing the state and actions that are necessary for the caller. This helps maintain encapsulation and can make it easier to refactor in the future without breaking backwards compatibility.
 
-## Updated on {{page.updated | date: "%B %e, %Y"}}
+## Updated on {{page.last_modified_at | date: "%B %e, %Y"}}
 
 It turns out there are some issues with using `<CheckboxListItem.Checkbox />` as a faux type, as [Dan Abramov pointed on](https://twitter.com/iamdtang/status/975970972489588736). The problem is that React thinks it is a different component type and will unmount and remount on every single render. In the [previous example on Code Sandbox](https://codesandbox.io/s/oql1k85zx6), you will see that I have added a `componentDidMount` lifecycle method on the `<Checkbox />` component, and it logs to the console. Toggle the checkboxes, and you will see that it gets invoked on every checkbox change. The problem with this is that each `<Checkbox />` will lose local state. [See Dan's example](https://codesandbox.io/s/9366yy02nr).
 
