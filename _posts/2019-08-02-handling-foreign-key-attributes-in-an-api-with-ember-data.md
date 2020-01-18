@@ -49,13 +49,13 @@ let sanctuary = sanctuaries.find((sanctuary) => {
 });
 ```
 
-Or maybe [`findBy`](https://api.emberjs.com/ember/3.11/classes/EmberArray/methods/findBy?anchor=findBy) is used:
+Or maybe [`findBy`](https://api.emberjs.com/ember/release/classes/EmberArray/methods/findBy?anchor=findBy) is used:
 
 ```js
 let sanctuary = sanctuaries.findBy('id', animal.sanctuary_id);
 ```
 
-Or maybe [`peekRecord`](https://api.emberjs.com/ember-data/3.11/classes/Store/methods/peekRecord?anchor=peekRecord) is used:
+Or maybe [`peekRecord`](https://api.emberjs.com/ember-data/release/classes/Store/methods/peekRecord?anchor=peekRecord) is used:
 
 ```js
 let sanctuary = this.store.peekRecord('sanctuary', animal.sanctuary_id);
@@ -99,7 +99,7 @@ Boom! Everything now works!
 
 Now when we need to reference the sanctuary for a given animal, we can simply do `animal.sanctuary`. Much simpler, right?
 
-Assuming that all relationships follow this `_id` suffix convention, we could take this a step further and automatically do this by overriding [`keyForRelationship`](https://api.emberjs.com/ember-data/3.11/classes/JSONSerializer/methods/keyForRelationship?anchor=keyForRelationship) in the `application` serializer. For example:
+Assuming that all relationships follow this `_id` suffix convention, we could take this a step further and automatically do this by overriding [`keyForRelationship`](https://api.emberjs.com/ember-data/release/classes/JSONSerializer/methods/keyForRelationship?anchor=keyForRelationship) in the `application` serializer. For example:
 
 ```js
 // app/serializers/application.js
