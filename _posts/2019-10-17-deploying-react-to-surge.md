@@ -2,7 +2,7 @@
 layout: post
 title: Deploying React Projects to Surge.sh
 date: 2019-10-17
-description: 
+description: Learn how to deploy your Create React App project to Surge.sh.
 keywords: react, create-react-app, surge, deploy
 image: react
 ---

@@ -6,22 +6,27 @@ keywords: javascript, ember, ember data, web development, testing, elixir, ember
 <div class="posts">
   {% for post in paginator.posts %}
     {% unless post.active == "off" %}
-    <div class="post bb clearfix">
-      <img
-        src="/images/{{post.image}}{% if post.image_extension %}{{post.image_extension}}{% else %}-logo.png{% endif %}"
-        alt="{{post.image}} logo"
-        class="post-thumbnail">
-      <span class="date">
-        {% if post.last_modified_at %}
-          {{post.last_modified_at | date: "%B %e, %Y"}}
-        {% else %}
-          {{post.date | date: "%B %e, %Y"}}
-        {% endif %}
-      </span>
+    <div class="post">
+      <div class="post-top">
+        <img
+          src="/images/{{post.image}}{% if post.image_extension %}{{post.image_extension}}{% else %}-logo.png{% endif %}"
+          alt="{{post.image}} logo"
+          class="post-thumbnail">
+        <span class="date">
+          {% if post.last_modified_at %}
+            {{post.last_modified_at | date: "%B %e, %Y"}}
+          {% else %}
+            {{post.date | date: "%B %e, %Y"}}
+          {% endif %}
+        </span>
+      </div>
       <h2>
         {{post.active}}
         <a href="{{post.url}}" class="title">{{post.title}}</a>
       </h2>
+      <p>
+        {{post.description}}
+      </p>
     </div>
     {% endunless %}
   {% endfor %}

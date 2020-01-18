@@ -6,14 +6,23 @@
   margin: 0;
 }
 
-.p0 {
-  padding: 0;
-}
-
 .text-center {
   text-align: center;
 }
 
 .bb {
   border-bottom: 1px solid #ddd;
+}
+
+// Padding
+.p0 {
+  padding: 0;
+}
+
+.p-all {
+  padding: 1.5em;
+}
+
+.d-block {
+  display: block;
 }

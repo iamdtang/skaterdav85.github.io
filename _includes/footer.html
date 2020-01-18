@@ -1,4 +1,4 @@
-<ul class="pager">
+<ul class="pagination">
   {% if paginator.previous_page %}
     <li class="previous">
       {% if paginator.previous_page == 1 %}
@@ -14,7 +14,7 @@
   {% endif %}
 
   <li>
-    <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    <span class="page_number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
   </li>
 
   {% if paginator.next_page %}

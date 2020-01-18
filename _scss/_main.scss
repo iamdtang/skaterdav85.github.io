@@ -36,10 +36,6 @@ h1 {
   box-sizing: border-box;
 }
 
-.l-box {
-  padding: 1.5em;
-}
-
 .social {
   list-style: none;
   padding: 0;
@@ -78,37 +74,9 @@ h1 {
   text-decoration: none;
 }
 
-.post a.title {
-  color: $primary;
-  text-decoration: none;
-  /* text-transform: uppercase; */
-}
-
-.post h3 {
-  color: #2e3137;
-}
-
 .date, .meta {
   color: #aaa;
   font-size: 16px;
-}
-
-.date {
-  margin-top: 10px;
-  display: block;
-}
-
-.post img {
-  width: 100%;
-}
-
-.read-more {
-    text-align: right;
-}
-
-.read-more a {
-  font-size: 12px;
-  text-decoration: none;
 }
 
 .clearfix:after {
@@ -144,25 +112,25 @@ h1 {
   font-size: 13px;
 }
 
-.pager {
+.pagination {
   list-style: none;
   margin-top: 20px;
   padding: 0;
   text-align: center;
 }
 
-.pager li {
+.pagination li {
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.pager .disabled a {
+.pagination .disabled a {
   color: #aaa;
   font-style: italic;
 }
 
-.pager .disabled a:hover {
+.pagination .disabled a:hover {
   color: #aaa;
   font-style: italic;
   text-decoration: none;
@@ -186,24 +154,18 @@ h1 {
   padding: 0;
 
   .date {
-    display: block;
     font-size: 85%;
   }
 
   li {
     border-bottom: 1px solid #ccc;
     padding: 7px;
-    padding-top: 0;
     font-size: 90%;
   }
 
   li:last-child {
     border-bottom: 0;
   }
-}
-
-.guest-posts a:hover {
-  text-decoration: none;
 }
 
 .side-image {
@@ -250,14 +212,32 @@ hr {
 }
 
 .posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
   .post {
-    padding: 20px 20px 20px 0;
+    padding: 15px;
+    margin: 15px;
+    width: 300px;
+    background-color: #f4f8fb;
+  
+    .post-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     img.post-thumbnail {
-      width: 100px;
-      height: 100px;
-      float: left;
-      margin-right: 20px;
+      width: 50px;
+    }
+
+    h2 {
+      a.title {
+        color: $primary;
+        text-decoration: none;
+        font-size: 0.8em;
+      }
     }
   }
 }
