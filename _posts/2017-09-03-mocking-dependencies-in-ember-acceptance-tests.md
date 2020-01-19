@@ -1,159 +1,157 @@
 ---
 layout: post
-title: Mocking Dependencies in Ember Acceptance Tests
+title: Mocking Services in Ember Acceptance Tests
 date: 2017-09-03
-description: Sometimes it can be useful to mock dependencies in Ember acceptance tests. This isn't something I do frequently, as I like my acceptance tests to be as high level as possible and not know too many implementation details. Nevertheless, there are some situations where you may need to. In this post, I will show you how.
-keywords: mock, dependency, stub, fake, service, ember, ember.js, emberJS, acceptance , test, testing, window, mock window, confirm, alert, stub confirm, mock confirm, mocking services in acceptance tests, stubbing services in acceptance tests
+last_modified_at: 2020-01-19
+description: This post explores a few approaches to mocking services in acceptance tests and shows an example that stubs window.confirm. 
+keywords: mock, dependency, stub, fake, service, ember, ember.js, EmberJS, acceptance , test, testing, window, mock window, confirm, alert, stub confirm, mock confirm, mocking services in acceptance tests, stubbing services in acceptance tests
 image: ember
 ---
 
-Sometimes it can be useful to mock dependencies in your acceptance tests in Ember. This isn't something I do frequently, as I like my acceptance tests to be as high level as possible and not know too many implementation details. Nevertheless, there are some situations where you may need to. `XMLHttpRequest` is one example, and I use Mirage for that. Another example is `window.confirm` since that is blocking and can't be interacted with from an acceptane test. The browser's `window.confirm` can be useful for when you want the user to confirm leaving a page without saving their changes. In that example, you might have a route like the following:
+Sometimes it can be useful to mock dependencies in acceptance tests in Ember. This isn't something I do frequently, as I like my acceptance tests to be as high level as possible and not know too many implementation details. Nevertheless, there are some situations where I find it useful. One example is when my application uses `window.confirm` which is blocking and can't be interacted with from an acceptance test via the `click` test helper.
+
+`window.confirm` can be useful for when we want the user to confirm leaving a page without saving their changes. We might have a route like the following:
 
 ```js
-import Ember from 'ember';
+// app/routes/settings.js
+import Route from '@ember/routing/route';
+import { action } from '@ember/object';
 
-const { Route } = Ember;
+export default class SettingsRoute extends Route {
+  @action
+  willTransition(transition) {
+    if (this.get('controller.model.hasDirtyAttributes')) {
+      let confirmation = window.confirm(
+        'Are you sure you want to leave without saving your changes?'
+      );
 
-export default Route.extend({
-  actions: {
-    willTransition(transition) {
-      if (this.get('controller.model.hasDirtyAttributes')) {
-        let confirmation = window.confirm(
-          'Are you sure you want to leave without saving your changes?'
-        );
-
-        if (!confirmation) {
-          transition.abort();
-        }
+      if (!confirmation) {
+        transition.abort();
       }
     }
   }
-});
+}
 ```
 
-Instead of using `window.confirm`, you could use a custom modal, which wouldn't require any mocking, but that can require a bit more work and design consideration.
-
-One way to mock `window.confirm` is to override it in your test. This can easily be done with Sinon via the `ember-sinon` addon:
+One way to mock `window.confirm` is to override it in our test. This can easily be done with Sinon:
 
 ```js
-import { test } from 'qunit';
-import moduleForAcceptance from 'demo/tests/helpers/module-for-acceptance';
-import Ember from 'ember';
+// tests/acceptance/settings-test.js
+import { module, test } from 'qunit';
+import { visit, click, fillIn, currentURL } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 import sinon from 'sinon';
 
-moduleForAcceptance('Acceptance | settings');
+module('Acceptance | settings', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('the route does not change when the user cancels the confirm box', function(assert) {
-  sinon.stub(window, 'confirm').returns(false);
+  test('the route does not change when the user cancels the confirmation', async function(assert) {
+    sinon.stub(window, 'confirm').returns(false);
 
-  visit('/settings');
-  // make the form dirty
-  click('#contact-page-link');
+    await visit('/settings');
+    await fillIn('[data-test-email-input]', 'test@gmail.com'); // make the form dirty
+    await click('[data-test-contact-page-link]');
 
-  andThen(function() {
     assert.equal(currentURL(), '/settings');
     window.confirm.restore();
   });
 });
 ```
 
-The main issue with this is that a simple code style change can break some of your tests. For example, say you later on destructured `window.confirm` in your route:
+The main issue with this is that a simple code style change can break our test. For example, say we later on destructured `window.confirm` in our route:
 
 ```js
-import Ember from 'ember';
+// app/routes/settings.js
+import Route from '@ember/routing/route';
+import { action } from '@ember/object';
 
-const { Route } = Ember;
 const { confirm } = window;
 
-export default Route.extend({
-  actions: {
-    willTransition(transition) {
-      if (this.get('controller.model.hasDirtyAttributes')) {
-        let confirmation = confirm(
-          'Are you sure you want to leave without saving your changes?'
-        );
+export default class SettingsRoute extends Route {
+  @action
+  willTransition(transition) {
+    if (this.get('controller.model.hasDirtyAttributes')) {
+      let confirmation = confirm(
+        'Are you sure you want to leave without saving your changes?'
+      );
 
-        if (!confirmation) {
-          transition.abort();
-        }
+      if (!confirmation) {
+        transition.abort();
       }
     }
   }
-});
+}
 ```
 
-When your acceptance tests run, `window.confirm` will first get stubbed followed by the route's file getting resolved, which only happens once. Now the `confirm` function will always point to the first stub through the closure that is created for the route module. This will cause subsequent tests to break that depend on how the stub behaves.
+When our acceptance tests run, `window.confirm` will first get stubbed followed by the route's file getting resolved, which only happens once. Now the `confirm` function will always point to the first stub through the closure that is created for the route module. This will cause subsequent tests to break that depend on how the stub behaves.
 
-Instead, I like to create a service called `window`:
+Instead, we can create a service called `window`:
 
 ```js
 // app/services/window.js
-import Ember from 'ember';
+import Service from '@ember/service';
 
-const { Service } = Ember;
-const { confirm } = window;
-
-export default Service.extend({
+export default class WindowService extends Service {
   confirm(message) {
-    return confirm(message);
+    return window.confirm(message);
   }
-});
+}
 ```
 
-Then I can inject it into my route:
+Then we can inject our `window` service into our route:
 
 ```js
-import Ember from 'ember';
+// app/routes/settings.js
+import Route from '@ember/routing/route';
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
-const { Route, inject: { service } } = Ember;
+export default class SettingsRoute extends Route {
+  @service window;
 
-export default Route.extend({
-  window: service(),
-  actions: {
-    willTransition(transition) {
-      if (this.get('controller.model.hasDirtyAttributes')) {
-        let confirmation = this.get('window').confirm(
-          'Are you sure you want to leave without saving your changes?'
-        );
+  @action
+  willTransition(transition) {
+    if (this.get('controller.model.hasDirtyAttributes')) {
+      let confirmation = this.window.confirm(
+        'Are you sure you want to leave without saving your changes?'
+      );
 
-        if (!confirmation) {
-          transition.abort();
-        }
+      if (!confirmation) {
+        transition.abort();
       }
     }
   }
-});
+}
 ```
 
-Then in my acceptance tests, I can mock out the `window` service dependency by replacing the factory in the registry with a stub.
+In our acceptance test, we can mock out our `window` service with `this.owner.register`:
 
 ```js
-import { test } from 'qunit';
-import moduleForAcceptance from 'demo/tests/helpers/module-for-acceptance';
-import Ember from 'ember';
+// tests/acceptance/settings-test.js
+import { module, test } from 'qunit';
+import { visit, click, fillIn, currentURL } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
+import Service from '@ember/service';
 
-const { Object: EmberObject } = Ember;
+module('Acceptance | settings', function(hooks) {
+  setupApplicationTest(hooks);
 
-moduleForAcceptance('Acceptance | settings');
+  test('the route does not change when the user cancels the confirmation', async function(assert) {
+    this.owner.register('service:window', class MockService extends Service {
+      confirm() {
+        return false;
+      }
+    });
 
-test('the route does not change when the user cancels the confirm box', function(assert) {
-  this.application.register('services:window', EmberObject.extend({
-    confirm() {
-      return false;
-    }
-  }));
-  this.application.inject('route', 'window', 'services:window');
+    await visit('/settings');
+    await fillIn('[data-test-email-input]', 'test@gmail.com'); // make the form dirty
+    await click('[data-test-contact-page-link]');
 
-  visit('/settings');
-  // make the form dirty
-  click('#contact-page-link');
-
-  andThen(function() {
     assert.equal(currentURL(), '/settings');
   });
 });
 ```
 
-You can interact with the registry with `this.application.register` and specify where you want your mocked dependency injected with `this.application.inject`, where `this.application` is an instance of `Ember.Application`. This gets set in `tests/helpers/module-for-acceptance.js` with the line `this.application = startApp();`.
+Check out the documentation for [`ApplicationInstance`](https://api.emberjs.com/ember/3.15/classes/ApplicationInstance/methods/register?anchor=register) to learn more about `this.owner`.
 
-I mock dependencies in acceptance tests sparingly in situations like I discussed above so that there aren't many implementation details exposed, which helps keep my acceptance tests focussed from the user perspective.
+This example shows how we can mock out a `window` method without any libraries. There is an addon however that can help with mocking `window` called [ember-window-mock](https://github.com/kaliber5/ember-window-mock).
