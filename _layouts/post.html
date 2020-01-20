@@ -12,17 +12,17 @@ layout: default
 </p>
 
 {% unless page.categories == empty %}
-<ul class="categories">
-  {% assign categories_list = page.categories %}
-  {% for category in categories_list %}
-    <li>
-      {{category}}
-    </li>
-  {% endfor %}
-</ul>
+  <ul class="flex no-bullets p-0">
+    {% assign categories_list = page.categories %}
+    {% for category in categories_list %}
+      <li class="pl-1 pr-1 mr-1 text-white bg-primary">
+        {{category}}
+      </li>
+    {% endfor %}
+  </ul>
 {% endunless %}
 
-<div class="post">
+<div>
   {{content}}
   {% include footer-subscribe.html %}
   <p>

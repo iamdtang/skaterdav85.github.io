@@ -2,27 +2,34 @@
   list-style: none;
 }
 
-.m0 {
-  margin: 0;
-}
-
 .text-center {
   text-align: center;
 }
 
-.bb {
-  border-bottom: 1px solid #ddd;
+.text-primary {
+  color: $primary;
 }
 
-// Padding
-.p0 {
-  padding: 0;
+.bg-primary {
+  background-color: $primary;
 }
 
-.p-all {
-  padding: 1.5em;
+.text-white {
+  color: white;
 }
 
-.d-block {
-  display: block;
+.bg-dark {
+  background-color: $bg1;
+}
+
+.spin-360:hover {
+  transform: rotate(360deg);
+}
+
+.circle {
+  border-radius: 100%;
+}
+
+.disabled {
+  color: #aaa;
 }

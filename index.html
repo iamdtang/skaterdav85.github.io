@@ -3,11 +3,11 @@ layout: default
 keywords: javascript, ember, ember data, web development, testing, elixir, ember.js, EmberJS, es6, node.js, node
 ---
 
-<div class="posts">
+<div class="flex justify-center flex-wrap">
   {% for post in paginator.posts %}
     {% unless post.active == "off" %}
-    <div class="post">
-      <div class="post-top">
+    <div class="post p-1 m-1">
+      <div class="flex justify-between items-center">
         <img
           src="/images/{{post.image}}{% if post.image_extension %}{{post.image_extension}}{% else %}-logo.png{% endif %}"
           alt="{{post.image}} logo"
@@ -21,8 +21,7 @@ keywords: javascript, ember, ember data, web development, testing, elixir, ember
         </span>
       </div>
       <h2>
-        {{post.active}}
-        <a href="{{post.url}}" class="title">{{post.title}}</a>
+        <a href="{{post.url}}">{{post.title}}</a>
       </h2>
       <p>
         {{post.description}}

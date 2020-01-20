@@ -9,25 +9,23 @@ image: ember
 ---
 
 <a href="https://leanpub.com/emberdatainthewild" target="_blank">
-  <img src="/images/ember-data-in-the-wild.jpg" alt="Ember Data in the Wild - Getting Ember Data to Work With Your API" class="side-image" style="width: 200px;">
+  <img src="/images/ember-data-in-the-wild.jpg" alt="Ember Data in the Wild - Getting Ember Data to Work With Your API" style="width: 200px; float: right;" class="ml-1">
 </a>
 
-I'm happy to announce that my book <a href="https://leanpub.com/emberdatainthewild" target="_blank">Ember Data in the Wild - Getting Ember Data to Work With Your API</a> is finally finished and available for purchase!
+I'm excited to announce that my book <a href="https://leanpub.com/emberdatainthewild" target="_blank">Ember Data in the Wild - Getting Ember Data to Work With Your API</a> is finally finished and available for purchase!
 
 I wrote this book because lots of books and tutorials start off teaching Ember with Ember Data, but not all of us are fortunate to have APIs that work with Ember Data out of the box. When I started, I saw terms like adapters, serializers, transforms, embedded records, and snapshots and quickly felt overwhelmed. Maybe you've thought to yourself that Ember wasn't for you. This was me when I first started with Ember. If this sounds familiar, then this book is for you. My goal with this book is to teach you how to adapt Ember Data to fit your API.
 
-<br><br>
+## Chapters
 
-Here are the chapters:
-
-* Chapter 1 - Welcome
-* Chapter 2 - Ember Data Overview
-* Chapter 3 - Talking to APIs with Adapters
-* Chapter 4 - API Response Formats and Serializers
-* Chapter 5 - Common Adapter and Serializer Customizations
-* Chapter 6 - Writing Adapters and Serializers from Scratch
-* Chapter 7 - Nested Resource Paths and Relationship Links
-* Chapter 8 - Working with Nested Data and Embedded Records
-* Chapter 9 - Handling Custom Error Responses
-* Chapter 10 - Testing Ember Data Customizations
-* Chapter 11 - Goodbye
+1. Welcome
+1. Ember Data Overview
+1. Talking to APIs with Adapters
+1. API Response Formats and Serializers
+1. Common Adapter and Serializer Customizations
+1. Writing Adapters and Serializers from Scratch
+1. Nested Resource Paths and Relationship Links
+1. Working with Nested Data and Embedded Records
+1. Handling Custom Error Responses
+1. Testing Ember Data Customizations
+1. Goodbye

@@ -1,77 +1,27 @@
-h1 {
-  color: $primary;
-  font-weight: 100;
-}
-
 .logo {
-  color: #1884BB;
   text-transform: uppercase;
   font-size: 1em;
 }
 
-.sticky-header {
-  background-color: $bg1;
-  width: 100%;
-  z-index: 100;
-
-  h1, p {
-    margin: 0;
-    padding: 0;
-  }
-
-  a, p {
-    color: white;
-  }
-}
-
 .avatar {
-  border-radius: 50%;
-  width: 100%;
   max-width: 200px;
 }
 
 .pure-g > div {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-.social {
-  list-style: none;
-  padding: 0;
-}
-
-.social li {
+.social-icon {
   display: inline-block;
-  padding: 1.5%;
-  margin-bottom: 5px;
-}
-
-.fa {
-  background-color: $primary;
-  color: $sidebarbg;
+  height: 30px;
+  width: 30px;
   padding: 10px;
-  border-radius: 50%;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transform: all 0.5s;
-}
-
-.social li:hover .fa {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
+  color: $sidebarbg;
+  transition: all 0.5s;
 }
 
 .sidebar {
-  text-align: center;
-  background-color: $sidebarbg;
   color: $sidebartext;
-}
-
-.title-bar a {
-  color: white;
-  text-decoration: none;
 }
 
 .date, .meta {
@@ -79,99 +29,14 @@ h1 {
   font-size: 16px;
 }
 
-.clearfix:after {
-   visibility: hidden;
-   display: block;
-   font-size: 0;
-   content: " ";
-   clear: both;
-   height: 0;
-}
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix {
-    height: 1%;
-}
-.clearfix {
-    display: block;
-}
-/* close commented backslash hack */
-
-.categories {
-  list-style-type: none;
-  padding: 0;
-}
-
-.categories li {
-  display: inline-block;
-  text-decoration: none;
-  background: $bg1;
-  color: white;
-  border-radius: 10px;
-  padding: 3px 10px;
-  font-size: 13px;
-}
-
-.pagination {
-  list-style: none;
-  margin-top: 20px;
-  padding: 0;
-  text-align: center;
-}
-
-.pagination li {
-  display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.pagination .disabled a {
-  color: #aaa;
-  font-style: italic;
-}
-
-.pagination .disabled a:hover {
-  color: #aaa;
-  font-style: italic;
-  text-decoration: none;
-}
-
-.content {
-  background-color: white;
-}
-
-.block-title {
-  color: $bg1;
-  margin-top: 40px;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  font-weight: lighter;
-}
-
 .guest-posts {
-  text-align: left;
-  list-style-type: none;
-  padding: 0;
-
   .date {
     font-size: 85%;
   }
 
   li {
-    border-bottom: 1px solid #ccc;
-    padding: 7px;
     font-size: 90%;
   }
-
-  li:last-child {
-    border-bottom: 0;
-  }
-}
-
-.side-image {
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 20px;
 }
 
 .equation {
@@ -179,65 +44,19 @@ h1 {
   font-family: Consolas, Monaco, "Courier New" !important;
 }
 
-.main-menu {
-  list-style-type: none;
-  text-align: right;
-  margin-right: 15px;
-
-  li:first-child {
-    margin-left: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  li:last-child {
-    margin-right: 0;
-  }
-}
-
 .highlighter-rouge ~ h2 {
   margin-top: 35px;
 }
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ddd;
-  margin: 1em 0;
-  padding: 0;
-}
+.post {
+  width: 300px;
+  background-color: #f4f8fb;
 
-.posts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  img.post-thumbnail {
+    width: 50px;
+  }
 
-  .post {
-    padding: 15px;
-    margin: 15px;
-    width: 300px;
-    background-color: #f4f8fb;
-  
-    .post-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    img.post-thumbnail {
-      width: 50px;
-    }
-
-    h2 {
-      a.title {
-        color: $primary;
-        text-decoration: none;
-        font-size: 0.8em;
-      }
-    }
+  h2 a {
+    font-size: 0.8em;
   }
 }

@@ -37,57 +37,85 @@
     <link href="{{"/style.css" | prepend: site.baseurl}}?{{site.time | date: '%s%N'}}" rel="stylesheet">
 </head>
 <body>
-<header class="sticky-header">
-  <div class="pure-g">
-    <div class="pure-u-3-5">
-      <div style="padding: 15px 0 0 15px;">
-        <h1>
-          <a href="/" title="{{site.name}}" class="logo">{{site.author}}</a>
-        </h1>
-      </div>
+<header class="bg-dark">
+  <div class="flex justify-between">
+    <div class="p-0 pt-1 pl-1">
+      <h1 class="p-0 m-0">
+        <a href="/" title="{{site.name}}" class="logo text-white">{{site.author}}</a>
+      </h1>
     </div>
-    <div class="pure-u-2-5">
+    <div>
       <input class="burger-check" id="burger-check" type="checkbox">
       <label for="burger-check" class="burger"></label>
       <nav class="navigation">
         <ul style="margin-bottom: 5px;">
-          <li><a href="/">Blog</a></li>
-          <li><a href="/publications">Publications</a></li>
-          <li><a href="/teaching">Teaching</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a class="text-white" href="/">Blog</a></li>
+          <li><a class="text-white" href="/publications">Publications</a></li>
+          <li><a class="text-white" href="/teaching">Teaching</a></li>
+          <li><a class="text-white" href="/about">About</a></li>
         </ul>
       </nav>
     </div>
   </div>
-  <div class="pure-g">
-    <div class="pure-u-5-5">
-      <p class="tagline" style="padding: 0 0 15px 15px; line-height: 1.3;">{{site.description}}</p>
-    </div>
+  <div>
+    <p class="tagline m-0 text-white p-0 pb-1 pl-1" style="line-height: 1.3;">
+      {{site.description}}
+    </p>
   </div>
 </header>
-<div class="pure-g main-content">
-  <div class="pure-u-3-4 p-all mobile content">
+<div class="pure-g">
+  <div class="pure-u-3-4 p-1 mobile">
     {{content}}
   </div>
-  <div class="pure-u-1-4 p-all sidebar mobile">
-    <a href="/">
-      <img src="//www.gravatar.com/avatar/1c31a96c0a474a6795637081bde42acc.png?s=500" alt="David Tang photo" class="avatar">
-    </a>
-    <ul class="social">
+  <div class="pure-u-1-4 p-1 sidebar mobile">
+    <div class="text-center">
+      <a href="/">
+        <img
+          src="//www.gravatar.com/avatar/1c31a96c0a474a6795637081bde42acc.png?s=500"
+          alt="David Tang"
+          class="circle avatar">
+      </a>
+    </div>
+    <ul class="no-bullets p-0 flex justify-around">
       <li>
-        <a href="https://twitter.com/iamdtang" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+        <a
+          href="https://twitter.com/iamdtang"
+          target="_blank" 
+          class="bg-primary text-center circle social-icon spin-360">
+          <i class="fa fa-twitter fa-lg"></i>
+        </a>
       </li>
       <li>
-        <a href="https://www.linkedin.com/in/iamdtang/" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+        <a
+          href="https://www.linkedin.com/in/iamdtang/"
+          target="_blank" 
+          class="bg-primary text-center circle social-icon spin-360">
+          <i class="fa fa-linkedin fa-lg"></i>
+        </a>
       </li>
       <li>
-        <a href="https://www.youtube.com/channel/UC1U2KmgTg3desH1AeEHTcgA" target="_blank"><i class="fa fa-youtube fa-lg"></i></a>
+        <a
+          href="https://www.youtube.com/channel/UC1U2KmgTg3desH1AeEHTcgA"
+          target="_blank" 
+          class="bg-primary text-center circle social-icon spin-360">
+          <i class="fa fa-youtube fa-lg"></i>
+        </a>
       </li>
       <li>
-        <a href="https://github.com/skaterdav85" target="_blank"><i class="fa fa-github-alt fa-lg"></i></a>
+        <a
+          href="https://github.com/skaterdav85"
+          target="_blank" 
+          class="bg-primary text-center circle social-icon spin-360">
+          <i class="fa fa-github-alt fa-lg"></i>
+        </a>
       </li>
       <li>
-        <a href="/feed.xml" target="_blank"><i class="fa fa-rss fa-lg"></i></a>
+        <a
+          href="/feed.xml"
+          target="_blank" 
+          class="bg-primary text-center circle social-icon spin-360">
+          <i class="fa fa-rss fa-lg"></i>
+        </a>
       </li>
     </ul>
     {% if page.show_students %}

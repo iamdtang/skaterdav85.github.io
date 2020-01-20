@@ -56,12 +56,14 @@ li li {
 a,
 h2 {
   color: $primary;
-  font-weight: lighter;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
 }
 
 h3 {
   color: $bg1;
-  font-weight: normal;
 }
 
 a {
@@ -74,4 +76,17 @@ a:hover {
 
 h1 a:hover {
   text-decoration: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 1em 0;
+  padding: 0;
+}
+
+h1 {
+  color: $primary;
 }
