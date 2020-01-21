@@ -1,0 +1,30 @@
+{
+  "name": "skaterdav85.github.io",
+  "version": "1.0.0",
+  "description": "My blog",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "npm run dev --prefix js/svelte-components"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skaterdav85/skaterdav85.github.io.git"
+  },
+  "author": "David Tang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skaterdav85/skaterdav85.github.io/issues"
+  },
+  "homepage": "https://github.com/skaterdav85/skaterdav85.github.io#readme",
+  "devDependencies": {
+    "husky": "^4.0.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build --prefix js/svelte-components"
+    }
+  }
+}

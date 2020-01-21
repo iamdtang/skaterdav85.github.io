@@ -13,3 +13,4 @@ collections:
     permalink: /:collection/:title
 exclude:
   - js/svelte-components
+  - node_modules
