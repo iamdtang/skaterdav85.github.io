@@ -11,3 +11,5 @@ collections:
   tutorials:
     output: true
     permalink: /:collection/:title
+exclude:
+  - js/svelte-components

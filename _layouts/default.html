@@ -35,6 +35,7 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="{{"/style.css" | prepend: site.baseurl}}?{{site.time | date: '%s%N'}}" rel="stylesheet">
+    <link href="/js/dist/svelte-bundle.css" rel="stylesheet">
 </head>
 <body>
 <header class="bg-dark">
@@ -119,14 +120,14 @@
       </li>
     </ul>
     {% if page.show_students %}
-      <div id="students-container" class="students-container"></div>
+      <div id="students-container"></div>
       <script>
         var DAVID = {
           course: "{{page.course}}",
           year: "{{page.year}}"
         };
       </script>
-      <script src="/js/index.js"></script>
+      <script src="/js/dist/svelte-bundle.js"></script>
     {% else %}
       {% include other-posts.html %}
       {% include nav-subscribe.html %}

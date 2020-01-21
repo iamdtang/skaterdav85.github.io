@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "svelte-bundle.css",
+  "sources": [
+    "../svelte-components/App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\texport let course, year;\n\n\tlet students = [];\n  let url = 'https://davids-students.herokuapp.com';\n\n\tfetch(`${url}/api/${year}/${course}/students`)\n\t\t.then((response) => {\n      return response.json();\n\t\t})\n\t\t.then((response) => {\n\t\t\tstudents = response.students;\n\t\t});\n</script>\n\n<main class=\"flex justify-between flex-wrap mt-2\">\n\t{#each students as student}\n\t\t<div class=\"mb-2\">\n\t\t\t<img src=\"{url}{student.image}\" alt={student.name}>\n\t\t\t<div class=\"text-center\">\n\t\t\t\t<small>{student.name}</small>\n\t\t\t</div>\n\t\t</div>\n\t{/each}\n</main>\n\n<style>\n\timg {\n\t\twidth: 75px;\n\t}\n</style>"
+  ],
+  "names": [],
+  "mappings": "AA2BC,GAAG,cAAC,CAAC,AACJ,KAAK,CAAE,IAAI,AACZ,CAAC"
+}
