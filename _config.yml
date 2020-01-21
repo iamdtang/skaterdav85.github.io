@@ -1,7 +1,7 @@
 name: David Tang
 author: David Tang
 description: Software Developer · Teacher · Author · Vegan
-paginate: 15
+paginate: 20
 markdown: kramdown
 plugins: [jekyll-paginate, jekyll-feed, jekyll-sitemap]
 sass:
