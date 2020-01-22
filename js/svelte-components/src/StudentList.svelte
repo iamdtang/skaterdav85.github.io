@@ -1,4 +1,6 @@
 <script>
+  import Loading from './Loading.svelte';
+
   export let course, year;
 
   let students = [];
@@ -14,7 +16,7 @@
 </script>
 
 {#if loading}
-  <div class="text-center">Loading...</div>
+  <Loading />
 {/if}
 
 <ul class="no-bullets p-0 flex justify-between flex-wrap mt-2">
