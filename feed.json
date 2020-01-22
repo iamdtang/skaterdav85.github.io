@@ -1,7 +1,8 @@
 ---
 ---
-[   
-  {% for post in site.posts %}
+[
+  {% assign posts = site.posts | concat: site.tutorials %}
+  {% for post in posts %}
     {% unless post.link %}
       {
         "url": "{{post.url}}",
