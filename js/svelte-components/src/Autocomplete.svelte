@@ -33,35 +33,33 @@
   }, 200);
 </script>
 
-<main>
-  <form autocomplete="off" class="mb-2">
-    <div class="autocomplete">
-      <input
-        type="search"
-        placeholder="Search"
-        class="w-100 bg-secondary"
-        on:input={handleKeyStroke}>
+<form autocomplete="off" class="mb-2">
+  <div class="autocomplete">
+    <input
+      type="search"
+      placeholder="Search"
+      class="w-100 bg-secondary"
+      on:input={handleKeyStroke}>
 
-      <ul
-        class="autocomplete-items br-1 bl-1 no-bullets m-0 p-0 bg-secondary"
-        class:scrollable={value || loading}>
-        {#each results as { url, title }}
-          <li>
-            <a href={url}>{title}</a>
-          </li>
-        {:else}
-          {#if loading}
-            <li>Loading...</li>
-          {/if}
+    <ul
+      class="autocomplete-items br-1 bl-1 no-bullets m-0 p-0 bg-secondary"
+      class:scrollable={value || loading}>
+      {#each results as { url, title }}
+        <li>
+          <a href={url}>{title}</a>
+        </li>
+      {:else}
+        {#if loading}
+          <li>Loading...</li>
+        {/if}
 
-          {#if value && !loading}
-            <li>No results</li>
-          {/if}
-        {/each}
-      </ul>
-    </div>
-  </form>
-</main>
+        {#if value && !loading}
+          <li>No results</li>
+        {/if}
+      {/each}
+    </ul>
+  </div>
+</form>
 
 <style>
   .autocomplete {
