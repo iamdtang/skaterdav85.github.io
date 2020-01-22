@@ -24,7 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build --prefix js/svelte-components"
+      "pre-commit": "npm run build --prefix js/svelte-components; git add --all;"
     }
   }
 }

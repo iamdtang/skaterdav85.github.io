@@ -1,13 +1,22 @@
-import App from './App.svelte';
+import StudentList from './StudentList.svelte';
+import Autocomplete from './Autocomplete.svelte';
 
-const { course, year } = window.DAVID;
+if (window.DAVID) {
+  const { course, year } = window.DAVID;
 
-const app = new App({
-	target: document.querySelector('#students-container'),
-	props: {
-		course,
-		year
-	}
-});
+  new StudentList({
+    target: document.querySelector('#students-container'),
+    props: {
+      course,
+      year
+    }
+  });
+}
 
-export default app;
+const autocompleteContainer = document.querySelector('#autocomplete-container');
+
+if (autocompleteContainer) {
+  new Autocomplete({
+    target: autocompleteContainer
+  });
+}

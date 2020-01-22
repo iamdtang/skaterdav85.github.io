@@ -14,24 +14,25 @@
     {% feed_meta %}
     {% if page.description %}
       <meta name="description" content="{{page.description}}">
-      <meta property="og:description" content="{{page.description}}" />
+      <meta property="og:description" content="{{page.description}}">
     {% else %}
       <meta name="description" content="{{site.description}}">
-      <meta property="og:description" content="{{site.description}}" />
+      <meta property="og:description" content="{{site.description}}">
     {% endif %}
-    <meta property="og:title" content="{{page.title}} - {{site.name}}" />
-    <meta property="og:url" content="http://davidtang.io{{page.url}}" />
-    <meta property="og:image" content="https://davidtang.io/images/cards/{{page.image}}" />
+    <meta property="og:title" content="{{page.title}} - {{site.name}}">
+    <meta property="og:url" content="http://davidtang.io{{page.url}}">
+    <meta property="og:image" content="https://davidtang.io/images/cards/{{page.image}}">
     {% if page.card_style %}
-      <meta name="twitter:card" content="{{page.card_style}}" />
+      <meta name="twitter:card" content="{{page.card_style}}">
     {% else %}
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary_large_image">
     {% endif %}
-    <meta name="twitter:site" content="@iamdtang" />
-    <meta name="twitter:title" content="{{page.title}} - {{site.name}}" />
-    <meta name="twitter:description" content="{{page.description}}" />
-    <meta name="twitter:image" content="https://davidtang.io/images/cards/{{page.twitter_image}}" />
-    <meta name="twitter:image:alt" content="{{page.twitter_image_alt}}" />
+    <meta name="twitter:site" content="@iamdtang">
+    <meta name="twitter:title" content="{{page.title}} - {{site.name}}">
+    <meta name="twitter:description" content="{{page.description}}">
+    <meta name="twitter:image" content="https://davidtang.io/images/cards/{{page.twitter_image}}">
+    <meta name="twitter:image:alt" content="{{page.twitter_image_alt}}">
+    <script defer src="/js/dist/svelte-bundle.js"></script>
     <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="{{"/style.css" | prepend: site.baseurl}}?{{site.time | date: '%s%N'}}" rel="stylesheet">
@@ -69,6 +70,7 @@
     {{content}}
   </div>
   <div class="pure-u-1-4 p-1 sidebar mobile">
+    <div id="autocomplete-container"></div>
     <div class="text-center">
       <a href="/">
         <img
@@ -127,7 +129,6 @@
           year: "{{page.year}}"
         };
       </script>
-      <script src="/js/dist/svelte-bundle.js"></script>
     {% else %}
       {% include other-posts.html %}
       {% include nav-subscribe.html %}
@@ -136,6 +137,7 @@
     {% include google-adsense.html %}
   </div>
 </div>
+
 {% include mailchimp-subscribe-js.html %}
 {% include google-analytics.html %}
 </body>

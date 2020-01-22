@@ -14,6 +14,10 @@
   background-color: $primary;
 }
 
+.bg-secondary {
+  background-color: #F4F8F8;
+}
+
 .text-white {
   color: white;
 }
@@ -32,4 +36,8 @@
 
 .disabled {
   color: #aaa;
+}
+
+.w-100 {
+  width: 100%;
 }
