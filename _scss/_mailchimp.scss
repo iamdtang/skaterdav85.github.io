@@ -5,12 +5,9 @@ div.mc_embed_signup input {
 
 div.mc_embed_signup .button {
   background-color: $primary;
-  border: 0;
+  border: 1px solid transparent;
   color: #FFFFFF;
-  height: 32px;
   line-height: 32px;
-  text-align: center;
-  vertical-align: top;
 }
 
 div.mc_embed_signup .mc-field-group {
