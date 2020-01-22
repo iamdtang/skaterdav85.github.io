@@ -1,4 +1,4 @@
-name: David Tang
+title: David Tang
 author: David Tang
 description: Software Developer · Teacher · Author · Vegan
 paginate: 20
@@ -14,3 +14,8 @@ collections:
 exclude:
   - js/svelte-components
   - node_modules
+  - CNAME
+  - docker-compose.yml
+  - package.json
+  - package-lock.json
+  - README.md

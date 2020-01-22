@@ -19,7 +19,7 @@
       <meta name="description" content="{{site.description}}">
       <meta property="og:description" content="{{site.description}}">
     {% endif %}
-    <meta property="og:title" content="{{page.title}} - {{site.name}}">
+    <meta property="og:title" content="{% if page.title %}{{page.title}} - {% endif %}{{site.title}}">
     <meta property="og:url" content="http://davidtang.io{{page.url}}">
     <meta property="og:image" content="https://davidtang.io/images/cards/{{page.image}}">
     {% if page.card_style %}
@@ -28,7 +28,7 @@
       <meta name="twitter:card" content="summary_large_image">
     {% endif %}
     <meta name="twitter:site" content="@iamdtang">
-    <meta name="twitter:title" content="{{page.title}} - {{site.name}}">
+    <meta name="twitter:title" content="{% if page.title %}{{page.title}} - {% endif %}{{site.title}}">
     <meta name="twitter:description" content="{{page.description}}">
     <meta name="twitter:image" content="https://davidtang.io/images/cards/{{page.twitter_image}}">
     <meta name="twitter:image:alt" content="{{page.twitter_image_alt}}">
@@ -43,7 +43,7 @@
   <div class="flex justify-between">
     <div class="p-0 pt-1 pl-1">
       <h1 class="p-0 m-0">
-        <a href="/" title="{{site.name}}" class="logo text-white">{{site.author}}</a>
+        <a href="/" title="{{site.title}}" class="logo text-white">{{site.author}}</a>
       </h1>
     </div>
     <div>
