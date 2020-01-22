@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: SQLite Cheatsheet
 date: 2018-01-14
 description: The fundamentals of SQLite

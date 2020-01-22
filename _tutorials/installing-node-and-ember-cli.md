@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: Installing Node and Ember CLI
 date: 2017-10-14
 description: Installing Node.js via NVM and Ember CLI

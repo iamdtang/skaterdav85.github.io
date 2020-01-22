@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: Protecting Web Applications Against Cross-Site Request Forgery (CSRF) Attacks
 date: 2019-08-12
 description: This post is a brief introduction to protecting web applications against Cross-Site Request Forgery Attacks (CSRF).

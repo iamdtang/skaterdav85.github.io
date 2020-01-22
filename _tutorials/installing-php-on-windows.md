@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: Installing PHP on Windows
 date: 2020-01-13
 description: Installing PHP on Windows

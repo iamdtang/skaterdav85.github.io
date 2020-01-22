@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: Client-side Templating with Handlebars.js
 date: 2017-08-31
 description: Client-side templating with Handlebars.js

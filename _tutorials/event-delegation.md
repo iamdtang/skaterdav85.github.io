@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: Event Delegation
 date: 2017-08-31
 description: Event delegation examples using jQuery

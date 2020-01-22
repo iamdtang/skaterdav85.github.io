@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: JavaScript Constructor Functions and Classes
 date: 2017-08-09
 description: The fundamentals of constructor functions and ES6 classes

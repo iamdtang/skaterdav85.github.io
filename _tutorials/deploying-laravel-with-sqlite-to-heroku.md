@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: Deploying Laravel with SQLite to Heroku
 date: 2018-01-28
 description: Deploying Laravel with SQLite to Heroku

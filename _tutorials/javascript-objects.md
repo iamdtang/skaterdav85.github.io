@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: JavaScript Objects
 date: 2017-08-09
 description: The fundamentals of objects in JavaScript

@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: post
 title: Google Maps and Geolocation
 date: 2017-08-09
 description: Examples of using the Google Maps JavaScript API
