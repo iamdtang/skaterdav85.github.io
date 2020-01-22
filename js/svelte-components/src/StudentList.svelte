@@ -3,27 +3,39 @@
 
   let students = [];
   let url = 'https://davids-students.herokuapp.com';
+  let loading = true;
 
   (async () => {
     let response = await fetch(`${url}/api/${year}/${course}/students`);
     let json = await response.json();
     students = json.students;
+    loading = false;
   })();
 </script>
 
-<main class="flex justify-between flex-wrap mt-2">
+{#if loading}
+  <div class="text-center">Loading...</div>
+{/if}
+
+<ul class="no-bullets p-0 flex justify-between flex-wrap mt-2">
   {#each students as student}
-    <div class="mb-2">
+    <li class="mb-2">
       <img src="{url}{student.image}" alt={student.name}>
-      <div class="text-center">
-        <small>{student.name}</small>
-      </div>
-    </div>
+      <small class="d-block text-center">{student.name}</small>
+    </li>
   {/each}
-</main>
+</ul>
 
 <style>
   img {
     width: 75px;
+  }
+
+  li {
+    line-height: 1.2;
+  }
+
+  small {
+    font-size: 70%;
   }
 </style>
