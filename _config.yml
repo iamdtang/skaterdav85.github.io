@@ -12,7 +12,7 @@ collections:
     output: true
     permalink: /:collection/:title
 exclude:
-  - js/svelte-components
+  - svelte-components
   - node_modules
   - CNAME
   - docker-compose.yml

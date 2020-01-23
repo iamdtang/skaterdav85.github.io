@@ -59,7 +59,7 @@
   <div class="autocomplete">
     <input
       type="search"
-      placeholder="Search"
+      placeholder="Search blog posts"
       class="w-100 bg-secondary"
       on:input={handleKeyStroke}>
 

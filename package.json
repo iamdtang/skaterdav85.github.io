@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "npm run dev --prefix js/svelte-components"
+    "start": "npm run dev --prefix svelte-components"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build --prefix js/svelte-components; git add --all;"
+      "pre-commit": "npm run build --prefix svelte-components; git add --all;"
     }
   }
 }
