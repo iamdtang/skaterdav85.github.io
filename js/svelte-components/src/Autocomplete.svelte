@@ -17,9 +17,31 @@
 
   function filterPosts(value) {
     if (value) {
-      results = posts.filter(({ title, content, keywords }) => {
-        return contains(title, value) || contains(content, value) || contains(keywords, value);
-      });
+      let resultsBasedOnTitle = [];
+      let resultsBasedOnKeywords = [];
+      let resultsBasedOnContent = [];
+
+      for (let post of posts) {
+        let { title, content, keywords } = post;
+
+        if (contains(title, value)) {
+          resultsBasedOnTitle.push(post);
+          continue;
+        }
+
+        if (contains(keywords, value)) {
+          resultsBasedOnKeywords.push(post);
+          continue;
+        }
+
+        if (contains(content, value)) {
+          resultsBasedOnContent.push(post);
+        }
+      }
+
+      results = resultsBasedOnTitle
+        .concat(resultsBasedOnKeywords)
+        .concat(resultsBasedOnContent);
     } else {
       results = [];
     }
