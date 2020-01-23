@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Adding Svelte 3 to an Existing Application
-date: 2020-01-23
+date: 2020-01-22
 description: Learn how to sprinkle in Svelte 3 components into an existing project.
 keywords: svelte, svelte 3, rollup.js, Rollup
 image: svelte
