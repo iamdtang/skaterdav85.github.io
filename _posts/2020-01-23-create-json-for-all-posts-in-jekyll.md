@@ -14,15 +14,13 @@ Create `posts.json` (you can name this file whatever you want) in the root of a 
 ---
 [
   {% raw %}{% for site.post in posts %}
-    {% unless post.link %}
-      {
-        "url": "{{post.url}}",
-        "title": {{post.title | jsonify}},
-        "content": {{post.content | jsonify}},
-        "keywords": "{{post.keywords}}",
-        "created": "{{post.date | date: "%B %e, %Y"}}"
-      }{% unless forloop.last %},{% endunless %}
-    {% endunless %}
+    {
+      "url": "{{post.url}}",
+      "title": {{post.title | jsonify}},
+      "content": {{post.content | jsonify}},
+      "keywords": "{{post.keywords}}",
+      "created": "{{post.date | date: "%B %e, %Y"}}"
+    }{% unless forloop.last %},{% endunless %}
   {% endfor %}{% endraw %}
 ]
 ```
