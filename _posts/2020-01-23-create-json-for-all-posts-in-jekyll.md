@@ -7,13 +7,13 @@ keywords: jekyll, json, api, posts, endpoint
 image: jekyll
 ---
 
-Create `posts.json` (you can name this file whatever you want) in the root of a Jekyll site with the following contents:
+Create `posts.json` (you can name this file whatever you want) in the root of your Jekyll site with the following contents:
 
 ```liquid
 ---
 ---
 [
-  {% raw %}{% for site.post in posts %}
+  {% raw %}{% for post in site.posts %}
     {
       "url": "{{post.url}}",
       "title": {{post.title | jsonify}},
@@ -27,5 +27,14 @@ Create `posts.json` (you can name this file whatever you want) in the root of a 
 
 Visit `/posts.json` and voila! For example, my posts JSON endpoint is [https://davidtang.io/posts.json](https://davidtang.io/posts.json).
 
-This example can be used to create JSON for other collections your Jekyll site may have.
+This example used the `site.posts` collection but other collections can be used too.
 
+With this JSON endpoint, we can make AJAX requests to it. I did this for the search bar on this blog. For example:
+
+```js
+(async () => {
+  const response = await fetch('/posts.json');
+  const posts = await response.json();
+  console.log(posts);
+})();
+```
