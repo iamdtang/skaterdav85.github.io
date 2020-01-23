@@ -7,7 +7,7 @@
   let loading = false;
 
   (async () => {
-    let response = await fetch('/feed.json');
+    let response = await fetch('/posts.json');
     posts = await response.json();
   })();
 
