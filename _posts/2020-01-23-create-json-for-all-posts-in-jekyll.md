@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Create JSON for All Posts in Jekyll
+title: Create a JSON Endpoint for All Posts in Jekyll
 date: 2020-01-23
 description: This post shows how to create a JSON feed of all of your posts in a Jekyll site.
 keywords: jekyll, json, api, posts, endpoint
