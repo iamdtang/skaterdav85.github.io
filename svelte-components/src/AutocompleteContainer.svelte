@@ -6,10 +6,6 @@
     'class': 'mb-2'
   };
 
-  let resultsListAttributes = {
-    'class': 'br-1 bl-1 no-bullets m-0 p-0 bg-secondary'
-  };
-
   (async () => {
     let response = await fetch('/posts.json');
     posts = await response.json();
@@ -44,7 +40,7 @@
   }
 </script>
 
-<Autocomplete onInput={filterPosts} {formAttributes} {resultsListAttributes}>
+<Autocomplete onInput={filterPosts} {formAttributes}>
   <div slot="search-input" let:onInput={onInput}>
     <input
       type="search"
@@ -52,10 +48,21 @@
       class="w-100 bg-secondary"
       on:input={onInput}>
   </div>
-  <li slot="result-item" let:result={{ url, title}}>
-    <a href={url}>{title}</a>
-  </li>
-  <li slot="no-results">No results</li>
+  <div slot="results" let:results={results} let:searchValue={searchValue}>
+    <ul
+      class="autocomplete-items br-1 bl-1 no-bullets m-0 p-0 bg-secondary"
+      class:scrollable={searchValue}>
+      {#each results as { url, title }}
+        <li>
+          <a href={url}>{title}</a>
+        </li>
+      {:else}
+        {#if searchValue}
+          <li>No results</li>
+        {/if}
+      {/each}
+    </ul>
+  </div>
 </Autocomplete>
 
 <style>
@@ -67,6 +74,20 @@
 
   input::-webkit-search-cancel-button {
     -webkit-appearance: searchfield-cancel-button;
+  }
+
+  .autocomplete-items {
+    position: absolute;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .scrollable {
+    max-height: 300px;
+    overflow-y: scroll;
+    box-shadow: 2px 2px 5px #ddd;
   }
 
   li {
