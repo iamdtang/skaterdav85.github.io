@@ -1,5 +1,5 @@
 import StudentList from './StudentList.svelte';
-import Autocomplete from './Autocomplete.svelte';
+import AutocompleteContainer from './AutocompleteContainer.svelte';
 
 if (window.DAVID) {
   const { course, year } = window.DAVID;
@@ -16,7 +16,7 @@ if (window.DAVID) {
 const autocompleteContainer = document.querySelector('#autocomplete-container');
 
 if (autocompleteContainer) {
-  new Autocomplete({
+  new AutocompleteContainer({
     target: autocompleteContainer
   });
 }

@@ -6,7 +6,6 @@
     {
       "url": "{{post.url}}",
       "title": {{post.title | jsonify}},
-      "content": {{post.content | jsonify}},
       "keywords": "{{post.keywords}}",
       "created": "{{post.date | date: "%B %e, %Y"}}",
       "updated": "{{post.last_modified_at | date: "%B %e, %Y"}}"

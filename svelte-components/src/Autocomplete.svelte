@@ -1,56 +1,16 @@
 <script>
   import debounce from 'lodash.debounce';
 
-  let posts = [];
+  export let onInput;
+
   let results = [];
   let value;
   let loading = false;
 
-  (async () => {
-    let response = await fetch('/posts.json');
-    posts = await response.json();
-  })();
-
-  function contains(valueToSearch, searchValue) {
-    return valueToSearch.toLowerCase().includes(searchValue.toLowerCase());
-  }
-
-  function filterPosts(value) {
-    if (value) {
-      let resultsBasedOnTitle = [];
-      let resultsBasedOnKeywords = [];
-      let resultsBasedOnContent = [];
-
-      for (let post of posts) {
-        let { title, content, keywords } = post;
-
-        if (contains(title, value)) {
-          resultsBasedOnTitle.push(post);
-          continue;
-        }
-
-        if (contains(keywords, value)) {
-          resultsBasedOnKeywords.push(post);
-          continue;
-        }
-
-        if (contains(content, value)) {
-          resultsBasedOnContent.push(post);
-        }
-      }
-
-      results = resultsBasedOnTitle
-        .concat(resultsBasedOnKeywords)
-        .concat(resultsBasedOnContent);
-    } else {
-      results = [];
-    }
-  };
-
   let handleKeyStroke = debounce((event) => {
     loading = true;
     value = event.target.value;
-    filterPosts(value);
+    results = onInput(value);
     loading = false;
   }, 200);
 </script>
@@ -59,7 +19,7 @@
   <div class="autocomplete">
     <input
       type="search"
-      placeholder="Search blog posts"
+      placeholder="Search"
       class="w-100 bg-secondary"
       on:input={handleKeyStroke}>
 
