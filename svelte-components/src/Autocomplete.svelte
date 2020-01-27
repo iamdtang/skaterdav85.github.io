@@ -2,6 +2,8 @@
   import debounce from 'lodash.debounce';
 
   export let onInput;
+  export let formAttributes;
+  export let resultsListAttributes;
 
   let results = [];
   let searchValue;
@@ -12,24 +14,16 @@
   }, 200);
 </script>
 
-<form autocomplete="off" class="mb-2">
+<form autocomplete="off" {...formAttributes}>
   <div class="autocomplete">
-    <input
-      type="search"
-      placeholder="Search"
-      class="w-100 bg-secondary"
-      on:input={handleKeyStroke}>
+    <slot name="search-input" onInput={handleKeyStroke}></slot>
 
-    <ul
-      class="autocomplete-items br-1 bl-1 no-bullets m-0 p-0 bg-secondary"
-      class:scrollable={searchValue}>
-      {#each results as { url, title }}
-        <li>
-          <a href={url}>{title}</a>
-        </li>
+    <ul class:autocomplete-items={true} class:scrollable={searchValue} {...resultsListAttributes}>
+      {#each results as result}
+        <slot name="result-item" result={result}></slot>
       {:else}
         {#if searchValue}
-          <li>No results</li>
+          <slot name="no-results"></slot>
         {/if}
       {/each}
     </ul>
@@ -39,16 +33,6 @@
 <style>
   .autocomplete {
     position: relative;
-  }
-
-  input {
-    border: 1px solid transparent;
-    box-sizing: border-box;
-    padding: 10px;
-  }
-
-  input::-webkit-search-cancel-button {
-    -webkit-appearance: searchfield-cancel-button;
   }
 
   .autocomplete-items {
@@ -63,32 +47,5 @@
     max-height: 300px;
     overflow-y: scroll;
     box-shadow: 2px 2px 5px #ddd;
-  }
-
-  .autocomplete-items li {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .autocomplete-items li:last-child {
-    border-bottom: 0;
-  }
-
-  .autocomplete-items li:hover {
-    background-color: #e9e9e9;
-  }
-
-  li {
-    line-height: 1.5;
-  }
-
-  a {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  a, li {
-    font-size: 13px;
   }
 </style>
