@@ -4,14 +4,11 @@
   export let onInput;
 
   let results = [];
-  let value;
-  let loading = false;
+  let searchValue;
 
   let handleKeyStroke = debounce((event) => {
-    loading = true;
-    value = event.target.value;
-    results = onInput(value);
-    loading = false;
+    searchValue = event.target.value;
+    results = onInput(searchValue);
   }, 200);
 </script>
 
@@ -25,17 +22,13 @@
 
     <ul
       class="autocomplete-items br-1 bl-1 no-bullets m-0 p-0 bg-secondary"
-      class:scrollable={value || loading}>
+      class:scrollable={searchValue}>
       {#each results as { url, title }}
         <li>
           <a href={url}>{title}</a>
         </li>
       {:else}
-        {#if loading}
-          <li>Loading...</li>
-        {/if}
-
-        {#if value && !loading}
+        {#if searchValue}
           <li>No results</li>
         {/if}
       {/each}
