@@ -9,7 +9,7 @@ In this assignment, you will build two pages that pull data from the [chinook SQ
 
 Create `index.php` that displays all playlist names.
 
-Each playlist should link to `tracks.php?playlist=PLAYLIST_NAME`, where `PLAYLIST_NAME` is replaced by the name of the playlist.
+Each playlist should link to `tracks.php?playlist=PLAYLIST_ID`, where `PLAYLIST_ID` is replaced by the ID of the playlist.
 
 ## Listing Tracks by Playist
 
