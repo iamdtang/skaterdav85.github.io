@@ -5,7 +5,7 @@ title: Laravel 1
 
 This assignment will use Laravel and the [chinook SQLite database](http://www.sqlitetutorial.net/sqlite-sample-database/).
 
-All Laravel assignments, labs, and class demos will build on the same installation. Start this assignment from the same installation we did in class.
+Start this assignment from the same installation that we did in class.
 
 ## Listing Playlists
 
