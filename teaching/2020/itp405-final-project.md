@@ -3,60 +3,57 @@ layout: assignment
 title: Final Project
 ---
 
-# NOT FINALIZED
+## The Database
 
-For the final project, you will build a Laravel app and a Node API on whatever interests you. Here are the requirements:
-
-## Database
-
-Design and build a SQLite database with at least 3 tables having relationships (one to one, one to many, many to many, etc). Please include a schema similar to [this one](http://www.sqlitetutorial.net/sqlite-sample-database/), where you specify the tables, their columns, and how columns relate. You can either draw this out on paper or whiteboard and take a picture of it, or use some other software. Please put this pic on your README.md.
+Design and build a SQLite database with at least 3 tables having relationships (one to one, one to many, many to many, etc). Please include a schema similar to [this one](http://www.sqlitetutorial.net/sqlite-sample-database/), where you specify the tables, their columns, and how columns relate. You can either draw this out on paper or a whiteboard and take a picture of it, or use some other software. Please put this pic on your README.md.
 
 Once you have figured out what your database will look like, create it using Laravel migrations.
 
-You're welcome to use NoSQL and MongoDB for your database instead of SQLite. You will need to figure out how to host this though.
+## Part 1: The Application
 
-## Part 1: Laravel
+Build a server-rendered application using Laravel:
 
-Build a server-rendered application using Laravel and the database you have built. This application should have:
-
-* At least 4 GET routes
-* At least 2 POST routes
-* Data validation with Laravel's Validator
-* Error messages as flash data for when form submissions fail validation
+* At least 4 GET routes (excluding `GET /about` - more on this below)
+* Create an about page at `/about` that explains the goal/mission of the site. Be sure to add this link to your main navigation.
+* At least 3 POST routes
+* Pages where users can create, edit, and delete data.
+* Server-side validation with Laravel's validation rules
+* Error messages as flashed session data for when form submissions fail validation. Your error messages should be specific to the fields that failed validation as opposed to showing a single generic error message on the page.
 * Form submissions that fail validation should repopulate the form with the user's input
-* Authentication
-* Use of Blade templating and Blade layouts
-* The title tag for each page should be unique and contain meaningful data. This includes pages with different data. For example, on Amazon, the title of a product page is different for every product listed. 
-* Use of Eloquent or the Query Builder for database access
-* Pages where user(s) can create, edit, and delete data. For example, maybe you have an admin section where the logged in user can create, edit, and delete data that regular users cannot.
-* Consistent layout / theming. It doesn't have to be fancy, but the site/app should look organized and presentable. Feel free to use Bootstrap if you'd like.
+* Flashed session data for when inserts, updates, and deletions are successful
+* Authentication - Sign up, Login, and Logout
+* Blade templating with a layout that is used for all of your pages.
+* The document title (the `title` tag) for each page should be unique and contain meaningful data. This includes pages with different data. For example, on Amazon, the document title of a product page is different for every product listed. 
+* All queries should go through Eloquent or the Query Builder for database access
+* Your site should look organized and have a consistent layout. Feel free to use Bootstrap if you'd like.
 
-## Part 2: Node
+## Part 2: Additional Features
 
-You will also build an API for your database using Node. This API should:
+Choose at least one of the following features to implement:
 
-* Have 5 different routes using the following HTTP methods
-  * 2 GET endpoints (one endpoint for a collection of resources and another endpoint for a single resource)
-  * 1 POST
-  * 1 PATCH
-  * 1 DELETE
-* Endpoints that have a response body should be JSON
-* POST and PATCH requests should have validation. If validation fails, the response should return a 422 HTTP status code with the body containing the validation errors
-* The GET request for a single resource and the DELETE request should respond with a 404 HTTP status code and an empty response body if the resource doesn't exist.
-* The DELETE request should not result in any orphaned records. An orphaned record is a record whose foreign key value references a non-existent primary key value.
-* Use Sequelize for database access
-* Use [dotenv](https://www.npmjs.com/package/dotenv) for sensitive data like API keys and credentials
+* Add real-time features to your Laravel project via a Web Socket service built in Node
+* Build an API in Node that is consumed from the Laravel project. For example, your Node API can be responsible for storing comments or likes on records in your main database. This option may require a little front-end JavaScript (AJAX). Please reach out to me if this interests you and you aren't familiar with AJAX.
+* Build a commenting system from scratch for some resource in your application. The comments in your commenting system should at the very least contain the commenter's name, a comment body, and a time stamp. Comments should be displayed from the most recent to the oldest. Comments don't need to be commentable.
+* None of the above additional features interest you? Pitch your idea to me by sending me and the TA an email with your idea. I will respond back either approving the feature or give some suggestions.
 
-## Other Requirements
+## Code Quality
 
-* All code should be nicely formatted. Points will be deducted for sloppy code.
-* I will take into account your application's complexity. You will not get full credit by doing the bare minimum.
+All code should be nicely formatted. Points will be deducted for sloppy code.
+
+Be sure to put all sensitive information (like API keys and credentials) in environment variables for both your Laravel and/or Node code. In Node, you can use [dotenv](https://www.npmjs.com/package/dotenv) to manage environment variables.
+
+## Complexity
+
+I will take into account your application's complexity. You will not get full credit by doing the bare minimum.
+
+## Heroku Deployment
+
+Deploy your project to Heroku and add the URL to your `README.md`.
+
+## Video Walkthrough
+
+Create a video where you demo all parts of your project and __explain where you fulfilled each requirement__. This video should have audio. Please keep this video under 10 minutes. Upload the video to YouTube (choose Unlisted if you don't want the video to come up in search results) and add the link to your `README.md`.
 
 ## Submission
 
-Send a single email to the TA and myself on the project due date containing the following:
-
-* A link to your Laravel repo and a link to your Node repo. These should be separate repos.
-* The URL to your deployed Laravel app
-* The URL to your deployed Node API
-* A YouTube link to a screencast where you demo all parts of your project and __explain where you fulfilled each requirement__. This video should have audio. Please keep this video under 10 minutes.
+[https://classroom.github.com/a/8iI9aQPT](https://classroom.github.com/a/8iI9aQPT)
