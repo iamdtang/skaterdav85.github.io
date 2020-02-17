@@ -35,6 +35,8 @@ On the `/playlists` page, display a link next to each playlist with the text "De
 
 Note, a playlist can't simply be deleted by deleting it from the `playlists` table. The related records in `playlist_track` need to be deleted first before deleting the playlist in the `playlists` table.
 
+If you get an error deleting the playlist with an `id` of 1 (Music) that says `General error: 1 too many SQL variables`, don't worry. SQLite has a limitation which you can read more about [here](https://stackoverflow.com/questions/7106016/too-many-sql-variables-error-in-django-witih-sqlite3) and [here (see 9. Maximum Number Of Host Parameters In A Single SQL Statement)](https://www.sqlite.org/limits.html).
+
 ## Submission
 
 Make a commit with the commit message "Assignment 3 - Laravel 2 completed". Push your code up to GitHub and verify that it was deployed to Heroku.
