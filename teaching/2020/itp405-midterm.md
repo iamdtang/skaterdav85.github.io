@@ -8,7 +8,7 @@ The midterm will be an in-class practical where you will build a web application
 The app that you will build during the exam will need to be a separate installation from the one you have been using for labs, assignments, and class demos. You will also be expected to deploy this application to Heroku. __Before the midterm__, I encourage you to do the following:
 
 1. Install a new Laravel app
-1. Set up your Laravel app to work with [this SQLite database](/teaching/2020/database.sqlite). This database has a table called `employees` with two columns: `id` and `name`. On the day of the midterm, I will give you a database to replace this one, which will also have the `employees` table.
+1. Set up your Laravel app to work with [this SQLite database](/teaching/2020/database.sqlite). This database has a table called `employees` with two columns: `id` and `name`.
 1. To make sure you have set up everything correctly, create a GET route at `/employees` that displays all records from the `employees` table.
 1. Deploy your app to Heroku and put your Heroku link on the `README.md`.
 
