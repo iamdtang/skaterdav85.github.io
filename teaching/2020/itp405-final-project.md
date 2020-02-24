@@ -27,14 +27,16 @@ Build a server-rendered application using Laravel:
 * All queries should go through Eloquent or the Query Builder for database access
 * Your site should look organized and have a consistent layout. Feel free to use Bootstrap if you'd like.
 
-## Part 2: Additional Features
+## Part 2: Additional Feature
 
 Choose at least one of the following features to implement:
 
-* Add real-time features to your Laravel project via a Web Socket service built in Node
-* Build an API in Node that is consumed from the Laravel project. For example, your Node API can be responsible for storing comments or likes on records in your main database. This option may require a little front-end JavaScript (AJAX). Please reach out to me if this interests you and you aren't familiar with AJAX.
-* Build a commenting system from scratch for some resource in your application. The comments in your commenting system should at the very least contain the commenter's name, a comment body, and a time stamp. Comments should be displayed from the most recent to the oldest. Comments don't need to be commentable.
-* None of the above additional features interest you? Pitch your idea to me by sending me and the TA an email with your idea. I will respond back either approving the feature or give some suggestions.
+1. Add real-time features to your Laravel project via a Web Socket service built in Node
+2. Build a "Reactions" feature (similar to Facebook/LinkedIn Reactions).
+3. Build a commenting system from scratch for some resource in your application. The comments in your commenting system should at the very least contain the commenter's name, a comment body, and a time stamp. Comments should be displayed from the most recent to the oldest. Comments don't need to be commentable.
+4. None of the above additional features interest you? Pitch your idea to me by sending me and the TA an email with your idea. I will respond back either approving the feature or give some suggestions.
+
+There are a few ways you could build options 2 and 3. One way is to store all the comments or reactions in the same database that your Laravel app is using. Another approach is to have a Node API that has a separate database (your Node API won't be able to leverage the same SQLite database) and this database would be responsible for storing comments or reactions on records in your main database. Doing it this way will likely require a little front-end JavaScript (AJAX). Please reach out to me if this interests you and you aren't familiar with AJAX.
 
 ## Code Quality
 
