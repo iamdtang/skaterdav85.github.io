@@ -5,8 +5,6 @@ title: Laravel 3
 
 Create a repo with a `README.md`. In this file, write the Eloquent code for each question in code fences (triple back ticks). [Here is an example of what your submission should look like.](https://gist.github.com/skaterdav85/13fb0230df0335dd1009d777719254ed) If you click on "Raw", you can see the Markdown. If your Markdown submission is not formatted like the example, you will lose points.
 
-To test out your code, use `php artisan tinker`.
-
 1. Find all tracks with the genre "Metal".
 1. Find all customers who work for "Apple Inc.".
 1. Find invoice 5 and update its `BillingAddress` to "123 Sesame Street".
