@@ -14,6 +14,21 @@ The app that you will build during the exam will need to be a separate installat
 
 You are welcome to use Bootstrap so feel free to set that up as well.
 
+## The Project
+
+TBA
+
+## Recommendations
+
+I highly recommend that you make commits along the way. If you ever find yourself in a situation where you want to revert to the last commit where things were working and discard the changes you've made since then, you can run the following git commands from within your repo:
+
+```
+git reset --hard
+git clean -fd
+```
+
+This will delete all changes you've made since the last commit.
+
 ## Submission
 
 [https://classroom.github.com/a/LTfYwvFI](https://classroom.github.com/a/LTfYwvFI)
