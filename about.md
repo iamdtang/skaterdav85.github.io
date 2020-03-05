@@ -21,7 +21,7 @@ I also encourage everyone to watch [Dominion](http://bit.ly/2LSRumI). I'm not go
 
 If this makes you feel sad, angry, guilty, or uncomfortable, I understand how you feel. I felt similarly when I first learned about this, but what I found was that I could never justify slicing an animal's throat and stabbing them to death for a sandwich that I don't even need to eat no matter how much I like the taste. The best part about going vegan is that you no longer have to be an animal abuser or a hypocrite and you can live in alignment with the values you probably have.
 
-This is a picture of me giving water to a pig moments before slaughter in Downtown Los Angeles at the Farmer John Slaughterhouse. This only happens because everyone is prepared to look the other way. You have the power to end this.
+This picture was taken in Downtown Los Angeles at the Farmer John Slaughterhouse moments before this pig was slaughtered. This only happens because everyone is prepared to look the other way. You have the power to end this.
 
 <img
   src="/images/pig-vigil.jpg"
