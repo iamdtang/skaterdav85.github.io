@@ -13,7 +13,7 @@ My passion lies on the front-end building great user experiences, but I also hav
 
 If you are reading this, please watch [The Best Speech You Will Ever Hear by Gary Yourofsky](http://bit.ly/2ynL4Ds). 
 
-If you are not vegan, then you are contributing to the needless abuse of trillions of animals per year. Labels like free-range, cage-free, or grass-fed mean nothing to the animals who didn't want to die and only exist to ease your conscience when you buy animal products. 
+If you are not vegan, then you are contributing to the needless abuse of trillions of animals per year. Labels like free-range, cage-free, and grass-fed mean nothing to the animals who didn't want to die and only exist to ease your conscience when you buy animal products. 
 
 I also encourage everyone to watch [Dominion](http://bit.ly/2LSRumI). I'm not going to lie. This documentary is dark. Before deciding not to watch this, ask yourself, if seeing how animals are raised and slaughtered isn't good enough for your eyes, how is it good enough for your stomach? Hypocrisy is closing your eyes at animal slaughter while opening your mouth at animal flesh.
 
