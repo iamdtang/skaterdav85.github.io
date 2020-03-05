@@ -13,22 +13,17 @@ I am the author of the book [Ember Data in the Wild](https://leanpub.com/emberda
 
 ## Why I Went Vegan
 
-If you are reading this, please watch [The Best Speech You Will Ever Hear by Gary Yourofsky](http://bit.ly/2ynL4Ds). If you are not vegan, then you are contributing to the needless suffering, slaughter, and exploitation of trillions of animals per year.
+If you are reading this, please watch [The Best Speech You Will Ever Hear by Gary Yourofsky](http://bit.ly/2ynL4Ds). If you are not vegan, then you are contributing to the needless abuse of trillions of animals per year.
 
-We don't need to eat animals or their secretions (dairy, eggs, and honey) to survive or be healthy. We don't need to wear their skin or fur to stay warm. Labels like free-range, cage-free, or grass-fed mean nothing to the animals who didn't want to die and only exist to ease your conscience so that you buy these animal products. 
+Labels like free-range, cage-free, or grass-fed mean nothing to the animals who didn't want to die and only exist to ease your conscience so that you buy these animal products. 
 
-How can we morally justify exploiting and killing animals when we don't need to? Is your taste and convenience worth more than their life?
+I also encourage everyone to watch [Dominion](http://bit.ly/2LSRumI). I'm not going to lie. This documentary is dark, but before deciding not to watch this, ask yourself, if seeing how animals are raised and slaughtered isn't good enough for your eyes, how is it good enough for your stomach? Hypocrisy is closing your eyes at animal slaughter while opening your mouth at animal flesh.
 
-I encourage everyone to also watch [Dominion](http://bit.ly/2LSRumI). This documentary covers what the animals go through. Many people turn away from seeing these types of videos. Before deciding not to watch this, ask yourself, if seeing how animals are raised and slaughtered isn't good enough for your eyes, how is it good enough for your stomach?
-
-If this makes you feel sad, angry, guilty, or uncomfortable, I know how you feel. I felt the same way when I learned about all of the ways animals were exploited on my behalf. I found that going vegan wasn't as hard as I had thought, and by doing so, I cleared my conscious because I aligned my actions with my values of being against animal cruelty. I only wish I had gone vegan sooner.
+If this makes you feel sad, angry, guilty, or uncomfortable, I understand how you feel. I felt similarly when I was in your position when I first started looking into this, but what I found was that you could never justify slicing an animal's throat and stabbing them to death for a sandwich that I don't even need to eat no matter how much I like the taste. The best part about going vegan is that you no longer have to be an animal abuser and you can live in alignment with the values you likely have.
 
 This is a picture of me giving water to a pig moments before slaughter in Downtown Los Angeles at the Farmer John Slaughterhouse. This only happens because everyone is prepared to look the other way. You have the power to end this.
-
 
 <img
   src="/images/pig-vigil.jpg"
   alt="picture of me giving water to a pig moments before slaughter"
   style="width: 70%;">
-
-If you'd like to get in touch, you can follow me on [Twitter](https://twitter.com/iamdtang) or email me at [david@thejsguy.com](mailto:david@thejsguy.com).
