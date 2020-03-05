@@ -16,7 +16,7 @@ You are welcome to use Bootstrap so feel free to set that up as well.
 
 ## The Project
 
-[Requirements](https://github.com/skaterdav85/itp405-midterm)
+TBD
 
 ## Recommendations
 
