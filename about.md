@@ -5,11 +5,9 @@ permalink: about
 ---
 # About Me
 
-Hi, I'm David Tang. I'm a product-focused software engineer from Los Angeles. My expertise is in web technologies, and particularly JavaScript, Ember, Ember Data, and JSON:API.
+Hi, I'm David Tang. I'm a product-focused software engineer from Los Angeles. My expertise is in web technologies, and particularly JavaScript, Ember.js, and JSON:API. I am also a part-time lecturer at the University of Southern California, [teaching web development courses](/teaching) to students from all backgrounds.
 
 My passion lies on the front-end building great user experiences, but I also have professional experience on the backend working with PHP (primarily Laravel), Node.js, and relational databases.
-
-I am also a part-time lecturer at the University of Southern California, [teaching web development courses](/teaching) to students from all backgrounds.
 
 ## Why I Went Vegan
 
