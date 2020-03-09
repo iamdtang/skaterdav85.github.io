@@ -16,7 +16,7 @@ You are welcome to use Bootstrap so feel free to set that up as well.
 
 ## The Project
 
-TBD
+[Requirements](https://gist.github.com/skaterdav85/ea3ac7086abcfc016956978e121b63c4)
 
 ## Recommendations
 
