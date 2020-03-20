@@ -10,7 +10,7 @@ twitter_image_alt: JavaScript logo
 card_style: summary
 ---
 
-[JavaScript Decorators](https://github.com/tc39/proposal-decorators) are a new language feature currently in Stage 2 at the time of this writing. Let's see how we can use a decorator on a method in an ES6 class.
+This post covers Stage 1 proposal JavaScript Decorators. If you'd like to learn more about Stage 1 vs. Stage 2 proposal JavaScript Decorators, I recommend watching [Decorators in Depth by Marco Otte-Witte](https://youtu.be/qHkY8Uyd5TE).
 
 Let's say we have the following class:
 
