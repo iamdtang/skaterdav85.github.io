@@ -54,7 +54,7 @@ If the artist isn't found, return a 404 response with an empty response body.
 
 [https://classroom.github.com/a/kCx1WINc](https://classroom.github.com/a/kCx1WINc)
 
-Next, deploy your API to Heroku. Follow the same steps you've done in the past to deploy to Heroku. The only thing you will need to do is add `scripts.start` to your `package.json`:
+Next, deploy your API to Heroku. In order to deploy your app to Heroku, you'll need to make 2 changes. First, change the `app.listen(8000)` line to `app.listen(process.env.PORT || 8000)`. Second, add a `start` script to your `package.json`:
 
 ```json
 {
