@@ -18,7 +18,7 @@ Feel free to enhance this however you wish.
 ## Deployment
 
 * Change `new WebSocket.Server({ port: 8080 })` to `new WebSocket.Server({ port: process.env.PORT || 8080 })`
-* Change `new WebSocket('ws://localhost:8080')` to `new WebSocket('ws://dtang-websocket-demo.herokuapp.com')`
+* Change `new WebSocket('ws://localhost:8080')` to use your Heroku URL i.e. `new WebSocket('ws://dtang-websocket-demo.herokuapp.com')`
 
 ## Submission
 
