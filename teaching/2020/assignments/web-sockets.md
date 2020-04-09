@@ -15,6 +15,11 @@ In the upper left hand corner, add an input that represents the document title, 
 
 Feel free to enhance this however you wish.
 
+## Deployment
+
+* Change `new WebSocket.Server({ port: 8080 })` to `new WebSocket.Server({ port: process.env.PORT || 8080 })`
+* Change `new WebSocket('ws://localhost:8080')` to `new WebSocket('ws://dtang-websocket-demo.herokuapp.com')`
+
 ## Submission
 
 Submit your web socket server repo to [https://classroom.github.com/a/O2g5Hf2f](https://classroom.github.com/a/O2g5Hf2f). Create a README.md file and add a link to the `/docs` route of your Laravel app.
