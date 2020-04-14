@@ -9,7 +9,7 @@ Start by creating a public route `/docs` in your Laravel project. On this page, 
 
 Users will be able to type content into this `div`. As a user types, send the content through a WebSocket connection so that all connected clients receive it and see the most up to date document.
 
-## Where do I put my frontend JavaScript?
+## Where do I put my frontend JavaScript in my Laravel app?
 
 Place your frontend JavaScript in the `public` directory. Let's say I have `public/js/client.js`, then in my Blade view, I can link to it like so:
 
