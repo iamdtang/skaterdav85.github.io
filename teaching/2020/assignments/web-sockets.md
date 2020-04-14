@@ -1,13 +1,21 @@
 ---
 layout: assignment
-title: Web Sockets
+title: WebSockets
 ---
 
 For this assignment, you will create a very basic version of Google Docs in your Laravel app.
 
 Start by creating a public route `/docs` in your Laravel project. On this page, display a simple editor using an editable `div` through the [`contenteditable` attribute](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content). Make this "editor" take up a majority of the page.
 
-Users will be able to type content into this `div`. As a user types, send the content through a web socket connection so that all connected clients receive it and see the most up to date document.
+Users will be able to type content into this `div`. As a user types, send the content through a WebSocket connection so that all connected clients receive it and see the most up to date document.
+
+## Where do I put my frontend JavaScript?
+
+Place your frontend JavaScript in the `public` directory. Let's say I have `public/js/client.js`, then in my Blade view, I can link to it like so:
+
+```html
+<script src="/js/client.js"></script>
+```
 
 ## My cursor is jumping. Why?
 
