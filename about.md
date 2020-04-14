@@ -9,6 +9,7 @@ Hi, I'm David Tang. I'm a product-focused software engineer from Los Angeles. My
 
 My passion lies on the front-end building great user experiences, but I also have professional experience on the backend working with PHP (primarily Laravel), Node.js, and relational databases.
 
+<!--
 ## Why I Went Vegan
 
 If you are reading this, please watch [The Best Speech You Will Ever Hear by Gary Yourofsky](http://bit.ly/2ynL4Ds). 
@@ -25,3 +26,5 @@ This picture was taken in Downtown Los Angeles at the Farmer John Slaughterhouse
   src="/images/pig-vigil.jpg"
   alt="picture of me giving water to a pig moments before slaughter"
   style="width: 70%;">
+  
+ -->
