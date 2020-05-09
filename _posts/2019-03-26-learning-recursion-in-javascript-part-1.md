@@ -46,9 +46,9 @@ One interesting thing about code written using loops is that they can also be wr
 function factorial(n) {
   if (n === 0) {
     return 1;
-  } else {
-    return n * factorial(n - 1);
   }
+  
+  return n * factorial(n - 1);
 }
 
 factorial(5); // 120

@@ -6,5 +6,6 @@ Here are the other posts in this series if you haven't checked those out yet:
 1. [Sum an Array of Numbers 3 Ways](/2019/03/31/learning-recursion-in-javascript-part-2.html)
 1. [Flattening Arrays](/2019/04/05/learning-recursion-in-javascript-part-3.html)
 1. [Palindromes](/2019/04/11/learning-recursion-in-javascript-part-4.html)
+1. [Revisiting the Factorial Function with Tail Recursion](/2020/05/09/learning-recursion-in-javascript-part-5.html)
 
 <hr>
