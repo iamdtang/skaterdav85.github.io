@@ -1,6 +1,6 @@
 ---
 layout: assignment
-title: Ajax and the Reddit API
+title: Assignment 1
 ---
 
 In this assignment, you will create a search and results page using Ajax and the Reddit API. The Reddit API endpoint you'll be working with looks like this:
