@@ -31,6 +31,11 @@ Display the following fields:
 
 While Ajax requests are pending, show a loading indicator on the screen using [one of these CSS spinners](https://projects.lukehaas.me/css-loaders/).
 
+## Deploy to Surge
+
+- Create a `README.md` file
+- Deploy your code to [Surge](https://surge.sh/) and paste the URL on your `README.md`. See this [Markdown guide](https://www.markdownguide.org/cheat-sheet/) to learn how to create a link in Markdown.
+
 ## Submission
 
 [https://classroom.github.com/a/Cl-Y8coa](https://classroom.github.com/a/Cl-Y8coa)
