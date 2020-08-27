@@ -9,7 +9,7 @@ In this assignment, you will build a Reddit search application that consumes two
 
 At the top of the page, create a form with a single search input and a submit button. When the user **submits** the form (bind to the submit event of the form instead of a click event on the button), fire off an Ajax request to `GET https://www.reddit.com/r/{subreddit}.json` to retrieve all of the posts for the subreddit that was typed into the search box.
 
-Display a div for each subreddit post containing the following fields:
+Display a `div` for each subreddit post containing the following fields:
 
 - `title` that links to `url` in a new tab
 - `score`
