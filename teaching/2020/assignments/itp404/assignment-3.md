@@ -19,7 +19,7 @@ Next, use the endpoint `GET https://www.reddit.com/api/info.json?id=<subreddit_i
 Display the following fields:
 
 - `title`
-- `description`
+- `description` or `public_description`
 - `display_name_prefixed`
 - `subscribers`
 
