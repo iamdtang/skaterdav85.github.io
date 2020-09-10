@@ -47,6 +47,11 @@ Tip: When looping through the previous searches to render them, each one will ne
 
 There are other ways to achieve this, so your code doesn't have to follow this approach.
 
+## Deploy to Netlify
+
+- Create a `README.md` file
+- Deploy your code to [Netlify](https://www.netlify.com/) and paste the URL on your `README.md`. See this [Markdown guide](https://www.markdownguide.org/cheat-sheet/) to learn how to create a link in Markdown.
+
 ## Submission
 
 [https://classroom.github.com/a/J-z2uf7W](https://classroom.github.com/a/J-z2uf7W)
