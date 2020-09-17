@@ -5,7 +5,7 @@ title: Assignment 5
 
 For this assignment, you will build another Reddit API application with React using React Router.
 
-Create a layout with a header, navigation, and a main content area. The header and navigation should always be on the page.
+Create a layout with a header, navigation, and a main content area. The header and navigation should always be rendered on the page.
 
 ## The Animals Route
 
@@ -43,7 +43,7 @@ Apply a unique style to the active link in the navigation. For example, if a use
 
 ## A 404 Route
 
-Lastly, if a user types an invalid URL, display the navigation and some helpful text in the main content area letting them know that the URL is invalid. Check out the [React Router - No Match (404) docs](https://reactrouter.com/web/example/no-match).
+Lastly, if a user types an invalid URL, display some helpful text in the main content area letting them know that the URL is invalid. Check out the [React Router - No Match (404) docs](https://reactrouter.com/web/example/no-match).
 
 ## Deploy to Netlify or Surge
 

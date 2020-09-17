@@ -9,15 +9,6 @@ For this assignment, you will rebuild Assignment 3 with a few modifications. Ple
 
 Add a search form at the top of the page. The search form should contain a text input and a submit button. The search input is for users to type in a subreddit. When the form is submitted, the app will fetch the data for the subreddit that was typed in and render it on the page.
 
-Use the [`encodeURIComponent` function](https://www.w3schools.com/JSREF/jsref_encodeuricomponent.asp) to encode the value that you type into the text input before using it in the URL of the Reddit API call. This will ensure that spaces are encoded properly. For example:
-
-```js
-const encodedSubreddit = encodeURIComponent('cute cats');
-console.log(encodedSubreddit); // cute%20cats
-```
-
-Notice how the space was encoded to `%20`.
-
 The app should display a loading indicator while the page is loading. Make it so that while a search is processing, the search bar remains rendered on the page and the loading indicator is beneath it.
 
 ## Previous Search History
