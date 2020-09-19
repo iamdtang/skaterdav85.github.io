@@ -39,7 +39,7 @@ If a user visits `/`, redirect them to `/animals/cats`, which will serve as the 
 
 ## Active Link Styling
 
-Apply a unique style to the active link in the navigation. For example, if a user is on `/animals/cats`, the Cats link has a unique style to show that it is active.
+Apply a unique style to the active link in the navigation. For example, if a user is on `/animals/cats`, the Cats link has a unique style to show that it is active. See [React Router's `NavLink` component](https://reactrouter.com/web/api/NavLink).
 
 ## A 404 Route
 
