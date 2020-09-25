@@ -17,7 +17,7 @@ Display links for the following animals in the navigation:
 - Dogs
 - Pigs
 
-The URL should follow the pattern `/animals/:animal` where `:animal` will be "cats", "chickens", "cows", "dogs", or "pigs".
+The URL should follow the pattern `/animals/:animal` where `:animal` will be "cats" / "kittens", "chickens", "cows", "dogs" / "puppies", or "pigs".
 
 When one of these links is clicked, fetch the data from the Reddit API `https://www.reddit.com/r/{animal}.json` (i.e. [https://www.reddit.com/r/pigs.json](https://www.reddit.com/r/pigs.json)).
 
@@ -28,6 +28,8 @@ Filter down the results to include only the posts that contain a `thumbnail` ima
 - `thumbnail` as an image
 
 The results should be displayed in the main content area. If you refresh the page, the results should be rendered.
+
+**If any of the animals above don't have any thumnail images, feel free to swap with a different animal.**
 
 ## The Author Route
 
