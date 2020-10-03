@@ -49,8 +49,14 @@ Lastly, if a user types an invalid URL, display some helpful text in the main co
 
 ## Deploy to Netlify or Surge
 
-- Deploy your project to [Netlify](https://www.netlify.com/) or Surge. Here are instructions for [Deploying React Projects to Surge.sh](/2019/10/17/deploying-react-to-surge.html).
-- Add the deployed URL to your `README.md` using a Markdown link. See this [Markdown guide](https://www.markdownguide.org/cheat-sheet/) to learn how to create a link in Markdown.
+Deploy your project to [Netlify](https://www.netlify.com/) or Surge. Here are instructions for [Deploying React Projects to Surge.sh](/2019/10/17/deploying-react-to-surge.html). If you deploy to Netlify, be sure to include a `netlify.toml` in the root of your repository with the following contents:
+
+```
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
 
 ## Submission
 
