@@ -34,12 +34,10 @@ In this section, you will build a JSON Server API for managing GitHub member res
 
 For each member, display a Follow button. When the button is clicked, save this member to your JSON Server API. When a member is followed, display an Unfollow button. When the Unfollow button is clicked, remove this member from your JSON Server API. When loading the page for the first time or reloading the page, the Follow/Unfollow button for each member should be in the correct state.
 
-## Deploy to Netlify
+## Deployment and Submission
+
+It turns out that Heroku can't see your repo created by GitHub Classroom, even after I grant you permission. Thus for this assignment, create a public repo in your main account.
 
 Deploy the React frontend to [Netlify](https://www.netlify.com/) and the API to Heroku [like we did in class](https://github.com/ITP-404-Fall-2020-Demos/week6/pull/9/files).
 
-Add the deployed URL to your `README.md` using a Markdown link. See this [Markdown guide](https://www.markdownguide.org/cheat-sheet/) to learn how to create a link in Markdown.
-
-## Submission
-
-[https://classroom.github.com/a/LIRZAzr1](https://classroom.github.com/a/LIRZAzr1)
+Paste the URL of your public repo and your deployed URL as [Markdown links](https://www.markdownguide.org/basic-syntax/#links) on **a README file in your GitHub Classroom repo** created with [https://classroom.github.com/a/LIRZAzr1](https://classroom.github.com/a/LIRZAzr1).
