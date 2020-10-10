@@ -7,12 +7,16 @@ For this lab, you will build a reusable component of your choice. Take a look at
 
 If you can't think of a reusable component to build, here are some ideas:
 
-- A Delete button that shows an inline Confirm Delete button when clicked. You could also enhance this so that users must type in a specific string before Confirm Delete becomes enabled. For example, try deleting a repo on GitHub.
+- A modal
 - An accordion
+- A tooltip
+- A Delete button that shows an inline Confirm Delete button when clicked. You could also enhance this so that users must type in a specific string before Confirm Delete becomes enabled. For example, try deleting a repo on GitHub.
 - Tabs with panels
 - A sortable table
 - A checkbox list
 - A file tree
+
+Your reusable component should provide some flexibility as to what HTML is rendered through a render prop.
 
 Create a page that demos this component. In the README of your repo, show a code sample in a [fenced code block](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) and write about your motivations and design decisions for this component.
 
