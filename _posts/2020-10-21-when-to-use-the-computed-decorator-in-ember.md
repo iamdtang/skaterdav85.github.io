@@ -2,8 +2,8 @@
 layout: post
 title: When to use the @computed decorator in Ember
 date: 2020-10-21
-description: This post covers when to use the @computed decorator in Ember.
-keywords: ember, @computed, decorator
+description: Are you converting Ember's classic classes to native classes? Learn when to use and not use the @computed decorator.
+keywords: ember, @computed, decorator, octane
 image: ember
 ---
 
